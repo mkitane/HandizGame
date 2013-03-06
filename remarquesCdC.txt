@@ -1,0 +1,9 @@
+Remarques Cahiers des charges:
+
+1) c'est clair
+2) j'ai bien aimé la prmeière partie, vous pourriez l'appeler "motivation" ce serait encore plus parlant.
+3) il manque l'état de l'art qur l'existant et les références: où allez vous chercher les informations?
+4) il faut trier les fonctionnalités de ma plus importante (celle qui fait l'originalité, la complexité, etc...) à la moins importante, et réduire la liste qui est trop longue: il devrait au maximum en rester 4-5 à la fin!
+
+=> allez à l'essentiel (dites-vous que 1 fonctionnalité = un cas d'utilisation à faire en général ;-)
+
