@@ -164,3 +164,29 @@ footer .contact
 	color:#667;
 }
 
+
+
+
+/**Relatif à la classe DL*/
+.boutondl
+{
+	display:inline-block;
+	background-color: #addd3a;
+	
+	border-radius: 7px;
+	box-shadow:  0 0.5px 0px 0.5px #dddddd;
+	
+	
+	
+	color: #fff;
+	text-decoration:none;
+	margin: 10px;
+
+	font-size: 15px;
+	padding: 10px 20px;
+	
+}
+
+.boutondl:hover {
+	background-color: #a0cd34;
+}
