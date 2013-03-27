@@ -1,0 +1,166 @@
+/* RESET CSS */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+html{color:#000;background:white;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+/* FIN RESET CSS */
+
+html
+{
+	background: url(img/bg.png) 0 0 repeat ;	
+	margin: auto ;
+}
+
+
+body
+{
+	width : 1000px ; 
+ 	margin-left: auto;
+ 	 margin-right: auto;
+ 	 font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	color: #667;
+}
+
+header 
+{
+		background: url(img/header.png) 0 0 repeat ;
+		height:75px;
+		box-shadow: 0px 1px 2px black;
+}
+
+.logo
+{
+
+	position:absolute;
+	margin-left: 40px; 
+	top:5px; 
+	height:70px ; 
+	width: 100px; 
+}
+
+.slogan
+{
+	
+	float: right;
+	margin-right: 40px;
+	margin-top:25px;	
+	height:25px ; 
+	width: 400px; 
+
+
+}
+
+
+
+
+section
+{
+	background-color: #f6f6f6;
+}
+
+
+
+
+
+
+section ul {
+    list-style-type: none;
+    padding-top: 20px;
+    padding-left: 30px;
+
+}
+
+section ul li {
+	display: inline-block;
+	margin-right: 2px;
+}
+
+section ul  li  a {
+ 	text-decoration:none; 
+	color: #333;
+	line-height: 30px;
+	padding: 6px 12px;
+}
+
+section ul  li  a:hover,
+section ul  li.active  {
+
+	background-color: #addd3a;
+	border-radius: 2px;
+	box-shadow:  0 -1px 0px 0px #dddddd;
+	color: #fff;
+}
+
+
+
+
+
+.corps
+{
+
+	display: inline-block ; 
+	vertical-align: top;
+	
+	
+	padding: 15px;
+	margin-top: 20px ; 
+	margin-left: 30px;
+	margin-bottom : 50px;
+
+
+	background-color: white;
+
+	width: 600px; 
+	
+	
+	/**Ombre en bas*/
+	border-radius: 3px;
+	box-shadow: 0px 1px 0px 0px #dddddd;
+	-moz-box-shadow: 0px 1px 0px 0px #dddddd;
+	-webkit-box-shadow:0px 1px 0px 0px #dddddd;	
+	
+}
+
+
+aside
+{
+	display: inline-block ; 
+	vertical-align: top;
+	padding: 12px;
+	
+	background-color: white;
+
+	margin-top: 20px ; 
+
+	margin-left: 60px;
+
+
+	/**Ombre en bas*/
+	width : 200px; 
+	border-radius: 3px;
+	box-shadow: 0px 1px 0px 0px #dddddd;
+	-moz-box-shadow: 0px 1px 0px 0px #dddddd;
+	-webkit-box-shadow:0px 1px 0px 0px #dddddd;	
+	
+}
+
+h1
+{
+	margin-bottom:10px;
+
+
+}
+
+
+footer
+{
+margin-top: 10px; 
+margin-bottom: 10px;
+
+}
+footer .contact
+{
+	display: inline-block; 
+	float: right ; 
+	color:#667;
+}
+
