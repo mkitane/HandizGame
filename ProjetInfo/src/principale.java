@@ -1,4 +1,4 @@
 
-public class principale {
+public class Principale {
 
 }
