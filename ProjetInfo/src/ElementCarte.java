@@ -17,6 +17,7 @@ abstract public class ElementCarte{
 	 * 
 	 */
 	private String nomImage;
+	
 	/**
 	 * @param x
 	 * @param y

@@ -22,6 +22,14 @@ public class Joueur extends ElementCarte {
 	public void placerElement() {
 	
 	}
+	
+	
+	/* Ne pas faire comme ca, c'est galere
+	 * Je prefere que tu fasses une seule methode deplacerJoueur(int direction)
+	 * qui prend en parametre un entier (qui va de 0 � 3 et qui signifie gauche
+	 * droite haut bas) et qui en fonction de cet entier bougera le personnage,
+	 * c'est moins galere ensuite au niveau du code
+	 */
 	/**on veut modifier la positionY du joueur pour le déplacer d'une case vers le haut.
 	 * On vérifie que la positionY soit toujours positive.
 	 * 

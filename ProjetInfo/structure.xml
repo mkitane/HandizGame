@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+ <!DOCTYPE quizz[
+	 <!ELEMENT element (question, answers,explication?) >
+ 	 <!ELEMENT question (#PCDATA)>
+ 	 <!ELEMENT theme (#PCDATA)>
+ 	 <!ELEMENT answers (answer+)>
+ 	 <!ELEMENT answer (#PCDATA)>
+	 <!ELEMENT explication (#PCDATA)>   
+	 
+	 
+	 <!ATTLIST element theme (celebrite|aveugle|sourd) #REQUIRED>
+	 <!ATTLIST element id ID #REQUIRED>
+	 <!ATTLIST answer j (juste|faux) "fausse">
+	]
+ >
+ 
+
+ 
+ <!-- rappel: le + pour un nombre illimité de fois, mais au moins une fois, le ? pour une ou 0 sois
+ 
+ Ne pas oublier de mettre j="juste" pour la bonne réponse, la mauvaise réponse est automatiquement considérée
+ comme fausse
+ Utilisation de sax, prend moins de memoire que DOM, et est plus pratique pilotage par evenement
+ -->
+ <quizz>
+ 
+ 	<element theme="celebrite" id="0">
+ 			<question>Quel célèbre producteur de cinéma et de dessins animés était atteint d'un handicap invisible ?</question>
+ 			<answers>
+ 				<answer j="juste"> Walt Disney</answer>
+ 				<answer>Luc Besson</answer>
+ 				<answer>Tex Avery</answer>
+ 				<answer>Hayao Miyazaki</answer>
+ 			</answers>
+ 			<explication>Plusieurs années avant sa mort, en 1966, un cancer du poumon lui avait été diagnostiqué. Les troubles causés par le cancer peuvent être considérés comme un handicap invisible. Par ailleurs, walt Disney était dyslexique : il lui était difficile d'identifier les mots, de les lire et de les écrire.</explication>
+ 	
+ 	</element>
+ 	
+ 		<element theme="celebrite" id="1">
+ 			<question>a</question>
+ 			<answers>
+ 				<answer j="juste">a</answer>
+ 				<answer>a</answer>
+ 				<answer>a</answer>
+ 				<answer>a</answer>
+ 			</answers>
+ 			<explication>a</explication>
+ 	
+ 	</element>
+ 	
+ 	
+ 		<element theme="celebrite" id="2">
+ 			<question>b</question>
+ 			<answers>
+ 				<answer j="juste">b</answer>
+ 				<answer>b</answer>
+ 				<answer>b</answer>
+ 				<answer>b</answer>
+ 			</answers>
+ 			<explication>b</explication>
+ 	
+ 	</element>
+ 	
+ 	
+ 		<element theme="celebrite" id="3">
+ 			<question>c</question>
+ 			<answers>
+ 				<answer j="juste">c</answer>
+ 				<answer>c</answer>
+ 				<answer>c</answer>
+ 				<answer>c</answer>
+ 			</answers>
+ 			<explication>c</explication>
+ 	
+ 	</element>
+ 	
+ 		<element theme="sourd" id="4">
+ 			<question>d</question>
+ 			<answers>
+ 				<answer j="juste">d</answer>
+ 				<answer>d</answer>
+ 				<answer>d</answer>
+ 				<answer>d</answer>
+ 			</answers>
+ 			<explication>d</explication>
+ 	
+ 	</element>
+ 	
+ 		<element theme="sourd" id="5">
+ 			<question>e</question>
+ 			<answers>
+ 				<answer j="juste">e</answer>
+ 				<answer>e</answer>
+ 				<answer>e</answer>
+ 				<answer>e</answer>
+ 			</answers>
+ 			<explication>e</explication>
+ 	
+ 	</element>
+ 	
+ 		<element theme="celebrite" id="6">
+ 			<question>f</question>
+ 			<answers>
+ 				<answer j="juste">f</answer>
+ 				<answer>f</answer>
+ 				<answer>f</answer>
+ 				<answer>f</answer>
+ 			</answers>
+ 			<explication>f</explication>
+ 	
+ 	</element>
+ 	
+ 	
+ 	
+ 		
+
+
+ 	<!--Exemple:
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+ 	-->
+ 	
+ 
+ </quizz>
