@@ -37,7 +37,7 @@
  	
  	</element>
  	
- 		<element theme="celebrite" id="1">
+ 		<element theme="sourd" id="1">
  			<question>a</question>
  			<answers>
  				<answer j="juste">a</answer>
@@ -50,7 +50,7 @@
  	</element>
  	
  	
- 		<element theme="celebrite" id="2">
+ 		<element theme="sourd" id="2">
  			<question>b</question>
  			<answers>
  				<answer j="juste">b</answer>
@@ -63,7 +63,7 @@
  	</element>
  	
  	
- 		<element theme="celebrite" id="3">
+ 		<element theme="sourd" id="3">
  			<question>c</question>
  			<answers>
  				<answer j="juste">c</answer>
@@ -99,7 +99,7 @@
  	
  	</element>
  	
- 		<element theme="celebrite" id="6">
+ 		<element theme="aveugle" id="6">
  			<question>f</question>
  			<answers>
  				<answer j="juste">f</answer>
@@ -110,11 +110,6 @@
  			<explication>f</explication>
  	
  	</element>
- 	
- 	
- 	
- 		
-
 
  	<!--Exemple:
  	<element theme="" id="">

@@ -1,6 +1,8 @@
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,36 +15,47 @@ import org.w3c.dom.Node;
 
 
 /**
- * Cette Classe mod√©lise le Quizz du programme
+ * Cette Classe modelise le Quizz du programme
  * Permet de lancer un quizz
- * @author mkitane
  *
  */
 
 
 public class Quizz {
 
+
+	/**Element de Quizz, contient la question, les reponses et lexplication*/
+	private ElementQuizz eQ; 
 	
 	
-	private Question question; 
-	private ArrayList<Reponse> listeReponse ; 
-	//Optionnel Pourquoi la reponse est fausse ou juste
-	private String explication; 
-	
-	
+	/**Getter Quizz
+	 * @return ElementQuizz
+	 */
+	public ElementQuizz geteQ() {
+		return eQ;
+	}
+
+
+
+
+
 	/**
-	 * Charge le Quizz √† partir d'un theme defini
+	 * Charge le Quizz a partir d'un theme defini
 	 * @param theme
 	 */
 	public Quizz(String theme){
 		chargerQuizz(theme);
-		
+		afficherQuizz();
 	}
 	
 	
 	
 	
-	
+	/**
+	 * Methode qui charge le quizz à partir d'un fichier XML contenant toutes les questions
+	 * Il trie les questions suivant le theme choisit et selectionne la bonne question aleatoirement
+	 * @param theme  theme de la question
+	 */
 	public void chargerQuizz(String theme){
 		ArrayList<Element> listElementTheme = new ArrayList<Element>();
 		
@@ -55,8 +68,9 @@ public class Quizz {
 		Document doc = dBuilder.parse(fXmlFile);
 	 
 		//optional, but recommended
-		//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
 		doc.getDocumentElement().normalize();
+		
+		
 		NodeList nList = doc.getElementsByTagName("element");
 	 
 	 
@@ -70,11 +84,13 @@ public class Quizz {
 			}
 		}
 		
-		System.out.println(listElementTheme.size());
+		//System.out.println(listElementTheme.size());
+		
 		/*choisit une question au hasard parmis les question de ce theme*/
 		Element e = listElementTheme.get( (int)(Math.random()*listElementTheme.size()) );
-		afficheContenuElement(e);
 		
+		//afficheContenuElement(e);
+		construitElementQuizz(e,theme);
 		
 		
 		
@@ -89,7 +105,40 @@ public class Quizz {
 	}
 	
 	
+	/**
+	 * Construit ElementQuizz à partir d'un des elements du fichier XML
+	 * @param eElement
+	 * @param theme
+	 */
+	private void construitElementQuizz(Element eElement,String theme){
+		String question = eElement.getElementsByTagName("question").item(0).getTextContent();
+		String explication = eElement.getElementsByTagName("explication").item(0).getTextContent();
+		ArrayList<Reponse> lR = new ArrayList<Reponse>();
+		
+		
+		//Boucle pour les reponses
+		for(int i=0; i<eElement.getElementsByTagName("answer").getLength();i++){
+			Element answerElement = (Element) eElement.getElementsByTagName("answer").item(i);
+	
+				if(answerElement.getAttribute("j").equals("juste")){
+					lR.add(new Reponse(eElement.getElementsByTagName("answer").item(i).getTextContent(),true));
+				}else{
+					lR.add(new Reponse(eElement.getElementsByTagName("answer").item(i).getTextContent(),false));
 
+				}
+		}
+		
+		lR=melanger(lR);
+		eQ=new ElementQuizz(theme,question,lR,explication);
+		
+		
+	}
+
+	
+	/**
+	 * Methode Test pour afficher le contenu d'un des elements du fichier XML
+	 * @param eElement
+	 */
 	private void afficheContenuElement(Element eElement){
 		System.out.println(eElement.getElementsByTagName("question").item(0).getTextContent());
 		System.out.println(eElement.getElementsByTagName("explication").item(0).getTextContent());
@@ -105,17 +154,55 @@ public class Quizz {
 	}
 
 	
+	
+	/**
+	 * Affiche le quizz sur le terminal (pour l'instant)
+	 */
 	public void afficherQuizz(){
-		
-		
-	}
-	
-	public void verifierReponse(Reponse r){
-		
-		
+		System.out.println(eQ.getTheme());
+		System.out.println(eQ.getQuestion());
+		System.out.println();
+		System.out.println(eQ.getListeReponse());		
 	}
 	
 	
+	
+	/**
+	 * Melange une arraylist de reponses afin d'afficher les reponses dans un ordre aleatoire
+	 * @param listeDepart
+	 * @return ArrayList<Reponse>
+	 */
+	public ArrayList<Reponse> melanger(ArrayList<Reponse> listeDepart){ 
+	
+		List<Reponse> nouvelle = new ArrayList<Reponse>(listeDepart); 
+		Collections.shuffle(nouvelle); 
+		return (ArrayList<Reponse>) nouvelle; 
+		
+	}
+	
+	
+	/**
+	 * Verifie si la reponse donnee en parametre est correcte
+	 * @param r
+	 * @return boolean
+	 */
+	public boolean verifierReponse(Reponse r){
+		return r.isJustesse(); 	
+	}
+	
+	/**
+	 * Affiche la correction pour l'instant sur le terminal
+	 * @param r
+	 */
+	public void afficherCorrection(Reponse r){
+		if(verifierReponse(r)){
+			System.out.println("Bonne Reponse!");
+		}else{
+			System.out.println("Mauvaise Reponse");
+			System.out.println("Voici une explication : ");
+			System.out.println(eQ.getExplication());
+		}
+	}
 	
 	
 }
