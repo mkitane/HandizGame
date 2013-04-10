@@ -18,39 +18,30 @@ public class Joueur extends ElementCarte {
 		tps=tempsdeVie;
 	}
 
-	@Override
-	public void placerElement() {
+
 	
+	
+	
+	/**
+	 * @param x
+	 * Cette méthode permet de modifier la position du joueur en fonction d'un entier allant de 0 à 3 
+	 * associé à un déplacement
+	 */
+	public void deplacer(int x){
+		if (x==0)/*x=0 signifie déplacement en haut*/{
+			this.setPositionY(getPositionY()+1);
+		}
+		if(x==1)/*x=1 signifie déplacement en bas*/{
+			this.setPositionY(getPositionY()-1);
+		}
+		if (x==2)/*déplacement à gauche*/{
+			this.setPositionX(getPositionX()-1);
+		}
+		if(x==3)/*déplacement à droite*/{
+			this.setPositionX(getPositionX()+1);
+		}
+
 	}
 	
-	
-	/* Ne pas faire comme ca, c'est galere
-	 * Je prefere que tu fasses une seule methode deplacerJoueur(int direction)
-	 * qui prend en parametre un entier (qui va de 0 � 3 et qui signifie gauche
-	 * droite haut bas) et qui en fonction de cet entier bougera le personnage,
-	 * c'est moins galere ensuite au niveau du code
-	 */
-	/**on veut modifier la positionY du joueur pour le déplacer d'une case vers le haut.
-	 * On vérifie que la positionY soit toujours positive.
-	 * 
-	 */
-	/**A modifier ke n'ai pas fini public void deplacerJoueurHaut(){
-		int x=Joueur.getPositionX();
-		int y=Joueur.getPositionY()++;
-		Joueur.setPositionX(x);
-		Joueur.setPositionY(y);
-	
-	}
-	*/
-	/**On modifie la positionY du joueur pour le déplacer d'une case vers le bas.
-	 * On vérifie que la positionY soit toujours positive.
-	 * 
-	 */
-	/**public void deplacerJoueurBas(){
-		
-	}
-	
-	
-	**/
   
 }

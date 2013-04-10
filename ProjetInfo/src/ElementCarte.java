@@ -31,7 +31,6 @@ abstract public class ElementCarte{
 	/**
 	 * 
 	 */
-	abstract public void placerElement();
 	
 	public String toString(){
 		return nomImage;}
