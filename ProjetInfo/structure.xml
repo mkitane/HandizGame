@@ -25,7 +25,7 @@
  -->
  <quizz>
  
- 	<element theme="celebrite" id="0">
+ 	<element theme="Celebrite" id="0">
  			<question>Quel célèbre producteur de cinéma et de dessins animés était atteint d'un handicap invisible ?</question>
  			<answers>
  				<answer j="juste"> Walt Disney</answer>
@@ -37,78 +37,203 @@
  	
  	</element>
  	
- 		<element theme="sourd" id="1">
- 			<question>a</question>
+ 		<element theme="Handicap et entreprise" id="1">
+ 			<question>Quel taux de travailleurs handicapés doit compter une entreprise de plus de 20 salariés ?</question>
  			<answers>
- 				<answer j="juste">a</answer>
- 				<answer>a</answer>
- 				<answer>a</answer>
- 				<answer>a</answer>
+ 				<answer j="juste">6%</answer>
+ 				<answer>7%</answer>
+ 				<answer>5%</answer>
+ 				<answer>3%</answer>
  			</answers>
- 			<explication>a</explication>
+ 			<explication> </explication>
  	
  	</element>
  	
  	
- 		<element theme="sourd" id="2">
- 			<question>b</question>
+ 		<element theme="Handicap et entreprise" id="2">
+ 			<question>Un atelier protégé est une entreprise ordinaire employant au moins 80 % de travailleurs handicapés?</question>
  			<answers>
- 				<answer j="juste">b</answer>
- 				<answer>b</answer>
- 				<answer>b</answer>
- 				<answer>b</answer>
+ 				<answer>Faux</answer>
+ 				<answer j="juste">Vrai</answer>
  			</answers>
- 			<explication>b</explication>
+ 			<explication> </explication>
  	
  	</element>
  	
  	
- 		<element theme="sourd" id="3">
- 			<question>c</question>
+ 		<element theme="Handicap et entreprise" id="3">
+ 			<question>Une personne handicapée peut bénéficier d'une aide financière pour aménager son poste de travail?</question>
  			<answers>
- 				<answer j="juste">c</answer>
- 				<answer>c</answer>
- 				<answer>c</answer>
- 				<answer>c</answer>
+ 				<answer j="juste">Faux</answer>
+ 				<answer>Vrai</answer>
  			</answers>
- 			<explication>c</explication>
+ 			<explication> </explication>
  	
  	</element>
  	
- 		<element theme="sourd" id="4">
- 			<question>d</question>
+ 		<element theme="Handicap et entreprise" id="4">
+ 			<question>Quel est le pourcentage de travailleurs handicapés ayant besoin d'un aménagement de poste ?</question>
  			<answers>
- 				<answer j="juste">d</answer>
- 				<answer>d</answer>
- 				<answer>d</answer>
- 				<answer>d</answer>
+ 				<answer >17%</answer>
+ 				<answer>15%</answer>
+ 				<answer j="juste">10%</answer>
+ 				<answer>5%</answer>
  			</answers>
- 			<explication>d</explication>
+ 			<explication> </explication>
  	
  	</element>
  	
- 		<element theme="sourd" id="5">
- 			<question>e</question>
+ 		<element theme="Handicap et entreprise" id="5">
+ 			<question>Quel taux d'entreprises se déclarent satisfaites d'avoir embauché des personnes en situations de handicap ?</question>
  			<answers>
- 				<answer j="juste">e</answer>
- 				<answer>e</answer>
- 				<answer>e</answer>
- 				<answer>e</answer>
+ 				<answer j="juste">93%</answer>
+ 				<answer>62%</answer>
+ 				<answer>45%</answer>
+ 				<answer>40%</answer>
  			</answers>
- 			<explication>e</explication>
+ 			<explication>Un sondage réalisé par l'Agefiph et Manpower fait ressortir que 93% des entreprises qui emploient des personnes handicapées se déclarent satisfaites et que 87% des salariés jugent la présence de collègues handicapés enrichissante.</explication>
  	
  	</element>
  	
- 		<element theme="aveugle" id="6">
- 			<question>f</question>
+ 		<element theme="Handicap et entreprise" id="6">
+ 			<question>1,3 million de travailleurs sont reconnus handicapés. Parmi eux, quel pourcentage est atteint d’un handicap non visible? </question>
  			<answers>
- 				<answer j="juste">f</answer>
- 				<answer>f</answer>
- 				<answer>f</answer>
- 				<answer>f</answer>
+ 				<answer >20%</answer>
+ 				<answer>30%</answer>
+ 				<answer>45%</answer>
+ 				<answer j="juste">85%</answer>
  			</answers>
- 			<explication>f</explication>
+ 			<explication>Il existe trois types de handicap non visible : le handicap d’apprentissage comme la dyslexie, les déficiences sensorielles comme la malentendance légère, et les troubles générés par certaines maladies internes comme le cancer ou encore le diabète</explication>
  	
+ 	</element>
+		
+		<element theme="Celebrite" id="7">
+ 			<question>Quel est le point commun entre Marilyn Monroe, Albert Einstein et Molière ? </question>
+ 			<answers>
+ 				<answer j="juste">Ils étaient bègues</answer>
+ 				<answer>Ils souffraient d'hyperactivité</answer>
+ 				<answer> Ils souffraient d'arthrose</answer>
+ 			</answers>
+ 			<explication>ils étaient tous les trois bègues, mais ont réussi à surmonter ce trouble de la diction, classé parmi les « désordres émotionnels ou comportementaux » par l'organisation mondiale de la santé et reconnu comme un handicap par la loi de 2005.</explication>
+ 	</element>
+
+		<element theme="Celebrite" id="8">
+ 			<question>Quel diplôme le chanteur grand corps malade a-t-il obtenu avant de commencer sa carrière artistique ? </question>
+ 			<answers>
+ 				<answer>Un DUT (bac + 2) réseaux et télécommunications</answer>
+ 				<answer>Une licence (bac + 3) en arts du spectacle</answer>
+ 				<answer j="juste"> Un DESS (bac + 5) en management du sport</answer>
+ 			</answers>
+ 			<explication>Le chanteur voulait devenir professeur de sport. À 20 ans, il fait un mauvais plongeon en piscine, qui paralyse sa colonne vertébrale. Il trouvera malgré tout l’énergie de remarcher et de continuer des études dans le domaine du sport. Ce n’est que plus tard qu’il fera de la scène artistique son métier.</explication>
+ 	</element>
+
+		<element theme="Celebrite" id="9">
+ 			<question>Quel célèbre dessinateur de bandes dessinées, créateur d’Astérix, est atteint d’un handicap ?</question>
+ 			<answers>
+ 				<answer> Peyo</answer>
+ 				<answer j="juste"> Albert Uderzo</answer>
+ 				<answer> René Goscinny</answer>
+ 			</answers>
+ 			<explication>Albert Uderzo est daltonien (il ne distingue pas le rouge et le vert). La mise en couleurs des albums d’Astérix a été assurée pendant plusieurs années par son frère Marcel Uderzo. Il est, par ailleurs, né avec douze doigts, six à chaque main, et a été opéré à l’âge d’un mois.</explication>
+ 	</element>
+
+		<element theme="Handicap et enntreprise" id="10">
+ 			<question>Le taux de chômage des personnes handicapées est supérieur au taux de chômage global. Dans quelle proportion ?</question>
+ 			<answers>
+ 				<answer j="juste">250%</answer>
+ 				<answer>200%</answer>
+ 				<answer>100%</answer>
+ 				<answer>50%</answer>
+ 			</answers>
+ 			<explication>Le taux de chômage des personnes handicapées est de façon constante d’environ 250% supérieur au taux de chômage global (En 2010 : 19 % contre 8%.)Les idées reçues telles que « Les personnes handicapées ne sont pas formées » ou les affirmations cyniques telles que « Le handicap est un vrai sujet mais ce n’est pas une priorité » doivent être farouchement combattues.</explication>
+ 	</element>
+
+		<element theme="Handicap et entreprise" id="11">
+ 			<question>L’embauche d’un travailleur handicapé entraîne-t-elle forcément un aménagement de poste ?</question>
+ 			<answers>
+ 				<answer j="juste">Non</answer>
+ 				<answer>Oui</answer>
+ 			</answers>
+ 			<explication>Non, dans 93 % des cas l’embauche d’un travailleur handicapé n’entraîne pas
+d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou le matériel du poste de travail, ainsi que sur l'organisation du temps de travail ou du collectif de travail, doit être envisagé positivement ; il peut être déterminant pour l’intégration réussie du salarié lors d’une embauche ou lorsque se pose la question du maintien dans l’emploi d’un salarié handicapé et représente des sommes qui peuvent être très modiques.</explication>
+ 	</element>
+
+		<element theme="Celebrite" id="12">
+ 			<question>Quel célèbre artiste a dit : « je suis aveugle, mais on trouve toujours plus malheureux que soi. J’aurais pu être noir !» ?
+</question>
+ 			<answers>
+ 				<answer> Omar Sy</answer>
+ 				<answer> Gilbert Montagné</answer>
+				<answer j="juste"> Ray Charles</answer>
+ 				<answer> Bob Marley</answer>
+ 			</answers>
+ 			<explication>Dès l’âge de 7 ans, sa cécité est complète. Il est alors placé dans un établissement spécialisé. C’est dans cette école qu’il apprend la composition, ainsi que la pratique de plusieurs instruments, dont le piano, la clarinette et le saxophone alto</explication>
+ 	</element>
+
+		<element theme="" id="13">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
  	</element>
 
  	<!--Exemple:
