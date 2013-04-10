@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+import quizz.ElementQuizz;
+import quizz.Quizz;
+
 
 public class Main {
 
@@ -9,20 +12,23 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//taper 5 pour arreter le programme
+		Carte jeu = new Carte(); 
+		jeu.toString();
 		
-		Quizz q = new Quizz("celebrite");
+		
+		
+		Quizz.initialiser();
+	
+		
+		/*
+		Quizz q = new Quizz("Handicap et entreprise");
 		Scanner sc = new Scanner(System.in);
 		int j = sc.nextInt();
 		q.afficherCorrection(q.geteQ().getListeReponse().get(j-1));
-		
-		
-	
+		*/
 		
 
-		
-		
-		
+
 		
 	}
 

@@ -1,3 +1,4 @@
+package quizz;
 /**
  * Cette Classe modélise une réponse du quizz
  * @author mkitane
