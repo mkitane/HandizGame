@@ -170,62 +170,175 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>Dès l’âge de 7 ans, sa cécité est complète. Il est alors placé dans un établissement spécialisé. C’est dans cette école qu’il apprend la composition, ainsi que la pratique de plusieurs instruments, dont le piano, la clarinette et le saxophone alto</explication>
  	</element>
 
-		<element theme="" id="13">
- 			<question></question>
+		<element theme="Surdite" id="13">
+ 			<question>La surdité d'origine génétique atteint ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">1 à 3 enfants sur 1000</answer>
+ 				<answer>7 à 8 enfants sur 1000</answer>
+ 				<answer>11 à 12 enfants sur 1000</answer>
+ 				<answer>14 à 15 enfants sur 1000</answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="Surdite" id="14">
+ 			<question>Une perte de 40 à 70 dB est  :
+
+   
+   
+   </question>
+ 			<answers>
+ 				<answer j="juste">Une surdité moyenne</answer>
+ 				<answer>Une surdité légère</answer>
+ 				<answer>Une surdité sévère</answer>
+ 				<answer>Une surdité profonde</answer>
+ 			</answers>
+ 			<explication>60 dB représente le niveau sonore d'une conversation vive. La parole n'est perçue que si elle est forte. L'enfant présente des troubles du langage et de l'articulation importants  : c'est la compréhension lacunaire. Entre 55 et 70 dB de perte, les enfants perçoivent la voix forte sans comprendre les paroles  : l'appareillage et la rééducation sont alors nécessaires </explication>
+ 	</element>
+
+		<element theme="Surdite" id="15">
+ 			<question>Un sourd peut-il obtenir un tiers temps lors des épreuves écrites lors d'un examen (bac, faculté) ou un concours ?
+</question>
+ 			<answers>
+ 				<answer j="juste">Oui quelque soit le niveau et la matière</answer>
+ 				<answer>Cela dépend de la matière</answer>
+ 				<answer>Cela dépend du niveau (Bac, faculté)</answer>
+ 				<answer>Non</answer>
+ 			</answers>
+ 			<explication></explication>
+ 	</element>
+
+		<element theme="Surdite" id="16">
+ 			<question>Un sourd paye-t-il la redevance audiovisuelle ?</question>
+ 			<answers>
+ 				<answer j="juste">Oui s'il a le sous-titrage qui fonctionne très bien et quelque soit son revenu</answer>
+ 				<answer>Oui si son revenu est supérieur au niveau de référence même si le sous-titrage nefonctionne pas et même indépendemment de sa volonté</answer>
+ 				<answer> Non jamais</answer>
  				<answer></answer>
  			</answers>
  			<explication></explication>
  	</element>
 
-		<element theme="" id="">
- 			<question></question>
+		<element theme="Surdite" id="17">
+ 			<question> Un sourd passe son permis de conduire</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">Il est obligé de passer une visite médicale mais ne sera pas remboursé par la SS et il est obligé de le signaler à la préfecture</answer>
+ 				<answer>Il est obligé de passer une visite médicale mais sera remboursé par la SS et il est obligé de le signaler à la préfecture</answer>
+ 				<answer>Il n'est pas obligé de passer une visite médicale mais sera obligé de le signaler à la préfecture</answer>
+ 				<answer>Il n'est pas obligé de passer une visite médicale et n'est pas obligé de le signaler à la préfecture</answer>
  			</answers>
  			<explication></explication>
  	</element>
 
-		<element theme="" id="">
- 			<question></question>
+		<element theme="Surdite" id="18">
+ 			<question>En quelle année, le 1er sourd en France a eu son permis de conduire ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">1959</answer>
+				<answer>1949</answer>
+ 				<answer>1939</answer>
+ 				<answer>1969</answer>
  			</answers>
  			<explication></explication>
  	</element>
-
-		<element theme="" id="">
- 			<question></question>
+ 	
+		<element theme="Surdite" id="19">
+ 			<question>Comment les personnes présentant des problèmes auditifs préfèrent-elles se faire nommer ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste"> Sourd</answer>
+ 				<answer>Malentendant</answer>
+ 				<answer>Sourd-muet</answer>
  				<answer></answer>
  			</answers>
  			<explication></explication>
+ 	
  	</element>
-
-		<element theme="" id="">
- 			<question></question>
+ 	
+		<element theme="Surdite" id="20">
+ 			<question>Est-ce que la langue des signes est une langue universelle ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">Aucunement</answer>
+ 				<answer>Certainement</answer>
+ 				<answer>Ce n'est pas une langue</answer>
  				<answer></answer>
  			</answers>
  			<explication></explication>
+ 	
  	</element>
-
-		<element theme="" id="">
+ 	
+		<element theme="Surdite" id="21">
+ 			<question>Quel est le niveau académique que les sourds sont capables d'atteindre lorsqu'ils ont le potentiel et le désir ?
+</question>
+ 			<answers>
+ 				<answer j="juste">Universitaire</answer>
+ 				<answer>Secondaire</answer>
+ 				<answer>Primaire</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="Surdite" id="22">
+ 			<question>Pour faciliter la communication avec une personne sourde :</question>
+ 			<answers>
+ 				<answer j="juste">On ne doit pas trop bouger</answer>
+ 				<answer>On doit parler très, très fort</answer>
+ 				<answer>On doit articuler beaucoup</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="Surdite" id="23">
+ 			<question> Que fait-on pour attirer l'attention d'une personne sourde lorsqu'on veut discuter avec elle ?</question>
+ 			<answers>
+ 				<answer j="juste">Toutes ces réponses</answer>
+ 				<answer>Agiter les mains</answer>
+ 				<answer>Faire clignoter les lumières</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="Surdite" id="24">
+ 			<question>Trouver la proposition qui est fausse dans les phrases suivantes : 'Une prothèse auditive. . . ' :</question>
+ 			<answers>
+ 				<answer j="juste"> Permet de retrouver l'audition normale</answer>
+ 				<answer>Permet de participer et de mieux comprendre certaines situations</answer>
+ 				<answer>Ne permet pas de mieux comprendre lors de situations bruyantes</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="Surdite" id="25">
+ 			<question>Des études ont démontré que le français n'était lisible sur les lèvres qu'à un pourcentage d'environ :</question>
+ 			<answers>
+ 				<answer j="juste">30%</answer>
+ 				<answer>50%</answer>
+ 				<answer>75%</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="Surdite" id="26">
+ 			<question>Dites en pourcentage la proportion des Sourds qui ont des enfants entendants.</question>
+ 			<answers>
+ 				<answer j="juste">90%</answer>
+ 				<answer>20%</answer>
+ 				<answer>70%</answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="27">
  			<question></question>
  			<answers>
  				<answer j="juste"></answer>
@@ -234,6 +347,175 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer></answer>
  			</answers>
  			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="28">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="29">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="30">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="31">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="32">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="33">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="34">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="35">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="36">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="37">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="38">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="39">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+ 	
+		<element theme="" id="40">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element> 
+	
+		<element theme="" id="41">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
  	</element>
 
  	<!--Exemple:
