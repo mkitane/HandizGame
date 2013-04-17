@@ -30,7 +30,10 @@ public class Carte implements ActionListener{
 	  private Timer time =  new Timer(1000,this);;
 	  //Pourquoi ne marche pas sans ca? 
 	  //private Compteur chrono = new Compteur("100");
-	  private ArrayList<ElementCarte> listeElements;
+	  /**
+	 * 
+	 */
+	private ArrayList<ElementCarte> listeElements;
 	  private ArrayList<Objet> objetsRecuperes;
 	  private ArrayList<Patient> listePatients; 
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
@@ -39,6 +42,10 @@ public class Carte implements ActionListener{
 	  
 	  
 	  
+	/**
+	 * Constructeur
+	 * CrÃ©e une carte avec ses objets et ses patients
+	 */
 	public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<Objet>();
@@ -53,7 +60,7 @@ public class Carte implements ActionListener{
 	
 	
 	
-	/**Charge la Carte ˆ partir d'un fichier txt
+	/**Charge la Carte ï¿½ partir d'un fichier txt
 	 * 
 	 * @param nomFichier
 	 */
@@ -110,7 +117,7 @@ public class Carte implements ActionListener{
 			positionLigne=positionLigne-2;
 			for(int j=0;j<l.length();j++){
 				c=l.charAt(j);
-				//Action ˆ effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
+				//Action ï¿½ effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
 				if(c=='D'){
 					listeElements.add(new Chaise(positionLigne,j));
 				}
@@ -147,7 +154,7 @@ public class Carte implements ActionListener{
 			p=p+"-----------------------" + "\n";
 			for(int i=0;i<lignes;i++){
 				for(int j=0;j<colonnes;j++){
-					//les Elements ˆ afficher sont dans listeElement
+					//les Elements ï¿½ afficher sont dans listeElement
 					if(getElement(i,j) != null){
 						p=p+getElement(i,j).toString();
 					}else if(getElementS(i,j) != null){
@@ -175,13 +182,14 @@ public class Carte implements ActionListener{
 
 
 
-	/**Recuperer un element d'une position donnee
+	/**
+	 * Recuperer un element d'une position donnee
 	 * 
 	 * @param x
 	 * @param y
-	 * @param list
 	 * @return
 	 */
+	@SuppressWarnings("javadoc")
 	private ElementCarte getElement(int x, int y){
 
 			for(ElementCarte a : listeElements){
@@ -194,6 +202,12 @@ public class Carte implements ActionListener{
 	}
 	
 
+	/**MÃ©thode permettant de rÃ©cuperer le sol sur la carte
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	@SuppressWarnings("javadoc")
 	private Sol getElementS(int x, int y) {
 		
 		for(Sol a : lSol){
@@ -209,6 +223,11 @@ public class Carte implements ActionListener{
 
 	
 	
+	/**
+	 * MÃ©thode assurant le dÃ©placement du joueur en fonction d'un entier
+	 * 
+	 * @param direction
+	 */
 	public void unDeplacementDeJoueur(int direction){
 		
 		/*Ne pas oublier de creer un Patient grace au ActionPerformed qui lancera cette
@@ -257,7 +276,7 @@ public class Carte implements ActionListener{
 					 * 
 					 * Si on a pas d'objet dont il est proprietaire : il nous demande de lui ramenner
 					 * un objet qu'il veut et on le voit apparaitre sur la map 
-					 * 		Math.random() pour cree lobjet ˆ une position definie, ne pas oublier de verifier
+					 * 		Math.random() pour cree lobjet ï¿½ une position definie, ne pas oublier de verifier
 					 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
 					 * 
 					 */
@@ -272,6 +291,9 @@ public class Carte implements ActionListener{
 
 
 
+	/**
+	 * Lance le chrono
+	 */
 	public void startGame(){
 		//chrono.start();
 		time.start();
@@ -279,7 +301,7 @@ public class Carte implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("lolŽ");
+		System.out.println("lolï¿½");
 	}
 	
 	

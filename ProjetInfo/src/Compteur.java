@@ -12,12 +12,23 @@ import ElementsCartes.Patient;
  */
 
 /**Compteur pour une barre en haut qui nous donne le temps restant*/
+@SuppressWarnings({ "serial", "unused" })
 public class Compteur extends JLabel implements ActionListener{
+	/**
+	 * 
+	 */
 	private Timer timer = new Timer(1000, this);
+	/**
+	 * 
+	 */
 	private int compteur; 
 	
 	
 
+		/**
+		 * @param nom
+		 * 
+		 */
 		public Compteur(String nom){
 			super(nom);	
 			compteur=Integer.parseInt(nom);
@@ -40,10 +51,18 @@ public class Compteur extends JLabel implements ActionListener{
 				timer.stop();
 			}
 		}
+		/**
+		 * 
+		 */
 		public void start(){
 			timer.start();
 		}
 		
+		
+		/**Permet de recuperer le compteur étant défini private
+		 * @return
+		 */
+		@SuppressWarnings("javadoc")
 		public int getCompteur() {
 		return compteur;
 		}

@@ -4,6 +4,11 @@ import quizz.ElementQuizz;
 import quizz.Quizz;
 
 
+/**
+ * @author bprely
+ *Lancement du jeu
+ */
+@SuppressWarnings("unused")
 public class Main {
 
 	/**

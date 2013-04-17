@@ -7,16 +7,27 @@ package ElementsCartes;
  */
 public class Joueur extends ElementCarte {
 
+	/**
+	 * référence au déplacement en haut avec 0
+	 */
 	public static final int UP = 0 ;
+	/**
+	 * Référence au déplacement bas avec 1
+	 */
 	public static final int DOWN = 1 ;
+	/**
+	 * On associe 2 au déplacement à gauche
+	 */
 	public static final int LEFT = 2 ;
+	/**
+	 * on associe 3 au déplacement à droite
+	 */
 	public static final int RIGHT = 3 ;
 
 	/**
+	 * Constructeur de la classe Joueur
 	 * @param positionX
 	 * @param positionY
-	 * @param nomImage
-	 * @param tps
 	 */
 	public Joueur(int positionX, int positionY) {
 		super(positionX, positionY,"Joueur");

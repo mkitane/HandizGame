@@ -12,7 +12,7 @@ abstract public class ElementCarte{
 	/**Le nom de l'image qui correspond a l'element de la carte*/
 	private String nomImage;
 	
-	/**
+	/**<Constructeur de la classe ElementCarte
 	 * @param x
 	 * @param y
 	 * @param n

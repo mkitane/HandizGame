@@ -3,15 +3,14 @@ package ElementsCartes;
 
 /**
  * @author bprely
- *
+ *Une table est un obstacle
  */
 public class Table extends Obstacle {
 
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * @param nomImage
-	 * @param propriétaire 
+	 * nomImage="Table"
 	 */
 	public Table(int positionX, int positionY) {
 		super(positionX, positionY, "Table");

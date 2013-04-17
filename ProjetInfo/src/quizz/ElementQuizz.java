@@ -13,7 +13,7 @@ public class ElementQuizz {
 	private String theme; 
 	/**Question*/
 	private String question; 
-	/**Liste de rŽponses*/
+	/**Liste de rï¿½ponses*/
 	private ArrayList<Reponse> listeReponse ; 
 	/**Explication de la reponse
 	 * Optionnel:Pourquoi la reponse est fausse ou juste
@@ -83,7 +83,7 @@ public class ElementQuizz {
 
 	/**
 	 * Setter Question
-	 * @param Question du quizz
+	 * @param question 
 	 */
 	public void setQuestion(String question) {
 		this.question = question;
@@ -100,8 +100,7 @@ public class ElementQuizz {
 	}
 
 	/**
-	 * Setter liste reponse
-	 * @param liste reponse
+	 * Setter listeReponse
 	 */
 	
 	public void setListeReponse(ArrayList<Reponse> listeReponse) {
@@ -120,7 +119,7 @@ public class ElementQuizz {
 	}
 	/**
 	 * Setter Explication
-	 * @param Explication du quizz
+	 * @param explication du quizz
 	 */
 	public void setExplication(String explication) {
 		this.explication = explication;

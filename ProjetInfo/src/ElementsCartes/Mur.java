@@ -10,9 +10,9 @@ public class Mur extends Obstacle{
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * @param nomImage
-	 * @param proprietaire 
+	 * nomImage=Mur
 	 */
+
 	public Mur(int positionX, int positionY) {
 		super(positionX, positionY, "Mur");
 	}

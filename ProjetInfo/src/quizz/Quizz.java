@@ -10,9 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
 
 
 /**
@@ -60,14 +58,13 @@ public class Quizz {
 
 	/**	Initialise le Quizz : charge en memoire toutes l'arrayList du Quizz
 
-	 * Methode qui charge le quizz ˆ partir d'un fichier XML contenant toutes les questions
+	 * Methode qui charge le quizz ï¿½ partir d'un fichier XML contenant toutes les questions
 	 * Il trie les questions suivant le theme choisit et selectionne la bonne question aleatoirement
-	 * @param theme  theme de la question
 	 */
 	public static void initialiser(){
 		//Vide l'arrayList au cas ou; 
 		listeElementQuizz.clear();
-		//Lire Fichier XML grace ˆ un analyseur DOM (suffisant pour un petit fichier XML comme le notre)
+		//Lire Fichier XML grace ï¿½ un analyseur DOM (suffisant pour un petit fichier XML comme le notre)
 	    try {
 	 
 		File fXmlFile = new File("structure.xml");
@@ -103,11 +100,11 @@ public class Quizz {
 	
 	
 	/**
-	 * Construit ElementQuizz ˆ partir d'un des elements du fichier XML
+	 * Construit ElementQuizz ï¿½ partir d'un des elements du fichier XML
 	 * @param eElement
-	 * @param theme
 	 * @return 
 	 */
+	@SuppressWarnings("javadoc")
 	private static ElementQuizz construitElementQuizz(Element eElement){
 		String theme = eElement.getAttribute("theme");
 		String question = eElement.getElementsByTagName("question").item(0).getTextContent();
@@ -135,6 +132,7 @@ public class Quizz {
 	
 	/**
 	 * Choisit une Question au hasard, avec le theme desire
+	 * @param theme 
 	 */
 	private void choisitQuizz(String theme) {
 		ArrayList<ElementQuizz> temp = new ArrayList<ElementQuizz>();
@@ -153,10 +151,13 @@ public class Quizz {
 	
 	
 	
-	/**
+	/**MÃ©thode Ã  supprimer Ã  la fin du projet
 	 * Methode Test pour afficher le contenu d'un des elements du fichier XML
 	 * @param eElement
+	 * InutilisÃ©e
 	 */
+	
+	@SuppressWarnings("unused")
 	private void afficheContenuElement(Element eElement){
 		System.out.println(eElement.getElementsByTagName("question").item(0).getTextContent());
 		System.out.println(eElement.getElementsByTagName("explication").item(0).getTextContent());
