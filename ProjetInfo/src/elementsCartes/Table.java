@@ -1,16 +1,17 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
  * @author bprely
- *Une table est un obstacle
+ *
  */
 public class Table extends Obstacle {
 
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * nomImage="Table"
+	 * @param nomImage
+	 * @param propriétaire 
 	 */
 	public Table(int positionX, int positionY) {
 		super(positionX, positionY, "Table");

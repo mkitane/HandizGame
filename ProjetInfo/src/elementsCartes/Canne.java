@@ -1,18 +1,17 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
  * @author bprely
- *un objet récupérable
+ *
  */
-public class Canne extends Objet{
+public class Canne extends ObjetRecuperable{
 
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * @param nomImage 
+	 * @param nomImage
 	 * @param proprietaire 
-	 *  nomImage="Canne"
 	 */
 	public Canne(int positionX, int positionY, String nomImage,Patient proprietaire) {
 		super(positionX, positionY, "Canne",proprietaire);

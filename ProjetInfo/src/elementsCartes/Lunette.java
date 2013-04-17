@@ -1,17 +1,16 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
  * @author bprely
- *Une objet pouvant être demandé par le patient
+ *
  */
-public class Lunette extends Objet{
+public class Lunette extends ObjetRecuperable{
 
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * @param proprietaire 
-	 * nomImage:Lunette
+	 * @param nomImage
 	 */
 	public Lunette(int positionX, int positionY,Patient proprietaire) {
 		super(positionX, positionY, "Lunette",proprietaire);

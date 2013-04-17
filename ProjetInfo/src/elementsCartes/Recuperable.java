@@ -1,9 +1,7 @@
-package ElementsCartes;
+package elementsCartes;
 
-/**
- * @author bprely
- *Interface 
- */
+import main.Carte;
+
 public interface Recuperable {
 
 	/**Permet de savoir si l'objet peut �tre ramasse
@@ -12,9 +10,7 @@ public interface Recuperable {
 	 * @param y Position Y du joueur
 	 * @return
 	 */
-	
-	@SuppressWarnings("javadoc")
-	public boolean estRamassable(int x, int y);
+	public void estRamasse(Carte c);
 	
 	
 }

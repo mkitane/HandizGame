@@ -1,4 +1,4 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
@@ -9,7 +9,7 @@ public class Chaise extends Obstacle {
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * Le nom de l'image est "chaise"
+	 * @param nomImage
 	 */
 	public Chaise(int positionX,int positionY){
 		super(positionX,positionY,"Chaise");

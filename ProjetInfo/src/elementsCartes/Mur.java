@@ -1,4 +1,4 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
@@ -10,9 +10,9 @@ public class Mur extends Obstacle{
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * nomImage=Mur
+	 * @param nomImage
+	 * @param proprietaire 
 	 */
-
 	public Mur(int positionX, int positionY) {
 		super(positionX, positionY, "Mur");
 	}

@@ -1,4 +1,4 @@
-package ElementsCartes;
+package elementsCartes;
 
 /**
  * @author bprely
@@ -12,7 +12,7 @@ abstract public class ElementCarte{
 	/**Le nom de l'image qui correspond a l'element de la carte*/
 	private String nomImage;
 	
-	/**<Constructeur de la classe ElementCarte
+	/**
 	 * @param x
 	 * @param y
 	 * @param n
@@ -55,6 +55,15 @@ abstract public class ElementCarte{
 	public void setPositionX(int x){
 		x=positionX;
 	}
+	public void setNomImage(String nomImage) {
+		this.nomImage = nomImage;
+	}
+
+
+
+
+
+
 	/** positionY  private. On utilise un setteur pour modifier la valeur
 	 * @param y
 	 */

@@ -1,3 +1,4 @@
+package main;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
-import ElementsCartes.*;
+import elementsCartes.*;
+
 
 /**
  * Classe qui modelise le plateau du Jeu
@@ -30,11 +32,8 @@ public class Carte implements ActionListener{
 	  private Timer time =  new Timer(1000,this);;
 	  //Pourquoi ne marche pas sans ca? 
 	  //private Compteur chrono = new Compteur("100");
-	  /**
-	 * 
-	 */
-	private ArrayList<ElementCarte> listeElements;
-	  private ArrayList<Objet> objetsRecuperes;
+	  private ArrayList<ElementCarte> listeElements;
+	  private ArrayList<ObjetRecuperable> objetsRecuperes;
 	  private ArrayList<Patient> listePatients; 
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  private Joueur joueur; 
@@ -42,13 +41,13 @@ public class Carte implements ActionListener{
 	  
 	  
 	  
-	/**
-	 * Constructeur
-	 * Crée une carte avec ses objets et ses patients
-	 */
+		/**
+		 * Constructeur
+		 * Cree une carte avec ses objets et ses patients
+		 */
 	public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
-		objetsRecuperes = new ArrayList<Objet>();
+		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		listePatients = new ArrayList<Patient>();
 		
 		
@@ -60,7 +59,7 @@ public class Carte implements ActionListener{
 	
 	
 	
-	/**Charge la Carte � partir d'un fichier txt
+	/**Charge la Carte a partir d'un fichier txt
 	 * 
 	 * @param nomFichier
 	 */
@@ -182,14 +181,13 @@ public class Carte implements ActionListener{
 
 
 
-	/**
-	 * Recuperer un element d'une position donnee
+	/**Recuperer un element d'une position donnee
 	 * 
 	 * @param x
 	 * @param y
+	 * @param list
 	 * @return
 	 */
-	@SuppressWarnings("javadoc")
 	private ElementCarte getElement(int x, int y){
 
 			for(ElementCarte a : listeElements){
@@ -201,13 +199,11 @@ public class Carte implements ActionListener{
 			return null ; 
 	}
 	
-
 	/**Méthode permettant de récuperer le sol sur la carte
 	 * @param x
 	 * @param y
 	 * @return
 	 */
-	@SuppressWarnings("javadoc")
 	private Sol getElementS(int x, int y) {
 		
 		for(Sol a : lSol){
@@ -222,9 +218,8 @@ public class Carte implements ActionListener{
 	
 
 	
-	
 	/**
-	 * Méthode assurant le déplacement du joueur en fonction d'un entier
+	 * Methode assurant le deplacement du joueur en fonction d'une direction precisee
 	 * 
 	 * @param direction
 	 */
@@ -251,7 +246,9 @@ public class Carte implements ActionListener{
 					 * ne pas faire avancer le joueur
 					 */
 				
-			}else if(e instanceof Objet){
+					
+				
+			}else if(e instanceof ObjetRecuperable){
 					/*A faire : action que l'on effectue quand on touche un Objet
 					 * cest a dire : 
 					 *   	Implementer Ces actions dans la classe Objet ou ici????
@@ -268,11 +265,14 @@ public class Carte implements ActionListener{
 					 * 			(chrono.setTime(chrono.getTime()-5));
 					 * 
 					 */
+							((ObjetRecuperable) e).estRamasse(this);
+				
 				
 			}else if(e instanceof Patient){
 					/*A faire : action que l'on effectue quand on touche un patient 
 					 * Si on a l'objet dont le patient est proprietaire : lui rendre
 					 * 	Le patient est efface de l'arrayList (il disparait)
+					 * On enleve l'objet de larrayList objet recupere
 					 * 
 					 * Si on a pas d'objet dont il est proprietaire : il nous demande de lui ramenner
 					 * un objet qu'il veut et on le voit apparaitre sur la map 
@@ -280,8 +280,9 @@ public class Carte implements ActionListener{
 					 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
 					 * 
 					 */
+				
 			}else if(e==null){  //Signifie que c'est du sol
-				joueur.deplacer(Joueur.UP);
+					joueur.deplacer(Joueur.UP);
 			}
 		}
 
@@ -290,10 +291,45 @@ public class Carte implements ActionListener{
 	}
 
 
+	
+	
+	
+	
+	
+	public void addObjet(ObjetRecuperable a){
+		objetsRecuperes.add(a);
+	}
+	
+	public void removeObjet(ObjetRecuperable a){
+		listeElements.remove(a);
+	}
+	
+	public void removePatient(Patient a){
+		listePatients.remove(a);
+	}
+	
+	public ObjetRecuperable getObjet(Patient p){
+		
+		for(ObjetRecuperable a : objetsRecuperes){
+			if(a.getProprietaire().equals(p)){
+				return a ; 
+			}
+		}
+		return null; 
+	}
+	public boolean verifierProprietaire(Patient p){
+		
+		for(ObjetRecuperable a : objetsRecuperes){
+			if(a.getProprietaire().equals(p)){
+				return true;
+			}
+		}
+		
+		return false; 
+		
+	}
+	
 
-	/**
-	 * Lance le chrono
-	 */
 	public void startGame(){
 		//chrono.start();
 		time.start();
@@ -301,7 +337,7 @@ public class Carte implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("lol�");
+		System.out.println("lol");
 	}
 	
 	

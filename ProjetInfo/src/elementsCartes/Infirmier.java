@@ -1,17 +1,16 @@
-package ElementsCartes;
+package elementsCartes;
 
 
 /**
  * @author bprely
- *Le pateitn pourra demander l'aide d'un infirmier
+ *
  */
-public class Infirmier extends Objet {
+public class Infirmier extends ObjetRecuperable {
 
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * nomImage:infirmier
-	 * @param proprietaire 
+	 * @param nomImage
 	 */
 	public Infirmier(int positionX, int positionY,Patient proprietaire) {
 		super(positionX, positionY, "Infirmier", proprietaire);

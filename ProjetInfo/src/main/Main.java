@@ -1,14 +1,13 @@
+package main;
 import java.util.Scanner;
 
 import quizz.ElementQuizz;
 import quizz.Quizz;
 
-
 /**
- * @author bprely
  *Lancement du jeu
  */
-@SuppressWarnings("unused")
+
 public class Main {
 
 	/**
@@ -24,6 +23,7 @@ public class Main {
 		
 		Quizz.initialiser();
 	
+		
 		
 		/*
 		Quizz q = new Quizz("Handicap et entreprise");
