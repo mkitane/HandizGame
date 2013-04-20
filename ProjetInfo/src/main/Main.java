@@ -1,6 +1,8 @@
 package main;
 import java.util.Scanner;
 
+import elementsCartes.Joueur;
+
 import quizz.ElementQuizz;
 import quizz.Quizz;
 
@@ -15,13 +17,11 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Carte jeu = new Carte(); 
-		jeu.toString();
-		
-		
-		
 		Quizz.initialiser();
+		//jeu.toString();
+		Fenetre f = new Fenetre();
+	
+		
 	
 		
 		

@@ -52,8 +52,13 @@ abstract public class ElementCarte{
 	/**postionX private .On utilise un setteur pour modifier la valeur
 	 * @param x
 	 */
+	//Prely : les setteurs et pour en general mettre une valeur dans une variable on fait
+	//x=10;  toi tu fais 10=x; 
+	//donc ici c positionX=x;
+	//pas x=positionX;
+	
 	public void setPositionX(int x){
-		x=positionX;
+		positionX=x;
 	}
 	public void setNomImage(String nomImage) {
 		this.nomImage = nomImage;
@@ -68,7 +73,7 @@ abstract public class ElementCarte{
 	 * @param y
 	 */
 	public void setPositionY(int y){
-		y=positionY;
+		positionY=y;
 	}
 	/** nomImage private. On utilise un setteur pour modifier la valeur
 	 * @param n

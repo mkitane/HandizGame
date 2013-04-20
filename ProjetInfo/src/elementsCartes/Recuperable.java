@@ -1,6 +1,7 @@
 package elementsCartes;
 
 import main.Carte;
+import main.Fenetre;
 
 public interface Recuperable {
 

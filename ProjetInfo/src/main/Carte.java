@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -7,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import elementsCartes.*;
@@ -20,16 +22,16 @@ import elementsCartes.*;
 
 
 //Sera plus tard un JPanel
-public class Carte implements ActionListener{
+public class Carte extends JPanel implements ActionListener{
 	  /**
 	   * Caracteristiques de la carte
 	   */
-	  private int lignes;  // nombre de lignes
-	  private int colonnes;  // nombre de colonnes
+	  private int lignes = 10;  // nombre de lignes
+	  private int colonnes=10;  // nombre de colonnes
 	  private int cote = 20; // Pour plus tard Taille des cases;  
 	  
 	  
-	  private Timer time =  new Timer(1000,this);;
+	  private Timer compteur = new Timer(1000,this);
 	  //Pourquoi ne marche pas sans ca? 
 	  //private Compteur chrono = new Compteur("100");
 	  private ArrayList<ElementCarte> listeElements;
@@ -45,15 +47,13 @@ public class Carte implements ActionListener{
 		 * Constructeur
 		 * Cree une carte avec ses objets et ses patients
 		 */
-	public Carte(){
+	  public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
-		listePatients = new ArrayList<Patient>();
+		//listePatients = new ArrayList<Patient>();
 		
-		
-		
+		compteur.start();
 		chargerCarte("map.txt"); 
-		startGame();
 	}
 
 	
@@ -134,7 +134,13 @@ public class Carte implements ActionListener{
 				}
 				if(c=='J'){
 					joueur=new Joueur(positionLigne,j);
+					listeElements.add(joueur);
 				}
+				//Pour les autres elements
+				if(c=='P'){
+					listeElements.add(new Patient(positionLigne,j));
+				}
+			
 			}
 	}
 
@@ -146,6 +152,38 @@ public class Carte implements ActionListener{
 	/**Affiche le jeu sur le terminal 
 	 * 
 	 */
+	public void paintComponent(Graphics g){
+		//p = p + this.lignes + "\n" + this.colonnes + "\n" ; 
+		int f = 10;
+		String p = ""; 
+
+		
+		g.drawString("----------", 10, f);
+		
+		for(int i=0;i<lignes;i++){
+			for(int j=0;j<colonnes;j++){
+				//les Elements � afficher sont dans listeElement
+				if(getElement(i,j) != null){
+					p=p+getElement(i,j).toString();
+				}else if(getElementS(i,j) != null){
+					p=p+getElementS(i,j).toString();
+				}
+					
+				//saute une ligne
+				if(j==colonnes-1){
+					f+=20;
+					g.drawString(p,10,f);
+					p = "";
+				}
+				
+			}
+			
+		}
+		
+		g.drawString("-------------", 10, f);
+	
+	}
+	
 	public String toString(){
 			String p = ""; 
 			//p = p + this.lignes + "\n" + this.colonnes + "\n" ; 
@@ -181,42 +219,6 @@ public class Carte implements ActionListener{
 
 
 
-	/**Recuperer un element d'une position donnee
-	 * 
-	 * @param x
-	 * @param y
-	 * @param list
-	 * @return
-	 */
-	private ElementCarte getElement(int x, int y){
-
-			for(ElementCarte a : listeElements){
-				if(a.getPositionX()==x && a.getPositionY()==y){
-					return a; 
-					}
-			}
-
-			return null ; 
-	}
-	
-	/**Méthode permettant de récuperer le sol sur la carte
-	 * @param x
-	 * @param y
-	 * @return
-	 */
-	private Sol getElementS(int x, int y) {
-		
-		for(Sol a : lSol){
-			if(a.getPositionX()==x && a.getPositionY()==y){
-				return a; 
-				}
-		}
-
-		return null ; 
-	}
-	
-	
-
 	
 	/**
 	 * Methode assurant le deplacement du joueur en fonction d'une direction precisee
@@ -238,14 +240,24 @@ public class Carte implements ActionListener{
 		* Pour les fonctionnalite apres : ne pas oublier de commenter si j'ai fait une erreur ou oublie 
 		*une action que l'on doit faire ;)
 		*/
-		if(direction==Joueur.UP){
-			ElementCarte e = getElement(joueur.getPositionX(),joueur.getPositionY()+1);
+			ElementCarte e = null; 
+			if(direction==Joueur.UP){
+			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()+1);
+			}else if(direction==Joueur.DOWN){
+			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()-1);
+			}else if(direction==Joueur.LEFT){
+			e = recupererElement(joueur.getPositionX()-1,joueur.getPositionY());
+			}else if(direction==Joueur.RIGHT){
+			e = recupererElement(joueur.getPositionX()+1,joueur.getPositionY());
+			}
+			
+			System.out.println(e);
 			if(e instanceof Obstacle){
 					/*A Faire action que l'on effectue quand on touche un obstable
 					 * C'est a dire : 
 					 * ne pas faire avancer le joueur
 					 */
-				
+					System.out.println("Obstacle");
 					
 				
 			}else if(e instanceof ObjetRecuperable){
@@ -265,8 +277,10 @@ public class Carte implements ActionListener{
 					 * 			(chrono.setTime(chrono.getTime()-5));
 					 * 
 					 */
+							System.out.println("Objet");
+
 							((ObjetRecuperable) e).estRamasse(this);
-				
+							
 				
 			}else if(e instanceof Patient){
 					/*A faire : action que l'on effectue quand on touche un patient 
@@ -280,14 +294,19 @@ public class Carte implements ActionListener{
 					 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
 					 * 
 					 */
+							((Patient)e).action(this);
+							System.out.println("Patient l");
+
 				
-			}else if(e==null){  //Signifie que c'est du sol
-					joueur.deplacer(Joueur.UP);
+			}else if(e instanceof Sol){  //Signifie que c'est du sol
+					joueur.deplacer(direction);
+					System.out.println("Sol");
 			}
-		}
+		
+			
 
 		//raffraichir le panel ensuite
-		
+		repaint();
 	}
 
 
@@ -296,16 +315,20 @@ public class Carte implements ActionListener{
 	
 	
 	
-	public void addObjet(ObjetRecuperable a){
+	public void addObjetRecuperable(ObjetRecuperable a){
 		objetsRecuperes.add(a);
 	}
 	
 	public void removeObjet(ObjetRecuperable a){
 		listeElements.remove(a);
 	}
+	public void addObjet(ObjetRecuperable a){
+		listeElements.add(a);
+	}
 	
 	public void removePatient(Patient a){
 		listePatients.remove(a);
+		listeElements.remove(a);
 	}
 	
 	public ObjetRecuperable getObjet(Patient p){
@@ -317,10 +340,12 @@ public class Carte implements ActionListener{
 		}
 		return null; 
 	}
+	
+	//A revoir comment verifier un proprietaire
 	public boolean verifierProprietaire(Patient p){
 		
 		for(ObjetRecuperable a : objetsRecuperes){
-			if(a.getProprietaire().equals(p)){
+			if(a.getProprietaire().getID()==p.getID()){
 				return true;
 			}
 		}
@@ -330,17 +355,98 @@ public class Carte implements ActionListener{
 	}
 	
 
-	public void startGame(){
-		//chrono.start();
-		time.start();
+	
+	  public int getLignes() {
+		return lignes;
+	}
+
+
+
+
+	public int getColonnes() {
+		return colonnes;
+	}
+
+
+	
+	private ElementCarte recupererElement(int x,int y){
+
+		for(ElementCarte a : listeElements){
+			if(a.getPositionX()==x && a.getPositionY()==y){
+				return a; 
+				}
+		}
+		
+		for(Sol a : lSol){
+			if(a.getPositionX()==x && a.getPositionY()==y){
+				return a; 
+				}
+		}
+
+		
+		return null ; 
+	}
+	/**Recuperer un element d'une position donnee
+	 * 
+	 * @param x
+	 * @param y
+	 * @param list
+	 * @return
+	 */
+	private ElementCarte getElement(int x, int y){
+
+			for(ElementCarte a : listeElements){
+				if(a.getPositionX()==x && a.getPositionY()==y){
+					return a; 
+					}
+			}
+
+			
+			return null ; 
 	}
 	
 	
+	
+	/**Méthode permettant de récuperer le sol sur la carte
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private Sol getElementS(int x, int y) {
+		
+		for(Sol a : lSol){
+			if(a.getPositionX()==x && a.getPositionY()==y){
+				return a; 
+				}
+		}
+
+		return null ; 
+	}
+
+
+
+
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("lol");
+		//Une chance sur 10 de creer un patient
+		int nbAleatoire = (int) (Math.random()*10);
+		
+		if(nbAleatoire == 0){
+			int positionXObjet = (int)(Math.random()*colonnes);
+			int positionYObjet = (int)(Math.random()*lignes);
+			Patient p = new Patient(positionXObjet,positionYObjet);
+			listeElements.add(p);
+			System.out.println("PatientCree");
+			repaint();
+		}
 	}
+
+
+
+
+
 	
 	
-	
+
 	
 }
