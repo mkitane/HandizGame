@@ -10,6 +10,10 @@ import quizz.Quizz;
  *Lancement du jeu
  */
 
+
+//Il reste Chrono ˆ implementer
+//Gestion des Objets
+//ne pas creer un objet dans un endroit deja rempli
 public class Main {
 
 	/**
@@ -19,8 +23,9 @@ public class Main {
 		// TODO Auto-generated method stub
 		Quizz.initialiser();
 		//jeu.toString();
+		
 		Fenetre f = new Fenetre();
-	
+
 		
 	
 		

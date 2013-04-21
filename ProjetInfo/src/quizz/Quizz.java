@@ -1,16 +1,36 @@
 package quizz ; 
 
+
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import main.Carte;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
+import elementsCartes.ObjetRecuperable;
+import elementsCartes.Patient;
 
 
 /**
@@ -20,12 +40,20 @@ import org.w3c.dom.NodeList;
  */
 
 
-public class Quizz {
+public class Quizz extends JFrame implements KeyListener{
 	/**Array List contenant tous les questions du fichier XML*/
 	public static ArrayList<ElementQuizz> listeElementQuizz = new ArrayList<ElementQuizz>();
 	/**Element de Quizz, contient la question, les reponses et lexplication*/
 	private ElementQuizz eQ; 
+	private Carte c; 
+	private ObjetRecuperable objetAssocieAuQuizz;
 	
+	
+	/**Partie Graphique*/
+	private JLabel labelQuestion=new JLabel();
+	private JPanel panelReponses = new JPanel(); 
+	private JButton tableauDesReponses[];
+	private JLabel indication = new JLabel("Naviguer grace a tab pour l'instant");
 	
 	/**Getter Quizz
 	 * @return ElementQuizz
@@ -35,6 +63,8 @@ public class Quizz {
 	}
 
 
+	
+	
 
 
 
@@ -43,16 +73,118 @@ public class Quizz {
 	 * Charge le Quizz a partir d'un theme defini
 	 * @param theme
 	 */
-	public Quizz(String theme){
+	public Quizz(String theme,Carte c,ObjetRecuperable o){
 		choisitQuizz(theme);
 		afficherQuizz();
+		this.c=c;
+		objetAssocieAuQuizz=o;
+		
+		jbInit();
+		
 	}
 	
 	
+	public void jbInit(){
+		/*Partie Graphique*/
+		setSize(900,200);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		labelQuestion.setText(eQ.getQuestion());
+		setLayout(new BorderLayout());
+		this.add(labelQuestion,BorderLayout.NORTH);
+		this.add(panelReponses,BorderLayout.CENTER);
+		this.add(indication,BorderLayout.SOUTH);
+		panelReponses.setLayout(new FlowLayout());
+	    tableauDesReponses = new JButton[eQ.getListeReponse().size()];
+	    for(Reponse a : eQ.getListeReponse()){
+	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)]=new JButton(a.getRep());
+	    	panelReponses.add(tableauDesReponses[eQ.getListeReponse().indexOf(a)]);
+	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)].addKeyListener(this);
+	    }
+		
+		setVisible(true);
+
+	}
+
+
+
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getKeyCode()==KeyEvent.VK_ENTER){
+			String reponse = ((JButton) e.getSource()).getText();
+			for(Reponse a : eQ.getListeReponse()){
+				if(reponse.equalsIgnoreCase(a.getRep())){
+					
+					
+					if(this.verifierReponse(a)){
+						System.out.println("Bonne reponse");
+						c.addObjetRecuperable(objetAssocieAuQuizz);
+						c.removeObjet(objetAssocieAuQuizz);
+						//reste à implementer le score qui augmente
+						c.getChrono().incrementeChronometre();
+					}else{
+						System.out.println("Mauvaise Reponse");
+
+						c.removePatient(objetAssocieAuQuizz.getProprietaire());
+						c.removeObjet(objetAssocieAuQuizz);
+						//reste à implementer le score qui diminue
+						
+						//Cree un nouveau Patient pour ne pas bloquer le joeuur
+						int positionXObjet = (int)(Math.random()*c.getColonnes());
+						int positionYObjet = (int)(Math.random()*c.getLignes());
+						Patient p = new Patient(positionXObjet,positionYObjet);
+						c.getListeElements().add(p);
+						System.out.println("PatientCree");
+						c.getChrono().decrementeChronometre();
+
+					}	
+					dispose();
+					c.repaint();
+					
+					
+					
+					
+					
+				}
+			}
+			
+		}
+	}
+
+
+
+
+
+
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
 	
-
-
-
+	
+	
+	
 
 
 
@@ -222,6 +354,17 @@ public class Quizz {
 			System.out.println(eQ.getExplication());
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 }

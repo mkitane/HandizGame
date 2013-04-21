@@ -19,8 +19,8 @@ public class Patient extends ElementCarte {
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
-		String image = listeHandicapPossible[nbAleatoire];
-		super.setNomImage(image);
+		/**String image = listeHandicapPossible[nbAleatoire];
+		super.setNomImage(image);*/
 		handicap=listeHandicapPossible[nbAleatoire];
 		
 		lastID++;
@@ -38,18 +38,43 @@ public class Patient extends ElementCarte {
 	 * @param x
 	 * @param y
 	 */
+	
+	
+	/*A faire : action que l'on effectue quand on touche un patient 
+	 * Si on a l'objet dont le patient est proprietaire : lui rendre
+	 * 	Le patient est efface de l'arrayList (il disparait)
+	 * On enleve l'objet de larrayList objet recupere
+	 * 
+	 * Si on a pas d'objet dont il est proprietaire : il nous demande de lui ramenner
+	 * un objet qu'il veut et on le voit apparaitre sur la map 
+	 * 		Math.random() pour cree lobjet ÔøΩ une position definie, ne pas oublier de verifier
+	 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
+	 * 
+	 */
 	public void action(Carte c){
 		//si on a un objet que le patient veut !
+		//on reprend l'objet
+		//on enleve le patient et on remet un nouveau patient pour ne jamais être a cours de patients
+
 		if(c.verifierProprietaire(this)){
 			//a revoir
 			System.out.println("Objet Donne");
 			c.removeObjet(c.getObjet(this));
-			c.removePatient(this);			
+			c.removePatient(this);	
+			
+			
+			int positionXObjet = (int)(Math.random()*c.getColonnes());
+			int positionYObjet = (int)(Math.random()*c.getLignes());
+			Patient p = new Patient(positionXObjet,positionYObjet);
+			c.getListeElements().add(p);
+			System.out.println("PatientCree");
+			c.repaint();
+			
 		}else{
 			//si on a pas d'objet on le cree en relation avec le handicap 
 			//reste a gerer la gestion des erreurs de placement et ne pas creer l'objet dans un endroit deja remplis
 			//idee pour verifier, arraylist listeElements à verifier et comparer pour voir
-			System.out.println("Va me rammener Cet objet");
+			System.out.println("Va me rammener cet objet");
 			int positionXObjet = (int)(Math.random()*c.getColonnes());
 			int positionYObjet = (int)(Math.random()*c.getLignes());
 

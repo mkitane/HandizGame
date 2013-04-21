@@ -1,5 +1,13 @@
 package elementsCartes;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+import main.Carte;
+
 /**
  * @author bprely
  *
@@ -11,7 +19,8 @@ abstract public class ElementCarte{
 	private int positionY;
 	/**Le nom de l'image qui correspond a l'element de la carte*/
 	private String nomImage;
-	
+    private Image img;
+
 	/**
 	 * @param x
 	 * @param y
@@ -21,13 +30,35 @@ abstract public class ElementCarte{
 		positionX=x;
 		positionY=y;
 		nomImage=n;
+		setImage(n);
 	}
 	/**
 	 * 
 	 */
 	
 	
+    private void setImage(String nomImage) {
+    	        try {
+    	            this.img=ImageIO.read(new File("./images/"+nomImage+".png"));
+    	        } catch (Exception e) {
+    	            System.out.println("image pas trouvee " + nomImage);
+    	        }
+     }
+		
 	
+
+
+	/**
+     *ne pas modifier cette méthode
+     * @param g le graphique java ou dessine l'image de la pièce
+     */
+    public void dessine(Graphics g) {
+        if (this.nomImage != null) {
+            g.drawImage(this.img, this.positionX * Carte.COTE, this.positionY * Carte.COTE, Carte.COTE,
+            		Carte.COTE, null);
+        }
+    }
+
 	
 	
 	

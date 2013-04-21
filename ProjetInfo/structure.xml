@@ -25,7 +25,7 @@
  -->
  <quizz>
  
- 	<element theme="Celebrite" id="0">
+ 	<element theme="celebrite" id="0">
  			<question>Quel célèbre producteur de cinéma et de dessins animés était atteint d'un handicap invisible ?</question>
  			<answers>
  				<answer j="juste"> Walt Disney</answer>
@@ -107,7 +107,7 @@
  	
  	</element>
 		
-		<element theme="Celebrite" id="7">
+		<element theme="celebrite" id="7">
  			<question>Quel est le point commun entre Marilyn Monroe, Albert Einstein et Molière ? </question>
  			<answers>
  				<answer j="juste">Ils étaient bègues</answer>
@@ -117,7 +117,7 @@
  			<explication>ils étaient tous les trois bègues, mais ont réussi à surmonter ce trouble de la diction, classé parmi les « désordres émotionnels ou comportementaux » par l'organisation mondiale de la santé et reconnu comme un handicap par la loi de 2005.</explication>
  	</element>
 
-		<element theme="Celebrite" id="8">
+		<element theme="celebrite" id="8">
  			<question>Quel diplôme le chanteur grand corps malade a-t-il obtenu avant de commencer sa carrière artistique ? </question>
  			<answers>
  				<answer>Un DUT (bac + 2) réseaux et télécommunications</answer>
@@ -127,7 +127,7 @@
  			<explication>Le chanteur voulait devenir professeur de sport. À 20 ans, il fait un mauvais plongeon en piscine, qui paralyse sa colonne vertébrale. Il trouvera malgré tout l’énergie de remarcher et de continuer des études dans le domaine du sport. Ce n’est que plus tard qu’il fera de la scène artistique son métier.</explication>
  	</element>
 
-		<element theme="Celebrite" id="9">
+		<element theme="celebrite" id="9">
  			<question>Quel célèbre dessinateur de bandes dessinées, créateur d’Astérix, est atteint d’un handicap ?</question>
  			<answers>
  				<answer> Peyo</answer>
@@ -137,7 +137,7 @@
  			<explication>Albert Uderzo est daltonien (il ne distingue pas le rouge et le vert). La mise en couleurs des albums d’Astérix a été assurée pendant plusieurs années par son frère Marcel Uderzo. Il est, par ailleurs, né avec douze doigts, six à chaque main, et a été opéré à l’âge d’un mois.</explication>
  	</element>
 
-		<element theme="Handicap et enntreprise" id="10">
+		<element theme="Handicap et entreprise" id="10">
  			<question>Le taux de chômage des personnes handicapées est supérieur au taux de chômage global. Dans quelle proportion ?</question>
  			<answers>
  				<answer j="juste">250%</answer>
@@ -158,7 +158,7 @@
 d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou le matériel du poste de travail, ainsi que sur l'organisation du temps de travail ou du collectif de travail, doit être envisagé positivement ; il peut être déterminant pour l’intégration réussie du salarié lors d’une embauche ou lorsque se pose la question du maintien dans l’emploi d’un salarié handicapé et représente des sommes qui peuvent être très modiques.</explication>
  	</element>
 
-		<element theme="Celebrite" id="12">
+		<element theme="celebrite" id="12">
  			<question>Quel célèbre artiste a dit : « je suis aveugle, mais on trouve toujours plus malheureux que soi. J’aurais pu être noir !» ?
 </question>
  			<answers>
@@ -170,7 +170,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>Dès l’âge de 7 ans, sa cécité est complète. Il est alors placé dans un établissement spécialisé. C’est dans cette école qu’il apprend la composition, ainsi que la pratique de plusieurs instruments, dont le piano, la clarinette et le saxophone alto</explication>
  	</element>
 
-		<element theme="Surdite" id="13">
+		<element theme="surdite" id="13">
  			<question>La surdité d'origine génétique atteint ?</question>
  			<answers>
  				<answer j="juste">1 à 3 enfants sur 1000</answer>
@@ -181,7 +181,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
 
-		<element theme="Surdite" id="14">
+		<element theme="surdite" id="14">
  			<question>Une perte de 40 à 70 dB est  :
 
    
@@ -196,7 +196,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>60 dB représente le niveau sonore d'une conversation vive. La parole n'est perçue que si elle est forte. L'enfant présente des troubles du langage et de l'articulation importants  : c'est la compréhension lacunaire. Entre 55 et 70 dB de perte, les enfants perçoivent la voix forte sans comprendre les paroles  : l'appareillage et la rééducation sont alors nécessaires </explication>
  	</element>
 
-		<element theme="Surdite" id="15">
+		<element theme="surdite" id="15">
  			<question>Un sourd peut-il obtenir un tiers temps lors des épreuves écrites lors d'un examen (bac, faculté) ou un concours ?
 </question>
  			<answers>
@@ -208,7 +208,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
 
-		<element theme="Surdite" id="16">
+		<element theme="surdite" id="16">
  			<question>Un sourd paye-t-il la redevance audiovisuelle ?</question>
  			<answers>
  				<answer j="juste">Oui s'il a le sous-titrage qui fonctionne très bien et quelque soit son revenu</answer>
@@ -219,7 +219,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
 
-		<element theme="Surdite" id="17">
+		<element theme="surdite" id="17">
  			<question> Un sourd passe son permis de conduire</question>
  			<answers>
  				<answer j="juste">Il est obligé de passer une visite médicale mais ne sera pas remboursé par la SS et il est obligé de le signaler à la préfecture</answer>
@@ -230,7 +230,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
 
-		<element theme="Surdite" id="18">
+		<element theme="surdite" id="18">
  			<question>En quelle année, le 1er sourd en France a eu son permis de conduire ?</question>
  			<answers>
  				<answer j="juste">1959</answer>
@@ -241,7 +241,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
  	
-		<element theme="Surdite" id="19">
+		<element theme="surdite" id="19">
  			<question>Comment les personnes présentant des problèmes auditifs préfèrent-elles se faire nommer ?</question>
  			<answers>
  				<answer j="juste"> Sourd</answer>
@@ -253,7 +253,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="Surdite" id="20">
+		<element theme="surdite" id="20">
  			<question>Est-ce que la langue des signes est une langue universelle ?</question>
  			<answers>
  				<answer j="juste">Aucunement</answer>
@@ -265,20 +265,19 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="Surdite" id="21">
+		<element theme="surdite" id="21">
  			<question>Quel est le niveau académique que les sourds sont capables d'atteindre lorsqu'ils ont le potentiel et le désir ?
 </question>
  			<answers>
  				<answer j="juste">Universitaire</answer>
  				<answer>Secondaire</answer>
  				<answer>Primaire</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
  	</element>
  	
-		<element theme="Surdite" id="22">
+		<element theme="surdite" id="22">
  			<question>Pour faciliter la communication avec une personne sourde :</question>
  			<answers>
  				<answer j="juste">On ne doit pas trop bouger</answer>
@@ -290,7 +289,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="Surdite" id="23">
+		<element theme="surdite" id="23">
  			<question> Que fait-on pour attirer l'attention d'une personne sourde lorsqu'on veut discuter avec elle ?</question>
  			<answers>
  				<answer j="juste">Toutes ces réponses</answer>
@@ -302,7 +301,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="Surdite" id="24">
+		<element theme="surdite" id="24">
  			<question>Trouver la proposition qui est fausse dans les phrases suivantes : 'Une prothèse auditive. . . ' :</question>
  			<answers>
  				<answer j="juste"> Permet de retrouver l'audition normale</answer>
@@ -314,19 +313,18 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="Surdite" id="25">
+		<element theme="surdite" id="25">
  			<question>Des études ont démontré que le français n'était lisible sur les lèvres qu'à un pourcentage d'environ :</question>
  			<answers>
  				<answer j="juste">30%</answer>
  				<answer>50%</answer>
  				<answer>75%</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
  	</element>
  	
-		<element theme="Surdite" id="26">
+		<element theme="surdite" id="26">
  			<question>Dites en pourcentage la proportion des Sourds qui ont des enfants entendants.</question>
  			<answers>
  				<answer j="juste">90%</answer>

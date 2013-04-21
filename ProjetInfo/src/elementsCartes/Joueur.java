@@ -35,10 +35,10 @@ public class Joueur extends ElementCarte {
 	 */
 	public void deplacer(int x){
 		if (x==UP){
-			this.setPositionY(getPositionY()+1);
+			this.setPositionY(getPositionY()-1);
 		}
 		if(x==DOWN){
-			this.setPositionY(getPositionY()-1);
+			this.setPositionY(getPositionY()+1);
 		}
 		if (x==LEFT){
 			this.setPositionX(getPositionX()-1);

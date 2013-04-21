@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,19 +23,19 @@ import elementsCartes.*;
 
 
 //Sera plus tard un JPanel
-public class Carte extends JPanel implements ActionListener{
+public class Carte extends JPanel{
 	  /**
 	   * Caracteristiques de la carte
 	   */
 	  private int lignes = 10;  // nombre de lignes
 	  private int colonnes=10;  // nombre de colonnes
-	  private int cote = 20; // Pour plus tard Taille des cases;  
+	  public static final int COTE = 40; // Pour plus tard Taille des cases;  
 	  
-	  
-	  private Timer compteur = new Timer(1000,this);
-	  //Pourquoi ne marche pas sans ca? 
-	  //private Compteur chrono = new Compteur("100");
-	  private ArrayList<ElementCarte> listeElements;
+	  private Compteur chrono = new Compteur(this);
+
+
+
+	private ArrayList<ElementCarte> listeElements;
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
 	  private ArrayList<Patient> listePatients; 
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
@@ -52,8 +53,12 @@ public class Carte extends JPanel implements ActionListener{
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		//listePatients = new ArrayList<Patient>();
 		
-		compteur.start();
 		chargerCarte("map.txt"); 
+		chrono.start();
+		
+		
+		this.setLayout(new FlowLayout());
+		this.add(chrono);
 	}
 
 	
@@ -81,7 +86,7 @@ public class Carte extends JPanel implements ActionListener{
 		        		//Ajouter du sol partout
 		        		  for(int k=0;k<lignes;k++){
 		      	        	for(int j=0;j<colonnes;j++){
-		      					lSol.add(new Sol(j,k));
+		      					lSol.add(new Sol(k,j));
 		      	        	}
 		      	        }
 		        		
@@ -118,27 +123,27 @@ public class Carte extends JPanel implements ActionListener{
 				c=l.charAt(j);
 				//Action � effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
 				if(c=='D'){
-					listeElements.add(new Chaise(positionLigne,j));
+					listeElements.add(new Chaise(j,positionLigne));
 				}
 				if(c=='L'){
-					listeElements.add(new Lit(positionLigne,j));
+					listeElements.add(new Lit(j,positionLigne));
 				}
 				if(c=='M'){
-					listeElements.add(new Mur(positionLigne,j));
+					listeElements.add(new Mur(j,positionLigne));
 				}
 				if(c=='Q'){
-					listeElements.add(new PatientImmobile(positionLigne,j));
+					listeElements.add(new PatientImmobile(j,positionLigne));
 				}
 				if(c=='T'){
-					listeElements.add(new Table(positionLigne,j));
+					listeElements.add(new Table(j,positionLigne));
 				}
 				if(c=='J'){
-					joueur=new Joueur(positionLigne,j);
+					joueur=new Joueur(j,positionLigne);
 					listeElements.add(joueur);
 				}
 				//Pour les autres elements
 				if(c=='P'){
-					listeElements.add(new Patient(positionLigne,j));
+					listeElements.add(new Patient(j,positionLigne));
 				}
 			
 			}
@@ -153,35 +158,12 @@ public class Carte extends JPanel implements ActionListener{
 	 * 
 	 */
 	public void paintComponent(Graphics g){
-		//p = p + this.lignes + "\n" + this.colonnes + "\n" ; 
-		int f = 10;
-		String p = ""; 
-
-		
-		g.drawString("----------", 10, f);
-		
-		for(int i=0;i<lignes;i++){
-			for(int j=0;j<colonnes;j++){
-				//les Elements � afficher sont dans listeElement
-				if(getElement(i,j) != null){
-					p=p+getElement(i,j).toString();
-				}else if(getElementS(i,j) != null){
-					p=p+getElementS(i,j).toString();
-				}
-					
-				//saute une ligne
-				if(j==colonnes-1){
-					f+=20;
-					g.drawString(p,10,f);
-					p = "";
-				}
-				
-			}
-			
+		for(ElementCarte a : lSol){
+			a.dessine(g);
 		}
-		
-		g.drawString("-------------", 10, f);
-	
+		for(ElementCarte a : listeElements){
+			a.dessine(g);
+		}
 	}
 	
 	public String toString(){
@@ -242,22 +224,20 @@ public class Carte extends JPanel implements ActionListener{
 		*/
 			ElementCarte e = null; 
 			if(direction==Joueur.UP){
-			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()+1);
-			}else if(direction==Joueur.DOWN){
 			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()-1);
+			}else if(direction==Joueur.DOWN){
+			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()+1);
 			}else if(direction==Joueur.LEFT){
 			e = recupererElement(joueur.getPositionX()-1,joueur.getPositionY());
 			}else if(direction==Joueur.RIGHT){
 			e = recupererElement(joueur.getPositionX()+1,joueur.getPositionY());
 			}
 			
-			System.out.println(e);
 			if(e instanceof Obstacle){
 					/*A Faire action que l'on effectue quand on touche un obstable
 					 * C'est a dire : 
 					 * ne pas faire avancer le joueur
 					 */
-					System.out.println("Obstacle");
 					
 				
 			}else if(e instanceof ObjetRecuperable){
@@ -277,30 +257,17 @@ public class Carte extends JPanel implements ActionListener{
 					 * 			(chrono.setTime(chrono.getTime()-5));
 					 * 
 					 */
-							System.out.println("Objet");
 
 							((ObjetRecuperable) e).estRamasse(this);
 							
 				
 			}else if(e instanceof Patient){
-					/*A faire : action que l'on effectue quand on touche un patient 
-					 * Si on a l'objet dont le patient est proprietaire : lui rendre
-					 * 	Le patient est efface de l'arrayList (il disparait)
-					 * On enleve l'objet de larrayList objet recupere
-					 * 
-					 * Si on a pas d'objet dont il est proprietaire : il nous demande de lui ramenner
-					 * un objet qu'il veut et on le voit apparaitre sur la map 
-					 * 		Math.random() pour cree lobjet � une position definie, ne pas oublier de verifier
-					 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
-					 * 
-					 */
+					
 							((Patient)e).action(this);
-							System.out.println("Patient l");
 
 				
 			}else if(e instanceof Sol){  //Signifie que c'est du sol
 					joueur.deplacer(direction);
-					System.out.println("Sol");
 			}
 		
 			
@@ -327,7 +294,7 @@ public class Carte extends JPanel implements ActionListener{
 	}
 	
 	public void removePatient(Patient a){
-		listePatients.remove(a);
+		//listePatients.remove(a);
 		listeElements.remove(a);
 	}
 	
@@ -406,6 +373,10 @@ public class Carte extends JPanel implements ActionListener{
 	}
 	
 	
+	public ArrayList<ElementCarte> getListeElements() {
+		return listeElements;
+	}
+	
 	
 	/**Méthode permettant de récuperer le sol sur la carte
 	 * @param x
@@ -426,20 +397,15 @@ public class Carte extends JPanel implements ActionListener{
 
 
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		//Une chance sur 10 de creer un patient
-		int nbAleatoire = (int) (Math.random()*10);
-		
-		if(nbAleatoire == 0){
-			int positionXObjet = (int)(Math.random()*colonnes);
-			int positionYObjet = (int)(Math.random()*lignes);
-			Patient p = new Patient(positionXObjet,positionYObjet);
-			listeElements.add(p);
-			System.out.println("PatientCree");
-			repaint();
-		}
+
+
+
+
+	  
+	  public Compteur getChrono() {
+		return chrono;
 	}
+	
 
 
 

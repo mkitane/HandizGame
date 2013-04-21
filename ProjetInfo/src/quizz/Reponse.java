@@ -9,6 +9,9 @@ package quizz;
 public class Reponse {
 	/**Une des reponses du quizz*/
 	private String rep ; 
+
+
+
 	/**Justesse de la reponse*/
 	private boolean justesse;
 	
@@ -44,6 +47,10 @@ public class Reponse {
 	 */
 	public void setJustesse(boolean justesse) {
 		this.justesse = justesse;
+	}
+	
+	public String getRep() {
+		return rep;
 	}
 	
 }

@@ -1,5 +1,6 @@
 package main; 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,74 +9,61 @@ import javax.swing.Timer;
 
 import elementsCartes.Patient;
 
+
 /**
  * @author Mehdi
  *
  */
 
-/**Compteur pour une barre en haut qui nous donne le temps restant*/
-@SuppressWarnings({ "serial", "unused" })
 public class Compteur extends JLabel implements ActionListener{
-	/**
-	 * 
-	 */
-	private Timer timer = new Timer(1000, this);
-	/**
-	 * 
-	 */
-	private int compteur; 
+
+	private Timer t = new Timer(1000,this);
+	private int chronometre=20;
+	private Carte c; 
+	
+	public Compteur(Carte c){
+		this.c=c;
+	}
 	
 	
-
-		/**
-		 * @param nom
-		 * 
-		 */
-		public Compteur(String nom){
-			super(nom);	
-			compteur=Integer.parseInt(nom);
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			compteur--;
-			this.setText(String.valueOf(compteur));	
+		
 			
-			/*Test mode aleatoire comme ca
-			int t = (int) (Math.random()*4);
-			if(t==0){
-				System.out.println("Lol");
-				System.out.println("Creation dun patient");
-				Patient f = new Patient(4,4,"Aveugle");
-			}*/
-			System.out.println("lola");
-			if(compteur==0){
-				timer.stop();
-			}
-		}
-		/**
-		 * 
-		 */
-		public void start(){
-			timer.start();
-		}
-		
-		
-		/**Permet de recuperer le compteur étant défini private
-		 * @return
-		 */
-		@SuppressWarnings("javadoc")
-		public int getCompteur() {
-		return compteur;
-		}
+				
 	
-		
-		/**Permet d'augmenter ou retirer du temps si le personnage ramenne ou pas le bon objet
-		 * 
-		 * @param compteur
-		 */
-		public void setCompteur(int compteur) {
-			this.compteur = compteur;
+
+	public void start(){
+		t.start();
+	}
+
+	public void actionPerformed(ActionEvent e) {
+
+		chronometre--;
+		this.setText(String.valueOf(chronometre));
+
+		if(chronometre<=0){
+			System.exit(0);
 		}
+		//Une chance sur 10 de creer un patient
+		int nbAleatoire = (int) (Math.random()*300);
+		
+		if(nbAleatoire == 0){
+			int positionXObjet = (int)(Math.random()*c.getColonnes());
+			int positionYObjet = (int)(Math.random()*c.getLignes());
+			Patient p = new Patient(positionXObjet,positionYObjet);
+			c.getListeElements().add(p);
+			System.out.println("PatientCree");
+			c.repaint();
+		}
+	}		
+	
+	
+	public void incrementeChronometre(){
+		chronometre+=10;
+	}
+
+	public void decrementeChronometre(){
+		chronometre-=10;
+	}
+		
 		
 }

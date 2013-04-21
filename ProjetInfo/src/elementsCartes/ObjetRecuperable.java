@@ -30,7 +30,11 @@ public class ObjetRecuperable extends ElementCarte implements Recuperable{
 	public void estRamasse(Carte c) {
 
 		String theme = proprietaire.getHandicap();
-		Quizz q = new Quizz(theme);
+		Quizz q = new Quizz(theme,c,this);
+		
+		
+		
+		/*
 		Scanner sc = new Scanner(System.in);
 		int j1 = sc.nextInt();
 		
@@ -47,7 +51,7 @@ public class ObjetRecuperable extends ElementCarte implements Recuperable{
 				c.removeObjet(this);
 				//reste à implementer le score qui diminue
 			}
-	
+		 */
 	
 	}	
 		
