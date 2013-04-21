@@ -214,7 +214,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste">Oui s'il a le sous-titrage qui fonctionne très bien et quelque soit son revenu</answer>
  				<answer>Oui si son revenu est supérieur au niveau de référence même si le sous-titrage nefonctionne pas et même indépendemment de sa volonté</answer>
  				<answer> Non jamais</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	</element>
@@ -247,7 +246,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste"> Sourd</answer>
  				<answer>Malentendant</answer>
  				<answer>Sourd-muet</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
@@ -259,7 +257,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste">Aucunement</answer>
  				<answer>Certainement</answer>
  				<answer>Ce n'est pas une langue</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
@@ -283,7 +280,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste">On ne doit pas trop bouger</answer>
  				<answer>On doit parler très, très fort</answer>
  				<answer>On doit articuler beaucoup</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
@@ -295,7 +291,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste">Toutes ces réponses</answer>
  				<answer>Agiter les mains</answer>
  				<answer>Faire clignoter les lumières</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
@@ -307,7 +302,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste"> Permet de retrouver l'audition normale</answer>
  				<answer>Permet de participer et de mieux comprendre certaines situations</answer>
  				<answer>Ne permet pas de mieux comprendre lors de situations bruyantes</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	
@@ -330,7 +324,6 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer j="juste">90%</answer>
  				<answer>20%</answer>
  				<answer>70%</answer>
- 				<answer></answer>
  			</answers>
  			<explication></explication>
  	

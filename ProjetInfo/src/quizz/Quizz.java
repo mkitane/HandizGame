@@ -120,22 +120,15 @@ public class Quizz extends JFrame implements KeyListener{
 						System.out.println("Bonne reponse");
 						c.addObjetRecuperable(objetAssocieAuQuizz);
 						c.removeObjet(objetAssocieAuQuizz);
-						//reste à implementer le score qui augmente
-						c.getChrono().incrementeChronometre();
+						c.getChrono().incremente();
 					}else{
 						System.out.println("Mauvaise Reponse");
-
 						c.removePatient(objetAssocieAuQuizz.getProprietaire());
 						c.removeObjet(objetAssocieAuQuizz);
-						//reste à implementer le score qui diminue
-						
-						//Cree un nouveau Patient pour ne pas bloquer le joeuur
-						int positionXObjet = (int)(Math.random()*c.getColonnes());
-						int positionYObjet = (int)(Math.random()*c.getLignes());
-						Patient p = new Patient(positionXObjet,positionYObjet);
-						c.getListeElements().add(p);
-						System.out.println("PatientCree");
-						c.getChrono().decrementeChronometre();
+						if(!c.patientPresent()){
+							c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
+						}					
+						c.getChrono().decremente();
 
 					}	
 					dispose();

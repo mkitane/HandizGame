@@ -40,29 +40,28 @@ public class Compteur extends JLabel implements ActionListener{
 		chronometre--;
 		this.setText(String.valueOf(chronometre));
 
+		/* a ne pas mettre pour la phase de test
 		if(chronometre<=0){
 			System.exit(0);
 		}
+		*/
 		
-		//Une chance sur 50 de creer un patient
-		int nbAleatoire = (int) (Math.random()*50);
+		//Une chance sur 0 de creer un patient
+		int nbAleatoire = (int) (Math.random()*30);
 		
 		if(nbAleatoire == 0){
-			int positionXObjet = (int)(Math.random()*c.getColonnes());
-			int positionYObjet = (int)(Math.random()*c.getLignes());
-			Patient p = new Patient(positionXObjet,positionYObjet);
-			c.getListeElements().add(p);
+			c.creerNouveauPatient();
 			System.out.println("PatientCree");
 			c.repaint();
 		}
 	}		
 	
 	
-	public void incrementeChronometre(){
+	public void incremente(){
 		chronometre+=10;
 	}
 
-	public void decrementeChronometre(){
+	public void decremente(){
 		chronometre-=10;
 	}
 		

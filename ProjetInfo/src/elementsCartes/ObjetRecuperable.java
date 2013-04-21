@@ -1,9 +1,6 @@
 package elementsCartes;
 
-import java.util.Scanner;
-
 import main.Carte;
-
 import quizz.Quizz;
 
 /**
@@ -26,10 +23,22 @@ public class ObjetRecuperable extends ElementCarte{
 	}
 
 	
-	
+	/*A faire : action que l'on effectue quand on touche un Objet
+	 *
+	 * -repondre a un Quizz
+	 * 
+	 * -Si bonne reponse, mettre lobjet dans larrayList Objetrecupere
+	 *         et Gain de Temps
+	 *         et lenlever de larrayList ListElement(disparait de lecran)
+	 * -si mauvaise reponse, enlever le patient de l'arrayList et perte de temps
+	 * 			et enlever lobjet de larrayList listeElements
+	 * 			et ne rien ajouter dans larrayList ObjetRecupere
+	 * 			(chrono.setTime(chrono.getTime()-5));
+	 * 
+	 */
 	public void estRamasse(Carte c) {
 		String theme = proprietaire.getHandicap();
-		Quizz q = new Quizz(theme,c,this);
+		new Quizz(theme,c,this);
 	}	
 		
 	

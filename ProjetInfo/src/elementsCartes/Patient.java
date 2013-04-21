@@ -15,7 +15,7 @@ public class Patient extends ElementCarte {
 
 
 	public Patient(int positionX, int positionY) {
-		super(positionX, positionY, "Patient");
+		super(positionX, positionY, "PatientDebut");
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
@@ -37,68 +37,42 @@ public class Patient extends ElementCarte {
 	 */
 	
 	
-	/*A faire : action que l'on effectue quand on touche un patient 
+	/**Action que l'on effectue quand on touche un patient :
+	 * 	Son image change
+	 * 
+	 * 
 	 * Si on a l'objet dont le patient est proprietaire : lui rendre
-	 * 	Le patient est efface de l'arrayList (il disparait)
 	 * On enleve l'objet de larrayList objet recupere
+	 * on enleve le patient et on remet un nouveau patient pour ne jamais être a cours de patients
 	 * 
-	 * Si on a pas d'objet dont il est proprietaire : il nous demande de lui ramenner
-	 * un objet qu'il veut et on le voit apparaitre sur la map 
-	 * 		Math.random() pour cree lobjet ÔøΩ une position definie, ne pas oublier de verifier
-	 * 		quil ny a pas deja quelquechose labas+ (ajout dans larrayList listeElements)
-	 * 
+	 *
+	 * Si on a pas d'objet qu'il veut :il nous demande de lui ramenner
+	 * On  cree cet objet en relation avec le handicap du patient
+	 * On voit alors l'objet qu'il veux apparaitre sur la carte
+	 *@param: c Carte du jeu
 	 */
 	public void action(Carte c){
-		//si on a un objet que le patient veut !
-		//on reprend l'objet
-		//on enleve le patient et on remet un nouveau patient pour ne jamais être a cours de patients
-
+		
+		setImage("PatientMilieu");
+		
 		if(c.verifierProprietaire(this)){
-			//a revoir
 			System.out.println("Objet Donne");
 			c.removeObjet(c.getObjet(this));
 			c.removePatient(this);	
-			
-			
-			int positionXObjet = (int)(Math.random()*c.getColonnes());
-			int positionYObjet = (int)(Math.random()*c.getLignes());
-			Patient p = new Patient(positionXObjet,positionYObjet);
-			c.getListeElements().add(p);
-			System.out.println("PatientCree");
+			if(!c.patientPresent()){
+				c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
+			}
 			c.repaint();
 			
 		}else{
-			//si on a pas d'objet on le cree en relation avec le handicap 
-			//reste a gerer la gestion des erreurs de placement et ne pas creer l'objet dans un endroit deja remplis
-			//idee pour verifier, arraylist listeElements à verifier et comparer pour voir
+			
 			System.out.println("Va me rammener cet objet");
-			int positionXObjet = (int)(Math.random()*c.getColonnes());
-			int positionYObjet = (int)(Math.random()*c.getLignes());
-
-			ObjetRecuperable[] listeObjet = {new Canne(positionXObjet,positionYObjet,this),new Infirmier(positionXObjet,positionYObjet,this),new Lunette(positionXObjet,positionYObjet,this),new Prothese(positionXObjet,positionYObjet,this)};
-			
-			c.addObjet(choisirBonObjet(listeObjet));
+			c.creerNouvelObjet(this);  //this: pour signifier que l'objet appartient a ce patient
 			
 		}
 		
 	}
 
-	
-	/**
-	 * Choisit un objet au hasard parmis les objets qui correspondent au handicap du patient
-	 * @param liste
-	 * @return
-	 */
-	public ObjetRecuperable choisirBonObjet(ObjetRecuperable[] liste){
-		ArrayList<ObjetRecuperable> l = new ArrayList<ObjetRecuperable>();
-		for(int i=0;i<liste.length;i++){
-			if(liste[i].getHandicapAssocie().equalsIgnoreCase(handicap)){
-				l.add(liste[i]);
-			}
-		}
-		
-		return l.get((int) (l.size()*Math.random()));
-	}
 	
 	
 	

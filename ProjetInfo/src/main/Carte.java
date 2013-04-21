@@ -12,8 +12,21 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import elementsCartes.*;
-
+import elementsCartes.Canne;
+import elementsCartes.Chaise;
+import elementsCartes.ElementCarte;
+import elementsCartes.Infirmier;
+import elementsCartes.Joueur;
+import elementsCartes.Lit;
+import elementsCartes.Lunette;
+import elementsCartes.Mur;
+import elementsCartes.ObjetRecuperable;
+import elementsCartes.Patient;
+import elementsCartes.PatientImmobile;
+import elementsCartes.Prothese;
+import elementsCartes.Sol;
+import elementsCartes.Table;
+import elementsCartes.Obstacle;
 
 /**
  * Classe qui modelise le plateau du Jeu
@@ -35,7 +48,7 @@ public class Carte extends JPanel{
 
 
 
-	private ArrayList<ElementCarte> listeElements;
+	  private ArrayList<ElementCarte> listeElements;
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  private Joueur joueur; 
@@ -50,7 +63,6 @@ public class Carte extends JPanel{
 	  public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
-		
 		chargerCarte("map.txt"); 
 		chrono.start();
 		
@@ -176,19 +188,7 @@ public class Carte extends JPanel{
 	 */
 	public void unDeplacementDeJoueur(int direction){
 		
-		/*Ne pas oublier de creer un Patient grace au ActionPerformed qui lancera cette
-		 *  methode de maniere Aleatoire @MEMO : Comment faire le lien entre Chrono et jeu
-		 *  cad ajouter un patient depuis lactionPerformed, alors que la classe Quizz nest pas instanciee??
-		 *  Passage par une arrayList static?
-		 *  ou instanciation de carte et de chrono en parallele et non imbrique(pas chrono instanciee dans carte)
-		 *  Probleme resolu (?) : Passage par un timer directement implante dans la classe Carte  
-		 *  
-		*Au debut 1 chance sur 100 (par exemple)
-		*puis une chance sur 90 etc.. (fonction de la difficulte)
-		*
-		* Pour les fonctionnalite apres : ne pas oublier de commenter si j'ai fait une erreur ou oublie 
-		*une action que l'on doit faire ;)
-		*/
+
 			ElementCarte e = null; 
 			if(direction==Joueur.UP){
 			e = recupererElement(joueur.getPositionX(),joueur.getPositionY()-1);
@@ -201,46 +201,16 @@ public class Carte extends JPanel{
 			}
 			
 			if(e instanceof Obstacle){
-					/*A Faire action que l'on effectue quand on touche un obstable
-					 * C'est a dire : 
-					 * ne pas faire avancer le joueur
-					 */
-					
-				
+
 			}else if(e instanceof ObjetRecuperable){
-					/*A faire : action que l'on effectue quand on touche un Objet
-					 * cest a dire : 
-					 *   	Implementer Ces actions dans la classe Objet ou ici????
-					 *   			si dans classe objet public void action(Joueur j) ??  
-					 *
-					 * -repondre a un Quizz
-					 * 
-					 * -Si bonne reponse, mettre lobjet dans larrayList Objetrecupere
-					 *         et Gain de Temps
-					 *         et lenlever de larrayList ListElement(disparait de lecran)
-					 * -si mauvaise reponse, enlever le patient de l'arrayList et perte de temps
-					 * 			et enlever lobjet de larrayList listeElements
-					 * 			et ne rien ajouter dans larrayList ObjetRecupere
-					 * 			(chrono.setTime(chrono.getTime()-5));
-					 * 
-					 */
-
-							((ObjetRecuperable) e).estRamasse(this);
-							
-				
+							((ObjetRecuperable) e).estRamasse(this);				
 			}else if(e instanceof Patient){
-					
 							((Patient)e).action(this);
-
-				
 			}else if(e instanceof Sol){ 
 							joueur.deplacer(direction);
 			}
 		
-			
-
-		//raffraichir le panel ensuite
-		repaint();
+			repaint();
 	}
 
 
@@ -313,7 +283,17 @@ public class Carte extends JPanel{
 	}
 
 
+	private ElementCarte getElement(int x, int y){
 
+		for(ElementCarte a : listeElements){
+			if(a.getPositionX()==x && a.getPositionY()==y){
+				return a; 
+				}
+		}
+
+		
+		return null ; 
+	}
 
 
 
@@ -338,9 +318,89 @@ public class Carte extends JPanel{
 	}
 
 
+	/**Instancie un nouveau patient
+	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
+	 */
+	public void creerNouveauPatient(){
+		boolean b=true;
+		int positionXObjet= (int)(Math.random()*colonnes);
+		int positionYObjet= (int)(Math.random()*lignes);
+		while(b){
+			positionXObjet = (int)(Math.random()*colonnes);
+			positionYObjet = (int)(Math.random()*lignes);
+			//On verifie si il n'y a pas deja un objet dans cette case ==> listeElements
+			//si il n'y a rien (null) on sort de la boucle
+			if(getElement(positionXObjet,positionYObjet)== null){
+				b=false;
+			}
+		}
+		
+		
+		Patient p = new Patient(positionXObjet,positionYObjet);
+		listeElements.add(p);
+		System.out.println("PatientCree");
+	}
 
+	
+	/**Instancie un nouvel objet en relation avec le patient qui le cree
+	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
+	 * @param p patient qui cree l'objet
+	 */
+	public void creerNouvelObjet(Patient p){
+		boolean b=true;
+		int positionXObjet= (int)(Math.random()*colonnes);
+		int positionYObjet= (int)(Math.random()*lignes);
+		
+		while(b){
+			positionXObjet = (int)(Math.random()*colonnes);
+			positionYObjet = (int)(Math.random()*lignes);
+			//On verifie si il n'y a pas deja un objet dans cette case ==> listeElements
+			//si il n'y a rien (null) on sort de la boucle
+			if(getElement(positionXObjet,positionYObjet)== null){
+				b=false;
+			}
+		}
+		
 
-
+		ObjetRecuperable[] listeObjet = {new Canne(positionXObjet,positionYObjet,p),new Infirmier(positionXObjet,positionYObjet,p),new Lunette(positionXObjet,positionYObjet,p),new Prothese(positionXObjet,positionYObjet,p)};
+		
+		addObjet(choisirBonObjet(listeObjet,p));
+	}
+	
+	
+	/**
+	 * Choisit un objet au hasard parmis les objets qui correspondent au handicap du patient
+	 * @param liste
+	 * @return
+	 */
+	public ObjetRecuperable choisirBonObjet(ObjetRecuperable[] liste,Patient p){
+		ArrayList<ObjetRecuperable> l = new ArrayList<ObjetRecuperable>();
+		for(int i=0;i<liste.length;i++){
+			if(liste[i].getHandicapAssocie().equalsIgnoreCase(p.getHandicap())){
+				l.add(liste[i]);
+			}
+		}
+		
+		return l.get((int) (l.size()*Math.random()));
+	}
+	
+	
+	/**
+	 * Verifier s'il y a deja un patient dans la carte
+	 * @return
+	 */
+	public boolean patientPresent(){
+		for(ElementCarte a:listeElements){
+			if(a instanceof Patient){
+				return true;
+			}
+		}
+		return false; 
+	}
+	
+	
+	
+	
 	
 	/*Ne sert plus a rien puisque l'on n'utilise plus le terminal comme moyen d'affichage
 	public String toString(){
