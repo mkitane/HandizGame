@@ -6,8 +6,6 @@ public class Obstacle extends ElementCarte {
 		super(x, y, n);
 	}
 	
-	public boolean action(int x, int y){
-		return false;
-	}
+
 
 }

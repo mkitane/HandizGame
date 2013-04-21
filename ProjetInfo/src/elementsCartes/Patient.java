@@ -19,7 +19,7 @@ public class Patient extends ElementCarte {
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
-		/**String image = listeHandicapPossible[nbAleatoire];
+		/*String image = listeHandicapPossible[nbAleatoire];
 		super.setNomImage(image);*/
 		handicap=listeHandicapPossible[nbAleatoire];
 		
@@ -29,10 +29,7 @@ public class Patient extends ElementCarte {
 		
 	}
 	
-	public String getHandicap() {
-		return handicap;
-	}
-
+	
 	/**
 	 * Methode qui demande au joueur de lui ramenner l'objet
 	 * @param x
@@ -102,13 +99,21 @@ public class Patient extends ElementCarte {
 		
 		return l.get((int) (l.size()*Math.random()));
 	}
+	
+	
+	
+	
+	
+	
 	public String toString(){
 		return "P";
 		
 	}
 	
-	
-	
+	public String getHandicap() {
+		return handicap;
+	}
+
 	public int getID() {
 		return ID;
 	}

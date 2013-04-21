@@ -155,21 +155,11 @@ public class Quizz extends JFrame implements KeyListener{
 
 
 
-
-
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
-
-
-
-
-
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
@@ -187,6 +177,8 @@ public class Quizz extends JFrame implements KeyListener{
 	
 
 
+	
+	
 
 	/**	Initialise le Quizz : charge en memoire toutes l'arrayList du Quizz
 
@@ -232,7 +224,7 @@ public class Quizz extends JFrame implements KeyListener{
 	
 	
 	/**
-	 * Construit ElementQuizz � partir d'un des elements du fichier XML
+	 * Construit ElementQuizz a partir d'un des elements du fichier XML
 	 * @param eElement
 	 * @return 
 	 */
@@ -283,26 +275,7 @@ public class Quizz extends JFrame implements KeyListener{
 	
 	
 	
-	/**Méthode à supprimer à la fin du projet
-	 * Methode Test pour afficher le contenu d'un des elements du fichier XML
-	 * @param eElement
-	 * Inutilisée
-	 */
 	
-	@SuppressWarnings("unused")
-	private void afficheContenuElement(Element eElement){
-		System.out.println(eElement.getElementsByTagName("question").item(0).getTextContent());
-		System.out.println(eElement.getElementsByTagName("explication").item(0).getTextContent());
-
-		//Boucle pour les reponses
-			for(int i=0; i<eElement.getElementsByTagName("answer").getLength();i++){
-				Element answerElement = (Element) eElement.getElementsByTagName("answer").item(i);
-		
-					if(answerElement.getAttribute("j").equals("juste")){
-						System.out.println(eElement.getElementsByTagName("answer").item(i).getTextContent());
-					}
-			}
-	}
 
 	
 	
@@ -340,6 +313,8 @@ public class Quizz extends JFrame implements KeyListener{
 	public boolean verifierReponse(Reponse r){
 		return r.isJustesse(); 	
 	}
+	
+	
 	
 	/**
 	 * Affiche la correction pour l'instant sur le terminal

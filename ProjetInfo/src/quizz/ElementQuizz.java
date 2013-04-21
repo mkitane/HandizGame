@@ -34,23 +34,7 @@ public class ElementQuizz {
 		listeReponse=lR;
 		explication=e; 
 	}
-	
-	/**
-	 * Constructeur sans explication
-	 * @param t : le theme
-	 * @param q : la question
-	 * @param lR : la liste de reponses
-	 */
-	public ElementQuizz(String t,String q, ArrayList<Reponse> lR){
-		theme=t; 
-		question=q; 
-		listeReponse=lR;
-	}
 
-	
-	
-	
-	
 	
 	
 	/**

@@ -31,7 +31,6 @@ public class Fenetre extends JFrame implements KeyListener{
 	}
 
 	private void jbInit() {
-		// TODO Auto-generated method stub
 		this.setLayout(new BorderLayout());
 		this.add(jeu,BorderLayout.CENTER);
 		
@@ -42,7 +41,6 @@ public class Fenetre extends JFrame implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		if(e.getKeyCode()==KeyEvent.VK_UP){
 			jeu.unDeplacementDeJoueur(Joueur.UP);
 		}
@@ -68,6 +66,8 @@ public class Fenetre extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 	
 }

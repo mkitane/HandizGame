@@ -18,7 +18,7 @@ import elementsCartes.Patient;
 public class Compteur extends JLabel implements ActionListener{
 
 	private Timer t = new Timer(1000,this);
-	private int chronometre=20;
+	private int chronometre=100;
 	private Carte c; 
 	
 	public Compteur(Carte c){
@@ -43,8 +43,9 @@ public class Compteur extends JLabel implements ActionListener{
 		if(chronometre<=0){
 			System.exit(0);
 		}
-		//Une chance sur 10 de creer un patient
-		int nbAleatoire = (int) (Math.random()*300);
+		
+		//Une chance sur 50 de creer un patient
+		int nbAleatoire = (int) (Math.random()*50);
 		
 		if(nbAleatoire == 0){
 			int positionXObjet = (int)(Math.random()*c.getColonnes());

@@ -37,7 +37,6 @@ public class Carte extends JPanel{
 
 	private ArrayList<ElementCarte> listeElements;
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
-	  private ArrayList<Patient> listePatients; 
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  private Joueur joueur; 
 	    
@@ -51,7 +50,6 @@ public class Carte extends JPanel{
 	  public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
-		//listePatients = new ArrayList<Patient>();
 		
 		chargerCarte("map.txt"); 
 		chrono.start();
@@ -154,7 +152,7 @@ public class Carte extends JPanel{
 	
 
 
-	/**Affiche le jeu sur le terminal 
+	/**Dessine la carte
 	 * 
 	 */
 	public void paintComponent(Graphics g){
@@ -166,39 +164,8 @@ public class Carte extends JPanel{
 		}
 	}
 	
-	public String toString(){
-			String p = ""; 
-			//p = p + this.lignes + "\n" + this.colonnes + "\n" ; 
-			
-			p=p+"-----------------------" + "\n";
-			for(int i=0;i<lignes;i++){
-				for(int j=0;j<colonnes;j++){
-					//les Elements � afficher sont dans listeElement
-					if(getElement(i,j) != null){
-						p=p+getElement(i,j).toString();
-					}else if(getElementS(i,j) != null){
-						p=p+getElementS(i,j).toString();
-					}
-						
-					//saute une ligne
-					if(j==colonnes-1){
-						p=p + "\n";
-					}
-					
-				}
-				
-			}
-			
-			p=p+"-----------------------" + "\n";
-			System.out.println(p);
-			return p;
-			
-	}
-
 	
 	
-
-
 
 
 	
@@ -266,8 +233,8 @@ public class Carte extends JPanel{
 							((Patient)e).action(this);
 
 				
-			}else if(e instanceof Sol){  //Signifie que c'est du sol
-					joueur.deplacer(direction);
+			}else if(e instanceof Sol){ 
+							joueur.deplacer(direction);
 			}
 		
 			
@@ -294,21 +261,24 @@ public class Carte extends JPanel{
 	}
 	
 	public void removePatient(Patient a){
-		//listePatients.remove(a);
 		listeElements.remove(a);
 	}
 	
+	/**Recupere lobjet qui appartient au bon patient
+	 * 
+	 * @param p
+	 * @return
+	 */
 	public ObjetRecuperable getObjet(Patient p){
 		
 		for(ObjetRecuperable a : objetsRecuperes){
-			if(a.getProprietaire().equals(p)){
+			if(a.getProprietaire().getID()==p.getID()){
 				return a ; 
 			}
 		}
 		return null; 
 	}
 	
-	//A revoir comment verifier un proprietaire
 	public boolean verifierProprietaire(Patient p){
 		
 		for(ObjetRecuperable a : objetsRecuperes){
@@ -323,18 +293,6 @@ public class Carte extends JPanel{
 	
 
 	
-	  public int getLignes() {
-		return lignes;
-	}
-
-
-
-
-	public int getColonnes() {
-		return colonnes;
-	}
-
-
 	
 	private ElementCarte recupererElement(int x,int y){
 
@@ -353,13 +311,68 @@ public class Carte extends JPanel{
 		
 		return null ; 
 	}
-	/**Recuperer un element d'une position donnee
+
+
+
+
+
+
+
+	/*Getters et Setters
 	 * 
-	 * @param x
-	 * @param y
-	 * @param list
-	 * @return
 	 */
+	  public Compteur getChrono() {
+		return chrono;
+	}
+
+	  public int getLignes() {
+		return lignes;
+	}
+
+	public int getColonnes() {
+		return colonnes;
+	}
+
+	public ArrayList<ElementCarte> getListeElements() {
+		return listeElements;
+	}
+
+
+
+
+
+	
+	/*Ne sert plus a rien puisque l'on n'utilise plus le terminal comme moyen d'affichage
+	public String toString(){
+			String p = ""; 
+			//p = p + this.lignes + "\n" + this.colonnes + "\n" ; 
+			
+			p=p+"-----------------------" + "\n";
+			for(int i=0;i<lignes;i++){
+				for(int j=0;j<colonnes;j++){
+					//les Elements a afficher sont dans listeElement
+					if(getElement(i,j) != null){
+						p=p+getElement(i,j).toString();
+					}else if(getElementS(i,j) != null){
+						p=p+getElementS(i,j).toString();
+					}
+						
+					//saute une ligne
+					if(j==colonnes-1){
+						p=p + "\n";
+					}
+					
+				}
+				
+			}
+			
+			p=p+"-----------------------" + "\n";
+			System.out.println(p);
+			return p;
+			
+	}
+
+
 	private ElementCarte getElement(int x, int y){
 
 			for(ElementCarte a : listeElements){
@@ -373,16 +386,8 @@ public class Carte extends JPanel{
 	}
 	
 	
-	public ArrayList<ElementCarte> getListeElements() {
-		return listeElements;
-	}
-	
-	
-	/**Méthode permettant de récuperer le sol sur la carte
-	 * @param x
-	 * @param y
-	 * @return
-	 */
+
+
 	private Sol getElementS(int x, int y) {
 		
 		for(Sol a : lSol){
@@ -394,25 +399,10 @@ public class Carte extends JPanel{
 		return null ; 
 	}
 
-
-
-
-
-
-
-
-	  
-	  public Compteur getChrono() {
-		return chrono;
-	}
+	*/
 	
 
 
-
-
-
-	
-	
 
 	
 }

@@ -19,6 +19,7 @@ abstract public class ElementCarte{
 	private int positionY;
 	/**Le nom de l'image qui correspond a l'element de la carte*/
 	private String nomImage;
+	/**l'image de l'element de la carte*/
     private Image img;
 
 	/**
@@ -36,7 +37,10 @@ abstract public class ElementCarte{
 	 * 
 	 */
 	
-	
+	/**Permet de recuperer l'image de lelement dans le dossier images
+	 * 
+	 * @param nomImage
+	 */
     private void setImage(String nomImage) {
     	        try {
     	            this.img=ImageIO.read(new File("./images/"+nomImage+".png"));
@@ -48,9 +52,8 @@ abstract public class ElementCarte{
 	
 
 
-	/**
-     *ne pas modifier cette méthode
-     * @param g le graphique java ou dessine l'image de la pièce
+	/**Dessine l'Element dans le jPanel
+     * @param g le graphique java ou dessine l'image de la piece
      */
     public void dessine(Graphics g) {
         if (this.nomImage != null) {
@@ -83,11 +86,6 @@ abstract public class ElementCarte{
 	/**postionX private .On utilise un setteur pour modifier la valeur
 	 * @param x
 	 */
-	//Prely : les setteurs et pour en general mettre une valeur dans une variable on fait
-	//x=10;  toi tu fais 10=x; 
-	//donc ici c positionX=x;
-	//pas x=positionX;
-	
 	public void setPositionX(int x){
 		positionX=x;
 	}
