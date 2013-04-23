@@ -16,7 +16,7 @@ import elementsCartes.Joueur;
 public class Fenetre extends JFrame implements KeyListener{
 	
 	private Carte jeu = new Carte();
-
+	private Chrono chrono= new Chrono(this);
 
 	
 	public Fenetre(){
@@ -25,14 +25,17 @@ public class Fenetre extends JFrame implements KeyListener{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         jbInit();
-        this.addKeyListener(this);
-		jeu.addKeyListener(this);
+        addKeyListener(this);
+		chrono.start();
+		
+		
         setVisible(true);
 	}
 
 	private void jbInit() {
-		this.setLayout(new BorderLayout());
-		this.add(jeu,BorderLayout.CENTER);
+		setLayout(new BorderLayout());
+		add(chrono,BorderLayout.NORTH);
+		add(jeu,BorderLayout.CENTER);
 		
 		
 	}
@@ -68,6 +71,13 @@ public class Fenetre extends JFrame implements KeyListener{
 	}
 	
 	
+	public Chrono getChrono(){
+		return chrono;
+	}
+	
+	public Carte getJeu() {
+		return jeu;
+	}
 
 	
 }

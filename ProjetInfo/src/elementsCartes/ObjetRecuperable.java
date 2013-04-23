@@ -10,7 +10,8 @@ import quizz.Quizz;
 public class ObjetRecuperable extends ElementCarte{
 	private Patient proprietaire;
 	private String handicapAssocie; 
-
+	/**Permet de ne pas lancer plusieurs Quizz*/
+	private boolean verificateur=true;
 
 	/**
 	 * @param positionX
@@ -37,8 +38,13 @@ public class ObjetRecuperable extends ElementCarte{
 	 * 
 	 */
 	public void estRamasse(Carte c) {
+		if(verificateur){
 		String theme = proprietaire.getHandicap();
 		new Quizz(theme,c,this);
+		verificateur=false;
+		}else{
+			System.out.println("Veuillez repondre au quizz que vous avez deja lance");
+		}
 	}	
 		
 	

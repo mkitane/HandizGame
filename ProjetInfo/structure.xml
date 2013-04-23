@@ -218,18 +218,8 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
 
-		<element theme="surdite" id="17">
- 			<question> Un sourd passe son permis de conduire</question>
- 			<answers>
- 				<answer j="juste">Il est obligé de passer une visite médicale mais ne sera pas remboursé par la SS et il est obligé de le signaler à la préfecture</answer>
- 				<answer>Il est obligé de passer une visite médicale mais sera remboursé par la SS et il est obligé de le signaler à la préfecture</answer>
- 				<answer>Il n'est pas obligé de passer une visite médicale mais sera obligé de le signaler à la préfecture</answer>
- 				<answer>Il n'est pas obligé de passer une visite médicale et n'est pas obligé de le signaler à la préfecture</answer>
- 			</answers>
- 			<explication></explication>
- 	</element>
 
-		<element theme="surdite" id="18">
+		<element theme="surdite" id="17">
  			<question>En quelle année, le 1er sourd en France a eu son permis de conduire ?</question>
  			<answers>
  				<answer j="juste">1959</answer>
@@ -240,7 +230,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication></explication>
  	</element>
  	
-		<element theme="surdite" id="19">
+		<element theme="surdite" id="18">
  			<question>Comment les personnes présentant des problèmes auditifs préfèrent-elles se faire nommer ?</question>
  			<answers>
  				<answer j="juste"> Sourd</answer>
@@ -251,7 +241,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="20">
+		<element theme="surdite" id="19">
  			<question>Est-ce que la langue des signes est une langue universelle ?</question>
  			<answers>
  				<answer j="juste">Aucunement</answer>
@@ -262,7 +252,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="21">
+		<element theme="surdite" id="20">
  			<question>Quel est le niveau académique que les sourds sont capables d'atteindre lorsqu'ils ont le potentiel et le désir ?
 </question>
  			<answers>
@@ -274,7 +264,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="22">
+		<element theme="surdite" id="21">
  			<question>Pour faciliter la communication avec une personne sourde :</question>
  			<answers>
  				<answer j="juste">On ne doit pas trop bouger</answer>
@@ -285,7 +275,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="23">
+		<element theme="surdite" id="22">
  			<question> Que fait-on pour attirer l'attention d'une personne sourde lorsqu'on veut discuter avec elle ?</question>
  			<answers>
  				<answer j="juste">Toutes ces réponses</answer>
@@ -296,7 +286,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="24">
+		<element theme="surdite" id="23">
  			<question>Trouver la proposition qui est fausse dans les phrases suivantes : 'Une prothèse auditive. . . ' :</question>
  			<answers>
  				<answer j="juste"> Permet de retrouver l'audition normale</answer>
@@ -307,7 +297,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="25">
+		<element theme="surdite" id="24">
  			<question>Des études ont démontré que le français n'était lisible sur les lèvres qu'à un pourcentage d'environ :</question>
  			<answers>
  				<answer j="juste">30%</answer>
@@ -318,7 +308,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
-		<element theme="surdite" id="26">
+		<element theme="surdite" id="25">
  			<question>Dites en pourcentage la proportion des Sourds qui ont des enfants entendants.</question>
  			<answers>
  				<answer j="juste">90%</answer>
@@ -329,6 +319,17 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	
  	</element>
  	
+ 	<element theme="" id="26">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
 		<element theme="" id="27">
  			<question></question>
  			<answers>

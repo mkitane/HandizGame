@@ -3,34 +3,36 @@ package quizz ;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.KeyboardFocusManager;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.Carte;
+import main.Fenetre;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import elementsCartes.ObjetRecuperable;
-import elementsCartes.Patient;
 
 
 /**
@@ -50,10 +52,10 @@ public class Quizz extends JFrame implements KeyListener{
 	
 	
 	/**Partie Graphique*/
-	private JLabel labelQuestion=new JLabel();
+	private JTextArea labelQuestion=new JTextArea();
 	private JPanel panelReponses = new JPanel(); 
 	private JButton tableauDesReponses[];
-	private JLabel indication = new JLabel("Naviguer grace a tab pour l'instant");
+	private JLabel indication = new JLabel("Naviguer grace a tab ou fleches gauches et droites");
 	
 	/**Getter Quizz
 	 * @return ElementQuizz
@@ -86,15 +88,18 @@ public class Quizz extends JFrame implements KeyListener{
 	
 	public void jbInit(){
 		/*Partie Graphique*/
-		setSize(900,200);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+		setSize(c.getRootPane().getWidth(),200);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
+        
+        
 		labelQuestion.setText(eQ.getQuestion());
 		setLayout(new BorderLayout());
 		this.add(labelQuestion,BorderLayout.NORTH);
 		this.add(panelReponses,BorderLayout.CENTER);
 		this.add(indication,BorderLayout.SOUTH);
 		panelReponses.setLayout(new FlowLayout());
+		
 	    tableauDesReponses = new JButton[eQ.getListeReponse().size()];
 	    for(Reponse a : eQ.getListeReponse()){
 	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)]=new JButton(a.getRep());
@@ -102,43 +107,102 @@ public class Quizz extends JFrame implements KeyListener{
 	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)].addKeyListener(this);
 	    }
 		
+	    /*Personalisation du JtextArea labelQuestion*/
+	    labelQuestion.setLineWrap(true);  //Permet de sauter revenir a la ligne si la question est trop longue
+	    labelQuestion.setWrapStyleWord(true);
+        labelQuestion.setOpaque(false);
+        labelQuestion.setEditable(false);
+        labelQuestion.setFocusable(false);  //On lui enleve le focus pour pouvoir naviguer qu'entre les reponses
+        
+        
+        
+        
+	    /*Ajout de la navigation par les fleches droites et gauches
+         * pour tous les boutons
+         */
+        
+	    for(int i=0;i<tableauDesReponses.length;i++){
+	    
+	    Set keys = tableauDesReponses[i].getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS);
+	    Set newKeys = new HashSet(keys);
+	    newKeys.add(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0));
+	    tableauDesReponses[i].setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, newKeys);
+	    
+	    Set keys1 = tableauDesReponses[i].getFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS);
+	    Set newKeys1 = new HashSet(keys1);
+	    newKeys1.add(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0));
+	    tableauDesReponses[i].setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, newKeys1);
+	    }
+	    
+	    
+
+        /*Changement du look de la fenetre*/
+
+        Point p=c.getLocationOnScreen();
+        p.translate(0, c.getHeight()-200);
+        setLocation(p);
+        setUndecorated(true);
+
+        
+        //enleve le keyListener pour empecher le joueur de jouer derriere
+        c.getRootPane().getParent().removeKeyListener(((Fenetre) c.getRootPane().getParent()));
 		setVisible(true);
 
+	
 	}
 
 
 
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+
 		if(e.getKeyCode()==KeyEvent.VK_ENTER){
-			String reponse = ((JButton) e.getSource()).getText();
-			for(Reponse a : eQ.getListeReponse()){
-				if(reponse.equalsIgnoreCase(a.getRep())){
+			
+		
+			
+			
+			//remet le keyListener pour permetre le joueur de jouer derriere
+		    c.getRootPane().getParent().addKeyListener(((Fenetre) c.getRootPane().getParent()));
+			
+			
+			//Verifie si le JButtoncorrespond ˆ la bonne reponse
+			for(int i=0;i<tableauDesReponses.length;i++){
+				//Si oui
+				if(e.getSource()==tableauDesReponses[i]){
 					
 					
-					if(this.verifierReponse(a)){
+					if(verifierReponse(eQ.getListeReponse().get(i))){
+						
 						System.out.println("Bonne reponse");
+						((Fenetre) c.getRootPane().getParent()).getChrono().incremente();
 						c.addObjetRecuperable(objetAssocieAuQuizz);
 						c.removeObjet(objetAssocieAuQuizz);
-						c.getChrono().incremente();
+						
 					}else{
+
 						System.out.println("Mauvaise Reponse");
+						((Fenetre) c.getRootPane().getParent()).getChrono().decremente();
 						c.removePatient(objetAssocieAuQuizz.getProprietaire());
 						c.removeObjet(objetAssocieAuQuizz);
 						if(!c.patientPresent()){
 							c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
-						}					
-						c.getChrono().decremente();
-
+						}		
+						
+						
+						//Effet visuel pour savoir que la reponse est fausse; 
+						setBackground(Color.red);
+						
+						
 					}	
+					
+					
 					dispose();
 					c.repaint();
 					
 					
 					
-					
-					
+					break;	//plus besoin de chercher
 				}
+				
 			}
 			
 		}
@@ -308,20 +372,6 @@ public class Quizz extends JFrame implements KeyListener{
 	}
 	
 	
-	
-	/**
-	 * Affiche la correction pour l'instant sur le terminal
-	 * @param r
-	 */
-	public void afficherCorrection(Reponse r){
-		if(verifierReponse(r)){
-			System.out.println("Bonne Reponse! Voici une explication :");
-			System.out.println(eQ.getExplication());
-		}else{
-			System.out.println("Mauvaise Reponse! Voici une explication : ");
-			System.out.println(eQ.getExplication());
-		}
-	}
 
 
 

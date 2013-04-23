@@ -10,7 +10,8 @@ public class Patient extends ElementCarte {
 	/**Permet de reconnaitre un patient cree*/
 	private static int lastID = 0 ; 
 	private int ID; 
-
+	/**Permet de savoir si on a deja demande au patient de rammener un objet ou pas pour qu'un patient ne puisse instancier plusieurs objets*/
+	private boolean verificateur = true ; 
 	
 
 
@@ -30,12 +31,7 @@ public class Patient extends ElementCarte {
 	}
 	
 	
-	/**
-	 * Methode qui demande au joueur de lui ramenner l'objet
-	 * @param x
-	 * @param y
-	 */
-	
+
 	
 	/**Action que l'on effectue quand on touche un patient :
 	 * 	Son image change
@@ -64,11 +60,12 @@ public class Patient extends ElementCarte {
 			}
 			c.repaint();
 			
-		}else{
-			
+		}else if(!verificateur){
+			System.out.println("Ramenne moi deja l'objet au lieu d'en redemander");
+		}else{	
 			System.out.println("Va me rammener cet objet");
 			c.creerNouvelObjet(this);  //this: pour signifier que l'objet appartient a ce patient
-			
+			verificateur=false;
 		}
 		
 	}

@@ -2,15 +2,12 @@ package main;
 
 import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import elementsCartes.Canne;
 import elementsCartes.Chaise;
@@ -44,7 +41,7 @@ public class Carte extends JPanel{
 	  private int colonnes=10;  // nombre de colonnes
 	  public static final int COTE = 40; // Pour plus tard Taille des cases;  
 	  
-	  private Compteur chrono = new Compteur(this);
+	  private Generateur generateurPatient = new Generateur(this);
 
 
 
@@ -64,11 +61,10 @@ public class Carte extends JPanel{
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		chargerCarte("map.txt"); 
-		chrono.start();
+		generateurPatient.start();
 		
 		
 		this.setLayout(new FlowLayout());
-		this.add(chrono);
 	}
 
 	
@@ -301,10 +297,7 @@ public class Carte extends JPanel{
 	/*Getters et Setters
 	 * 
 	 */
-	  public Compteur getChrono() {
-		return chrono;
-	}
-
+	
 	  public int getLignes() {
 		return lignes;
 	}
