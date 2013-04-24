@@ -78,10 +78,10 @@ abstract public class ElementCarte{
 		return positionY;
 	}
 	/**attribut private. On utilise un getteur 
-	 * @return string nomImage
+	 * @return Image img
 	 */
-	public String getImage(){
-		return nomImage;
+	public Image getImage(){
+		return img;
 	}
 	/**postionX private .On utilise un setteur pour modifier la valeur
 	 * @param x

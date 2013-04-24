@@ -172,14 +172,14 @@ public class Quizz extends JFrame implements KeyListener{
 					
 					if(verifierReponse(eQ.getListeReponse().get(i))){
 						
-						System.out.println("Bonne reponse");
+						Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
+
 						((Fenetre) c.getRootPane().getParent()).getChrono().incremente();
 						c.addObjetRecuperable(objetAssocieAuQuizz);
 						c.removeObjet(objetAssocieAuQuizz);
 						
 					}else{
 
-						System.out.println("Mauvaise Reponse");
 						((Fenetre) c.getRootPane().getParent()).getChrono().decremente();
 						c.removePatient(objetAssocieAuQuizz.getProprietaire());
 						c.removeObjet(objetAssocieAuQuizz);
@@ -190,7 +190,8 @@ public class Quizz extends JFrame implements KeyListener{
 						
 						//Effet visuel pour savoir que la reponse est fausse; 
 						setBackground(Color.red);
-						
+						Fenetre.ecrire("Mauvaise reponse, Un autre Patient est apparu, va voir ce qu'il veut");
+
 						
 					}	
 					
@@ -370,19 +371,12 @@ public class Quizz extends JFrame implements KeyListener{
 	public boolean verifierReponse(Reponse r){
 		return r.isJustesse(); 	
 	}
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-	
-	
 }
+	
+
+
+
+
+
+
+

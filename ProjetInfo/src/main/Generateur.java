@@ -6,7 +6,6 @@ import javax.swing.Timer;
 
 
 /**
- * @author Mehdi
  *
  */
 /**Compteur interne ˆ la classe Carte
@@ -34,7 +33,7 @@ public class Generateur implements ActionListener{
 		
 		if(nbAleatoire == 0){
 			c.creerNouveauPatient();
-			System.out.println("PatientCree");
+			Fenetre.ecrire("Un Patient est apparu!");
 			c.repaint();
 		}
 	}		

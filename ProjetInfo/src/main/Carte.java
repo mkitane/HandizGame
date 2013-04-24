@@ -47,7 +47,10 @@ public class Carte extends JPanel{
 
 	  private ArrayList<ElementCarte> listeElements;
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
-	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
+	
+
+
+	private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  private Joueur joueur; 
 	    
 	  
@@ -164,6 +167,8 @@ public class Carte extends JPanel{
 	 * 
 	 */
 	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
 		for(ElementCarte a : lSol){
 			a.dessine(g);
 		}
@@ -221,6 +226,9 @@ public class Carte extends JPanel{
 	
 	public void removeObjet(ObjetRecuperable a){
 		listeElements.remove(a);
+	}
+	public void removeObjetListeObjetRecuperes(ObjetRecuperable a){
+		objetsRecuperes.remove(a);
 	}
 	public void addObjet(ObjetRecuperable a){
 		listeElements.add(a);
@@ -393,7 +401,9 @@ public class Carte extends JPanel{
 	
 	
 	
-	
+	  public ArrayList<ObjetRecuperable> getObjetsRecuperes() {
+			return objetsRecuperes;
+		}
 	
 	/*Ne sert plus a rien puisque l'on n'utilise plus le terminal comme moyen d'affichage
 	public String toString(){

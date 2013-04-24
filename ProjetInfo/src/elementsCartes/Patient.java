@@ -1,7 +1,6 @@
 package elementsCartes;
-import java.util.ArrayList;
-
 import main.Carte;
+import main.Fenetre;
 
 
 public class Patient extends ElementCarte {
@@ -52,8 +51,10 @@ public class Patient extends ElementCarte {
 		setImage("PatientMilieu");
 		
 		if(c.verifierProprietaire(this)){
-			System.out.println("Objet Donne");
+			Fenetre.ecrire("Merci!");
+
 			c.removeObjet(c.getObjet(this));
+			c.removeObjetListeObjetRecuperes(c.getObjet(this));
 			c.removePatient(this);	
 			if(!c.patientPresent()){
 				c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
@@ -61,9 +62,9 @@ public class Patient extends ElementCarte {
 			c.repaint();
 			
 		}else if(!verificateur){
-			System.out.println("Ramenne moi deja l'objet au lieu d'en redemander");
+			Fenetre.ecrire("Ramenne moi deja l'objet au lieu d'en redemander s'il te plait.");
 		}else{	
-			System.out.println("Va me rammener cet objet");
+			Fenetre.ecrire("Peut-tu me rammener cet objet s'il te plait?");
 			c.creerNouvelObjet(this);  //this: pour signifier que l'objet appartient a ce patient
 			verificateur=false;
 		}
