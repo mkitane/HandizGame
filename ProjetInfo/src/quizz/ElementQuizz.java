@@ -19,6 +19,7 @@ public class ElementQuizz {
 	 * Optionnel:Pourquoi la reponse est fausse ou juste
 	 */
 	private String explication; 
+
 	
 	
 	/**
@@ -37,6 +38,10 @@ public class ElementQuizz {
 
 	
 	
+	
+	public String toString(){
+		return question;
+	}
 	/**
 	 * Getter Theme
 	 * @return Theme
@@ -108,6 +113,7 @@ public class ElementQuizz {
 	public void setExplication(String explication) {
 		this.explication = explication;
 	}
+
 
 	
 	

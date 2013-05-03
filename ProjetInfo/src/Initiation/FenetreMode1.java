@@ -1,5 +1,6 @@
 package Initiation;
 
+import java.awt.AWTEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -36,6 +37,10 @@ public class FenetreMode1 extends JFrame {
     
     private JList jListTheme ;
     private JScrollPane listeThemeScroller;
+    
+    private JSplitPane jSplitPane2;
+    private JList jListQuestion;
+    private JScrollPane listeQuestionScroller;
 
     public FenetreMode1() {
     	listeElements=Quizz.listeElementQuizz;
@@ -44,23 +49,33 @@ public class FenetreMode1 extends JFrame {
     	jListTheme=new JList(listeThemes.toArray()); //On transforme notre listeDeThemes en tableau d'objets pour pouvoir instancier la liste
     	listeThemeScroller = new JScrollPane(jListTheme);
     	
+    	jListQuestion = new JList();
+    	listeQuestionScroller = new JScrollPane(jListQuestion);
+    	
     	jbInit();
      
     }
 
     private void jbInit() {
         setSize(new Dimension(642, 377));
-        jSplitPane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listeThemeScroller, jTextArea1);
-        jSplitPane1.setOneTouchExpandable(true);
 
         
+        jSplitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,listeQuestionScroller,jTextArea1);
+
+        jSplitPane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listeThemeScroller, jSplitPane2);
+        jSplitPane1.setOneTouchExpandable(true);
+        
         this.getContentPane().add(jSplitPane1);
+
         
+        ///Reglage jTextArea
+        jTextArea1.setOpaque(false);
+        jTextArea1.setLineWrap(true);  //Permet de sauter revenir a la ligne si la question est trop longue
+	    jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setEditable(false);
+
         //Reglages de la jListTheme
-        listeThemeScroller.setPreferredSize(new Dimension(150, 80));
-        listeThemeScroller.setBackground(Color.LIGHT_GRAY);
-        
-   
+        listeThemeScroller.setPreferredSize(new Dimension(150, 80));  
         jListTheme.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jListTheme.setBackground(Color.LIGHT_GRAY);
 
@@ -71,6 +86,21 @@ public class FenetreMode1 extends JFrame {
 			}
         });
         //Fin Reglage de la jListTheme
+        
+        //Reglages de la jListQuestion
+        listeQuestionScroller.setPreferredSize(new Dimension(150,80));
+        jListQuestion.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jListQuestion.setBackground(Color.LIGHT_GRAY);
+        
+        
+        jListQuestion.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				jListQuestionActionPerformed(e);
+			}
+        });
+        //Fin Reglage de la jListQuestion
+        
+        
     }
 
    
@@ -86,13 +116,65 @@ public class FenetreMode1 extends JFrame {
             if (jListTheme.getSelectedIndex() == -1) {
             	jTextArea1.setText("lol");
             } else {
-            	jTextArea1.setText((String) jListTheme.getSelectedValue());
+            	jListQuestion=new JList(trouverQuestions(String.valueOf(jListTheme.getSelectedValue())).toArray());
+            	listeQuestionScroller.setViewportView(jListQuestion);
 
+            	//On raffraichit l'actionListener
+            	 jListQuestion.addListSelectionListener(new ListSelectionListener() {
+         			public void valueChanged(ListSelectionEvent e) {
+         				jListQuestionActionPerformed(e);
+         			}
+                 });
             }
         }
     	
 	}
     
+    
+    
+    /**Action a effectuer quand on clique sur une des Questions
+     * 
+     * @param e
+     */
+	private void jListQuestionActionPerformed(ListSelectionEvent e) {
+		if (e.getValueIsAdjusting() == false) {
+
+            if (jListQuestion.getSelectedIndex() == -1) {
+            } else {
+            	//On trouve l'elementQuizz  selectionne
+            	ElementQuizz eQ = ((ElementQuizz) jListQuestion.getSelectedValue());
+            	
+            	String textAEcrire= eQ.getTheme() + "\n  *" + eQ.getQuestion() + "\n  *" + eQ.getExplication();
+
+            	//On affiche sur le jTextArea ce que l'on veut et qui correspond ˆ cet ElementQuizz
+            	jTextArea1.setText(textAEcrire);
+            }
+        }
+		
+	}
+    
+    
+    
+    
+   /** Trouve toutes les Questions correspondant ˆ un theme
+   * 
+   * @param theme
+   * @return
+   */
+    
+    private ArrayList<ElementQuizz> trouverQuestions(String theme){
+    	ArrayList<ElementQuizz> listQuestion = new ArrayList<ElementQuizz>();
+    	
+    	for(ElementQuizz a: listeElements){
+			if(a.getTheme().equals(theme)){
+				listQuestion.add(a);
+			}
+		}
+		return listQuestion;
+    	
+    }
+    
+
     /**
 	 * Remplit l'arrayList des themes pour savoir les themes qui ont etes lance pendant cette partie
 	 */
