@@ -7,6 +7,8 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import quizz.Quizz;
+
 
 public class modeInitiation1 {
     public modeInitiation1() {
@@ -30,6 +32,7 @@ public class modeInitiation1 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Quizz.initialiser();
         new modeInitiation1();
     }
 }
