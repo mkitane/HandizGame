@@ -11,7 +11,7 @@ import quizz.Quizz;
  */
 
 
-//Il reste Chrono ˆ implementer
+//Il reste Chrono ï¿½ implementer
 //Gestion des Objets
 //==>ne pas creer un objet dans un endroit deja rempli
 public class Main {
@@ -21,8 +21,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		Quizz.initialiser();
-		
-		Fenetre f = new Fenetre();
+		PanneauPrincipal p = new PanneauPrincipal();
 	}
 
 }
