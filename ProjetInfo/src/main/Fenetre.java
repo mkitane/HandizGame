@@ -15,6 +15,7 @@ import elementsCartes.Joueur;
 
 public class Fenetre extends JFrame implements KeyListener{
 	
+	private JPanel panelJeu = new JPanel();
 	private Carte jeu = new Carte();
 	private Chrono chrono= new Chrono(this);
 	private JPanel panelBas = new JPanel();
@@ -36,16 +37,20 @@ public class Fenetre extends JFrame implements KeyListener{
 	}
 
 	private void jbInit() {
+		
+		setContentPane(panelJeu);
 		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
-
-		setLayout(new BorderLayout());
-		add(chrono,BorderLayout.NORTH);
-		add(jeu,BorderLayout.CENTER);
-		add(panelBas,BorderLayout.SOUTH);
+		
+		panelJeu.setLayout(new BorderLayout());
+		panelJeu.add(chrono,BorderLayout.NORTH);
+		panelJeu.add(jeu,BorderLayout.CENTER);
+		panelJeu.add(panelBas,BorderLayout.SOUTH);
 		
 		panelBas.setLayout(new FlowLayout(15));
 		panelBas.add(boutonRetour);
 		panelBas.add(labelInfo);
+		
+		labelInfo.setForeground(Color.WHITE);
 	}
 
 	

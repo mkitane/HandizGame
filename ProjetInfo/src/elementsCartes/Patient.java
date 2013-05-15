@@ -50,7 +50,7 @@ public class Patient extends ElementCarte {
 		
 		setImage("PatientMilieu");
 		
-		if(c.verifierProprietaire(this)){
+		if(c.verifierProprietaire(this)){ //si on possede un objet dont ce patient est le proprietaire, on le lui rend
 			Fenetre.ecrire("Merci!");
 
 			c.removeObjet(c.getObjet(this));
@@ -60,10 +60,11 @@ public class Patient extends ElementCarte {
 				c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
 			}
 			c.repaint();
+			c.augmenteScore();
 			
-		}else if(!verificateur){
+		}else if(!verificateur){ 
 			Fenetre.ecrire("Ramenne moi deja l'objet au lieu d'en redemander s'il te plait.");
-		}else{	
+		}else{	 
 			Fenetre.ecrire("Peut-tu me rammener cet objet s'il te plait?");
 			c.creerNouvelObjet(this);  //this: pour signifier que l'objet appartient a ce patient
 			verificateur=false;
@@ -76,7 +77,7 @@ public class Patient extends ElementCarte {
 	
 	
 	
-	
+	/*Getters et Setters*/
 	public String toString(){
 		return "P";
 		

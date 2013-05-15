@@ -47,7 +47,6 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		if(compteur<=0){
 			System.exit(0);
-			;
 		}
 		
 		
@@ -57,50 +56,65 @@ public class Chrono extends JPanel implements ActionListener  {
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(imglisteObjets, 0, 3, 254, 45, null);
-		dessinerBarre(g);
-		
-		
 		g.setColor(Color.WHITE);
-		g.drawString(String.valueOf(compteur), f.getWidth()-260, 28);
+		dessinerBarre(g);
+		g.drawString(String.valueOf(f.getJeu().getScore()), f.getWidth()/2, 28);
+
 		
-		int i=3;
-		for(ObjetRecuperable a:f.getJeu().getObjetsRecuperes()){
-			if(f.getJeu().getObjetsRecuperes().indexOf(a)<6){
-			g.drawImage(a.getImage(), i, 9, 39,34,null);
-			i+=42;
-			}else{
-			g.drawString("..", 260, 28);
-				break;
-			}
-		}
+		dessinerObjets(g);
+		
+		
 		
 	}
 	
 	
-	public void dessinerBarre(Graphics g){
-		g.drawImage(imgBarreVide, f.getWidth()-230, 15, 209, 20, null);
-		
-		
-		if(compteur>197){
-			g.drawImage(imgdeltaFin,f.getWidth()-28,18,5,11,null);
+	private void dessinerBarre(Graphics g){
 
-			for(int i=0;i<197;i++){
-					g.drawImage(imgdelta, f.getWidth()-224+i, 19, 1, 11,null);
+		int x=f.getWidth()-240; 
+		int y=15; 
+		
+		g.drawImage(imgBarreVide, x, y, 212, 20, null);
+		
+		
+		if(compteur>200){
+
+			for(int i=0;i<200;i++){
+					g.drawImage(imgdelta, x+6+i, y+4, 1, 11,null);
 			}
 			
+			g.drawImage(imgdeltaFin,x+205,y+3,5,11,null);
+
 		}else{
 			
 			for(int i=0;i<compteur;i++){
-				g.drawImage(imgdelta, f.getWidth()-224+i, 19, 1, 11,null);
+				g.drawImage(imgdelta, x+6+i, y+4, 1, 11,null);
 			}
 			
+		}
+		
+		g.drawString(String.valueOf(compteur), x+212, y+13);
+		
+	}
+	
+	
+	private void dessinerObjets(Graphics g){
+
+		int x=3;
+		int y= 9;
+		
+		for(ObjetRecuperable a:f.getJeu().getObjetsRecuperes()){
+			if(f.getJeu().getObjetsRecuperes().indexOf(a)<6){
+			g.drawImage(a.getImage(), x, y, 39,34,null);
+			x+=42;
+			}else{
+			g.drawString("...", y+253, y+19);
+				break;
+			}
 		}
 	}
 	
 	
-	
-	
-	public void readImages(){
+	private void readImages(){
 		try {
 			imglisteObjets = ImageIO.read(new File("./images/listeObjets.png"));
 			imgBarreVide = ImageIO.read(new File("./images/BarreVide.png"));

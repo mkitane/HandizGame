@@ -17,8 +17,6 @@ abstract public class ElementCarte{
 	private int positionX;
 	/**La position verticale d'un element de la carte.Toujours positif*/
 	private int positionY;
-	/**Le nom de l'image qui correspond a l'element de la carte*/
-	private String nomImage;
 	/**l'image de l'element de la carte*/
     private Image img;
 
@@ -30,7 +28,6 @@ abstract public class ElementCarte{
 	public ElementCarte(int x,int y,String n){
 		positionX=x;
 		positionY=y;
-		nomImage=n;
 		setImage(n);
 	}
 	/**
@@ -56,7 +53,7 @@ abstract public class ElementCarte{
      * @param g le graphique java ou dessine l'image de la piece
      */
     public void dessine(Graphics g) {
-        if (this.nomImage != null) {
+        if (img != null) {
             g.drawImage(this.img, this.positionX * Carte.COTE, this.positionY * Carte.COTE, Carte.COTE,
             		Carte.COTE, null);
         }
@@ -89,9 +86,7 @@ abstract public class ElementCarte{
 	public void setPositionX(int x){
 		positionX=x;
 	}
-	public void setNomImage(String nomImage) {
-		this.nomImage = nomImage;
-	}
+
 
 
 
@@ -104,12 +99,7 @@ abstract public class ElementCarte{
 	public void setPositionY(int y){
 		positionY=y;
 	}
-	/** nomImage private. On utilise un setteur pour modifier la valeur
-	 * @param n
-	 */
-	public void setNom(String n){
-		n=nomImage;
-	}
+
 }
 	
 	

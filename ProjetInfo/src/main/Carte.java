@@ -2,12 +2,15 @@ package main;
 
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import elementsCartes.Canne;
 import elementsCartes.Chaise;
@@ -27,12 +30,9 @@ import elementsCartes.Obstacle;
 
 /**
  * Classe qui modelise le plateau du Jeu
- * @author Mehdi
- *
  */
 
 
-//Sera plus tard un JPanel
 public class Carte extends JPanel{
 	  /**
 	   * Caracteristiques de la carte
@@ -41,33 +41,33 @@ public class Carte extends JPanel{
 	  private int colonnes=10;  // nombre de colonnes
 	  public static final int COTE = 40; // Pour plus tard Taille des cases;  
 	  
-	  private Generateur generateurPatient = new Generateur(this);
+	  private Generateur generateurPatient = new Generateur();
+	  //Score de la partie
+	  	//Augmente quand on rend un objet � un patient
+	  	//Le temps quand � lui augmente quand on repond juste � une question et diminue quand on repond faux
+	  private int score = 0 ; 
 
-
-
+	  /**Liste des elements presents sur la carte*/
 	  private ArrayList<ElementCarte> listeElements;
+	  /**Liste des objets recuperes par le joueur*/
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
-	
-
-
-	private ArrayList<Sol> lSol = new ArrayList<Sol>();
+	  /**Liste contenant le sol*/
+	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
+	  /**Le Joueur*/
 	  private Joueur joueur; 
 	    
 	  
 	  
 	  
-		/**
-		 * Constructeur
-		 * Cree une carte avec ses objets et ses patients
-		 */
-	  public Carte(){
+	/**
+	* Constructeur
+	* Cree une carte avec ses objets et ses patients
+	*/
+	public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		chargerCarte("map.txt"); 
 		generateurPatient.start();
-		
-		
-		this.setLayout(new FlowLayout());
 	}
 
 	
@@ -115,7 +115,7 @@ public class Carte extends JPanel{
 			System.out.println("ChargementFini");
 			System.out.println("--------------------------");
 
-			//repaint();
+			repaint();
 		}
 
 	
@@ -216,32 +216,55 @@ public class Carte extends JPanel{
 
 
 	
+	/**
+	 * Augmente le score de 1 
+	 */
+	 public void augmenteScore(){
+		 score++;
+	 }
+	  
 	
-	
-	
-	
+	/**
+	 * Rajoute un objet a l'arrayList objetsRecuperes
+	 * @param a:l'objet a rajouter
+	 */
 	public void addObjetRecuperable(ObjetRecuperable a){
 		objetsRecuperes.add(a);
 	}
-	
-	public void removeObjet(ObjetRecuperable a){
-		listeElements.remove(a);
-	}
+	/**
+	 * Supprime un objet de l'arrayList objetsRecuperes
+	 * @param a : l'objet a supprimer
+	 */
 	public void removeObjetListeObjetRecuperes(ObjetRecuperable a){
 		objetsRecuperes.remove(a);
 	}
+	/**
+	 * Supprime un objet de la carte et donc de l'arrayList listeElements
+	 * @param a
+	 */
+	public void removeObjet(ObjetRecuperable a){
+		listeElements.remove(a);
+	}
+	/**
+	 * Ajoute un objet a la liste des elements
+	 * @param a
+	 */
 	public void addObjet(ObjetRecuperable a){
 		listeElements.add(a);
 	}
 	
+	/**
+	 * Supprime un patient de la liste des elements
+	 * @param a
+	 */
 	public void removePatient(Patient a){
 		listeElements.remove(a);
 	}
 	
-	/**Recupere lobjet qui appartient au bon patient
+	/**Recupere lobjet qui appartient au bon patient grace a son ID
 	 * 
-	 * @param p
-	 * @return
+	 * @param p le patient dont on veut recuperer l'objet
+	 * @return l'objet associe au bon patient
 	 */
 	public ObjetRecuperable getObjet(Patient p){
 		
@@ -253,6 +276,12 @@ public class Carte extends JPanel{
 		return null; 
 	}
 	
+	/**
+	 * Verifie si un objet qui appartient au patient entre en parametre est present dans la carte
+	 * @param p :  patient 
+	 * @return vrai si un objet appartenant a ce patient est present
+	 * 			faux si il n'y a pas d'objet appartenant a ce patient
+	 */
 	public boolean verifierProprietaire(Patient p){
 		
 		for(ObjetRecuperable a : objetsRecuperes){
@@ -267,7 +296,12 @@ public class Carte extends JPanel{
 	
 
 	
-	
+	/**
+	 * Recupere un element sur la carte en fonction de ses coordonnees
+	 * @param x ligne
+	 * @param y colonne
+	 * @return ElementCarte
+	 */
 	private ElementCarte recupererElement(int x,int y){
 
 		for(ElementCarte a : listeElements){
@@ -287,6 +321,12 @@ public class Carte extends JPanel{
 	}
 
 
+	/**
+	 * Recupere un element present dans la liste Elements en fonction de ses coordonnees
+	 * @param x ligne
+	 * @param y colonne
+	 * @return ElementCarte
+	 */
 	private ElementCarte getElement(int x, int y){
 
 		for(ElementCarte a : listeElements){
@@ -317,8 +357,22 @@ public class Carte extends JPanel{
 	public ArrayList<ElementCarte> getListeElements() {
 		return listeElements;
 	}
-
-
+	
+	public ArrayList<ObjetRecuperable> getObjetsRecuperes() {
+		return objetsRecuperes;
+	}
+	
+	public int getScore(){
+		  return score;
+	}
+	 
+	/**
+	 * Arrete le generateur de patients
+	 */
+	public void arreterGenerateur() {
+		generateurPatient.stop();
+	}
+	
 	/**Instancie un nouveau patient
 	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
 	 */
@@ -362,7 +416,7 @@ public class Carte extends JPanel{
 			}
 		}
 		
-
+		
 		ObjetRecuperable[] listeObjet = {new Canne(positionXObjet,positionYObjet,p),new Infirmier(positionXObjet,positionYObjet,p),new Lunette(positionXObjet,positionYObjet,p),new Prothese(positionXObjet,positionYObjet,p)};
 		
 		addObjet(choisirBonObjet(listeObjet,p));
@@ -375,14 +429,15 @@ public class Carte extends JPanel{
 	 * @return
 	 */
 	public ObjetRecuperable choisirBonObjet(ObjetRecuperable[] liste,Patient p){
-		ArrayList<ObjetRecuperable> l = new ArrayList<ObjetRecuperable>();
+		//On cree une liste qui contient les objets recuperable ayant le meme handicap que le patient
+		ArrayList<ObjetRecuperable> temp = new ArrayList<ObjetRecuperable>();
 		for(int i=0;i<liste.length;i++){
 			if(liste[i].getHandicapAssocie().equalsIgnoreCase(p.getHandicap())){
-				l.add(liste[i]);
+				temp.add(liste[i]);
 			}
 		}
 		
-		return l.get((int) (l.size()*Math.random()));
+		return temp.get((int) (temp.size()*Math.random()));
 	}
 	
 	
@@ -401,9 +456,7 @@ public class Carte extends JPanel{
 	
 	
 	
-	  public ArrayList<ObjetRecuperable> getObjetsRecuperes() {
-			return objetsRecuperes;
-		}
+
 	
 	/*Ne sert plus a rien puisque l'on n'utilise plus le terminal comme moyen d'affichage
 	public String toString(){
@@ -463,9 +516,60 @@ public class Carte extends JPanel{
 	}
 
 	*/
+	  
 	
+	 
+	
+	  /**Compteur interne � la classe Carte.
+	  * Il Permet de generer des patients aleatoirements
+	  */
+	  private class Generateur implements ActionListener{
 
+			private Timer t = new Timer(1000,this);
+			/**Variable qui indique la chance de creer un patient*/
+			private int chance = 30 ; 
+			
+			public Generateur(){}
 
+			/**Lance le timer*/
+			public void start(){
+				t.start();
+			}
+
+			/**Arrete le timer*/
+			public void stop(){
+				t.stop();
+			}
+			
+			
+			public void actionPerformed(ActionEvent e) {
+
+				
+				//Une chance sur 30 de creer un patient
+				int nbAleatoire = (int) (Math.random()*chance);
+				
+				if(nbAleatoire == 0){
+					creerNouveauPatient();
+					Fenetre.ecrire("Un Patient est apparu!");
+					repaint();
+				}
+				
+				
+				//Si le score augmente, on augmente la difficulte
+				if(score == 10){
+					//Plus de patients apparaissent
+					chance=20;
+					Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+				}else if (score == 20){
+					chance = 15; 
+					Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+
+				}
+				
+			}		
+			
+
+		}
 
 	
 }

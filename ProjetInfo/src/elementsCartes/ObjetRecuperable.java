@@ -7,10 +7,14 @@ import quizz.Quizz;
  * @author bprely
  *
  */
-public class ObjetRecuperable extends ElementCarte{
+public abstract class ObjetRecuperable extends ElementCarte{
+	/**Chaque objet possed un patient qui l'instancie, d'ou la variable proprietaire
+	 * Elle permet de reconnaitre le proprietaire de chaque Objet
+	 */
 	private Patient proprietaire;
+	/**Chaque objet est associe a un handicap, ce qui a chaque patient d'instancier un objet qui possede le meme handicap que lui */
 	private String handicapAssocie; 
-	/**Permet de ne pas lancer plusieurs Quizz*/
+	/**Boolean qui Permet de ne pas lancer plusieurs Quizz*/
 	private boolean verificateur=true;
 
 	/**
@@ -37,6 +41,10 @@ public class ObjetRecuperable extends ElementCarte{
 	 * 			(chrono.setTime(chrono.getTime()-5));
 	 * 
 	 */
+	/**
+	 * Action effectuee quand un objet est ramasse
+	 * @param c : Carte que l'on modifie 
+	 */
 	public void estRamasse(Carte c) {
 		if(verificateur){
 		String theme = proprietaire.getHandicap();
@@ -49,7 +57,7 @@ public class ObjetRecuperable extends ElementCarte{
 		
 	
 	
-	
+	/*Getters et setters*/
 	public Patient getProprietaire() {
 		return proprietaire;
 	}
