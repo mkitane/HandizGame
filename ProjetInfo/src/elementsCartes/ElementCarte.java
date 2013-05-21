@@ -87,12 +87,6 @@ abstract public class ElementCarte{
 		positionX=x;
 	}
 
-
-
-
-
-
-
 	/** positionY  private. On utilise un setteur pour modifier la valeur
 	 * @param y
 	 */

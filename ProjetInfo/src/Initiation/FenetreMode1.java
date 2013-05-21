@@ -1,6 +1,7 @@
 package Initiation;
 
 import java.awt.AWTEvent;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -31,13 +32,15 @@ public class FenetreMode1 extends JFrame {
 	private ArrayList<ElementQuizz> listeElements;
 	private ArrayList<String> listeThemes=new ArrayList<String>();
 
-	
     private JSplitPane jSplitPane1;
+    
     private JTextArea jTextArea1 = new JTextArea();
+    private JScrollPane scrollText = new JScrollPane(jTextArea1);
     
     private JList jListTheme ;
     private JScrollPane listeThemeScroller;
     
+	private JPanel panelSplitPane2 = new JPanel();
     private JSplitPane jSplitPane2;
     private JList jListQuestion;
     private JScrollPane listeQuestionScroller;
@@ -57,19 +60,20 @@ public class FenetreMode1 extends JFrame {
     }
 
     private void jbInit() {
-        setSize(new Dimension(642, 377));
+        setSize(800,500);
 
-        
-        jSplitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,listeQuestionScroller,jTextArea1);
-
-        jSplitPane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listeThemeScroller, jSplitPane2);
+        scrollText.setPreferredSize(new Dimension(300,500));
+        jSplitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,listeQuestionScroller,scrollText);
+        panelSplitPane2.setLayout(new BorderLayout());
+        panelSplitPane2.add(jSplitPane2);
+        jSplitPane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listeThemeScroller, panelSplitPane2);
         jSplitPane1.setOneTouchExpandable(true);
         
         this.getContentPane().add(jSplitPane1);
 
         
         ///Reglage jTextArea
-        jTextArea1.setOpaque(false);
+        jTextArea1.setOpaque(true);
         jTextArea1.setLineWrap(true);  //Permet de sauter revenir a la ligne si la question est trop longue
 	    jTextArea1.setWrapStyleWord(true);
         jTextArea1.setEditable(false);
@@ -88,7 +92,7 @@ public class FenetreMode1 extends JFrame {
         //Fin Reglage de la jListTheme
         
         //Reglages de la jListQuestion
-        listeQuestionScroller.setPreferredSize(new Dimension(150,80));
+        listeQuestionScroller.setPreferredSize(new Dimension(250,100));
         jListQuestion.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jListQuestion.setBackground(Color.LIGHT_GRAY);
         
@@ -100,8 +104,7 @@ public class FenetreMode1 extends JFrame {
         });
         //Fin Reglage de la jListQuestion
         
-        
-    }
+       }
 
    
     

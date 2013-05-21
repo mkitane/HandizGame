@@ -82,7 +82,8 @@ public class Quizz extends JFrame implements KeyListener{
 		objetAssocieAuQuizz=o;
 		
 		jbInit();
-		
+		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+
 	}
 	
 	
@@ -139,13 +140,12 @@ public class Quizz extends JFrame implements KeyListener{
         /*Changement du look de la fenetre*/
 
         Point p=c.getLocationOnScreen();
-        p.translate(0, c.getHeight()-200);
+        p.translate(0, c.getHeight()-150);
         setLocation(p);
         setUndecorated(true);
 
         
-        //enleve le keyListener pour empecher le joueur de jouer derriere
-        c.getRootPane().getParent().removeKeyListener(((Fenetre) c.getRootPane().getParent()));
+
 		setVisible(true);
 
 	
@@ -159,9 +159,7 @@ public class Quizz extends JFrame implements KeyListener{
 			
 		
 			
-			
-			//remet le keyListener pour permetre le joueur de jouer derriere
-		    c.getRootPane().getParent().addKeyListener(((Fenetre) c.getRootPane().getParent()));
+	
 			
 			
 			//Verifie si le JButtoncorrespond ˆ la bonne reponse
@@ -170,13 +168,14 @@ public class Quizz extends JFrame implements KeyListener{
 				if(e.getSource()==tableauDesReponses[i]){
 					
 					
-					if(verifierReponse(eQ.getListeReponse().get(i))){
+					if(verifierReponse(eQ.getListeReponse().get(i))){  //si c'est la bonne reponse
 						
 						Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
 
 						((Fenetre) c.getRootPane().getParent()).getChrono().incremente();
 						c.addObjetRecuperable(objetAssocieAuQuizz);
 						c.removeObjet(objetAssocieAuQuizz);
+						c.addBonneReponse(eQ);
 						
 					}else{
 
@@ -186,6 +185,8 @@ public class Quizz extends JFrame implements KeyListener{
 						if(!c.patientPresent()){
 							c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
 						}		
+						c.addMauvaiseReponse(eQ);
+
 						
 						
 						//Effet visuel pour savoir que la reponse est fausse; 

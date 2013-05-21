@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import quizz.ElementQuizz;
+
 import elementsCartes.Canne;
 import elementsCartes.Chaise;
 import elementsCartes.ElementCarte;
@@ -39,7 +41,8 @@ public class Carte extends JPanel{
 	   */
 	  private int lignes = 10;  // nombre de lignes
 	  private int colonnes=10;  // nombre de colonnes
-	  public static final int COTE = 40; // Pour plus tard Taille des cases;  
+	  public static final int COTE = 35; // Pour plus tard Taille des cases;  
+	  public static String niveau = "map.txt";
 	  
 	  private Generateur generateurPatient = new Generateur();
 	  //Score de la partie
@@ -55,7 +58,10 @@ public class Carte extends JPanel{
 	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  /**Le Joueur*/
 	  private Joueur joueur; 
-	    
+	  
+	  /**Permet de calculer les scores ensuite*/
+	  private ArrayList<ElementQuizz> listeBonnesReponses = new ArrayList<ElementQuizz>(); 
+	  private ArrayList<ElementQuizz> listeMauvaisesReponses= new ArrayList<ElementQuizz>();	  
 	  
 	  
 	  
@@ -66,7 +72,7 @@ public class Carte extends JPanel{
 	public Carte(){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
-		chargerCarte("map.txt"); 
+		chargerCarte(niveau); 
 		generateurPatient.start();
 	}
 
@@ -261,6 +267,17 @@ public class Carte extends JPanel{
 		listeElements.remove(a);
 	}
 	
+	/**ajoute une bonne reponse a larraylist bonne reponse*/
+	public void addBonneReponse(ElementQuizz e){
+		listeBonnesReponses.add(e);
+	}
+	
+	/**ajoute une mauvaise reponse a larraylist bonne reponse*/
+	public void addMauvaiseReponse(ElementQuizz e){
+		listeMauvaisesReponses.add(e);
+	}
+	
+	
 	/**Recupere lobjet qui appartient au bon patient grace a son ID
 	 * 
 	 * @param p le patient dont on veut recuperer l'objet
@@ -365,12 +382,26 @@ public class Carte extends JPanel{
 	public int getScore(){
 		  return score;
 	}
+	
+	  public ArrayList<ElementQuizz> getListeBonnesReponses() {
+		return listeBonnesReponses;
+	}
+
+
+
+
+	public ArrayList<ElementQuizz> getListeMauvaisesReponses() {
+		return listeMauvaisesReponses;
+	}
+
+
+	
 	 
 	/**
 	 * Arrete le generateur de patients
 	 */
 	public void arreterGenerateur() {
-		generateurPatient.stop();
+		generateurPatient.arret();
 	}
 	
 	/**Instancie un nouveau patient
@@ -523,49 +554,54 @@ public class Carte extends JPanel{
 	  /**Compteur interne � la classe Carte.
 	  * Il Permet de generer des patients aleatoirements
 	  */
-	  private class Generateur implements ActionListener{
+	  private class Generateur extends Thread{
 
-			private Timer t = new Timer(1000,this);
 			/**Variable qui indique la chance de creer un patient*/
-			private int chance = 30 ; 
+			private int chance = 1 ; 
+			private boolean running = true;
+
 			
 			public Generateur(){}
 
-			/**Lance le timer*/
-			public void start(){
-				t.start();
-			}
-
 			/**Arrete le timer*/
-			public void stop(){
-				t.stop();
+			public void arret(){
+				running = false;
 			}
 			
 			
-			public void actionPerformed(ActionEvent e) {
+			public void run() {
 
+				while(running){
+							
+					//Une chance sur 30 de creer un patient
+					int nbAleatoire = (int) (Math.random()*chance);
 				
-				//Une chance sur 30 de creer un patient
-				int nbAleatoire = (int) (Math.random()*chance);
+					if(nbAleatoire == 0){
+						creerNouveauPatient();
+						Fenetre.ecrire("Un Patient est apparu!");
+						repaint();
+					}
 				
-				if(nbAleatoire == 0){
-					creerNouveauPatient();
-					Fenetre.ecrire("Un Patient est apparu!");
-					repaint();
+				
+					//Si le score augmente, on augmente la difficulte
+					if(score == 10){
+						//Plus de patients apparaissent
+						chance=20;
+						Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+					}else if (score == 20){
+						chance = 15; 
+						Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+					}
+					
+					
+					try {
+						sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 				}
-				
-				
-				//Si le score augmente, on augmente la difficulte
-				if(score == 10){
-					//Plus de patients apparaissent
-					chance=20;
-					Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-				}else if (score == 20){
-					chance = 15; 
-					Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-
-				}
-				
 			}		
 			
 

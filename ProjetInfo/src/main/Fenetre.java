@@ -19,7 +19,7 @@ public class Fenetre extends JFrame implements KeyListener{
 	private Carte jeu = new Carte();
 	private Chrono chrono= new Chrono(this);
 	private JPanel panelBas = new JPanel();
-	private JButton boutonRetour = new JButton("Retour Acceuil");
+	private JButton boutonRetour = new JButton("Retour Accueil");
 	private static JLabel labelInfo = new JLabel();
 	
 	public Fenetre(){
@@ -27,6 +27,7 @@ public class Fenetre extends JFrame implements KeyListener{
 		setTitle("HandizGame");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(300,0);
+        setResizable(false);
         jbInit();
         
         boutonRetour.addKeyListener(this);

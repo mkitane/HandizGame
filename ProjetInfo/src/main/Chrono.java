@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.KeyboardFocusManager;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -19,8 +21,9 @@ import elementsCartes.ObjetRecuperable;
 
 public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
+	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=200;
+	private int compteur=2;
 
 	private Image imglisteObjets;
 	private Image imgBarreVide;
@@ -29,6 +32,8 @@ public class Chrono extends JPanel implements ActionListener  {
 	
 	public Chrono(Fenetre f){
 		this.f=f;
+		c=f.getJeu();
+		
 		readImages();
 		this.setPreferredSize(new Dimension(625,50));
 		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
@@ -46,7 +51,17 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		
 		if(compteur<=0){
-			System.exit(0);
+			f.setContentPane(new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses()));
+			c.arreterGenerateur();
+			stop();
+			f.validate();
+			
+			//on recuperer la fenetre active
+			Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
+			if(x.getClass().getName().equals("quizz.Quizz")){
+				x.dispose();
+			}
+			
 		}
 		
 		
@@ -58,11 +73,10 @@ public class Chrono extends JPanel implements ActionListener  {
 		g.drawImage(imglisteObjets, 0, 3, 254, 45, null);
 		g.setColor(Color.WHITE);
 		dessinerBarre(g);
-		g.drawString(String.valueOf(f.getJeu().getScore()), f.getWidth()/2, 28);
+		g.drawString(String.valueOf(c.getScore()), f.getWidth()/2, 28);
 
 		
 		dessinerObjets(g);
-		
 		
 		
 	}
@@ -102,8 +116,8 @@ public class Chrono extends JPanel implements ActionListener  {
 		int x=3;
 		int y= 9;
 		
-		for(ObjetRecuperable a:f.getJeu().getObjetsRecuperes()){
-			if(f.getJeu().getObjetsRecuperes().indexOf(a)<6){
+		for(ObjetRecuperable a:c.getObjetsRecuperes()){
+			if(c.getObjetsRecuperes().indexOf(a)<6){
 			g.drawImage(a.getImage(), x, y, 39,34,null);
 			x+=42;
 			}else{
@@ -131,6 +145,9 @@ public class Chrono extends JPanel implements ActionListener  {
 		t.start();
 	}
 	
+	public void stop(){
+		t.stop();
+	}
 	public void incremente(){
 		compteur+=10;
 	}
