@@ -5,8 +5,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -27,7 +29,7 @@ import quizz.Quizz;
 
 
 
-public class FenetreMode1 extends JFrame {
+public class FenetreMode1 extends JPanel {
 
 	private ArrayList<ElementQuizz> listeElements;
 	private ArrayList<String> listeThemes=new ArrayList<String>();
@@ -60,7 +62,7 @@ public class FenetreMode1 extends JFrame {
     }
 
     private void jbInit() {
-        setSize(800,500);
+        //setSize(800,500);
 
         scrollText.setPreferredSize(new Dimension(300,500));
         jSplitPane2 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,listeQuestionScroller,scrollText);
@@ -69,7 +71,7 @@ public class FenetreMode1 extends JFrame {
         jSplitPane1= new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, listeThemeScroller, panelSplitPane2);
         jSplitPane1.setOneTouchExpandable(true);
         
-        this.getContentPane().add(jSplitPane1);
+        this.add(jSplitPane1);
 
         
         ///Reglage jTextArea
@@ -146,10 +148,12 @@ public class FenetreMode1 extends JFrame {
             } else {
             	//On trouve l'elementQuizz  selectionne
             	ElementQuizz eQ = ((ElementQuizz) jListQuestion.getSelectedValue());
+				
+				
             	
-            	String textAEcrire= eQ.getTheme() + "\n  *" + eQ.getQuestion() + "\n  *" + eQ.getExplication();
+            	String textAEcrire= "Votre ThÃ¨me:\n"+eQ.getTheme() + "\nVotreQuestion:\n" + eQ.getQuestion() + "\nEt voici l'explication:" + eQ.getExplication();
 
-            	//On affiche sur le jTextArea ce que l'on veut et qui correspond ˆ cet ElementQuizz
+            	//On affiche sur le jTextArea ce que l'on veut et qui correspond ï¿½ cet ElementQuizz
             	jTextArea1.setText(textAEcrire);
             }
         }
@@ -159,7 +163,7 @@ public class FenetreMode1 extends JFrame {
     
     
     
-   /** Trouve toutes les Questions correspondant ˆ un theme
+   /** Trouve toutes les Questions correspondant ï¿½ un theme
    * 
    * @param theme
    * @return
