@@ -23,7 +23,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=2;
+	private int compteur=200;
 
 	private Image imglisteObjets;
 	private Image imgBarreVide;

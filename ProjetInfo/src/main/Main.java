@@ -21,7 +21,11 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		Quizz.initialiser();
-		PanneauPrincipal p = new PanneauPrincipal();
+		//PanneauPrincipal p = new PanneauPrincipal();
+		
+		new FrameLevel();
+		
+		//new Fenetre();
 	}
 
 }

@@ -52,6 +52,7 @@ public class Fenetre extends JFrame implements KeyListener{
 		panelBas.add(labelInfo);
 		
 		labelInfo.setForeground(Color.WHITE);
+		panelBas.setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
 	}
 
 	
