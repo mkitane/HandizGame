@@ -42,7 +42,7 @@ public class Carte extends JPanel{
 	  private int lignes = 10;  // nombre de lignes
 	  private int colonnes=10;  // nombre de colonnes
 	  public static final int COTE = 35; // Pour plus tard Taille des cases;  
-	  public static String niveau = "map.txt";
+	  public static String niveau = "niveau1.txt";
 	  
 	  private Generateur generateurPatient = new Generateur();
 	  //Score de la partie
@@ -557,7 +557,7 @@ public class Carte extends JPanel{
 	  private class Generateur extends Thread{
 
 			/**Variable qui indique la chance de creer un patient*/
-			private int chance = 1 ; 
+			private int chance = 30 ; 
 			private boolean running = true;
 
 			

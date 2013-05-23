@@ -55,7 +55,7 @@ public class FrameLevel extends JFrame {
         getContentPane().setBackground(Color.CYAN);		
         
         //modification label
-        labelNiveau.setText("Bienvenue dans l'univers HandizGame : Veuillez choisir l'environnement dans lequel vous souhaitez évoluer.");
+        labelNiveau.setText("Bienvenue dans l'univers HandizGame : Veuillez choisir l'environnement dans lequel vous souhaitez evoluer.");
         
      
         
@@ -73,29 +73,41 @@ public class FrameLevel extends JFrame {
         panneauNiveau.add(niveau4);
 
         //modifications boutons
-        niveau1.setText("1");
+        /*niveau1.setText("1");
         niveau2.setText("Niveau 2");
         niveau3.setText("Niveau 3");
-        niveau4.setText("Niveau 4");
+        niveau4.setText("Niveau 4");*/
      
      
-     
-        //ajout d'une image de fond pour les boutons
+        niveau1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				Carte.niveau="niveau1.txt";	
+			}
+        });
+
+        niveau2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				Carte.niveau="niveau2.txt";			
+			}
+        });
+
+        niveau3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				Carte.niveau="niveau3.txt";
+			}
+        });
+
+        niveau4.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				Carte.niveau="niveau4.txt";
+			}
+        });
 
      
         
         setVisible(true);
     }
 
-    private void niv1_actionPerformed(ActionEvent e) {
-        //Carte.niveau="niveau1.txt";
-    }
 
-    private void niv2_actionPerformed(ActionEvent e) {
-        //Carte.niveau="niveau2.txt";
-    }
-
-    private void niv3_actionPerformed(ActionEvent e) {
-        //Carte.niveau="niveau3.txt";
-    }
+    
 }

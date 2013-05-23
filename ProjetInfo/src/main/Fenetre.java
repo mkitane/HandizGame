@@ -23,11 +23,11 @@ public class Fenetre extends JFrame implements KeyListener{
 	private static JLabel labelInfo = new JLabel();
 	
 	public Fenetre(){
-		setSize(Carte.COTE*15,Carte.COTE*15+73+35);
+		setSize(Carte.COTE*25,Carte.COTE*15+73+35);
 		setTitle("HandizGame");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(300,0);
-        setResizable(false);
+        //setResizable(false);
         jbInit();
         
         boutonRetour.addKeyListener(this);
