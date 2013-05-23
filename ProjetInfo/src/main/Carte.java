@@ -29,6 +29,7 @@ import elementsCartes.Prothese;
 import elementsCartes.Sol;
 import elementsCartes.Table;
 import elementsCartes.Obstacle;
+import elementsCartes.Toilettes;
 
 /**
  * Classe qui modelise le plateau du Jeu
@@ -39,8 +40,8 @@ public class Carte extends JPanel{
 	  /**
 	   * Caracteristiques de la carte
 	   */
-	  private int lignes = 10;  // nombre de lignes
-	  private int colonnes=10;  // nombre de colonnes
+	  private int lignes = 15;  // nombre de lignes
+	  private int colonnes=25;  // nombre de colonnes
 	  public static final int COTE = 35; // Pour plus tard Taille des cases;  
 	  public static String niveau = "niveau1.txt";
 	  
@@ -93,15 +94,15 @@ public class Carte extends JPanel{
 		      
 		        while ((l= br.readLine()) != null ) {
 		        	if(ligneFichier==0){
-		        		this.lignes=Integer.parseInt(l);
-		        	}else if(ligneFichier==1){
 		        		this.colonnes=Integer.parseInt(l);
+		        	}else if(ligneFichier==1){
+		        		this.lignes=Integer.parseInt(l);
 		        		
 		        		
 		        		//Ajouter du sol partout
 		        		  for(int k=0;k<lignes;k++){
 		      	        	for(int j=0;j<colonnes;j++){
-		      					lSol.add(new Sol(k,j));
+		      					lSol.add(new Sol(j,k));
 		      	        	}
 		      	        }
 		        		
@@ -151,6 +152,9 @@ public class Carte extends JPanel{
 				}
 				if(c=='T'){
 					listeElements.add(new Table(j,positionLigne));
+				}
+				if(c=='X'){
+					listeElements.add(new Toilettes(j,positionLigne));
 				}
 				if(c=='J'){
 					joueur=new Joueur(j,positionLigne);
@@ -206,6 +210,7 @@ public class Carte extends JPanel{
 			}else if(direction==Joueur.RIGHT){
 			e = recupererElement(joueur.getPositionX()+1,joueur.getPositionY());
 			}
+			
 			
 			if(e instanceof Obstacle){
 
@@ -423,6 +428,7 @@ public class Carte extends JPanel{
 		
 		
 		Patient p = new Patient(positionXObjet,positionYObjet);
+		Fenetre.ecrire("Un Patient est apparu!");
 		listeElements.add(p);
 		System.out.println("PatientCree");
 	}
@@ -557,7 +563,7 @@ public class Carte extends JPanel{
 	  private class Generateur extends Thread{
 
 			/**Variable qui indique la chance de creer un patient*/
-			private int chance = 30 ; 
+			private int chance = 20 ; 
 			private boolean running = true;
 
 			
@@ -578,7 +584,6 @@ public class Carte extends JPanel{
 				
 					if(nbAleatoire == 0){
 						creerNouveauPatient();
-						Fenetre.ecrire("Un Patient est apparu!");
 						repaint();
 					}
 				
@@ -597,7 +602,6 @@ public class Carte extends JPanel{
 					try {
 						sleep(1000);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					
