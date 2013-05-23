@@ -82,24 +82,32 @@ public class FrameLevel extends JFrame {
         niveau1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau1.txt";	
+				dispose();
+				new Fenetre();
 			}
         });
 
         niveau2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau="niveau2.txt";			
+				Carte.niveau="niveau2.txt";		
+				new Fenetre();
+				dispose();
 			}
         });
 
         niveau3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau3.txt";
+				new Fenetre();
+				dispose();
 			}
         });
 
         niveau4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau4.txt";
+				new Fenetre();
+				dispose();
 			}
         });
 

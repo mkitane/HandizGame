@@ -25,7 +25,7 @@ public class Main {
 		
 		new FrameLevel();
 		
-		new Fenetre();
+		//new Fenetre();
 	}
 
 }
