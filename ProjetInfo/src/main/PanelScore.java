@@ -33,7 +33,7 @@ public class PanelScore extends JPanel {
 	
 	public PanelScore(ArrayList<ElementQuizz> lB,ArrayList<ElementQuizz> lM){
 		readImages();
-		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+		setBackground(Fenetre.GRIS);
 
 		listeBonnesReponses=lB;
 		listeMauvaisesReponses=lM;
@@ -53,7 +53,7 @@ public class PanelScore extends JPanel {
 		this.add(panelBtn,BorderLayout.SOUTH);
 		panelBtn.add(labelThemeLacune);
 		panelBtn.add(btnRetour);
-		panelBtn.setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+		panelBtn.setBackground(Fenetre.GRIS);
 		
 		
 	

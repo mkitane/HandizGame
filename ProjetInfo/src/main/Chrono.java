@@ -23,7 +23,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=2000000000;
+	private int compteur=200;
 
 	private Image imglisteObjets;
 	private Image imgBarreVide;
@@ -36,7 +36,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		readImages();
 		this.setPreferredSize(new Dimension(625,50));
-		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+		setBackground(Fenetre.GRIS);
 	}
 
 	
@@ -84,7 +84,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	
 	private void dessinerBarre(Graphics g){
 
-		int x=f.getWidth()-240; 
+		int x=f.getWidth()-250; 
 		int y=15; 
 		
 		g.drawImage(imgBarreVide, x, y, 212, 20, null);

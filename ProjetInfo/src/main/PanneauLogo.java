@@ -20,7 +20,7 @@ public class PanneauLogo extends JPanel {
 
 		int positionX = this.getWidth();
 		int positionY = this.getHeight();
-		g.drawImage(imgLogo, 20, 20, positionX-200, positionY-100, null);
+		g.drawImage(imgLogo, 80, 20, positionX-300, positionY-100, null);
 	}
 	
 	

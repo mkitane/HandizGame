@@ -28,12 +28,18 @@ import java.awt.GridLayout;
 public class FrameLevel extends JFrame {
 	private BorderLayout bl = new BorderLayout();
 	private JPanel panneauNiveau = new JPanel();    
-	private JLabel labelNiveau = new JLabel();
+	private JLabel labelNiveau = new JLabel("Bienvenue dans l'univers HandizGame : Veuillez choisir l'environnement dans lequel vous souhaitez evoluer.",JLabel.CENTER);
+	private JPanel panneauGauche = new JPanel();
+	private JPanel panneauDroit = new JPanel();
+	private JPanel panneauBas = new JPanel();
+	private JButton boutonRetour = new JButton("Retour Accueil");
+
+	
 	private GridLayout gl = new GridLayout();
-    private BoutonNiveau niveau1 = new BoutonNiveau("Mur.png");
-    private BoutonNiveau niveau2 = new BoutonNiveau("Mur.png");
-    private BoutonNiveau niveau3 = new BoutonNiveau("Mur.png");
-    private BoutonNiveau niveau4 = new BoutonNiveau("Mur.png");
+    private BoutonNiveau niveau1 = new BoutonNiveau("niveau1.png");
+    private BoutonNiveau niveau2 = new BoutonNiveau("niveau2.png");
+    private BoutonNiveau niveau3 = new BoutonNiveau("niveau3.png");
+    private BoutonNiveau niveau4 = new BoutonNiveau("niveau4.png");
 
     public FrameLevel() {
         try {
@@ -47,15 +53,34 @@ public class FrameLevel extends JFrame {
         
     	this.getContentPane().setLayout(bl);
         this.setTitle("Choix du Niveau");
-        this.setSize(new Dimension(761, 397));
+		setSize(Carte.COTE*25,Carte.COTE*15+73+40);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        
         this.getContentPane().add(labelNiveau, BorderLayout.NORTH);
         this.getContentPane().add(panneauNiveau, BorderLayout.CENTER); 
-        panneauNiveau.setBackground(Color.CYAN);
-        getContentPane().setBackground(Color.CYAN);		
+        
+        //Personnalisqtion Panneaux pour le vide
+        this.getContentPane().add(panneauBas, BorderLayout.SOUTH); 
+        this.getContentPane().add(panneauDroit, BorderLayout.EAST); 
+        this.getContentPane().add(panneauGauche, BorderLayout.WEST); 
+        
+        panneauBas.setPreferredSize(new Dimension(20,33));
+        panneauDroit.setPreferredSize(new Dimension(20,20));
+        panneauGauche.setPreferredSize(new Dimension(20,20));
+
+        panneauBas.setOpaque(false);
+        panneauDroit.setOpaque(false);
+        panneauGauche.setOpaque(false);
+
+        panneauBas.add(boutonRetour);
+        
+        panneauNiveau.setBackground(Fenetre.GRIS);
+        getContentPane().setBackground(Fenetre.GRIS);		
         
         //modification label
-        labelNiveau.setText("Bienvenue dans l'univers HandizGame : Veuillez choisir l'environnement dans lequel vous souhaitez evoluer.");
+        labelNiveau.setPreferredSize(new Dimension(800,30));
+        labelNiveau.setForeground(Color.white);
         
      
         
@@ -63,8 +88,8 @@ public class FrameLevel extends JFrame {
         panneauNiveau.setLayout(gl); //
         gl.setColumns(2);
         gl.setRows(2);
-        gl.setHgap(35);
-        gl.setVgap(35);
+        gl.setHgap(30);
+        gl.setVgap(30);
         
         //ajout des boutons 
         panneauNiveau.add(niveau1);

@@ -10,12 +10,12 @@ public class PanneauPrincipal extends JFrame {
 	private JButton bouton1 =new JButton("Mode Initiation");
 	private JButton bouton2 =new JButton("Mode Jeu");
 	private JButton bouton3 =new JButton("Choix niveau");
-	private JLabel bienvenue=new JLabel("Bienvenue au jeu ! Amusez vous bien =]");
+	private JLabel bienvenue=new JLabel("Bienvenue au jeu ! Amusez vous bien =]", JLabel.CENTER);
 	
 	
 	public PanneauPrincipal(){
 		setTitle("HandizGame");
-		setSize(500,500);
+		setSize(Carte.COTE*25,Carte.COTE*15+73+40);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jbInit();
    
@@ -25,17 +25,17 @@ public class PanneauPrincipal extends JFrame {
 	private void jbInit() {
 		
 		this.setContentPane(panel);
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Fenetre.GRIS);
 		panel.setLayout(new BorderLayout());
 		panel.add(panneauboutons, BorderLayout.EAST);
 		panel.add(panBienvenue, BorderLayout.NORTH);
 		panBienvenue.setPreferredSize(new Dimension(50,60));
-		panBienvenue.setBackground(Color.white);
+		panBienvenue.setOpaque(false);
 		panBienvenue.setLayout(new BorderLayout());
 		panBienvenue.add(bienvenue, BorderLayout.CENTER);
 		
 		
-		panneauboutons.setBackground(Color.white);
+		panneauboutons.setOpaque(false);
 	
 		panneauboutons.setPreferredSize(new Dimension(150,600));
 		panneauboutons.setLayout(new FlowLayout());
@@ -44,7 +44,10 @@ public class PanneauPrincipal extends JFrame {
 		bouton3.setPreferredSize(new Dimension(140,60));
 		panneauboutons.add(bouton1);
 		panneauboutons.add(bouton2);
-		panneauboutons.add(bouton3);		
+		panneauboutons.add(bouton3);	
+		
+		
+		bienvenue.setForeground(Color.white);
 		
 	}
 

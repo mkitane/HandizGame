@@ -21,13 +21,15 @@ public class Fenetre extends JFrame implements KeyListener{
 	private JPanel panelBas = new JPanel();
 	private JButton boutonRetour = new JButton("Retour Accueil");
 	private static JLabel labelInfo = new JLabel();
+	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42"));
+	
 	
 	public Fenetre(){
-		setSize(Carte.COTE*25,Carte.COTE*15+73+35);
+		setSize(Carte.COTE*25,Carte.COTE*15+73+40);
 		setTitle("HandizGame");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(300,0);
-        //setResizable(false);
+        setResizable(false);
         jbInit();
         
         boutonRetour.addKeyListener(this);
@@ -40,7 +42,7 @@ public class Fenetre extends JFrame implements KeyListener{
 	private void jbInit() {
 		
 		setContentPane(panelJeu);
-		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+		setBackground(GRIS);
 		
 		panelJeu.setLayout(new BorderLayout());
 		panelJeu.add(chrono,BorderLayout.NORTH);
@@ -52,7 +54,8 @@ public class Fenetre extends JFrame implements KeyListener{
 		panelBas.add(labelInfo);
 		
 		labelInfo.setForeground(Color.WHITE);
-		panelBas.setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+
+		panelBas.setBackground(GRIS);
 	}
 
 	
