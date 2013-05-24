@@ -48,6 +48,7 @@ public class Quizz extends JFrame implements KeyListener{
 	/**Element de Quizz, contient la question, les reponses et lexplication*/
 	private ElementQuizz eQ; 
 	private Carte c; 
+	private Fenetre f; 
 	private ObjetRecuperable objetAssocieAuQuizz;
 	
 	
@@ -79,6 +80,7 @@ public class Quizz extends JFrame implements KeyListener{
 		choisitQuizz(theme);
 		afficherQuizz();
 		this.c=c;
+		f=c.getF();
 		objetAssocieAuQuizz=o;
 		
 		jbInit();
@@ -108,6 +110,7 @@ public class Quizz extends JFrame implements KeyListener{
 	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)].addKeyListener(this);
 	    }
 		
+	    
 	    /*Personalisation du JtextArea labelQuestion*/
 	    labelQuestion.setLineWrap(true);  //Permet de sauter revenir a la ligne si la question est trop longue
 	    labelQuestion.setWrapStyleWord(true);
@@ -172,14 +175,14 @@ public class Quizz extends JFrame implements KeyListener{
 						
 						Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
 
-						((Fenetre) c.getRootPane().getParent()).getChrono().incremente();
+						f.getChrono().incremente();
 						c.addObjetRecuperable(objetAssocieAuQuizz);
 						c.removeObjet(objetAssocieAuQuizz);
 						c.addBonneReponse(eQ);
 						
 					}else{
 
-						((Fenetre) c.getRootPane().getParent()).getChrono().decremente();
+						f.getChrono().decremente();
 						c.removePatient(objetAssocieAuQuizz.getProprietaire());
 						c.removeObjet(objetAssocieAuQuizz);
 						if(!c.patientPresent()){

@@ -64,17 +64,20 @@ public class Carte extends JPanel{
 	  private ArrayList<ElementQuizz> listeBonnesReponses = new ArrayList<ElementQuizz>(); 
 	  private ArrayList<ElementQuizz> listeMauvaisesReponses= new ArrayList<ElementQuizz>();	  
 	  
-	  
+	  private Fenetre f; 
 	  
 	/**
 	* Constructeur
 	* Cree une carte avec ses objets et ses patients
 	*/
-	public Carte(){
+	public Carte(Fenetre f){
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		chargerCarte(niveau); 
 		generateurPatient.start();
+		
+		setBackground(Fenetre.GRIS);
+		this.f=f;
 	}
 
 	
@@ -392,7 +395,9 @@ public class Carte extends JPanel{
 		return listeBonnesReponses;
 	}
 
-
+	public Fenetre getF(){
+		return f;
+	}
 
 
 	public ArrayList<ElementQuizz> getListeMauvaisesReponses() {

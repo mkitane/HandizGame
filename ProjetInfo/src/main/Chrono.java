@@ -23,7 +23,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=200;
+	private int compteur=20;
 
 	private Image imglisteObjets;
 	private Image imgBarreVide;
@@ -51,7 +51,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		
 		if(compteur<=0){
-			f.setContentPane(new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses()));
+			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
 			c.arreterGenerateur();
 			stop();
 			f.validate();

@@ -5,9 +5,12 @@ import java.awt.Dimension;
 
 import java.awt.FlowLayout;
 
+import java.awt.Component;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import java.awt.Color;
 
@@ -24,8 +28,7 @@ import java.awt.GridLayout;
 
 
 
-
-public class FrameLevel extends JFrame {
+public class FrameLevel extends JPanel {
 	private BorderLayout bl = new BorderLayout();
 	private JPanel panneauNiveau = new JPanel();    
 	private JLabel labelNiveau = new JLabel("Bienvenue dans l'univers HandizGame : Veuillez choisir l'environnement dans lequel vous souhaitez evoluer.",JLabel.CENTER);
@@ -47,23 +50,30 @@ public class FrameLevel extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+
+		boutonRetour.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Main.setPane(new PanneauPrincipal());
+			}
+		});
     }
 
     private void jbInit() throws Exception {
         
-    	this.getContentPane().setLayout(bl);
-        this.setTitle("Choix du Niveau");
-		setSize(Carte.COTE*25,Carte.COTE*15+73+40);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        this.getContentPane().add(labelNiveau, BorderLayout.NORTH);
-        this.getContentPane().add(panneauNiveau, BorderLayout.CENTER); 
+    	this.setLayout(bl);
+        //this.setTitle("Choix du Niveau");
+
+    
+    			
+    			
+        this.add(labelNiveau, BorderLayout.NORTH);
+        this.add(panneauNiveau, BorderLayout.CENTER); 
         
         //Personnalisqtion Panneaux pour le vide
-        this.getContentPane().add(panneauBas, BorderLayout.SOUTH); 
-        this.getContentPane().add(panneauDroit, BorderLayout.EAST); 
-        this.getContentPane().add(panneauGauche, BorderLayout.WEST); 
+        this.add(panneauBas, BorderLayout.SOUTH); 
+        this.add(panneauDroit, BorderLayout.EAST); 
+        this.add(panneauGauche, BorderLayout.WEST); 
         
         panneauBas.setPreferredSize(new Dimension(20,33));
         panneauDroit.setPreferredSize(new Dimension(20,20));
@@ -76,7 +86,7 @@ public class FrameLevel extends JFrame {
         panneauBas.add(boutonRetour);
         
         panneauNiveau.setBackground(Fenetre.GRIS);
-        getContentPane().setBackground(Fenetre.GRIS);		
+        this.setBackground(Fenetre.GRIS);		
         
         //modification label
         labelNiveau.setPreferredSize(new Dimension(800,30));
@@ -107,38 +117,33 @@ public class FrameLevel extends JFrame {
         niveau1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau1.txt";	
-				dispose();
-				new Fenetre();
+				Main.setPane(new Fenetre());
 			}
         });
 
         niveau2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau2.txt";		
-				new Fenetre();
-				dispose();
+				Main.setPane(new Fenetre());
 			}
         });
 
         niveau3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau3.txt";
-				new Fenetre();
-				dispose();
+				Main.setPane(new Fenetre());
 			}
         });
 
         niveau4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau="niveau4.txt";
-				new Fenetre();
-				dispose();
+				Main.setPane(new Fenetre());
 			}
         });
 
      
         
-        setVisible(true);
     }
 
 

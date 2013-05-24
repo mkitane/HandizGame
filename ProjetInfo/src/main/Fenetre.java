@@ -2,7 +2,10 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -13,10 +16,10 @@ import javax.swing.JPanel;
 
 import elementsCartes.Joueur;
 
-public class Fenetre extends JFrame implements KeyListener{
+public class Fenetre extends JPanel implements KeyListener{
 	
 	private JPanel panelJeu = new JPanel();
-	private Carte jeu = new Carte();
+	private Carte jeu = new Carte(this);
 	private Chrono chrono= new Chrono(this);
 	private JPanel panelBas = new JPanel();
 	private JButton boutonRetour = new JButton("Retour Accueil");
@@ -25,23 +28,29 @@ public class Fenetre extends JFrame implements KeyListener{
 	
 	
 	public Fenetre(){
-		setSize(Carte.COTE*25,Carte.COTE*15+73+40);
-		setTitle("HandizGame");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(300,0);
-        setResizable(false);
-        jbInit();
+		jbInit();
         
-        boutonRetour.addKeyListener(this);
+
+        addKeyListener(this);
 		chrono.start();
 		
+		
+
+		boutonRetour.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Main.setPane(new PanneauPrincipal());
+			}
+		});
 		
         setVisible(true);
 	}
 
 	private void jbInit() {
 		
-		setContentPane(panelJeu);
+		setLayout(new BorderLayout());
+		add(panelJeu);
+		
+		
 		setBackground(GRIS);
 		
 		panelJeu.setLayout(new BorderLayout());
@@ -56,6 +65,7 @@ public class Fenetre extends JFrame implements KeyListener{
 		labelInfo.setForeground(Color.WHITE);
 
 		panelBas.setBackground(GRIS);
+
 	}
 
 	
@@ -99,6 +109,13 @@ public class Fenetre extends JFrame implements KeyListener{
 
 	public static void ecrire(String s){
 		labelInfo.setText(s);
+	}
+	
+	
+	public void setPane(Component j){
+		this.removeAll();
+		this.add(j);
+				
 	}
 	
 }
