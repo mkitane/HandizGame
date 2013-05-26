@@ -32,6 +32,9 @@ public class Fenetre extends JPanel implements KeyListener{
         
 
         addKeyListener(this);
+        boutonRetour.addKeyListener(this);
+        
+        
 		chrono.start();
 		
 		
@@ -39,6 +42,8 @@ public class Fenetre extends JPanel implements KeyListener{
 		boutonRetour.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanneauPrincipal());
+				chrono.stop();
+				jeu.arreterGenerateur();
 			}
 		});
 		
@@ -70,7 +75,7 @@ public class Fenetre extends JPanel implements KeyListener{
 
 	
 
-	@Override
+	
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_UP){
 			jeu.unDeplacementDeJoueur(Joueur.UP);
@@ -84,19 +89,10 @@ public class Fenetre extends JPanel implements KeyListener{
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT){
 			jeu.unDeplacementDeJoueur(Joueur.RIGHT);
 		}
+	}
+	public void keyReleased(KeyEvent e) {}
 
-	}
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyTyped(KeyEvent e) {}
 	
 	
 	public Chrono getChrono(){

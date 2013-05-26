@@ -38,7 +38,7 @@ abstract public class ElementCarte{
 	 * 
 	 * @param nomImage
 	 */
-    protected void setImage(String nomImage) {
+    public void setImage(String nomImage) {
     	        try {
     	            this.img=ImageIO.read(new File("./images/"+nomImage+".png"));
     	        } catch (Exception e) {

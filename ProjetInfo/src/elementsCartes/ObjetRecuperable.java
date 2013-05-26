@@ -1,6 +1,7 @@
 package elementsCartes;
 
 import main.Carte;
+import main.Fenetre;
 import quizz.Quizz;
 
 /**
@@ -51,7 +52,7 @@ public abstract class ObjetRecuperable extends ElementCarte{
 		new Quizz(theme,c,this);
 		verificateur=false;
 		}else{
-			System.out.println("Veuillez repondre au quizz que vous avez deja lance");
+			Fenetre.ecrire("Veuillez repondre au quizz que vous avez deja lance");
 		}
 	}	
 		

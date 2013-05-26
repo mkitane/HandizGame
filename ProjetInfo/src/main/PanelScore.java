@@ -2,6 +2,7 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -31,7 +32,7 @@ public class PanelScore extends JPanel {
 	private Image imgdeltaFin;
 	private JPanel panelBtn = new JPanel();
 	private JButton btnRetour = new JButton("Retour Accueil");
-	private JLabel labelThemeLacune=new JLabel();
+	private JButton btnRejouer = new JButton("Rejouer");
 	
 	public PanelScore(ArrayList<ElementQuizz> lB,ArrayList<ElementQuizz> lM){
 		readImages();
@@ -44,17 +45,13 @@ public class PanelScore extends JPanel {
 
 		themeLacune = trouverLacune();
 		
-		labelThemeLacune.setForeground(Color.WHITE);
-		if(themeLacune==null){
-			labelThemeLacune.setText("Il n'y a rien a ameliorer ! ;)") ;
-		}else{
-			labelThemeLacune.setText("Le theme a ameliorer est : "+themeLacune);
-		}
 			
 		this.setLayout(new BorderLayout());
 		this.add(panelBtn,BorderLayout.SOUTH);
-		panelBtn.add(labelThemeLacune);
+		
+		panelBtn.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		panelBtn.add(btnRetour);
+		panelBtn.add(btnRejouer);
 		panelBtn.setBackground(Fenetre.GRIS);
 		
 		
@@ -64,25 +61,28 @@ public class PanelScore extends JPanel {
 				Main.setPane(new PanneauPrincipal());
 			}
 		});
-		
+		btnRejouer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Main.setPane(new Fenetre());
+			}
+		});
 	}
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
-		g.setFont(new Font("SansSerif",Font.PLAIN,40));
-		g.drawString("Bravo!",getWidth()/2-70, 50);
+
 
 		
 		
 		dessinerScore(g);
 		dessinerBarreJustesse(g);
 		
-		int y=250; //Permet de positionner toute la partie Detail en fonction de cette position en y
+		int y=270; //Permet de positionner toute la partie Detail en fonction de cette position en y
 
 		
 		g.setFont(new Font("SansSerif",Font.ITALIC,30));
-		g.drawString("Detail", getWidth()/2-55, y);
+		g.drawString("Details :", getWidth()/2-65, y);
 		//pour chaque theme, on regarde le pourcentage de bonnes reponses
 		for(String theme: listeThemes){
 			y=y+60;
@@ -90,11 +90,14 @@ public class PanelScore extends JPanel {
 		}
 		
 		y=y+60;
-		g.setFont(new Font("SansSerif",Font.ITALIC,25));
-		//g.drawString("Le theme a ameliorer est : " + themeLacune, 70, y);
 		
 		
-		//this.getRootPane().getParent().setSize(Carte.COTE*15,y+80);
+		g.setFont(new Font("SansSerif",Font.ITALIC,15));
+		if(themeLacune==null){
+			g.drawString("Vous n'avez rien ˆ amŽliorer ;)", 40, getHeight()-45);
+		}else{
+			g.drawString("Il faut que vous approfondissiez vos connaissances sur le theme: " + themeLacune + ".", 40, getHeight()-45);
+		}
 	}	
 	
 	
@@ -105,7 +108,7 @@ public class PanelScore extends JPanel {
 	 * @param g
 	 */
 	private void dessinerScore(Graphics g){
-		int positionX=390;
+		int positionX=670;
 		int positionY=120;
 		g.setFont(new Font("SansSerif",Font.PLAIN,50));
 		String s = String.valueOf(listeBonnesReponses.size());
@@ -126,7 +129,7 @@ public class PanelScore extends JPanel {
 	 * @param g
 	 */
 	private void dessinerBarreJustesse(Graphics g){
-		int positionX=300; 
+		int positionX=600; 
 		int positionY = 160;
 		g.drawString("Justesse", positionX+60, positionY-10);
 		g.drawImage(imgBarreVide, positionX, positionY, 212, 20, null);
@@ -146,6 +149,14 @@ public class PanelScore extends JPanel {
 		
 		g.setFont(new Font("SansSerif",Font.PLAIN,12));
 		g.drawString(pourcentage(p)+"%", positionX+177, positionY+13);
+		
+		
+		g.setFont(new Font("SansSerif",Font.PLAIN,40));
+		if(pourcentage(p)>50){
+			g.drawString("Bravo!",getWidth()/2-70, 50);
+		}else{
+			g.drawString("Vous pouvez encore vous ameliorer ! ;)",60, 50);
+		}
 		
 	}
 	

@@ -23,7 +23,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=20;
+	private int compteur=4000;
 
 	private Image imglisteObjets;
 	private Image imgBarreVide;
@@ -41,20 +41,14 @@ public class Chrono extends JPanel implements ActionListener  {
 
 	
 	
-	
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		public void actionPerformed(ActionEvent e) {
 		compteur--;
 		repaint();
 		
 		
 		if(compteur<=0){
-			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
 			c.arreterGenerateur();
 			stop();
-			f.validate();
 			
 			//on recuperer la fenetre active
 			Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
@@ -62,6 +56,8 @@ public class Chrono extends JPanel implements ActionListener  {
 				x.dispose();
 			}
 			
+			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
+			f.validate();
 		}
 		
 		
@@ -154,5 +150,9 @@ public class Chrono extends JPanel implements ActionListener  {
 	
 	public void decremente(){
 		compteur-=10;
+	}
+	
+	public void mettreAZero(){
+		compteur=0;
 	}
 }

@@ -41,6 +41,8 @@ public class Application {
 	        //Instanciation de l'application
 	       Quizz.initialiser();
 	       new Application();
+	       System.gc();
+
 
 	}
 	 

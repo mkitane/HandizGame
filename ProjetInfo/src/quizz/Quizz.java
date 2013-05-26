@@ -2,11 +2,14 @@ package quizz ;
 
 
 
+import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.KeyboardFocusManager;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
@@ -42,7 +45,7 @@ import elementsCartes.ObjetRecuperable;
  */
 
 
-public class Quizz extends JFrame implements KeyListener{
+public class Quizz extends JFrame implements KeyListener,ActionListener{
 	/**Array List contenant tous les questions du fichier XML*/
 	public static ArrayList<ElementQuizz> listeElementQuizz = new ArrayList<ElementQuizz>();
 	/**Element de Quizz, contient la question, les reponses et lexplication*/
@@ -78,7 +81,6 @@ public class Quizz extends JFrame implements KeyListener{
 	 */
 	public Quizz(String theme,Carte c,ObjetRecuperable o){
 		choisitQuizz(theme);
-		afficherQuizz();
 		this.c=c;
 		f=c.getF();
 		objetAssocieAuQuizz=o;
@@ -108,6 +110,8 @@ public class Quizz extends JFrame implements KeyListener{
 	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)]=new JButton(a.getRep());
 	    	panelReponses.add(tableauDesReponses[eQ.getListeReponse().indexOf(a)]);
 	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)].addKeyListener(this);
+	    	tableauDesReponses[eQ.getListeReponse().indexOf(a)].addActionListener(this);
+
 	    }
 		
 	    
@@ -157,57 +161,59 @@ public class Quizz extends JFrame implements KeyListener{
 
 
 	public void keyPressed(KeyEvent e) {
-
 		if(e.getKeyCode()==KeyEvent.VK_ENTER){
-			
-		
-			
-	
-			
-			
-			//Verifie si le JButtoncorrespond ˆ la bonne reponse
-			for(int i=0;i<tableauDesReponses.length;i++){
-				//Si oui
-				if(e.getSource()==tableauDesReponses[i]){
-					
-					
-					if(verifierReponse(eQ.getListeReponse().get(i))){  //si c'est la bonne reponse
-						
-						Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
+			boutonsActionPerformed(e);
+		}
+	}
+	public void actionPerformed(ActionEvent e) {
+			boutonsActionPerformed(e);
+	}
+	public void keyReleased(KeyEvent arg0) {}
+	public void keyTyped(KeyEvent arg0) {}
 
-						f.getChrono().incremente();
-						c.addObjetRecuperable(objetAssocieAuQuizz);
-						c.removeObjet(objetAssocieAuQuizz);
-						c.addBonneReponse(eQ);
-						
-					}else{
 
-						f.getChrono().decremente();
-						c.removePatient(objetAssocieAuQuizz.getProprietaire());
-						c.removeObjet(objetAssocieAuQuizz);
-						if(!c.patientPresent()){
-							c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
-						}		
-						c.addMauvaiseReponse(eQ);
-
-						
-						
-						//Effet visuel pour savoir que la reponse est fausse; 
-						setBackground(Color.red);
-						Fenetre.ecrire("Mauvaise reponse, Un autre Patient est apparu, va voir ce qu'il veut");
-
-						
-					}	
-					
-					
-					dispose();
-					c.repaint();
-					
-					
-					
-					break;	//plus besoin de chercher
-				}
+	private void boutonsActionPerformed(AWTEvent e){
+		//Verifie si le JButtoncorrespond ˆ la bonne reponse
+		for(int i=0;i<tableauDesReponses.length;i++){
+			//Si oui
+			if(e.getSource()==tableauDesReponses[i]){
 				
+				
+				if(verifierReponse(eQ.getListeReponse().get(i))){  //si c'est la bonne reponse
+					
+					Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
+
+					f.getChrono().incremente();
+					c.addObjetRecuperable(objetAssocieAuQuizz);
+					c.removeObjet(objetAssocieAuQuizz);
+					c.addBonneReponse(eQ);
+					
+				}else{
+
+					f.getChrono().decremente();
+					c.removePatient(objetAssocieAuQuizz.getProprietaire());
+					c.removeObjet(objetAssocieAuQuizz);
+					if(!c.patientPresent()){
+						c.creerNouveauPatient();  //Cree un nouveau Patient pour ne pas bloquer le joueur seulement si il n'y en a pas deja
+					}		
+					c.addMauvaiseReponse(eQ);
+
+					
+					
+					//Effet visuel pour savoir que la reponse est fausse; 
+					setBackground(Color.red);
+					Fenetre.ecrire("Mauvaise reponse, Un autre Patient est apparu, va voir ce qu'il veut");
+
+					
+				}	
+				
+				
+				dispose();
+				c.repaint();
+				
+				
+				
+				break;	//plus besoin de chercher
 			}
 			
 		}
@@ -216,29 +222,14 @@ public class Quizz extends JFrame implements KeyListener{
 
 
 
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
-
-
 	
 	
 	
 	
 
 
+	
+	
 	
 	
 
@@ -375,6 +366,14 @@ public class Quizz extends JFrame implements KeyListener{
 	public boolean verifierReponse(Reponse r){
 		return r.isJustesse(); 	
 	}
+
+
+
+
+
+
+
+
 }
 	
 

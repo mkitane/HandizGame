@@ -11,11 +11,15 @@ public class Patient extends ElementCarte {
 	private int ID; 
 	/**Permet de savoir si on a deja demande au patient de rammener un objet ou pas pour qu'un patient ne puisse instancier plusieurs objets*/
 	private boolean verificateur = true ; 
+	private int typePatient;
 	
 
 
 	public Patient(int positionX, int positionY) {
-		super(positionX, positionY, "PatientDebut");
+		super(positionX, positionY, "./Patients/Patient1");
+		
+		typePatient = (int)(Math.random()*5+1);
+		setImage("./Patients/Patient" + typePatient);
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
@@ -48,7 +52,6 @@ public class Patient extends ElementCarte {
 	 */
 	public void action(Carte c){
 		
-		setImage("PatientMilieu");
 		
 		if(c.verifierProprietaire(this)){ //si on possede un objet dont ce patient est le proprietaire, on le lui rend
 			Fenetre.ecrire("Merci!");

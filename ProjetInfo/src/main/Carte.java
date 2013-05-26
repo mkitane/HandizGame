@@ -1,16 +1,13 @@
 package main;
 
-import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import quizz.ElementQuizz;
 
@@ -24,12 +21,12 @@ import elementsCartes.Lunette;
 import elementsCartes.Mur;
 import elementsCartes.ObjetRecuperable;
 import elementsCartes.Patient;
-import elementsCartes.PatientImmobile;
 import elementsCartes.Prothese;
 import elementsCartes.Sol;
 import elementsCartes.Table;
 import elementsCartes.Obstacle;
-import elementsCartes.Toilettes;
+import elementsCartes.Poutre;
+import elementsCartes.Trou;
 
 /**
  * Classe qui modelise le plateau du Jeu
@@ -151,13 +148,10 @@ public class Carte extends JPanel{
 					listeElements.add(new Mur(j,positionLigne));
 				}
 				if(c=='Q'){
-					listeElements.add(new PatientImmobile(j,positionLigne));
+					listeElements.add(new Poutre(j,positionLigne));
 				}
 				if(c=='T'){
 					listeElements.add(new Table(j,positionLigne));
-				}
-				if(c=='X'){
-					listeElements.add(new Toilettes(j,positionLigne));
 				}
 				if(c=='J'){
 					joueur=new Joueur(j,positionLigne);
@@ -223,6 +217,9 @@ public class Carte extends JPanel{
 							((Patient)e).action(this);
 			}else if(e instanceof Sol){ 
 							joueur.deplacer(direction);
+			}else if(e instanceof Trou){
+							joueur.deplacer(direction);
+							f.getChrono().mettreAZero();
 			}
 		
 			repaint();
@@ -286,6 +283,7 @@ public class Carte extends JPanel{
 	}
 	
 	
+	
 	/**Recupere lobjet qui appartient au bon patient grace a son ID
 	 * 
 	 * @param p le patient dont on veut recuperer l'objet
@@ -323,11 +321,13 @@ public class Carte extends JPanel{
 	
 	/**
 	 * Recupere un element sur la carte en fonction de ses coordonnees
+	 * Si l'element n'apparait pas dans listeElements
+	 * On verifie dans la liste des Sol
 	 * @param x ligne
 	 * @param y colonne
 	 * @return ElementCarte
 	 */
-	private ElementCarte recupererElement(int x,int y){
+	public ElementCarte recupererElement(int x,int y){
 
 		for(ElementCarte a : listeElements){
 			if(a.getPositionX()==x && a.getPositionY()==y){
@@ -414,6 +414,28 @@ public class Carte extends JPanel{
 		generateurPatient.arret();
 	}
 	
+	/**Instancie un nouveau Trou
+	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
+	 */
+	public void creerNouveauTrou(){
+		boolean b=true;
+		int positionXObjet= (int)(Math.random()*colonnes);
+		int positionYObjet= (int)(Math.random()*lignes);
+		while(b){
+			positionXObjet = (int)(Math.random()*colonnes);
+			positionYObjet = (int)(Math.random()*lignes);
+			//On verifie si il n'y a pas deja un objet dans cette case ==> listeElements
+			//si il n'y a rien (null) on sort de la boucle
+			if(getElement(positionXObjet,positionYObjet)== null){
+				b=false;
+			}
+		}
+		
+		
+		Trou p = new Trou(positionXObjet,positionYObjet);
+		Fenetre.ecrire("Attention!! Un Trou est apparu!");
+		listeElements.add(p);
+	}
 	/**Instancie un nouveau patient
 	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
 	 */
@@ -435,7 +457,6 @@ public class Carte extends JPanel{
 		Patient p = new Patient(positionXObjet,positionYObjet);
 		Fenetre.ecrire("Un Patient est apparu!");
 		listeElements.add(p);
-		System.out.println("PatientCree");
 	}
 
 	
@@ -568,7 +589,8 @@ public class Carte extends JPanel{
 	  private class Generateur extends Thread{
 
 			/**Variable qui indique la chance de creer un patient*/
-			private int chance = 20 ; 
+			private int chance = 30 ; 
+			private int chanceTrou=20;
 			private boolean running = true;
 
 			
@@ -583,35 +605,76 @@ public class Carte extends JPanel{
 			public void run() {
 
 				while(running){
-							
-					//Une chance sur 30 de creer un patient
-					int nbAleatoire = (int) (Math.random()*chance);
-				
-					if(nbAleatoire == 0){
-						creerNouveauPatient();
-						repaint();
-					}
-				
-				
-					//Si le score augmente, on augmente la difficulte
-					if(score == 10){
-						//Plus de patients apparaissent
-						chance=20;
-						Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-					}else if (score == 20){
-						chance = 15; 
-						Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-					}
-					
-					
+					genererPatient();
+					genererTrou();
+					supprimerTrou();
+					changerScore();
 					try {
 						sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					
 				}
-			}		
+			}	
+			
+			
+			public void genererPatient(){
+				//Une chance sur 30 de creer un patient
+				int nbAleatoire = (int) (Math.random()*chance);
+
+				if(nbAleatoire == 0){
+					creerNouveauPatient();
+					repaint();
+				}
+			}
+			
+			
+			public void genererTrou(){
+				//Une chance sur 30 de creer un patient
+				int nbAleatoire = (int) (Math.random()*chanceTrou);
+
+				if(nbAleatoire == 1){
+					creerNouveauTrou();
+					repaint();
+				}				
+			}
+			
+			
+			/**On supprimer le premier Trou */
+			public void supprimerTrou(){		
+						for(ElementCarte e : listeElements){
+							if(e instanceof Trou){
+								((Trou) e).incremente();
+								if(((Trou) e).getCompteur()==10){
+									listeElements.remove(e);
+									repaint();
+									break;
+								}
+							}
+						}
+			}
+			
+			
+			public void changerScore(){
+				//Si le score augmente, on augmente la difficulte
+				switch(score){
+					case 5 :chance=25;
+							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							break;
+					case 10 :chance=20;
+							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							break;
+					case 15 :chance=15;
+							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							break;
+					case 20 :chance=10;
+							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							break;					
+				}
+			}
+			
+		
+		
 			
 
 		}

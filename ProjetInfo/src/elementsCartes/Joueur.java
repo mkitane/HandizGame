@@ -20,7 +20,7 @@ public class Joueur extends ElementCarte {
 	 * @param tps
 	 */
 	public Joueur(int positionX, int positionY) {
-		super(positionX, positionY,"Joueur");
+		super(positionX, positionY,"./Personnage/derriere1");
 	}
 
 
@@ -60,21 +60,21 @@ public class Joueur extends ElementCarte {
 
 		if(direction==DOWN){
 			if(deplacement%3==0){
-				this.setImage("./personnage/dwarf_walk_s1");
+				this.setImage("./Personnage/face1");
 			}else if(deplacement%3==1){
-				this.setImage("./personnage/dwarf_walk_s2");
+				this.setImage("./Personnage/face2");
 			}else{
-				this.setImage("./personnage/dwarf_walk_s3");
+				this.setImage("./Personnage/face3");
 			}
 		}
 		
 		if(direction==UP){
 			if(deplacement%3==0){
-				this.setImage("./personnage/dwarf_walk_n1");
+				this.setImage("./Personnage/derriere1");
 			}else if(deplacement%3==1){
-				this.setImage("./personnage/dwarf_walk_n2");
+				this.setImage("./Personnage/derriere2");
 			}else{
-				this.setImage("./personnage/dwarf_walk_n3");
+				this.setImage("./Personnage/derriere3");
 			}
 		}
 		
@@ -82,11 +82,11 @@ public class Joueur extends ElementCarte {
 		
 		if(direction==LEFT){
 			if(deplacement%3==0){
-				this.setImage("./personnage/dwarf_walk_nw1");
+				this.setImage("./Personnage/gauche1");
 			}else if(deplacement%3==1){
-				this.setImage("./personnage/dwarf_walk_nw2");
+				this.setImage("./Personnage/gauche2");
 			}else{
-				this.setImage("./personnage/dwarf_walk_nw3");
+				this.setImage("./Personnage/gauche3");
 			}
 		}
 		
@@ -94,11 +94,11 @@ public class Joueur extends ElementCarte {
 		
 		if(direction==RIGHT){
 			if(deplacement%3==0){
-				this.setImage("./personnage/dwarf_walk_ne1");
+				this.setImage("./Personnage/droit1");
 			}else if(deplacement%3==1){
-				this.setImage("./personnage/dwarf_walk_ne2");
+				this.setImage("./Personnage/droit2");
 			}else{
-				this.setImage("./personnage/dwarf_walk_ne3");
+				this.setImage("./Personnage/droit3");
 			}
 		}
 	}

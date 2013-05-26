@@ -119,7 +119,6 @@ public class FenetreMode1 extends JPanel {
     	if (e.getValueIsAdjusting() == false) {
 
             if (jListTheme.getSelectedIndex() == -1) {
-            	jTextArea1.setText("lol");
             } else {
             	jListQuestion=new JList(trouverQuestions(String.valueOf(jListTheme.getSelectedValue())).toArray());
             	listeQuestionScroller.setViewportView(jListQuestion);
@@ -208,6 +207,6 @@ public class FenetreMode1 extends JPanel {
 		return true;
 	}
 	
-	
+
 	
 }

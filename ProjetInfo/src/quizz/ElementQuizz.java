@@ -19,7 +19,9 @@ public class ElementQuizz {
 	 * Optionnel:Pourquoi la reponse est fausse ou juste
 	 */
 	private String explication; 
-
+	/**Question raccourcie pour le mode initiation*/
+	private String questionRaccourci; 
+	
 	
 	
 	/**
@@ -34,13 +36,14 @@ public class ElementQuizz {
 		question=q; 
 		listeReponse=lR;
 		explication=e; 
+		questionRaccourci=raccourcir(q);
 	}
 
 	
 	
 	
 	public String toString(){
-		return question;
+		return questionRaccourci;
 	}
 	/**
 	 * Getter Theme
@@ -115,8 +118,29 @@ public class ElementQuizz {
 	}
 
 
+
+	/**
+	 * Getter Question Raccourci
+	 * @return Question Raccourci
+	 */
+	public String getQuestionRaccourci() {
+		return questionRaccourci;
+	}
 	
 	
+	
+	/**Raccourcit une chaine de caractere*/
+	private String raccourcir(String s){
+		String nouvelle = "";
+		
+		for(int i=0;i<35;i++){
+			nouvelle = nouvelle + s.charAt(i);
+		}
+		nouvelle=nouvelle+"...";
+		
+		
+		return nouvelle;
+	}
 	
 	
 	

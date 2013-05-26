@@ -3,6 +3,7 @@ package Initiation;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -38,14 +39,18 @@ public class modeInitiation1 extends JPanel{
 	
     public modeInitiation1() {
        setLayout(new BorderLayout());
-       JButton1.setText("RETOUR");
+ 
+       add(Panneau,BorderLayout.NORTH);
+       Panneau.add(Bienvenue);
+       Bienvenue.setText("<html><body><u>Bienvenue!!</u></body></html>");
+
+       
+       add(f,BorderLayout.CENTER);
+      
        add(Panneau2,BorderLayout.SOUTH);
        Panneau2.add(JButton1);
-       Bienvenue.setText("<html><body><u>Bienvenue!!</u></body></html>");
-       add(Panneau,BorderLayout.NORTH);
-       add(f,BorderLayout.CENTER);
-       Panneau.add(Bienvenue);
-      
+       JButton1.setText("RETOUR");
+
        JButton1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanneauPrincipal());
