@@ -2,18 +2,12 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.KeyboardFocusManager;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -23,18 +17,17 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=4000;
+	private int compteur=20;
 
-	private Image imglisteObjets;
-	private Image imgBarreVide;
-	private Image imgdelta;
-	private Image imgdeltaFin;
+	private Image imglisteObjets =  Images.get("listeObjets");
+	private Image imgBarreVide = Images.get("BarreVide");
+	private Image imgdelta = Images.get("petitProgression");
+	private Image imgdeltaFin  = Images.get("petitBout");
 	
 	public Chrono(Fenetre f){
 		this.f=f;
 		c=f.getJeu();
 		
-		readImages();
 		this.setPreferredSize(new Dimension(625,50));
 		setBackground(Fenetre.GRIS);
 	}
@@ -123,20 +116,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		}
 	}
 	
-	
-	private void readImages(){
-		try {
-			imglisteObjets = ImageIO.read(new File("./images/listeObjets.png"));
-			imgBarreVide = ImageIO.read(new File("./images/BarreVide.png"));
-			imgdelta = ImageIO.read(new File("./images/petitProgression.png"));
-			imgdeltaFin = ImageIO.read(new File("./images/petitBout.png"));
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+		
 	public void start(){
 		t.start();
 	}

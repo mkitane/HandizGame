@@ -3,10 +3,13 @@ package elementsCartes;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
 import main.Carte;
+import main.Images;
 
 /**
  * @author bprely
@@ -20,15 +23,16 @@ abstract public class ElementCarte{
 	/**l'image de l'element de la carte*/
     private Image img;
 
+    
 	/**
 	 * @param x
 	 * @param y
 	 * @param n
 	 */
-	public ElementCarte(int x,int y,String n){
+	public ElementCarte(int x,int y,String nom ){
 		positionX=x;
 		positionY=y;
-		setImage(n);
+		img=Images.get(nom);
 	}
 	/**
 	 * 
@@ -38,12 +42,8 @@ abstract public class ElementCarte{
 	 * 
 	 * @param nomImage
 	 */
-    public void setImage(String nomImage) {
-    	        try {
-    	            this.img=ImageIO.read(new File("./images/"+nomImage+".png"));
-    	        } catch (Exception e) {
-    	            System.out.println("image pas trouvee " + nomImage);
-    	        }
+    public void setImage(String nom) {
+		img=Images.get(nom);
      }
 		
 	
@@ -93,6 +93,8 @@ abstract public class ElementCarte{
 	public void setPositionY(int y){
 		positionY=y;
 	}
+
+	
 
 }
 	

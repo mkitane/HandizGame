@@ -16,10 +16,10 @@ public class Patient extends ElementCarte {
 
 
 	public Patient(int positionX, int positionY) {
-		super(positionX, positionY, "./Patients/Patient1");
+		super(positionX, positionY, "Patients/Patient1");
 		
 		typePatient = (int)(Math.random()*5+1);
-		setImage("./Patients/Patient" + typePatient);
+		setImage("Patients/Patient" + typePatient);
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		

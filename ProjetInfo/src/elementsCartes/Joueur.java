@@ -20,7 +20,7 @@ public class Joueur extends ElementCarte {
 	 * @param tps
 	 */
 	public Joueur(int positionX, int positionY) {
-		super(positionX, positionY,"./Personnage/derriere1");
+		super(positionX, positionY,"Personnage/Derriere1");
 	}
 
 
@@ -60,21 +60,21 @@ public class Joueur extends ElementCarte {
 
 		if(direction==DOWN){
 			if(deplacement%3==0){
-				this.setImage("./Personnage/face1");
+				this.setImage("Personnage/Face1");
 			}else if(deplacement%3==1){
-				this.setImage("./Personnage/face2");
+				this.setImage("Personnage/Face2");
 			}else{
-				this.setImage("./Personnage/face3");
+				this.setImage("Personnage/Face3");
 			}
 		}
 		
 		if(direction==UP){
 			if(deplacement%3==0){
-				this.setImage("./Personnage/derriere1");
+				this.setImage("Personnage/Derriere1");
 			}else if(deplacement%3==1){
-				this.setImage("./Personnage/derriere2");
+				this.setImage("Personnage/Derriere2");
 			}else{
-				this.setImage("./Personnage/derriere3");
+				this.setImage("Personnage/Derriere3");
 			}
 		}
 		
@@ -82,11 +82,11 @@ public class Joueur extends ElementCarte {
 		
 		if(direction==LEFT){
 			if(deplacement%3==0){
-				this.setImage("./Personnage/gauche1");
+				this.setImage("Personnage/Gauche1");
 			}else if(deplacement%3==1){
-				this.setImage("./Personnage/gauche2");
+				this.setImage("Personnage/Gauche2");
 			}else{
-				this.setImage("./Personnage/gauche3");
+				this.setImage("Personnage/Gauche3");
 			}
 		}
 		
@@ -94,11 +94,11 @@ public class Joueur extends ElementCarte {
 		
 		if(direction==RIGHT){
 			if(deplacement%3==0){
-				this.setImage("./Personnage/droit1");
+				this.setImage("Personnage/Droit1");
 			}else if(deplacement%3==1){
-				this.setImage("./Personnage/droit2");
+				this.setImage("Personnage/Droit2");
 			}else{
-				this.setImage("./Personnage/droit3");
+				this.setImage("Personnage/Droit3");
 			}
 		}
 	}

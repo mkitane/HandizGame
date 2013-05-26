@@ -3,24 +3,12 @@ package main;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-import java.awt.FlowLayout;
-
-import java.awt.Component;
-import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
 import java.awt.Color;
 
 import java.awt.GridLayout;
@@ -39,10 +27,10 @@ public class FrameLevel extends JPanel {
 
 	
 	private GridLayout gl = new GridLayout();
-    private BoutonNiveau niveau1 = new BoutonNiveau("niveau1.png");
-    private BoutonNiveau niveau2 = new BoutonNiveau("niveau2.png");
-    private BoutonNiveau niveau3 = new BoutonNiveau("niveau3.png");
-    private BoutonNiveau niveau4 = new BoutonNiveau("niveau4.png");
+    private BoutonNiveau niveau1 = new BoutonNiveau("niveau1");
+    private BoutonNiveau niveau2 = new BoutonNiveau("niveau2");
+    private BoutonNiveau niveau3 = new BoutonNiveau("niveau3");
+    private BoutonNiveau niveau4 = new BoutonNiveau("niveau4");
 
     public FrameLevel() {
         try {

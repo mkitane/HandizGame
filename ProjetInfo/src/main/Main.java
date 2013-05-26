@@ -27,7 +27,7 @@ public class Main extends JFrame{
 			setSize(Carte.COTE*25,Carte.COTE*15+73+40);
 		    setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		    
-		    setContentPane(new Fenetre());
+		    setContentPane(new PanneauPrincipal());
 			   	
 		    setResizable(false);
 	        setVisible(true);

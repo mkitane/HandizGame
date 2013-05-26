@@ -8,13 +8,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import quizz.ElementQuizz;
@@ -26,16 +22,15 @@ public class PanelScore extends JPanel {
 	private ArrayList<String> listeThemes=new ArrayList<String>();
 	private String themeLacune;
 
+	private Image imgBarreVide = Images.get("BarreVide");
+	private Image imgdelta = Images.get("petitProgression");
+	private Image imgdeltaFin  = Images.get("petitBout");
 	
-	private Image imgBarreVide;
-	private Image imgdelta;
-	private Image imgdeltaFin;
 	private JPanel panelBtn = new JPanel();
 	private JButton btnRetour = new JButton("Retour Accueil");
 	private JButton btnRejouer = new JButton("Rejouer");
 	
 	public PanelScore(ArrayList<ElementQuizz> lB,ArrayList<ElementQuizz> lM){
-		readImages();
 		setBackground(Fenetre.GRIS);
 
 		listeBonnesReponses=lB;
@@ -297,20 +292,7 @@ public class PanelScore extends JPanel {
 		return themeLacune;
 		
 	}
-	/**
-	 * Met les images en memoire
-	 */
-	private void readImages(){
-		try {
-			imgBarreVide = ImageIO.read(new File("./images/BarreVide.png"));
-			imgdelta = ImageIO.read(new File("./images/petitProgression.png"));
-			imgdeltaFin = ImageIO.read(new File("./images/petitBout.png"));
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 	
 	
 	

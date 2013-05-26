@@ -48,6 +48,7 @@ public class FenetreMode1 extends JPanel {
     private JScrollPane listeQuestionScroller;
 
     public FenetreMode1() {
+    	
     	listeElements=Quizz.listeElementQuizz;
     	trouverThemes();
     
@@ -150,9 +151,9 @@ public class FenetreMode1 extends JPanel {
 				
 				
             	
-            	String textAEcrire= "Votre Thème:\n"+eQ.getTheme() + "\nVotreQuestion:\n" + eQ.getQuestion() + "\nEt voici l'explication:" + eQ.getExplication();
+            	String textAEcrire= "Votre Theme:\n    "+eQ.getTheme() + "\n\n\nVotreQuestion:\n   " + eQ.getQuestion() + "\n\n\nEt voici un indice:\n   " + eQ.getExplication();
 
-            	//On affiche sur le jTextArea ce que l'on veut et qui correspond � cet ElementQuizz
+            	//On affiche sur le jTextArea ce que l'on veut et qui correspond a cet ElementQuizz
             	jTextArea1.setText(textAEcrire);
             }
         }

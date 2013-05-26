@@ -2,19 +2,14 @@ package main;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class PanneauLogo extends JPanel {
-	private Image imgLogo; 
+	private Image imgLogo = Images.get("Logo");
 	
-	public PanneauLogo(){
-		readImages();
-		
-	}
+	public PanneauLogo(){}
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 
@@ -23,19 +18,6 @@ public class PanneauLogo extends JPanel {
 		g.drawImage(imgLogo, 80, 20, positionX-300, positionY-100, null);
 	}
 	
-	
-	/**
-	 * Met les images en memoire
-	 */
-	private void readImages(){
-		try {
-			imgLogo = ImageIO.read(new File("./images/Logo.png"));
 
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 }

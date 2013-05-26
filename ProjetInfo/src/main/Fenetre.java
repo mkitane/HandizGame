@@ -23,6 +23,8 @@ public class Fenetre extends JPanel implements KeyListener{
 	private Chrono chrono= new Chrono(this);
 	private JPanel panelBas = new JPanel();
 	private JButton boutonRetour = new JButton("Retour Accueil");
+	private JButton boutonRejouer = new JButton("Rejouer");
+
 	private static JLabel labelInfo = new JLabel();
 	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42"));
 	
@@ -47,6 +49,15 @@ public class Fenetre extends JPanel implements KeyListener{
 			}
 		});
 		
+		boutonRejouer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				chrono.stop();
+				jeu.arreterGenerateur();
+				Main.setPane(new Fenetre());
+
+			}
+		});
+		
         setVisible(true);
 	}
 
@@ -65,6 +76,7 @@ public class Fenetre extends JPanel implements KeyListener{
 		
 		panelBas.setLayout(new FlowLayout(15));
 		panelBas.add(boutonRetour);
+		panelBas.add(boutonRejouer);
 		panelBas.add(labelInfo);
 		
 		labelInfo.setForeground(Color.WHITE);

@@ -20,6 +20,7 @@ import com.sun.corba.se.spi.orbutil.fsm.Action;
 
 import quizz.Quizz;
 import main.Carte;
+import main.Fenetre;
 import main.FrameLevel;
 import main.Main;
 import main.PanneauPrincipal;
@@ -31,27 +32,33 @@ public class modeInitiation1 extends JPanel{
 	 */
 	
 	private FenetreMode1 f = new FenetreMode1();
-	private JButton JButton1=new JButton();
-	private JLabel Bienvenue=new JLabel();
-	private JPanel Panneau=new JPanel();
-	private JPanel Panneau2=new JPanel();
+	private JButton btnRetour=new JButton();
+	private JLabel lblBienvenue=new JLabel();
+	private JLabel lblExplication = new JLabel("Ici vous pourrez approfondir vos connaissances sur le monde du handicap, tout en ayant la possibilite d'ameliorer votre score dans le Jeu.");
+	private JPanel panelH=new JPanel();
+	private JPanel panelBtn=new JPanel();
 	
 	
     public modeInitiation1() {
        setLayout(new BorderLayout());
- 
-       add(Panneau,BorderLayout.NORTH);
-       Panneau.add(Bienvenue);
-       Bienvenue.setText("<html><body><u>Bienvenue!!</u></body></html>");
+       add(panelH,BorderLayout.NORTH);
+       add(f,BorderLayout.CENTER);
+       add(panelBtn,BorderLayout.SOUTH);
+       
+       panelH.setLayout(new FlowLayout());
+       panelH.setPreferredSize(new Dimension(50,50));
+       panelH.add(lblBienvenue);
+       panelH.add(lblExplication);
+       lblBienvenue.setText("<html><body><u>Bienvenue au mode Initiation!!</u></body></html>");
 
        
-       add(f,BorderLayout.CENTER);
-      
-       add(Panneau2,BorderLayout.SOUTH);
-       Panneau2.add(JButton1);
-       JButton1.setText("RETOUR");
+     
+       
+       panelBtn.add(btnRetour);
 
-       JButton1.addActionListener(new ActionListener(){
+       btnRetour.setText("Retour");
+
+       btnRetour.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanneauPrincipal());
 			}

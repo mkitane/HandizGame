@@ -9,11 +9,11 @@ import quizz.Quizz;
 
 public class Application {
 
-	 public static Main frame = new Main();
+	 public static Main frame;
 	 
 	 
 	 public Application(){
-			
+	 frame=new Main();
 	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
      Dimension frameSize =  frame.getSize();
      if (frameSize.height > screenSize.height) {
@@ -39,9 +39,9 @@ public class Application {
 	            e.printStackTrace();
 	        }
 	        //Instanciation de l'application
+	       Images.chargerImages();
 	       Quizz.initialiser();
 	       new Application();
-	       System.gc();
 
 
 	}
