@@ -64,6 +64,15 @@ public class modeInitiation1 extends JPanel{
 			}
 		});
        
+       
+       
+       //Couleur
+       setBackground(Fenetre.GRIS);
+       f.setBackground(Fenetre.GRIS);
+       panelBtn.setOpaque(false);
+       panelH.setOpaque(false);
+       
+       
        setVisible(true);
        
     }  	

@@ -43,6 +43,12 @@ public class PanneauPrincipal extends JPanel {
 			}
 		});
 		
+		bouton3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Main.setPane((new PanelHelp()));
+			}
+		});
+		
 	}
 
 	private void jbInit() {

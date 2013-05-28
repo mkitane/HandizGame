@@ -76,7 +76,7 @@ public class PanelScore extends JPanel {
 		int y=270; //Permet de positionner toute la partie Detail en fonction de cette position en y
 
 		
-		g.setFont(new Font("SansSerif",Font.ITALIC,30));
+		g.setFont(new Font("Helvetica Neue Light",Font.ITALIC,30));
 		g.drawString("Details :", getWidth()/2-65, y);
 		//pour chaque theme, on regarde le pourcentage de bonnes reponses
 		for(String theme: listeThemes){
@@ -87,7 +87,7 @@ public class PanelScore extends JPanel {
 		y=y+60;
 		
 		
-		g.setFont(new Font("SansSerif",Font.ITALIC,15));
+		g.setFont(new Font("Helvetica Neue",Font.PLAIN,30));
 		if(themeLacune==null){
 			g.drawString("Vous n'avez rien à améliorer ;)", 40, getHeight()-45);
 		}else{

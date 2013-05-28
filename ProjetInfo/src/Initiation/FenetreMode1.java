@@ -3,6 +3,7 @@ package Initiation;
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 
 
@@ -20,9 +21,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
+import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import main.Fenetre;
 
 import quizz.ElementQuizz;
 import quizz.Quizz;
@@ -54,11 +58,12 @@ public class FenetreMode1 extends JPanel {
     
     	jListTheme=new JList(listeThemes.toArray()); //On transforme notre listeDeThemes en tableau d'objets pour pouvoir instancier la liste
     	listeThemeScroller = new JScrollPane(jListTheme);
-    	
+    
     	jListQuestion = new JList();
     	listeQuestionScroller = new JScrollPane(jListQuestion);
     	
     	jbInit();
+    	
      
     }
 
@@ -80,12 +85,13 @@ public class FenetreMode1 extends JPanel {
         jTextArea1.setLineWrap(true);  //Permet de sauter revenir a la ligne si la question est trop longue
 	    jTextArea1.setWrapStyleWord(true);
         jTextArea1.setEditable(false);
+        jTextArea1.setBackground(Fenetre.GRIS);
 
         //Reglages de la jListTheme
         listeThemeScroller.setPreferredSize(new Dimension(150, 80));  
         jListTheme.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jListTheme.setBackground(Color.LIGHT_GRAY);
-
+        jListTheme.setFixedCellHeight(46);
+        jListTheme.setBackground(Fenetre.GRIS);
         
         jListTheme.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
@@ -97,8 +103,8 @@ public class FenetreMode1 extends JPanel {
         //Reglages de la jListQuestion
         listeQuestionScroller.setPreferredSize(new Dimension(250,100));
         jListQuestion.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jListQuestion.setBackground(Color.LIGHT_GRAY);
-        
+        jListQuestion.setBackground(Fenetre.GRIS);
+
         
         jListQuestion.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
@@ -121,9 +127,11 @@ public class FenetreMode1 extends JPanel {
 
             if (jListTheme.getSelectedIndex() == -1) {
             } else {
-            	jListQuestion=new JList(trouverQuestions(String.valueOf(jListTheme.getSelectedValue())).toArray());
+            	jListQuestion.setListData((trouverQuestions(String.valueOf(jListTheme.getSelectedValue())).toArray()));
             	listeQuestionScroller.setViewportView(jListQuestion);
-
+                jListQuestion.setFixedCellHeight(36);
+                jListQuestion.setBackground(Fenetre.GRIS);
+                
             	//On raffraichit l'actionListener
             	 jListQuestion.addListSelectionListener(new ListSelectionListener() {
          			public void valueChanged(ListSelectionEvent e) {
@@ -151,7 +159,7 @@ public class FenetreMode1 extends JPanel {
 				
 				
             	
-            	String textAEcrire= "Votre Theme:\n    "+eQ.getTheme() + "\n\n\nVotreQuestion:\n   " + eQ.getQuestion() + "\n\n\nEt voici un indice:\n   " + eQ.getExplication();
+            	String textAEcrire= "Votre Theme:\n    "+eQ.getTheme() + "\n\n\nVotre Question:\n\n   " + eQ.getQuestion() + "\n\n\nEt voici un indice:\n\n   " + eQ.getExplication();
 
             	//On affiche sur le jTextArea ce que l'on veut et qui correspond a cet ElementQuizz
             	jTextArea1.setText(textAEcrire);
