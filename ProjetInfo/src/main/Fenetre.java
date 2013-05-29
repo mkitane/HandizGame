@@ -147,7 +147,7 @@ public class Fenetre extends JPanel implements KeyListener{
 	}
 	
 	/**
-	 *redéfinition de setPane .On installe les panel dans la frame
+	 *redefinition de setPane .On installe les panel dans la frame
 	 *
 	 */
 	public void setPane(Component j){

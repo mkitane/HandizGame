@@ -1,15 +1,12 @@
 package main;
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 /**
  * Permet de charger en mémoire les différents éléments du jeu
  *
@@ -23,14 +20,8 @@ public class Images {
     public final static ArrayList<File> listeFiles = new ArrayList<File>();
     public final static ArrayList<String> correspondanceFiles = new ArrayList<String>();
     public static Font quickSand;
-<<<<<<< .mine
-	public static URL url ; 
 	
-=======
-    /**
-	 *
-	 */
->>>>>>> .r67
+
     public static Image get(String nom){
     	return listeImages.get(correspondance.indexOf(nom));
     }
