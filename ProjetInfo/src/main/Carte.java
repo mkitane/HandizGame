@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import quizz.ElementQuizz;
 
+import elementsCartes.Box;
 import elementsCartes.Canne;
 import elementsCartes.Chaise;
 import elementsCartes.ElementCarte;
@@ -40,7 +41,7 @@ public class Carte extends JPanel{
 	  private int lignes = 15;  // nombre de lignes
 	  private int colonnes=25;  // nombre de colonnes
 	  public static final int COTE = 35; // Pour plus tard Taille des cases;  
-	  public static String niveau = "niveau1.txt";
+	  public static String niveau = "niveau1";
 	  
 	  private Generateur generateurPatient = new Generateur();
 	  //Score de la partie
@@ -88,7 +89,7 @@ public class Carte extends JPanel{
 			
 			//charger fichier
 			try{
-			  	BufferedReader br = new BufferedReader(new FileReader(new File(nomFichier))); 
+			  	BufferedReader br = new BufferedReader(new FileReader(Images.getFile(nomFichier))); 
 		        String l ; 
 		        int ligneFichier = 0 ;
 		      
@@ -138,8 +139,11 @@ public class Carte extends JPanel{
 			for(int j=0;j<l.length();j++){
 				c=l.charAt(j);
 				//Action � effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
-				if(c=='D'){
+				if(c=='C'){
 					listeElements.add(new Chaise(j,positionLigne));
+				}
+				if(c=='B'){
+					listeElements.add(new Box(j,positionLigne));
 				}
 				if(c=='L'){
 					listeElements.add(new Lit(j,positionLigne));

@@ -17,7 +17,7 @@ public class Chaise extends Obstacle {
 	}
 	
 	public String toString(){
-		return "D";
+		return "C";
 		
 	}
 

@@ -19,7 +19,7 @@ public class Patient extends ElementCarte {
 		super(positionX, positionY, "Patients/Patient1");
 		
 		typePatient = (int)(Math.random()*5+1);
-		setImage("Patients/Patient" + typePatient);
+		setImage("Patients/Patient" + typePatient + "D");
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
@@ -52,7 +52,8 @@ public class Patient extends ElementCarte {
 	 */
 	public void action(Carte c){
 		
-		
+		setImage("Patients/Patient" + typePatient);
+
 		if(c.verifierProprietaire(this)){ //si on possede un objet dont ce patient est le proprietaire, on le lui rend
 			Fenetre.ecrire("Merci!");
 

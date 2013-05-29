@@ -109,28 +109,28 @@ public class FrameLevel extends JPanel {
      
         niveau1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau="niveau1.txt";	
+				Carte.niveau="niveau1";	
 				Main.setPane(new Fenetre());
 			}
         });
 
         niveau2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau="niveau2.txt";		
+				Carte.niveau="niveau2";		
 				Main.setPane(new Fenetre());
 			}
         });
 
         niveau3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau="niveau3.txt";
+				Carte.niveau="niveau3";
 				Main.setPane(new Fenetre());
 			}
         });
 
         niveau4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau="niveau4.txt";
+				Carte.niveau="niveau4";
 				Main.setPane(new Fenetre());
 			}
         });

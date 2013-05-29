@@ -30,6 +30,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.Carte;
 import main.Fenetre;
+import main.Images;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -260,7 +261,7 @@ public class Quizz extends JFrame implements KeyListener,ActionListener{
 		//Lire Fichier XML grace � un analyseur DOM (suffisant pour un petit fichier XML comme le notre)
 	    try {
 	 
-		File fXmlFile = new File("structure.xml");
+		File fXmlFile = Images.getFile("Structure");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);

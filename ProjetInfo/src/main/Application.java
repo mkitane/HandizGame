@@ -45,6 +45,7 @@ public class Application {
 	        //Instanciation de l'application
 	       Images.chargerImages();
 	       Images.chargerPolice();
+	       Images.chargerFichiers();
 	       Quizz.initialiser();
 	       new Application();
 
