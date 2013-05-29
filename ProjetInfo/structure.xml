@@ -45,7 +45,7 @@
  				<answer>5%</answer>
  				<answer>3%</answer>
  			</answers>
- 			<explication> </explication>
+ 			<explication>  Depuis la loi du 10 juillet 1987, les entreprises privées, publiques et les administrations de 20 salariés et plus, sont tenues d'employer des personnes handicapées, à hauteur de 6% de leurs effectifs. Les employeurs ne respectant pas ce dispositif doivent verser une contribution financière à l’Agefiph (pour le privé) ou au FIPHFP (pour le public). Une entreprise qui compte 100 salariés par exemple doit avoir au minimum 6 salariés en situation de handicap.</explication>
  	
  	</element>
  	
@@ -56,7 +56,7 @@
  				<answer>Faux</answer>
  				<answer j="juste">Vrai</answer>
  			</answers>
- 			<explication> </explication>
+ 			<explication>Les ateliers protégés sont des programmes de jour en établissement qui sont fréquentés par des adultes ayant des incapacités et qui se substituent à un emploi sur le marché du travail normal. On compte parmi les avantages des ateliers protégés le fait qu'ils offrent des solutions plus sécuritaires que l'emploi à l'extérieur, qu'ils sont moins exigeants pour les personnes ayant des incapacités en matière de compétences sociales et de travail, qu'ils assurent une certaine structure pendant les jours de semaine et une aide à vie sans nuire aux prestations d'invalidité. La majorité des travailleurs dans ces entreprises sont des personnes handicapés. </explication>
  	
  	</element>
  	
@@ -67,7 +67,7 @@
  				<answer j="juste">Faux</answer>
  				<answer>Vrai</answer>
  			</answers>
- 			<explication> </explication>
+ 			<explication> Etre reconnu handicapé vous permet de bénéficier des services de conseillers spécialisés dans l’insertion professionnelle et le maintien dans l’emploi des personnes handicapées. Ces conseillers vous proposent un accompagnement personnalisé et adapté à votre situation. Cependant aucune aide financière n'es donnée pour aménager le poste de travail de la personne handicapée.</explication>
  	
  	</element>
  	
@@ -79,7 +79,7 @@
  				<answer j="juste">10%</answer>
  				<answer>5%</answer>
  			</answers>
- 			<explication> </explication>
+ 			<explication> En tant que personne reconnue handicapée, vous faites partie du public dit prioritaire des dispositifs dédiés à l’insertion professionnelle des demandeurs d’emploi. Concrètement, 10% des travailleurs handicapés ont besoin d'un aménagement de poste. </explication>
  	
  	</element>
  	
@@ -178,15 +178,11 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>11 à 12 enfants sur 1000</answer>
  				<answer>14 à 15 enfants sur 1000</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Plusieurs centaines de gènes sont responsables de surdité et de perte d'audition.Cette surdité peut être acquise par transmission de ces gènes. Environ 1 enfant sur 2 000 naissances à 1 enfant sur 1 000 naissances est porteur d'une surdité profonde.</explication>
  	</element>
 
 		<element theme="surdite" id="14">
- 			<question>Une perte de 40 à 70 dB est  :
-
-   
-   
-   </question>
+ 			<question>Une perte de 40 à 70 dB est  : </question>
  			<answers>
  				<answer j="juste">Une surdité moyenne</answer>
  				<answer>Une surdité légère</answer>
@@ -205,7 +201,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Cela dépend du niveau (Bac, faculté)</answer>
  				<answer>Non</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Le temps de composition pour toute personne en situation de handicap peut être majoré d'un tiers (pour les oraux, c'est le temps de préparation qui est augmenté). Cette majoration peut être augmentée au vu de la situation exceptionnelle du candidat, sur demande motivée du médecin désigné par la CDAPH (commission des droits et de l'autonomie des personnes handicapées). L’organisation horaire de l'examen doit laisser une période de repos suffisante entre deux épreuves prévues dans une même journée. Elle ne peut être inférieure à 1 heure</explication>
  	</element>
 
 		<element theme="surdite" id="16">
@@ -215,19 +211,25 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Oui si son revenu est supérieur au niveau de référence même si le sous-titrage nefonctionne pas et même indépendemment de sa volonté</answer>
  				<answer> Non jamais</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Aucun avantage financier ne peut être remis aux personnes en situation de handicap. Ainsi, ces derniers ne peuvent bénéficier  d'une redevance audiovisuelle par exemple s'ils sont sourds.</explication>
  	</element>
 
 
 		<element theme="surdite" id="17">
  			<question>En quelle année, le 1er sourd en France a eu son permis de conduire ?</question>
  			<answers>
- 				<answer j="juste">1959</answer>
+ 				<answer j="juste">1962</answer>
 				<answer>1949</answer>
  				<answer>1939</answer>
  				<answer>1969</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>La loi Buron autorise les sourds qui peuvent passer l'examen du permis de conduire en 1959. M. Yves Prouteau était premier Sourd obtenant le permis de conduire dans le département de Maine et Loire ! Voici une déclaration de Yves Prouteau :
+"Le 14 mars 1962, après une visite médicale (houleuse) les docteurs Legal et Jouan ne voulaient pas me le donner pour inaptitude physique « manque d’équilibre les yeux fermés et sur un pied ». Ce que n’est pas facile pour une personne ayant eu une méningite et c’est mon cas. C’est cette méningite qui m’a rendu sourd à l’âge de 7 ans. Ils me l’ont accordé à titre provisoire à l’essai pour une période de 2 ans, avec obligation du port d’appareil auditif du 14 mars 1962. 2 ans après, j’ai repassé une visite médicale après avoir conduit pendant 2 ans une Dauphiné Gordini.
+À cette nouvelle visite, les mêmes docteurs Legal et Jouan n’ont pas voulu prendre la responsabilité de me renouveler.  Ayant sans doute pour la suite des résultats, sur les conseils de Sœur Marie Louise, j’ai contacté Monsieur Jean Sauvage, puis mon docteur Michel Tanty, qui m’a fait un certificat, puis j’ai été chez le docteur Le Pavec (Orl) et chez le docteur Député et Maire de Chemillé qui m’ont effectué 3 certificats contre deux.
+Finalement, ils ont accepté de me le renouveler ce qui a été fait."
+
+ 
+</explication>
  	</element>
  	
 		<element theme="surdite" id="18">
@@ -237,7 +239,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Malentendant</answer>
  				<answer>Sourd-muet</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Le terme "Sourd" est le plus approprié pour désigner les personnes présentant des problèmes auditifs. Cependant, d'autres mots à l'instar de "Sourd-muet" ou encore "Malentendant" sont employés, mais les personnes présentant des problèmes auditifs préférent se faire nommer "Sourd".  </explication>
  	
  	</element>
  	
@@ -248,7 +250,8 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Certainement</answer>
  				<answer>Ce n'est pas une langue</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Théoriquement, la langue des signes est universelle. Mais selon les régions du Globe, cela change. De plus, Henri Wittmann (1991) a fourni une classification des langues des signes. Il existe en fait, tout comme pour le langage oral, autant de langues des signes que de communautés différentes de sourds, chaque langue des signes ayant son histoire, ses unités signifiantes et son lexique.
+Seules quelques-unes de la centaine de langues des signes dans le monde, ont obtenu une reconnaissance légale, les autres ne bénéficiant d'aucun statut officiel. Ainsi, la langue des signes n'est pas une langue universelle.</explication>
  	
  	</element>
  	
@@ -260,7 +263,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Secondaire</answer>
  				<answer>Primaire</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Bien que cela apparait comme impossible, les personnes présentant des problèmes auditifs peuvent atteindre un niveau académique grace à l'aménagement scolaire dont ils bénéficent.</explication>
  	
  	</element>
  	
@@ -271,7 +274,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>On doit parler très, très fort</answer>
  				<answer>On doit articuler beaucoup</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Il suffit de s’adresser à cette personne normalement, sans bouger la tête, ni mettre la main devantla bouche. Il n’est pas non plus nécessaire d’articuler de manière exagérée ni de parler fort.</explication>
  	
  	</element>
  	
@@ -282,7 +285,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Agiter les mains</answer>
  				<answer>Faire clignoter les lumières</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>L'attention d'une personne sourde est difficile à attirer. En effet, on se doit d'utiliser tous les moyens possibles en agitant les mains ou clignoter les lumières afin d'attirer son attention </explication>
  	
  	</element>
  	
@@ -293,7 +296,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>Permet de participer et de mieux comprendre certaines situations</answer>
  				<answer>Ne permet pas de mieux comprendre lors de situations bruyantes</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Les troubles de l’audition ne sont pas à cataloguer comme un problème secondaire. Ils sont très difficiles à vivre au quotidien, source de souffrance physique mais aussi sociale, pour le patient comme pour ses proches. Avec la qualité des prothéses auditives, qui permettent de retrouver une audition normale, et leur discrétion, il est toujours indispensable pour les troubles sévères de s’équiper, mais également pour les troubles plus légers afin d’éviter une dégradation progressive de l’audition pouvant devenir irrécupérable.</explication>
  	
  	</element>
  	
@@ -304,7 +307,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>50%</answer>
  				<answer>75%</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Bien que la langue française est considéré comme l'une des plus belles langues du monde voir la plus belle, cette dernière n'est lisible sur les lèvres qu'à un pourcentage d'environ 30%</explication>
  	
  	</element>
  	
@@ -315,9 +318,166 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  				<answer>20%</answer>
  				<answer>70%</answer>
  			</answers>
+ 			<explication>Plusieurs centaines de gènes sont responsables de surdité et de perte d'audition.Cette surdité peut être acquise par transmission de ces gènes. Environ 1 enfant sur 2 000 naissances à 1 enfant sur 1 000 naissances est porteur d'une surdité profonde. Ainsi, 90% des Sourds ont des enfants entendants.</explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
  			<explication></explication>
  	
  	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
+ 	<element theme="" id="">
+ 			<question></question>
+ 			<answers>
+ 				<answer j="juste"></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 				<answer></answer>
+ 			</answers>
+ 			<explication></explication>
+ 	
+ 	</element>
+
 
  	<!--Exemple:
  	<element theme="" id="">
