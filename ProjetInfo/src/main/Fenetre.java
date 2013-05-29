@@ -15,7 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import elementsCartes.Joueur;
-
+/**
+ * Classe contenant la page de démarrage
+ * 
+ */
 public class Fenetre extends JPanel implements KeyListener{
 	
 	private JPanel panelJeu = new JPanel();
@@ -28,7 +31,10 @@ public class Fenetre extends JPanel implements KeyListener{
 	private static JLabel labelInfo = new JLabel();
 	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42"));
 	
-	
+	/**
+	 *Concstructeur de fenetre contient les différentes évenemments des boutons qui se lancent 
+	 *au cours du programme
+	 */
 	public Fenetre(){
 		jbInit();
         
@@ -60,6 +66,10 @@ public class Fenetre extends JPanel implements KeyListener{
 		
         setVisible(true);
 	}
+	/**
+	 * Classe conteant l'organisation des éléments graphiques
+	 *
+	 */
 
 	private void jbInit() {
 		
@@ -86,7 +96,10 @@ public class Fenetre extends JPanel implements KeyListener{
 	}
 
 	
-
+	/**
+	 *Méthode qui permet de déplacer le joueur avec les touches du clavier
+	 *
+	 */
 	
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_UP){
@@ -102,24 +115,41 @@ public class Fenetre extends JPanel implements KeyListener{
 			jeu.unDeplacementDeJoueur(Joueur.RIGHT);
 		}
 	}
+	/**
+	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
+	 *
+	 */
 	public void keyReleased(KeyEvent e) {}
-
+	/**
+	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
+	 *
+	 */
 	public void keyTyped(KeyEvent e) {}
-	
+	/**
+	 * Méthode permettant de récuperer le chrono étant private
+	 */
 	
 	public Chrono getChrono(){
 		return chrono;
 	}
-	
+	/**
+	 *le jeu est une carte.On réccupère le jeu
+	 */
 	public Carte getJeu() {
 		return jeu;
 	}
-
+	/**
+	 *Méthode qui permet d'installer le texte des questions et réponses dans le jeu
+	 *
+	 */
 	public static void ecrire(String s){
 		labelInfo.setText(s);
 	}
 	
-	
+	/**
+	 *redéfinition de setPane .On installe les panel dans la frame
+	 *
+	 */
 	public void setPane(Component j){
 		this.removeAll();
 		this.add(j);

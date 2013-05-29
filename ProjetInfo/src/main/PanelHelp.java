@@ -13,13 +13,17 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/**
+ *Classe créant le mode aide du jeu
+ */
 public class PanelHelp extends JPanel implements KeyListener {
 	private JPanel panelBtn = new JPanel();
 	private JButton btnAvancer = new JButton(">");
 	private JButton btnReculer = new JButton("<");
 	private int numeroDiapo; 
-	
+	/**
+	 *constructeur du mode aide
+	 */
 	public PanelHelp(){
 		numeroDiapo = 0 ; 
 		
@@ -51,7 +55,10 @@ public class PanelHelp extends JPanel implements KeyListener {
 	}
 	
 
-
+	/**
+	 * Méthode graphic component dessinant les diapositives
+	 * 
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
@@ -61,7 +68,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 		g.drawString("Regles du Jeu", 330, 60);
 		dessinerPanel(g);
 		/*g.drawString("Un petit peu d'aide", 50, 50);
-		g.drawString("Ce jeu est tr�s facile � jouer", 20, 100);
+		g.drawString("Ce jeu est tr�s facile � jouer", 20, 100);
 		g.drawString("Vous incarnez un personnage. Vous n'avez qu'une seule mission! Votre mission est d'aider les personnes qui apparaissent !", 20, 150);
 		g.drawString("Celles-ci n'ont qu'un seul souhait : leur rammener l'objet dont-ils ont besoin.", 20, 200);
 		g.drawString("Attention! Pour recuperer l'objet voulu, il faut que vous repondiez a une question liee au handicap!", 20, 250);
@@ -74,7 +81,10 @@ public class PanelHelp extends JPanel implements KeyListener {
 	
 	
 	
-	
+	/**
+	 *Constructeur des différens diapos du mode aide
+	 *
+	 */
 	private void dessinerPanel(Graphics g) {
 			switch(numeroDiapo){
 			case -1 : 
@@ -84,7 +94,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 				break;
 			case 1 : 
 				g.drawString("Vous incarnez un Personnage ! ", 180, 200);
-				g.drawString("Vous n�avez qu�une seule mission !", 160, 250);
+				g.drawString("Vous n�avez qu�une seule mission !", 160, 250);
 				g.drawImage(Images.get("Personnage/Face1"), 420, 350,null);
 				break;
 			case 2 : 
@@ -127,12 +137,17 @@ public class PanelHelp extends JPanel implements KeyListener {
 	}
 
 
-
+	/**
+	 * Evenement du bouton permettant de reculer dans la series des diapositives
+	 * 
+	 */
 	private void btnReculerActionPerformed() {
 		numeroDiapo--;
 		repaint();
 	}
-
+	/**
+	 *Evenement du bouton permettant d'avancer dans les diapositives
+	 */
 	private void btnAvancerActionPerformed() {
 		numeroDiapo++;
 		repaint();
@@ -140,14 +155,19 @@ public class PanelHelp extends JPanel implements KeyListener {
 
 
 
-	@Override
+	/**
+	 *Méthode devant être appelée dans le programme
+	 *Elle est cependant inutile
+	 */
 	public void keyPressed(KeyEvent e) {
 		
 	}
 
 
 
-	@Override
+	/**
+	 *Méthode créant un évenemnt au moment où on relache le bouton
+	 */
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_LEFT){
 			btnReculerActionPerformed();
@@ -159,7 +179,9 @@ public class PanelHelp extends JPanel implements KeyListener {
 
 
 
-	@Override
+	/**
+	 *Méthode vide générée automatiquement
+	 */
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		

@@ -14,7 +14,9 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 
-
+/**
+ *Classe qui définie une fenêtre contenant les boutons de choix de niveau
+ */
 
 public class FrameLevel extends JPanel {
 	private BorderLayout bl = new BorderLayout();
@@ -46,7 +48,10 @@ public class FrameLevel extends JPanel {
 			}
 		});
     }
-
+    /**
+	 *Méthode organisant les différents ékélents grahpiques de la fenêtre.
+	 *Contient également les événements
+	 */
     private void jbInit() throws Exception {
         
     	this.setLayout(bl);

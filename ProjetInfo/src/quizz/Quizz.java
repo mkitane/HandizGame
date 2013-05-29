@@ -86,10 +86,12 @@ public class Quizz extends JFrame implements KeyListener,ActionListener{
 		objetAssocieAuQuizz=o;
 		
 		jbInit();
-		setBackground(Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42")));
+		setBackground(Fenetre.GRIS);
 
 	}
-	
+	/**
+	 *Méthode qui organise la partie graphique du programme
+	 */
 	
 	public void jbInit(){
 		/*Partie Graphique*/
@@ -158,22 +160,36 @@ public class Quizz extends JFrame implements KeyListener,ActionListener{
 	
 	}
 
-
+	/**
+	 * Evennement se déclenchant quanq on deplace pour choisir réponse
+	 * 
+	 */
 
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_ENTER){
 			boutonsActionPerformed(e);
 		}
 	}
+	/**
+	 *
+	 */
 	public void actionPerformed(ActionEvent e) {
 			boutonsActionPerformed(e);
 	}
+	/**
+	 *
+	 */
 	public void keyReleased(KeyEvent arg0) {}
+	/**
+	 *
+	 */
 	public void keyTyped(KeyEvent arg0) {}
 
-
+	/**
+	 *
+	 */
 	private void boutonsActionPerformed(AWTEvent e){
-		//Verifie si le JButtoncorrespond � la bonne reponse
+		//Verifie si le JButtoncorrespond � la bonne reponse
 		for(int i=0;i<tableauDesReponses.length;i++){
 			//Si oui
 			if(e.getSource()==tableauDesReponses[i]){

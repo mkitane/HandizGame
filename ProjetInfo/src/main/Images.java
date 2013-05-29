@@ -9,7 +9,10 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-
+/**
+ * Permet de charger en mémoire les différents éléments du jeu
+ *
+ */
 public class Images {
     //Corriger Bug heap space, trop de truc charges en memoire
     /**ArrayList qui contient toutes les images*/
@@ -17,11 +20,17 @@ public class Images {
     /**ArrayList qui contient les noms des images pour une correspondance*/
     public final static ArrayList<String> correspondance = new ArrayList<String>();
     public static Font quickSand;
-	
+    /**
+	 *
+	 */
     public static Image get(String nom){
     	return listeImages.get(correspondance.indexOf(nom));
     }
-    
+    /**
+	 *Méthode qui charge le fichiers polices.
+	 *
+	 *
+	 */
     public static void chargerPolice(){
     	try
     	{
@@ -37,6 +46,10 @@ public class Images {
     		e.printStackTrace();
     	}
     }
+    /**
+     * Méthode qui charge les images dans une Array List
+     *
+     */
 	public static void chargerImages(){
 		
 			 try {

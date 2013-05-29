@@ -3,7 +3,11 @@ package main;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JButton;
-
+/**
+ * Cette class permet de créer un arrière plan au bouton 
+ * correspondant au niveau que le joueur sélectionnera
+ *
+ */
 public class BoutonNiveau extends JButton {
 	 private Image img;
 	     

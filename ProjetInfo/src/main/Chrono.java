@@ -12,7 +12,11 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import elementsCartes.ObjetRecuperable;
-
+/**
+ * Classe créant le timer qui s'incrémente où s'implémente selon le résultat du joueur
+ * 
+ *
+ */
 public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;

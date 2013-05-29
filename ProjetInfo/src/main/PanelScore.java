@@ -16,6 +16,11 @@ import javax.swing.JPanel;
 import quizz.ElementQuizz;
 
 //Gerer le fait qu'il n'y ai aucune reponse
+/**
+ *Classe Jpanel permettant de cr√©er un panneaux o√π les scores sont affich√©es.
+ *
+ *
+ */
 public class PanelScore extends JPanel {
 	private ArrayList<ElementQuizz> listeBonnesReponses; 
 	private ArrayList<ElementQuizz> listeMauvaisesReponses;
@@ -29,7 +34,12 @@ public class PanelScore extends JPanel {
 	private JPanel panelBtn = new JPanel();
 	private JButton btnRetour = new JButton("Retour Accueil");
 	private JButton btnRejouer = new JButton("Rejouer");
-	
+	/**
+	 *
+	 *
+	 *Constructeur du panneau score
+	 *
+	 */
 	public PanelScore(ArrayList<ElementQuizz> lB,ArrayList<ElementQuizz> lM){
 		setBackground(Fenetre.GRIS);
 
@@ -62,7 +72,10 @@ public class PanelScore extends JPanel {
 			}
 		});
 	}
-	
+	/**
+	 * M√©thode graphique
+	 * elle dessine les diff√©rents √©l√©ments du panneau
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
@@ -89,7 +102,7 @@ public class PanelScore extends JPanel {
 		
 		g.setFont(new Font("Helvetica Neue",Font.PLAIN,30));
 		if(themeLacune==null){
-			g.drawString("Vous n'avez rien à améliorer ;)", 40, getHeight()-45);
+			g.drawString("Vous n'avez rien ÔøΩ amÔøΩliorer ;)", 40, getHeight()-45);
 		}else{
 			g.drawString("Il faut que vous approfondissiez vos connaissances sur le theme: " + themeLacune + ".", 40, getHeight()-45);
 		}
@@ -136,7 +149,7 @@ public class PanelScore extends JPanel {
 			g.drawImage(imgdelta, positionX+6+i, positionY+4, 1, 11,null);
 
 		}		
-		//on dessine le petit bout à droite
+		//on dessine le petit bout ÔøΩ droite
 		if(pourcentage(p)*2==200){
 			g.drawImage(imgdeltaFin,positionX+205,positionY+3,5,11,null);
 		}
@@ -175,7 +188,7 @@ public class PanelScore extends JPanel {
 			g.drawImage(imgdelta, positionX+6+i, positionY+4, 1, 11,null);
 
 		}	
-		//on dessine le petit bout à droite
+		//on dessine le petit bout ÔøΩ droite
 		if(pourcentage(pourcentageBonnesReponses)*2==200){
 			g.drawImage(imgdeltaFin,positionX+205,positionY+3,5,11,null);
 		}

@@ -11,7 +11,11 @@ public class Application {
 
 	 public static Main frame;
 	 
-	 
+	 /**
+	  * application qui lance le main à travers une fenêtre
+	  * 
+	  *
+	  */
 	 public Application(){
 	 frame=new Main();
 	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

@@ -21,7 +21,11 @@ import quizz.Quizz;
 //==>ne pas creer un objet dans un endroit deja rempli
 public class Main extends JFrame{
 
-	    
+	/**
+	 *Main de la classe Main.  
+	 *Lance le panneau principal
+	 *
+	 */
 	   public Main(){
 			setTitle("HandizGame");
 			setSize(Carte.COTE*25,Carte.COTE*15+73+40);
@@ -32,7 +36,9 @@ public class Main extends JFrame{
 		    setResizable(false);
 	        setVisible(true);
 	   }
-	   
+	   /**
+		 *Installe les panel dans la frame
+		 */
 	   public static void setPane(Component c){
 		   Application.frame.getContentPane().removeAll();
 		   Application.frame.add(c);
