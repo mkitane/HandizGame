@@ -105,6 +105,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		int x=3;
 		int y= 9;
 		
+		System.out.println(c.getObjetsRecuperes());
 		for(ObjetRecuperable a:c.getObjetsRecuperes()){
 			if(c.getObjetsRecuperes().indexOf(a)<6){
 			g.drawImage(a.getImage(), x, y, 39,34,null);

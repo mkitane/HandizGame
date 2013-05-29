@@ -25,7 +25,7 @@ public class Images {
     public static void chargerPolice(){
     	try
     	{
-    	     File fontFile = new File("./Police/QuicksandLight.otf");
+    	     File fontFile = new File("./Police/QuicksandLight.ttf");
     	 
     	     quickSand = Font.createFont(Font.TRUETYPE_FONT, fontFile);
     	     quickSand = quickSand.deriveFont((float)25.0);
