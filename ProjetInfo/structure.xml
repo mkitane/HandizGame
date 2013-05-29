@@ -322,161 +322,164 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="Loi et Handicap" id="26">
+ 			<question>Discriminer une personne est-il un délit pénal ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer>Non</answer>
+ 				<answer j="juste">Oui</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>La loi du 10 juillet 1987 oblige tout employeur du secteur privé et tout établissement public à caractère industriel et commercial occupant 20 salariés ou plus, à employer, dans une proportion de 6 % de son effectif salarié, des travailleurs handicapés.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="Handicap et entreprise" id="27">
+ 			<question>Combien de personnes en situation de handicap  sont-elles exclues de l’emploi ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+                <answer>55%</answer>
+ 				<answer j="juste">60%</answer>
+ 				<answer>65%</answer>
  			</answers>
- 			<explication></explication>
+        <explication>Toute personne coupable de discrimination risque jusqu’à 3 ans d’emprisonnement et 45 000 € d’amende, mais malgre cela ces dernieres restent innefacable de la vie en entreprise, les handicapes  etant les premieres personnes visees.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="Handicap et entreprise" id="28">
+ 			<question>Un candidat en situation de handicap a combien de chances  en moins de décrocher un entretien d’embauche</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+                <answer j="juste">2 fois</answer>
+ 				<answer>3 fois</answer>
+ 				<answer>4 fois</answer>
  			</answers>
- 			<explication></explication>
+        <explication>Pour les personnes handicapées, les résultats sont médiocres dans les emplois en contact avec la clientèle. Ils sont très bons pour les postes d’encadrement cela pouvant s’expliquer par la pénurie de candidats cadres en situation de handicap, malheureusement la chance d'obtenir un emploi pour un candidat handicape est diminue de moitie par rapport a celle d'un candidat valide.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="Handicap et entreprise" id="29">
+ 			<question>Quel est le nom de l'Association de sensibilisation au Handicap de l'INSA Lyon ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">HandizGoud</answer>
+ 				<answer>HandInsa</answer>
+ 				<answer>HandicapInsa</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>HandizGoud est une association cree a l'INSA Lyon pour la sensibilisation des etudiants de l'INSA a l'insertion professionnelle et socio-culturelle des personnes handicapees.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="30">
+        <question>En 2007, la France comptait environ 1 million de personnes présentant un handicap.</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+                <answer>Vrai</answer>
+ 				<answer j="juste">Faux</answer>
  			</answers>
- 			<explication></explication>
+        <explication>La France comptait environ 5 millions de personnes présentant un problème de santé durable ou un handicap limitant leur capacité de travail. Sur ces 5 millions, seul 1,8 million a bénéficié d’une reconnaissance administrative de leur handicap.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="31">
+        <question>En France, combien de personnes se disent victimes d’une déficience ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">Une personne sur 5</answer>
+ 				<answer>Une personne sur 10</answer>
+ 				<answer>Une personne sur 25</answer>
  			</answers>
- 			<explication></explication>
+        <explication>Une personne sur cinq soit environ 12 millions de Français se déclarent victimes d’une déficience 3.9 % sont reconnues comme telle administrativement.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="32">
+ 			<question>Que signifie RQTH ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer>Réservé qualification travailleur handicapé</answer>
+ 				<answer j="juste">Reconnaissance de la qualité de travailleur handicapé</answer>
+ 				<answer>Reconnu et qualifié travailleur handicapé</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>La RQTH (Reconnaissance de la Qualité de Travailleur Handicapé) est en France un statut reconnu par la Commission des Droits et de l'Autonomie des Personnes Handicapées (CDAPH). Elle apparait sous forme d'une notification de décision et est valable pour une certaine durée avec la possibilité d'être renouvelée à l'échéance. Cette reconnaissance permet aux personnes handicapees d'accéder à un ensemble de mesures favorisant son insertion professionnelle et le maintien dans l'emploi.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="Handicap et entreprise" id="33">
+        <question>Lors d’un entretien professionnel avec un salarié, quelles questions l’employeur peut-il poser ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer>Depuis quand êtes-vous handicapés</answer>
+ 				<answer>De quelle maladie souffrez-vous ?</answer>
+ 				<answer j="juste">Votre situation impose-t-elle des aménagements de poste ?</answer>
+ 				<answer>Votre maladie est-elle contagieuse ?</answer>
  			</answers>
- 			<explication></explication>
+        <explication>C’est le médecin du travail qui valide l’aptitude au poste de travail comme pour tous les salariés.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="surdite" id="34">
+        <question>Les sourds peuvent ils conduire ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">Oui</answer>
+ 				<answer>Non</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Toutes les enquêtes démontrent en effet que les sourds ont moins d'accidents que les entendants car ils sont plus attentifs. Neanmoins, leur voiture est obligatoirement équipée de deux rétroviseurs extérieurs.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="surdite" id="35">
+ 			<question>Un sourd est il muet ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+                <answer>Vrai</answer>
+                <answer j="juste">Faux</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication> Une personne sourde possède des cordes vocales comme tout le monde. Mais il peut difficilement reproduire des sons qu'il n'entend pas.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="36">
+ 			<question>Les handicapes mentaux sont ils des gens violents ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer>Vrai</answer>
+ 				<answer j="juste">Faux</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Aucune étude ne montre qu'il y a plus de violence chez ces personnes. S'il y a violence, elle est souvent tournée vers eux-mêmes.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="37">
+        <question>Les autistes ont une apparence physique particulière ?</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer>Oui</answer>
+ 				<answer j="juste">Non</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Cette maladie n'affecte pas le physique. Cependant leur attitude peut susciter l'incompréhension chez certains.</explication>
  	
  	</element>
 
- 	<element theme="" id="">
- 			<question></question>
+ 	<element theme="General" id="38">
+ 			<question>Les traitements des malades mentaux par neuroleptiques engendrent des effets secondaires.</question>
  			<answers>
- 				<answer j="juste"></answer>
- 				<answer></answer>
- 				<answer></answer>
- 				<answer></answer>
+ 				<answer j="juste">Vrai</answer>
+ 				<answer>faux</answer>
  			</answers>
- 			<explication></explication>
+ 			<explication>Les neuroleptiques comportent parfois des effets indésirables. Le médecin peut obtenir l'atténuation de ces effets par la recherche de la juste dose ou la prescription de correcteurs.</explication>
  	
  	</element>
+     
+    <element theme="General" id="39">
+        <question>En 2002, la France comptait dans ses Universités :</question>
+         <answers>
+             <answer>1000</answer>
+             <answer>3000</answer>
+             <answer>5000</answer>
+             <answer j="juste">plus de 7000</answer>
+         </answers>
+         <explication>En 2002, la France comptait 7145 étudiants handicapés au sein de ses Universités.</explication>
+         
+     </element>
+     
+     <element theme="General" id="40">
+         <question>La fibromyalgie concernerait entre 2 et 5 % de la population.</question>
+         <answers>
+             <answer j="juste">Vrai</answer>
+             <answer>faux</answer>
+         </answers>
+         <explication>La fibromyalgie concernerait en effet entre 2 et 5 % de la population, principalement des femmes (70 à 90 %). Ce trouble représenterait 10 à 20 % des motifs de consultation dans les services de rhumatologie ou de médecine interne. Ce trouble est caractérisé par des douleurs des muscles et des tendons le long du rachis, une fatigue et des troubles du sommeil. Ces symptômes peuvent s'accompagner de différentes manifestations : jambes sans repos, céphalées, intestin irritable, dysménorrhées, acouphènes.</explication>
+         
+     </element>
 
 
  	<!--Exemple:
