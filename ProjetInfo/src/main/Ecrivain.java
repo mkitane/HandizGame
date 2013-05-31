@@ -12,7 +12,7 @@ public class Ecrivain {
 	private int positionX = 0;
 	private int positionY = 0;
 	private final int TAILLEBULLEX = 140;
-	private final int TAILLEBULLEY = 80;
+	private final int TAILLEBULLEY = 120;
 
 	/** nombre de secondes pour afficher le txt */
 	private int compteur = 3;
@@ -50,16 +50,16 @@ public class Ecrivain {
 
 	private void dessinerBulle(Graphics g) {
 		
-		if (positionX > (875 - TAILLEBULLEX) && positionY < TAILLEBULLEY) { // HAUTDROITEFAIT
+		if (positionX > (875 - TAILLEBULLEX-10) && positionY < TAILLEBULLEY) { // HAUTDROITEFAIT
 
 			g.drawImage(Images.get("Bulle4"), positionX - TAILLEBULLEX,
 					positionY + 35, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX - TAILLEBULLEX + 27 ; 
-			int y = positionY + TAILLEBULLEY - 32 ; 
+			int y = positionY + TAILLEBULLEY - 22 ;  //-32
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
-				y= y+10 ; 
+				y= y+15 ; 
 			}
 			
 			
@@ -68,10 +68,10 @@ public class Ecrivain {
 					TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 
-			int y = positionY + TAILLEBULLEY - 32 ; 
+			int y = positionY + TAILLEBULLEY - 22 ; 
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
-				y= y+10 ; 
+				y= y+15 ; 
 			}
 			
 		} else if (positionX < TAILLEBULLEX && positionY > (575 - TAILLEBULLEY)) { // BASGAUCHE
@@ -79,10 +79,10 @@ public class Ecrivain {
 					positionY - TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 
-			int y = positionY - TAILLEBULLEY + 10 ; 
+			int y = positionY - TAILLEBULLEY + 20 ; 
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
-				y= y+10 ; 
+				y= y+15 ; 
 			
 			}
 		} else if (positionX < TAILLEBULLEX) { // A GaucheFAIT
@@ -91,10 +91,10 @@ public class Ecrivain {
 
 
 			int x = positionX + 65 ; 
-			int y = positionY - TAILLEBULLEY + 10 ; 
+			int y = positionY - TAILLEBULLEY + 20 ; 
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
-				y= y+10 ; 
+				y= y+15 ; 
 			}
 			
 		} else {//FAIT
@@ -103,10 +103,10 @@ public class Ecrivain {
 					positionY - TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 			
 			int x = positionX - TAILLEBULLEX + 25 ; 
-			int y = positionY - TAILLEBULLEY + 10 ; 
+			int y = positionY - TAILLEBULLEY + 20 ; //10 
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
-				y= y+10 ; 
+				y= y+15 ; 
 			}
 		}
 	}

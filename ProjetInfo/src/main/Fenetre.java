@@ -28,7 +28,6 @@ public class Fenetre extends JPanel implements KeyListener{
 	private JButton boutonRetour = new JButton("Retour Accueil");
 	private JButton boutonRejouer = new JButton("Rejouer");
 
-	private static JLabel labelInfo = new JLabel();
 	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42"));
 	
 	/**
@@ -87,9 +86,6 @@ public class Fenetre extends JPanel implements KeyListener{
 		panelBas.setLayout(new FlowLayout(15));
 		panelBas.add(boutonRetour);
 		panelBas.add(boutonRejouer);
-		panelBas.add(labelInfo);
-		
-		labelInfo.setForeground(Color.WHITE);
 
 		panelBas.setBackground(GRIS);
 
@@ -138,14 +134,7 @@ public class Fenetre extends JPanel implements KeyListener{
 	public Carte getJeu() {
 		return jeu;
 	}
-	/**
-	 *Méthode qui permet d'installer le texte des questions et réponses dans le jeu
-	 *
-	 */
-	public static void ecrire(String s){
-		labelInfo.setText(s);
-	}
-	
+
 	/**
 	 *redefinition de setPane .On installe les panel dans la frame
 	 *

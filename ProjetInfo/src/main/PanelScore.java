@@ -79,17 +79,19 @@ public class PanelScore extends JPanel {
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
-
+		g.setFont(Images.quickSand);
 
 		
 		
 		dessinerScore(g);
 		dessinerBarreJustesse(g);
 		
-		int y=270; //Permet de positionner toute la partie Detail en fonction de cette position en y
+		
+		
+		int y=220; //Permet de positionner toute la partie Detail en fonction de cette position en y
 
 		
-		g.setFont(new Font("Helvetica Neue Light",Font.ITALIC,30));
+		g.setFont(Images.quickSand.deriveFont((float)30));
 		g.drawString("Details :", getWidth()/2-65, y);
 		//pour chaque theme, on regarde le pourcentage de bonnes reponses
 		for(String theme: listeThemes){
@@ -100,11 +102,12 @@ public class PanelScore extends JPanel {
 		y=y+60;
 		
 		
-		g.setFont(new Font("Helvetica Neue",Font.PLAIN,30));
+		g.setFont(Images.quickSand.deriveFont((float)20));
 		if(themeLacune==null){
-			g.drawString("Vous n'avez rien � am�liorer ;)", 40, getHeight()-45);
+			g.drawString("Vous n'avez rien a ameliorer ;)", 40, getHeight()-45);
 		}else{
-			g.drawString("Il faut que vous approfondissiez vos connaissances sur le theme: " + themeLacune + ".", 40, getHeight()-45);
+			g.drawString("Il faut que vous approfondissiez vos connaissances sur le theme : ", 40, getHeight()-65);
+			g.drawString( themeLacune + "." , 550, getHeight()-45);
 		}
 	}	
 	
@@ -118,7 +121,7 @@ public class PanelScore extends JPanel {
 	private void dessinerScore(Graphics g){
 		int positionX=670;
 		int positionY=120;
-		g.setFont(new Font("SansSerif",Font.PLAIN,50));
+
 		String s = String.valueOf(listeBonnesReponses.size());
 		g.drawString(s, positionX, positionY);
 		
@@ -126,7 +129,8 @@ public class PanelScore extends JPanel {
 		 //chaque fois que le nombre de chiffre du score augmente, on augmente de 30 la position du score total;
 		int xPositionString= positionX + 31*s.length(); 
 		s="/" + (listeBonnesReponses.size()+listeMauvaisesReponses.size());
-		g.setFont(new Font("SansSerif",Font.PLAIN,20));
+		
+
 		g.drawString(s, xPositionString, positionY-20);
 	}
 	
@@ -139,7 +143,7 @@ public class PanelScore extends JPanel {
 	private void dessinerBarreJustesse(Graphics g){
 		int positionX=600; 
 		int positionY = 160;
-		g.drawString("Justesse", positionX+60, positionY-10);
+		g.drawString("Justesse", positionX+40, positionY-10);
 		g.drawImage(imgBarreVide, positionX, positionY, 212, 20, null);
 		
 		
@@ -155,11 +159,11 @@ public class PanelScore extends JPanel {
 		}
 		
 		
-		g.setFont(new Font("SansSerif",Font.PLAIN,12));
+		g.setFont(Images.quickSand.deriveFont((float)13));
 		g.drawString(pourcentage(p)+"%", positionX+177, positionY+13);
 		
 		
-		g.setFont(new Font("SansSerif",Font.PLAIN,40));
+		g.setFont(Images.quickSand.deriveFont((float)40));
 		if(pourcentage(p)>50){
 			g.drawString("Bravo!",getWidth()/2-70, 50);
 		}else{
@@ -194,9 +198,9 @@ public class PanelScore extends JPanel {
 		}
 		
 		
-		g.setFont(new Font("SansSerif",Font.PLAIN,12));
+		g.setFont(Images.quickSand.deriveFont((float)15));
 		//g.drawString("------------------------------", positionX, positionY-30);
-		g.drawString(theme, positionX+60, positionY-10);
+		g.drawString(theme, positionX+40, positionY-10);
 		g.drawString(pourcentage(pourcentageBonnesReponses)+"%", positionX+175, positionY+13);
 	}
 	

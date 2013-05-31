@@ -463,7 +463,7 @@ public class Carte extends JPanel{
 		
 		
 		Patient p = new Patient(positionXObjet,positionYObjet);
-		Fenetre.ecrire("Un Patient est apparu!");
+		//Fenetre.ecrire("Un Patient est apparu!");
 		//Ecrivain.getInstance().setTxt("Un Patient est apparu!", positionXObjet, positionYObjet);
 
 		listeElements.add(p);
