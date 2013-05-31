@@ -2,8 +2,12 @@ package main;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -33,29 +37,40 @@ public class Images {
     public static File getFile(String nom){
     	return listeFiles.get(correspondanceFiles.indexOf(nom));
     }
-    public static void chargerFichiers(){
+    public static void chargerFichiers() throws URISyntaxException{
     	
     	correspondanceFiles.add("Structure");
-    	correspondanceFiles.add("niveau4");
     	correspondanceFiles.add("niveau1");
     	correspondanceFiles.add("niveau2");
     	correspondanceFiles.add("niveau3");
+    	correspondanceFiles.add("niveau4");
 
 
-    	//url = Images.class.getResource(".././ressources/structure.xml");
-    	//    	listeFiles.add((new File(url.getPath())));
-
-    	listeFiles.add((new File("./src/ressources/structure.xml")));
-    	listeFiles.add((new File("./src/ressources/niveau1.txt")));    	
-    	listeFiles.add((new File("./src/ressources/niveau2.txt")));
-    	listeFiles.add((new File("./src/ressources/niveau3.txt")));
-    	listeFiles.add((new File("./src/ressources/niveau4.txt")));
+    
     	
+    	
+    	File fichier = new File(Images.class.getResource(".././ressources/structure.xml").toURI());
+		listeFiles.add(fichier);
+		
+		fichier = new File(Images.class.getResource(".././ressources/niveau1.txt").toURI());
+		listeFiles.add(fichier);
+
+		fichier = new File(Images.class.getResource(".././ressources/niveau2.txt").toURI());
+		listeFiles.add(fichier);
+		
+		fichier = new File(Images.class.getResource(".././ressources/niveau3.txt").toURI());
+		listeFiles.add(fichier);
+		
+		fichier = new File(Images.class.getResource(".././ressources/niveau4.txt").toURI());
+		listeFiles.add(fichier);
+	
+    
     }
     public static void chargerPolice(){
     	try
     	{
-    	     File fontFile = new File("./src/ressources/QuicksandLight.ttf");
+    		
+    		 File fontFile = new File(Images.class.getResource(".././ressources/QuicksandLight.ttf").toURI());
     	 
     	     quickSand = Font.createFont(Font.TRUETYPE_FONT, fontFile);
     	     quickSand = quickSand.deriveFont((float)25.0);
@@ -69,9 +84,10 @@ public class Images {
     }
     /**
      * Méthode qui charge les images dans une Array List
+     * @throws URISyntaxException 
      *
      */
-	public static void chargerImages(){
+	public static void chargerImages() throws URISyntaxException{
 		
 			 try {
 				 
@@ -83,15 +99,32 @@ public class Images {
 			 correspondance.add("Lit");
 			 correspondance.add("Logo");
 			 correspondance.add("Box");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/BarreVide.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Canne.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Chaise.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Infirmier.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/listeObjets.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Lit.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Logo.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Box.png")));
+			 
+			 File fichier = new File(Images.class.getResource(".././ressources/images/BarreVide.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Canne.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Chaise.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Infirmier.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/listeObjets.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Lit.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Logo.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Box.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 
+			 
 			 correspondance.add("Lunette");
 			 correspondance.add("Mur");
 			 correspondance.add("niveau1");
@@ -105,19 +138,44 @@ public class Images {
 			 correspondance.add("Sol");
 			 correspondance.add("Table");
 			 correspondance.add("Trou");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Lunette.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Mur.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/niveau1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/niveau2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/niveau3.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/niveau4.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/petitBout.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/petitProgression.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Poutre.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Prothese.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Sol.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Table.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Trou.png")));   
+			 fichier = new File(Images.class.getResource(".././ressources/images/Lunette.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Mur.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/niveau1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/niveau2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/niveau3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+
+			 fichier = new File(Images.class.getResource(".././ressources/images/niveau4.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/petitBout.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/petitProgression.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Poutre.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Prothese.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Sol.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Table.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Trou.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 			 
 			 
 			 correspondance.add("Patients/Patient1");
@@ -125,52 +183,95 @@ public class Images {
 			 correspondance.add("Patients/Patient3");
 			 correspondance.add("Patients/Patient4");
 			 correspondance.add("Patients/Patient5");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient3.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient4.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient5.png")));  
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient4.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient5.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+
 			 correspondance.add("Patients/Patient1D");
 			 correspondance.add("Patients/Patient2D");
 			 correspondance.add("Patients/Patient3D");
 			 correspondance.add("Patients/Patient4D");
 			 correspondance.add("Patients/Patient5D");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient1D.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient2D.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient3D.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient4D.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Patients/Patient5D.png")));  
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient1D.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient2D.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient3D.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient4D.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Patients/Patient5D.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 
 			 correspondance.add("Personnage/Derriere1");
 			 correspondance.add("Personnage/Derriere2");
 			 correspondance.add("Personnage/Derriere3");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Derriere1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Derriere2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Derriere3.png")));
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Derriere1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Derriere2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Derriere3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 			 
 
 			 correspondance.add("Personnage/Droit1");
 			 correspondance.add("Personnage/Droit2");
 			 correspondance.add("Personnage/Droit3");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Droit1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Droit2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Droit3.png")));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Droit1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Droit2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Droit3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 
 			 correspondance.add("Personnage/Face1");
 			 correspondance.add("Personnage/Face2");
 			 correspondance.add("Personnage/Face3");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Face1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Face2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Face3.png")));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Face1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Face2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Face3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 			 
 
 				
 			 correspondance.add("Personnage/Gauche1");
 			 correspondance.add("Personnage/Gauche2");
 			 correspondance.add("Personnage/Gauche3");
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Gauche1.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Gauche2.png")));
-			 listeImages.add(ImageIO.read(new File("./src/ressources/images/Personnage/Gauche3.png")));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Gauche1.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Gauche2.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = new File(Images.class.getResource(".././ressources/images/Personnage/Gauche3.png").toURI());
+			 listeImages.add(ImageIO.read(fichier));
 			 
 			 
 		

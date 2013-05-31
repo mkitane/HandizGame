@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.net.URISyntaxException;
 
 import javax.swing.UIManager;
 
@@ -42,10 +43,19 @@ public class Application {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
+	    
+	        
 	        //Instanciation de l'application
-	       Images.chargerImages();
-	       Images.chargerPolice();
-	       Images.chargerFichiers();
+	    try {
+			Images.chargerImages();
+			 Images.chargerPolice();
+		       Images.chargerFichiers();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      
+	    
 	       Quizz.initialiser();
 	       new Application();
 
