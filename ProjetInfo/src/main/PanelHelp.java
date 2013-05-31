@@ -94,7 +94,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 				break;
 			case 1 : 
 				g.drawString("Vous incarnez un Personnage ! ", 180, 200);
-				g.drawString("Vous n�avez qu�une seule mission !", 160, 250);
+				g.drawString("Vous navez quune seule mission !", 160, 250);
 				g.drawImage(Images.get("Personnage/Face1"), 420, 350,null);
 				break;
 			case 2 : 

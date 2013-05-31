@@ -186,6 +186,8 @@ public class Carte extends JPanel{
 		for(ElementCarte a : listeElements){
 			a.dessine(g);
 		}
+		
+		Ecrivain.getInstance().Ecrire(g);
 	}
 	
 	
@@ -437,7 +439,9 @@ public class Carte extends JPanel{
 		
 		
 		Trou p = new Trou(positionXObjet,positionYObjet);
-		Fenetre.ecrire("Attention!! Un Trou est apparu!");
+		//Fenetre.ecrire("Attention!! Un Trou est apparu!");
+		//Ecrivain.getInstance().setTxt("Attention!! Un Trou est apparu!", positionXObjet, positionYObjet);
+
 		listeElements.add(p);
 	}
 	/**Instancie un nouveau patient
@@ -460,6 +464,8 @@ public class Carte extends JPanel{
 		
 		Patient p = new Patient(positionXObjet,positionYObjet);
 		Fenetre.ecrire("Un Patient est apparu!");
+		//Ecrivain.getInstance().setTxt("Un Patient est apparu!", positionXObjet, positionYObjet);
+
 		listeElements.add(p);
 	}
 
@@ -468,7 +474,7 @@ public class Carte extends JPanel{
 	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases sont deja remplies
 	 * @param p patient qui cree l'objet
 	 */
-	public void creerNouvelObjet(Patient p){
+	public ObjetRecuperable creerNouvelObjet(Patient p){
 		boolean b=true;
 		int positionXObjet= (int)(Math.random()*colonnes);
 		int positionYObjet= (int)(Math.random()*lignes);
@@ -486,7 +492,9 @@ public class Carte extends JPanel{
 		
 		ObjetRecuperable[] listeObjet = {new Canne(positionXObjet,positionYObjet,p),new Infirmier(positionXObjet,positionYObjet,p),new Lunette(positionXObjet,positionYObjet,p),new Prothese(positionXObjet,positionYObjet,p)};
 		
-		addObjet(choisirBonObjet(listeObjet,p));
+		ObjetRecuperable a = choisirBonObjet(listeObjet,p);
+		addObjet(a);
+		return a; 
 	}
 	
 	
@@ -663,16 +671,16 @@ public class Carte extends JPanel{
 				//Si le score augmente, on augmente la difficulte
 				switch(score){
 					case 5 :chance=25;
-							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							//Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 							break;
 					case 10 :chance=20;
-							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							//Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 							break;
 					case 15 :chance=15;
-							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							//Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 							break;
 					case 20 :chance=10;
-							Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+							//Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 							break;					
 				}
 			}

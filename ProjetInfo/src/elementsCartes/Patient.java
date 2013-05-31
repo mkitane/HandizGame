@@ -1,5 +1,6 @@
 package elementsCartes;
 import main.Carte;
+import main.Ecrivain;
 import main.Fenetre;
 
 
@@ -19,7 +20,7 @@ public class Patient extends ElementCarte {
 		super(positionX, positionY, "Patients/Patient1");
 		
 		typePatient = (int)(Math.random()*5+1);
-		setImage("Patients/Patient" + typePatient + "D");
+		setImage("Patients/Patient" + typePatient);
 
 		int nbAleatoire = (int)(Math.random()*(listeHandicapPossible.length)) ;
 		
@@ -52,10 +53,10 @@ public class Patient extends ElementCarte {
 	 */
 	public void action(Carte c){
 		
-		setImage("Patients/Patient" + typePatient);
 
 		if(c.verifierProprietaire(this)){ //si on possede un objet dont ce patient est le proprietaire, on le lui rend
-			Fenetre.ecrire("Merci!");
+			//Fenetre.ecrire("Merci!");
+			Ecrivain.getInstance().setTxt("Merci!",getPositionX(), getPositionY());
 
 			c.removeObjet(c.getObjet(this));
 			c.removeObjetListeObjetRecuperes(c.getObjet(this));
@@ -67,10 +68,15 @@ public class Patient extends ElementCarte {
 			c.augmenteScore();
 			
 		}else if(!verificateur){ 
-			Fenetre.ecrire("Ramenne moi deja l'objet au lieu d'en redemander s'il te plait.");
+			//Fenetre.ecrire("Ramenne moi deja l'objet au lieu d'en redemander s'il te plait.");
+			Ecrivain.getInstance().setTxt("Ramenne moi deja l'objet au lieu d'en redemander!",getPositionX(), getPositionY());
+
 		}else{	 
-			Fenetre.ecrire("Peut-tu me rammener cet objet s'il te plait?");
-			c.creerNouvelObjet(this);  //this: pour signifier que l'objet appartient a ce patient
+			//Fenetre.ecrire("Peut-tu me rammener cet objet s'il te plait?");
+			ObjetRecuperable a = c.creerNouvelObjet(this);
+			Ecrivain.getInstance().setTxt("Peut-tu me rammener " + a.toString() + "?" ,getPositionX(), getPositionY());
+
+			  //this: pour signifier que l'objet appartient a ce patient
 			verificateur=false;
 		}
 		

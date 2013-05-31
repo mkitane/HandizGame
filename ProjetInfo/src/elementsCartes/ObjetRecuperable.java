@@ -52,7 +52,7 @@ public abstract class ObjetRecuperable extends ElementCarte{
 		new Quizz(theme,c,this);
 		verificateur=false;
 		}else{
-			Fenetre.ecrire("Veuillez repondre au quizz que vous avez deja lance");
+			//Fenetre.ecrire("Veuillez repondre au quizz que vous avez deja lance");
 		}
 	}	
 		

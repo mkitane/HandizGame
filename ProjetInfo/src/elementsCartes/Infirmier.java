@@ -17,6 +17,9 @@ public class Infirmier extends ObjetRecuperable {
 		this.setHandicapAssocie("celebrite");
 	}
 
-	
+	public String toString(){
+		return "mon infirmiere";
+	}
+
 
 }

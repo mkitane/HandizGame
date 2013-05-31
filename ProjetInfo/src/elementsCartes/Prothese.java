@@ -19,6 +19,9 @@ public class Prothese extends ObjetRecuperable{
 		this.setHandicapAssocie("surdite");
 	}
 	
+	public String toString(){
+		return "ma prothese";
+	}
 
 
 }

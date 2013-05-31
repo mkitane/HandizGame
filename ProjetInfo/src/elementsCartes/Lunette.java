@@ -17,5 +17,8 @@ public class Lunette extends ObjetRecuperable{
 		this.setHandicapAssocie("celebrite");
 	}
 
+	public String toString(){
+		return "mes lunettes";
+	}
 
 }

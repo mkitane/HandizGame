@@ -18,6 +18,10 @@ public class Canne extends ObjetRecuperable{
 		//les handicaps ne sont pas encore bien mis
 		this.setHandicapAssocie("Handicap et entreprise");
 	}
+	
+	public String toString(){
+		return "ma canne";
+	}
 
 
 }
