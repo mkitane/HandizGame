@@ -21,7 +21,7 @@ public class PanneauPrincipal extends JPanel {
 	private JButton bouton1 =new JButton("Mode Initiation");
 	private JButton bouton2 =new JButton("Mode Jeu");
 	private JButton bouton3 =new JButton("Aide");
-	private JButton bouton4 =new JButton("Credit");
+	private JButton bouton4 =new JButton("Credits");
 	private JLabel bienvenue=new JLabel("Bienvenue au jeu ! Amusez vous bien =]", JLabel.CENTER);
 	private JPanel panseparation=new JPanel ();
 	
@@ -46,6 +46,12 @@ public class PanneauPrincipal extends JPanel {
 		bouton3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane((new PanelHelp()));
+			}
+		});
+		
+		bouton4.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Main.setPane((new PanelCredit()));
 			}
 		});
 		
