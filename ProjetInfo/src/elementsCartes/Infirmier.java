@@ -18,7 +18,7 @@ public class Infirmier extends ObjetRecuperable {
 	}
 
 	public String toString(){
-		return "mon infirmiere";
+		return "Infirmier";
 	}
 
 

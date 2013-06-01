@@ -1,11 +1,11 @@
 25
 15
-P  Q    M    P        P
+   Q    M             
    Q    M   
                      BB
 QQQ       C             
          CTC
-P        CTC      B
+         CTC          B
 MMMMM     C
     M  
 L L M   P  J        
@@ -14,5 +14,5 @@ MMMMM
 
                     QQ QQ
                     Q
-P                   Q
+                    Q
                      

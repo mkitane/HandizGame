@@ -200,7 +200,7 @@ public class Quizz extends JFrame implements KeyListener,ActionListener{
 				if(verifierReponse(eQ.getListeReponse().get(i))){  //si c'est la bonne reponse
 					
 					//Fenetre.ecrire("Bonne reponse, Donnes l'objet au Patient a present");
-					Ecrivain.getInstance().setTxt("Bonne Reponse! Rend moi "+objetAssocieAuQuizz.toString()+ " stp!",objetAssocieAuQuizz.getProprietaire().getPositionX(), objetAssocieAuQuizz.getProprietaire().getPositionY());
+					Ecrivain.getInstance().setImage(Ressources.getImage("Check"),objetAssocieAuQuizz.getProprietaire().getPositionX(), objetAssocieAuQuizz.getProprietaire().getPositionY());
 
 					f.getChrono().incremente();
 					c.addObjetRecuperable(objetAssocieAuQuizz);
@@ -222,7 +222,7 @@ public class Quizz extends JFrame implements KeyListener,ActionListener{
 					//Effet visuel pour savoir que la reponse est fausse; 
 					setBackground(Color.red);
 					//Fenetre.ecrire("Mauvaise reponse, Un autre Patient est apparu, va voir ce qu'il veut");
-					Ecrivain.getInstance().setTxt("Mauvaise Reponse!",objetAssocieAuQuizz.getProprietaire().getPositionX(), objetAssocieAuQuizz.getProprietaire().getPositionY());
+					Ecrivain.getInstance().setImage(Ressources.getImage("Cross"),objetAssocieAuQuizz.getProprietaire().getPositionX(), objetAssocieAuQuizz.getProprietaire().getPositionY());
 
 					
 				}	

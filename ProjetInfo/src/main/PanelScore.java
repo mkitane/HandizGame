@@ -30,6 +30,7 @@ public class PanelScore extends JPanel {
 	private Image imgBarreVide = Ressources.getImage("BarreVide");
 	private Image imgdelta = Ressources.getImage("petitProgression");
 	private Image imgdeltaFin  = Ressources.getImage("petitBout");
+	private Image imgAmis = Ressources.getImage("Amis");
 	
 	private JPanel panelBtn = new JPanel();
 	private JButton btnRetour = new JButton("Retour Accueil");
@@ -81,14 +82,14 @@ public class PanelScore extends JPanel {
 		g.setColor(Color.white);
 		g.setFont(Ressources.getQuickSand());
 
-		
+		g.drawImage(imgAmis, 80, 60, null);
 		
 		dessinerScore(g);
 		dessinerBarreJustesse(g);
 		
 		
 		
-		int y=220; //Permet de positionner toute la partie Detail en fonction de cette position en y
+		int y=300; //Permet de positionner toute la partie Detail en fonction de cette position en y
 
 		
 		g.setFont(Ressources.getQuickSand().deriveFont((float)30));

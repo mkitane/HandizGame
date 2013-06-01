@@ -18,7 +18,7 @@ public class Lunette extends ObjetRecuperable{
 	}
 
 	public String toString(){
-		return "mes lunettes";
+		return "Lunette";
 	}
 
 }

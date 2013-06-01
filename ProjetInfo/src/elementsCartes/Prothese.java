@@ -20,7 +20,7 @@ public class Prothese extends ObjetRecuperable{
 	}
 	
 	public String toString(){
-		return "ma prothese";
+		return "Prothese";
 	}
 
 

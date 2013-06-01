@@ -21,7 +21,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Fenetre f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
-	private int compteur=20;
+	private int compteur=200;
 
 	private Image imglisteObjets =  Ressources.getImage("listeObjets");
 	private Image imgBarreVide = Ressources.getImage("BarreVide");
@@ -44,30 +44,31 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		
 		if(compteur<=0){
-			c.arreterGenerateur();
-			stop();
-			
-
-			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
-			f.validate();
-
-			
-			//on recuperer la fenetre active
-			Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
-			try{
-			if(x.getClass().getName().equals("quizz.Quizz")){
-				x.dispose();
-			}
-			}catch(Exception exception){
-				System.out.println("La fenetre est pas ouverte");
-			}
-			
+			arreterJeu();			
 		}
 		
 		
 	}
 	
 	
+	public void arreterJeu(){
+		c.arreterGenerateur();
+		stop();
+		
+
+		f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
+		f.validate();
+
+		//on recuperer la fenetre active
+		Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
+		try{
+		if(x.getClass().getName().equals("quizz.Quizz")){
+			x.dispose();
+		}
+		}catch(Exception exception){
+			System.out.println("La fenetre est pas ouverte");
+		}
+	}
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(imglisteObjets, 0, 3, 254, 45, null);
@@ -143,7 +144,4 @@ public class Chrono extends JPanel implements ActionListener  {
 		compteur-=10;
 	}
 	
-	public void mettreAZero(){
-		compteur=0;
-	}
 }

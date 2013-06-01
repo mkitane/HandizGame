@@ -132,8 +132,16 @@ public class ElementQuizz {
 	/**Raccourcit une chaine de caractere*/
 	private String raccourcir(String s){
 		String nouvelle = "";
-		
-		for(int i=0;i<35;i++){
+		int longueurRaccourcie ; 
+		if(s.length()<35){
+			longueurRaccourcie = s.length();
+		}else{
+			longueurRaccourcie = 35 ; 
+		}
+			
+			
+			
+		for(int i=0;i<longueurRaccourcie;i++){
 			nouvelle = nouvelle + s.charAt(i);
 		}
 		nouvelle=nouvelle+"...";

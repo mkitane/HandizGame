@@ -270,9 +270,29 @@ public class Ressources {
 			 
 			 
 		
+			 correspondance.add("Check");
+			 correspondance.add("Cross");
+			 correspondance.add("Amis");
+			 
+			 fichier = Ressources.class.getResourceAsStream("images/Check.png");
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = Ressources.class.getResourceAsStream("images/Cross.png");
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = Ressources.class.getResourceAsStream("images/Amis.png");
+			 listeImages.add(ImageIO.read(fichier));
+			 
 
-
-
+			 correspondance.add("Chien1");
+			 correspondance.add("Chien2");
+			 
+			 fichier = Ressources.class.getResourceAsStream("images/Chien1.png");
+			 listeImages.add(ImageIO.read(fichier));
+			 
+			 fichier = Ressources.class.getResourceAsStream("images/Chien2.png");
+			 listeImages.add(ImageIO.read(fichier));
+			 
 
 
 				} catch (IOException e) {

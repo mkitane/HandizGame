@@ -2,10 +2,13 @@ package elementsCartes;
 import main.Carte;
 import main.Ecrivain;
 import main.Fenetre;
+import main.Ressources;
 
 
 public class Patient extends ElementCarte {
+	//private final String[] listeHandicapPossible = {"Handicap et entreprise","celebrite","surdite","General", "Loi et Handicap"};
 	private final String[] listeHandicapPossible = {"Handicap et entreprise","celebrite","surdite"};
+
 	private String handicap;
 	/**Permet de reconnaitre un patient cree*/
 	private static int lastID = 0 ; 
@@ -56,7 +59,7 @@ public class Patient extends ElementCarte {
 
 		if(c.verifierProprietaire(this)){ //si on possede un objet dont ce patient est le proprietaire, on le lui rend
 			//Fenetre.ecrire("Merci!");
-			Ecrivain.getInstance().setTxt("Merci!",getPositionX(), getPositionY());
+			//Ecrivain.getInstance().setTxt("Merci!",getPositionX(), getPositionY());
 
 			c.removeObjet(c.getObjet(this));
 			c.removeObjetListeObjetRecuperes(c.getObjet(this));
@@ -68,13 +71,12 @@ public class Patient extends ElementCarte {
 			c.augmenteScore();
 			
 		}else if(!verificateur){ 
-			//Fenetre.ecrire("Ramenne moi deja l'objet au lieu d'en redemander s'il te plait.");
-			Ecrivain.getInstance().setTxt("Ramenne moi deja l'objet au lieu d'en redemander!",getPositionX(), getPositionY());
+			Ecrivain.getInstance().setImage(null ,getPositionX(), getPositionY());
 
 		}else{	 
 			//Fenetre.ecrire("Peut-tu me rammener cet objet s'il te plait?");
 			ObjetRecuperable a = c.creerNouvelObjet(this);
-			Ecrivain.getInstance().setTxt("Peut-tu me rammener " + a.toString() + "?" ,getPositionX(), getPositionY());
+			Ecrivain.getInstance().setImage(Ressources.getImage(a.toString()) ,getPositionX(), getPositionY());
 
 			  //this: pour signifier que l'objet appartient a ce patient
 			verificateur=false;
