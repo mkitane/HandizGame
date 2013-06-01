@@ -47,14 +47,21 @@ public class Chrono extends JPanel implements ActionListener  {
 			c.arreterGenerateur();
 			stop();
 			
+
+			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
+			f.validate();
+
+			
 			//on recuperer la fenetre active
 			Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
+			try{
 			if(x.getClass().getName().equals("quizz.Quizz")){
 				x.dispose();
 			}
+			}catch(Exception exception){
+				System.out.println("La fenetre est pas ouverte");
+			}
 			
-			f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
-			f.validate();
 		}
 		
 		

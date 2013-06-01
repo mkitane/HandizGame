@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -55,7 +56,7 @@ public class Carte extends JPanel{
 	  /**Liste des objets recuperes par le joueur*/
 	  private ArrayList<ObjetRecuperable> objetsRecuperes;
 	  /**Liste contenant le sol*/
-	  private ArrayList<Sol> lSol;
+	  private ArrayList<Sol> lSol = new ArrayList<Sol>();
 	  /**Le Joueur*/
 	  private Joueur joueur; 
 	  
@@ -70,15 +71,13 @@ public class Carte extends JPanel{
 	* Cree une carte avec ses objets et ses patients
 	*/
 	public Carte(Fenetre f){
-		
+		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		chargerCarte(niveau); 
 		generateurPatient.start();
 		
 		setBackground(Fenetre.GRIS);
 		this.f=f;
-		
-		System.out.println("Nouveau Lvl");
 	}
 
 	
@@ -89,33 +88,91 @@ public class Carte extends JPanel{
 	 * @param nomFichier
 	 */
 	private void chargerCarte(String nomFichier){
-		listeElements = new ArrayList<ElementCarte>();
-		lSol = new ArrayList<Sol>();
-		joueur = null ; 
-		  //Ajouter du sol partout
-        for(int k=0;k<15;k++){
-        	for(int j=0;j<25;j++){
-				lSol.add(new Sol(j,k));
-        	}
-        }
-        
-        
-        //on recupere l'arrayList du niveau voulu ; 
-        listeElements = Ressources.getNiveau(nomFichier);
-        
-        for(ElementCarte e : listeElements){
-        	if(e instanceof Joueur){
-        		joueur = (Joueur) e ; 
-        	}
-        }
-        
-        
-        System.out.println("Recharge");
-		repaint();
-	}
+			
+			//charger fichier
+			try{
+				InputStream fichierLvl = Ressources.class.getResourceAsStream(nomFichier+".txt");
+			  	BufferedReader br = new BufferedReader(new InputStreamReader(fichierLvl)); 
+			  	
+			  	String l ; 
+		        int ligneFichier = 0 ;
+		      
+		        while ((l= br.readLine()) != null ) {
+		        	if(ligneFichier==0){
+		        		this.colonnes=Integer.parseInt(l);
+		        	}else if(ligneFichier==1){
+		        		this.lignes=Integer.parseInt(l);
+		        		
+		        		
+		        		//Ajouter du sol partout
+		        		  for(int k=0;k<lignes;k++){
+		      	        	for(int j=0;j<colonnes;j++){
+		      					lSol.add(new Sol(j,k));
+		      	        	}
+		      	        }
+		        		
+		        	}else {
+		        		lireLigne(l,ligneFichier);
+		        	}
+		        	ligneFichier++;
+		        }    
+		        br.close() ;  
+		    
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			
+			System.out.println("--------------------------");
+			System.out.println("ChargementFini");
+			System.out.println("--------------------------");
+
+			repaint();
+		}
 
 	
 	
+	/**Lis une ligne du fichier Txt
+	 * 	
+	 * @param l
+	 * @param positionLigne
+	 */
+	private void lireLigne(String l,int positionLigne) {
+			char c ; 
+			positionLigne=positionLigne-2;
+			for(int j=0;j<l.length();j++){
+				c=l.charAt(j);
+				//Action � effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
+				if(c=='C'){
+					listeElements.add(new Chaise(j,positionLigne));
+				}
+				if(c=='B'){
+					listeElements.add(new Box(j,positionLigne));
+				}
+				if(c=='L'){
+					listeElements.add(new Lit(j,positionLigne));
+				}
+				if(c=='M'){
+					listeElements.add(new Mur(j,positionLigne));
+				}
+				if(c=='Q'){
+					listeElements.add(new Poutre(j,positionLigne));
+				}
+				if(c=='T'){
+					listeElements.add(new Table(j,positionLigne));
+				}
+				if(c=='J'){
+					joueur=new Joueur(j,positionLigne);
+					listeElements.add(joueur);
+				}
+				//Pour les autres elements
+				if(c=='P'){
+					listeElements.add(new Patient(j,positionLigne));
+				}
+			
+			}
+	}
+
 	
 	
 	

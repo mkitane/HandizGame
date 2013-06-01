@@ -49,7 +49,6 @@ public class Application {
 	    try {
 				Ressources.chargerImages();
 				Ressources.chargerPolice();
-				Ressources.chargerNiveaux();
 				Ressources.chargerXML();
 			    Quizz.initialiser();
 

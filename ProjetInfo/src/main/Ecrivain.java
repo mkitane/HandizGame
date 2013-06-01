@@ -56,7 +56,7 @@ public class Ecrivain {
 					positionY + 35, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX - TAILLEBULLEX + 27 ; 
-			int y = positionY + TAILLEBULLEY - 22 ;  //-32
+			int y = positionY + TAILLEBULLEY - 58 ;  //-32
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
 				y= y+15 ; 
@@ -68,14 +68,14 @@ public class Ecrivain {
 					TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 
-			int y = positionY + TAILLEBULLEY - 22 ; 
+			int y = positionY + TAILLEBULLEY - 58 ; 
 			for(String s : decomposerTxt(txt)){
 				g.drawString(s, x , y + 20 );
 				y= y+15 ; 
 			}
 			
 		} else if (positionX < TAILLEBULLEX && positionY > (575 - TAILLEBULLEY)) { // BASGAUCHE
-			g.drawImage(Ressources.getImage("Bulle4"), positionX - TAILLEBULLEX,
+			g.drawImage(Ressources.getImage("Bulle2"), positionX + 35,
 					positionY - TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 

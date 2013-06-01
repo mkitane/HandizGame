@@ -34,8 +34,6 @@ public class Ressources {
     private static ArrayList<Image> listeImages = new ArrayList<Image>() ; 
     /**ArrayList qui contient les noms des images pour une correspondance*/
     private static ArrayList<String> correspondance = new ArrayList<String>();
-    private static ArrayList<ArrayList<ElementCarte>> listeNiveaux = new ArrayList<ArrayList<ElementCarte>>();
-    private static ArrayList<String> correspondanceNiveaux = new ArrayList<String>();
     private static  InputStream fichierXml ; 
     private static Font quickSand;
 	
@@ -43,16 +41,7 @@ public class Ressources {
     public static Image getImage(String nom){
     	return listeImages.get(correspondance.indexOf(nom));
     }
-    /**
-	 *M√©thode qui charge le fichiers polices.
-	 *
-	 *
-	 */
-    public static ArrayList<ElementCarte> getNiveau(String nom){
-    	return listeNiveaux.get(correspondanceNiveaux.indexOf(nom));
-    }
-    
-    
+ 
     public static Font getQuickSand(){
     	return quickSand;
     }
@@ -73,106 +62,7 @@ public class Ressources {
     }
     
     
-    
-    /**On met tous les niveaux en mémoire sous forme d'arrayList*/
-    public static void chargerNiveaux() {
-    	//correspondanceNiveaux.add("Structure");
-    	correspondanceNiveaux.add("niveau1");
-    	correspondanceNiveaux.add("niveau2");
-    	correspondanceNiveaux.add("niveau3");
-    	correspondanceNiveaux.add("niveau4");
-
-
-    
-    
-		listeNiveaux.add(chargerNiveau("niveau1.txt"));
-		listeNiveaux.add(chargerNiveau("niveau2.txt"));
-		listeNiveaux.add(chargerNiveau("niveau3.txt"));
-		listeNiveaux.add(chargerNiveau("niveau4.txt"));
-    }
-    
-    
-    
-    /**On charge un niveau et on le met en mémoire*/
-    
-    private static ArrayList<ElementCarte> chargerNiveau(String nomFichier){
-    	ArrayList<ElementCarte> lElements = new ArrayList<ElementCarte>();
-    	//charger fichier
-		try{
-	    	InputStream fichierLvl = Ressources.class.getResourceAsStream(nomFichier);
-			InputStreamReader isr = new InputStreamReader(fichierLvl);
-		  	BufferedReader br = new BufferedReader(isr); 
-	        String l ; 
-	        int ligneFichier = 0 ;
-	      
-	      
-  		  
-	        while ((l= br.readLine()) != null ) {
-	        		lireLigne(l,ligneFichier,lElements);
-		        	ligneFichier++;
-	        }
-	        
-	        isr.close();
-	        br.close() ;  
-	    
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		
-		return lElements ; 
-    }
-    
-    /**Lis une ligne du fichier Txt et met les elements dans arrayList d'elements
-	 * 	
-	 * @param l
-	 * @param positionLigne
-	 */
-	private static void lireLigne(String l,int positionLigne,ArrayList<ElementCarte> lElements) {
-			char c ; 
-			for(int j=0;j<l.length();j++){
-				c=l.charAt(j);
-				//Action a effectuer selon l'objet, besoin de definir les objets que l'on mettra d'abord
-				if(c=='C'){
-					lElements.add(new Chaise(j,positionLigne));
-				}
-				if(c=='B'){
-					lElements.add(new Box(j,positionLigne));
-				}
-				if(c=='L'){
-					lElements.add(new Lit(j,positionLigne));
-				}
-				if(c=='M'){
-					lElements.add(new Mur(j,positionLigne));
-				}
-				if(c=='Q'){
-					lElements.add(new Poutre(j,positionLigne));
-				}
-				if(c=='T'){
-					lElements.add(new Table(j,positionLigne));
-				}
-				if(c=='J'){
-					lElements.add(new Joueur(j,positionLigne));
-				}
-				//Pour les autres elements
-				if(c=='P'){
-					lElements.add(new Patient(j,positionLigne));
-				}
-			
-			}
-	}
-
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
     
     
     public static void chargerPolice(){
