@@ -48,9 +48,10 @@ public class Fenetre extends JPanel implements KeyListener{
 
 		boutonRetour.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new PanneauPrincipal());
 				chrono.stop();
 				jeu.arreterGenerateur();
+				Main.setPane(new PanneauPrincipal());
+			
 			}
 		});
 		

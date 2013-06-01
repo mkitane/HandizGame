@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import main.Carte;
-import main.Images;
+import main.Ressources;
 
 /**
  * @author bprely
@@ -32,7 +32,7 @@ abstract public class ElementCarte{
 	public ElementCarte(int x,int y,String nom ){
 		positionX=x;
 		positionY=y;
-		img=Images.get(nom);
+		img=Ressources.getImage(nom);
 	}
 	/**
 	 * 
@@ -43,7 +43,7 @@ abstract public class ElementCarte{
 	 * @param nomImage
 	 */
     public void setImage(String nom) {
-		img=Images.get(nom);
+		img=Ressources.getImage(nom);
      }
 		
 	

@@ -23,10 +23,10 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Timer t = new Timer(1000,this);
 	private int compteur=20;
 
-	private Image imglisteObjets =  Images.get("listeObjets");
-	private Image imgBarreVide = Images.get("BarreVide");
-	private Image imgdelta = Images.get("petitProgression");
-	private Image imgdeltaFin  = Images.get("petitBout");
+	private Image imglisteObjets =  Ressources.getImage("listeObjets");
+	private Image imgBarreVide = Ressources.getImage("BarreVide");
+	private Image imgdelta = Ressources.getImage("petitProgression");
+	private Image imgdeltaFin  = Ressources.getImage("petitBout");
 	
 	public Chrono(Fenetre f){
 		this.f=f;

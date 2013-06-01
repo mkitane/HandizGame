@@ -1,9 +1,7 @@
-25
-15
    Q    M  
-C  Q    M   
+   Q    M   
                      BB
-QQQ      C             
+QQQ       C             
          CTC
          CTC      B
 MMMMM     C

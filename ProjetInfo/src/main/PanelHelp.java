@@ -62,7 +62,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
-		g.setFont(Images.quickSand.deriveFont((float)32.0));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)32.0));
 		
 		
 		g.drawString("Regles du Jeu", 330, 60);
@@ -95,25 +95,25 @@ public class PanelHelp extends JPanel implements KeyListener {
 			case 1 : 
 				g.drawString("Vous incarnez un Personnage ! ", 180, 200);
 				g.drawString("Vous navez quune seule mission !", 160, 250);
-				g.drawImage(Images.get("Personnage/Face1"), 420, 350,null);
+				g.drawImage(Ressources.getImage("Personnage/Face1"), 420, 350,null);
 				break;
 			case 2 : 
 				g.drawString("Vous avez 200 secondes !  ", 250, getHeight()/2);
 				break;
 			case 3 : 
 				g.drawString("Aidez les personnages qui apparaissent ! ", 120, 200);
-				g.drawImage(Images.get("Patients/Patient3"), 150, 350,null);
-				g.drawImage(Images.get("Patients/Patient1"), 285, 350,null);
-				g.drawImage(Images.get("Patients/Patient2"), 420, 350,null);
-				g.drawImage(Images.get("Patients/Patient5"), 555, 350,null);
-				g.drawImage(Images.get("Patients/Patient4"), 690, 350,null);
+				g.drawImage(Ressources.getImage("Patients/Patient3"), 150, 350,null);
+				g.drawImage(Ressources.getImage("Patients/Patient1"), 285, 350,null);
+				g.drawImage(Ressources.getImage("Patients/Patient2"), 420, 350,null);
+				g.drawImage(Ressources.getImage("Patients/Patient5"), 555, 350,null);
+				g.drawImage(Ressources.getImage("Patients/Patient4"), 690, 350,null);
 				break;
 			case 4 : 
 				g.drawString("Recuperez ce qu'ils vous demandent de leur", 80, 200);
 				g.drawString(" rammener !", 330, 250);
-				g.drawImage(Images.get("Lunette"), 270, 350, 60, 50 ,null);
-				g.drawImage(Images.get("Infirmier"), 430, 350,null);
-				g.drawImage(Images.get("Canne"), 590, 350,null);
+				g.drawImage(Ressources.getImage("Lunette"), 270, 350, 60, 50 ,null);
+				g.drawImage(Ressources.getImage("Infirmier"), 430, 350,null);
+				g.drawImage(Ressources.getImage("Canne"), 590, 350,null);
 				break;
 			case 5 : 
 				g.drawString("Repondez a la question liee au handicap!", 100, 200);
@@ -125,7 +125,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 				break;
 			case 7 : 
 				g.drawString("Evitez les trous !", 320, getHeight()/2-50);
-				g.drawImage(Images.get("Trou"), 400, 320,100,100,null);
+				g.drawImage(Ressources.getImage("Trou"), 400, 320,100,100,null);
 				break;
 			case 8 : 
 				g.drawString("A vous de jouer ;)", 320, getHeight()/2);

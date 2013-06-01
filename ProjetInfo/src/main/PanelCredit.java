@@ -36,7 +36,7 @@ public class PanelCredit extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
-		g.setFont(Images.quickSand.deriveFont((float)32.0));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)32.0));
 		g.setColor(Color.white);
 		
 		g.drawString("Credits",(getWidth()/2 -50),30 );

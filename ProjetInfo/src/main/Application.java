@@ -47,16 +47,18 @@ public class Application {
 	        
 	        //Instanciation de l'application
 	    try {
-			Images.chargerImages();
-			 Images.chargerPolice();
-		       Images.chargerFichiers();
-		} catch (URISyntaxException e) {
+				Ressources.chargerImages();
+				Ressources.chargerPolice();
+				Ressources.chargerNiveaux();
+				Ressources.chargerXML();
+			    Quizz.initialiser();
+
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	      
 	    
-	       Quizz.initialiser();
 	       new Application();
 
 

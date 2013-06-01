@@ -52,7 +52,7 @@ public class Ecrivain {
 		
 		if (positionX > (875 - TAILLEBULLEX-10) && positionY < TAILLEBULLEY) { // HAUTDROITEFAIT
 
-			g.drawImage(Images.get("Bulle4"), positionX - TAILLEBULLEX,
+			g.drawImage(Ressources.getImage("Bulle4"), positionX - TAILLEBULLEX,
 					positionY + 35, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX - TAILLEBULLEX + 27 ; 
@@ -64,7 +64,7 @@ public class Ecrivain {
 			
 			
 		} else if (positionY < TAILLEBULLEY) { // HAUTFAIT
-			g.drawImage(Images.get("Bulle3"), positionX + 35, positionY + 35,
+			g.drawImage(Ressources.getImage("Bulle3"), positionX + 35, positionY + 35,
 					TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 
@@ -75,7 +75,7 @@ public class Ecrivain {
 			}
 			
 		} else if (positionX < TAILLEBULLEX && positionY > (575 - TAILLEBULLEY)) { // BASGAUCHE
-			g.drawImage(Images.get("Bulle4"), positionX - TAILLEBULLEX,
+			g.drawImage(Ressources.getImage("Bulle4"), positionX - TAILLEBULLEX,
 					positionY - TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 
 			int x = positionX + 65 ; 
@@ -86,7 +86,7 @@ public class Ecrivain {
 			
 			}
 		} else if (positionX < TAILLEBULLEX) { // A GaucheFAIT
-			g.drawImage(Images.get("Bulle2"), positionX + 35, positionY
+			g.drawImage(Ressources.getImage("Bulle2"), positionX + 35, positionY
 					- TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 
 
@@ -99,7 +99,7 @@ public class Ecrivain {
 			
 		} else {//FAIT
 
-			g.drawImage(Images.get("Bulle1"), positionX - TAILLEBULLEX,
+			g.drawImage(Ressources.getImage("Bulle1"), positionX - TAILLEBULLEX,
 					positionY - TAILLEBULLEY, TAILLEBULLEX, TAILLEBULLEY, null);
 			
 			int x = positionX - TAILLEBULLEX + 25 ; 

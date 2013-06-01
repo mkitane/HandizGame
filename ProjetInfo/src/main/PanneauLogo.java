@@ -9,7 +9,7 @@ import javax.swing.JPanel;
  *Elle ajuste la taille du logo à la taille de la fenêtre
  */
 public class PanneauLogo extends JPanel {
-	private Image imgLogo = Images.get("Logo");
+	private Image imgLogo = Ressources.getImage("Logo");
 	/**
 	 *
 	 */

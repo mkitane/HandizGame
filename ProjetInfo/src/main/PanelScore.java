@@ -27,9 +27,9 @@ public class PanelScore extends JPanel {
 	private ArrayList<String> listeThemes=new ArrayList<String>();
 	private String themeLacune;
 
-	private Image imgBarreVide = Images.get("BarreVide");
-	private Image imgdelta = Images.get("petitProgression");
-	private Image imgdeltaFin  = Images.get("petitBout");
+	private Image imgBarreVide = Ressources.getImage("BarreVide");
+	private Image imgdelta = Ressources.getImage("petitProgression");
+	private Image imgdeltaFin  = Ressources.getImage("petitBout");
 	
 	private JPanel panelBtn = new JPanel();
 	private JButton btnRetour = new JButton("Retour Accueil");
@@ -79,7 +79,7 @@ public class PanelScore extends JPanel {
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.setColor(Color.white);
-		g.setFont(Images.quickSand);
+		g.setFont(Ressources.getQuickSand());
 
 		
 		
@@ -91,7 +91,7 @@ public class PanelScore extends JPanel {
 		int y=220; //Permet de positionner toute la partie Detail en fonction de cette position en y
 
 		
-		g.setFont(Images.quickSand.deriveFont((float)30));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)30));
 		g.drawString("Details :", getWidth()/2-65, y);
 		//pour chaque theme, on regarde le pourcentage de bonnes reponses
 		for(String theme: listeThemes){
@@ -102,7 +102,7 @@ public class PanelScore extends JPanel {
 		y=y+60;
 		
 		
-		g.setFont(Images.quickSand.deriveFont((float)20));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)20));
 		if(themeLacune==null){
 			g.drawString("Vous n'avez rien a ameliorer ;)", 40, getHeight()-45);
 		}else{
@@ -159,11 +159,11 @@ public class PanelScore extends JPanel {
 		}
 		
 		
-		g.setFont(Images.quickSand.deriveFont((float)13));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)13));
 		g.drawString(pourcentage(p)+"%", positionX+177, positionY+13);
 		
 		
-		g.setFont(Images.quickSand.deriveFont((float)40));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)40));
 		if(pourcentage(p)>50){
 			g.drawString("Bravo!",getWidth()/2-70, 50);
 		}else{
@@ -198,7 +198,7 @@ public class PanelScore extends JPanel {
 		}
 		
 		
-		g.setFont(Images.quickSand.deriveFont((float)15));
+		g.setFont(Ressources.getQuickSand().deriveFont((float)15));
 		//g.drawString("------------------------------", positionX, positionY-30);
 		g.drawString(theme, positionX+40, positionY-10);
 		g.drawString(pourcentage(pourcentageBonnesReponses)+"%", positionX+175, positionY+13);
