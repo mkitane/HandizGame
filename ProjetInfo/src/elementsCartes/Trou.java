@@ -1,15 +1,15 @@
 package elementsCartes;
 
 public class Trou extends ElementCarte {
-	/**Le compteur permet de supprimer le Trou avec 5 secondes*/
-	private int compteur=0;
-	
+	/** Le compteur permet de supprimer le Trou apres 5 secondes */
+	private int compteur = 0;
+
 	public Trou(int x, int y) {
 		super(x, y, "Trou");
 	}
-	
-	public String toString(){
-		return "U"; 
+
+	public String toString() {
+		return "U";
 	}
 
 	/**
@@ -19,7 +19,7 @@ public class Trou extends ElementCarte {
 		return compteur;
 	}
 
-	public void incremente(){
+	public void incremente() {
 		compteur++;
 	}
 }

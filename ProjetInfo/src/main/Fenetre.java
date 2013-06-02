@@ -15,47 +15,42 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import elementsCartes.Joueur;
+
 /**
  * Classe contenant la page de démarrage
  * 
  */
-public class Fenetre extends JPanel implements KeyListener{
-	
+public class Fenetre extends JPanel implements KeyListener {
+
 	private JPanel panelJeu = new JPanel();
 	private Carte jeu = new Carte(this);
-	private Chrono chrono= new Chrono(this);
+	private Chrono chrono = new Chrono(this);
 	private JPanel panelBas = new JPanel();
 	private JButton boutonRetour = new JButton("Retour Accueil");
 	private JButton boutonRejouer = new JButton("Rejouer");
 
-	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"), Float.parseFloat("0.08"), Float.parseFloat("0.42"));
-	
 	/**
-	 *Concstructeur de fenetre contient les différentes évenemments des boutons qui se lancent 
-	 *au cours du programme
+	 * Concstructeur de fenetre contient les différentes évenemments des
+	 * boutons qui se lancent au cours du programme
 	 */
-	public Fenetre(){
+	public Fenetre() {
 		jbInit();
-        
 
-        addKeyListener(this);
-        boutonRetour.addKeyListener(this);
-        
-        
+		addKeyListener(this);
+		boutonRetour.addKeyListener(this);
+
 		chrono.start();
-		
-		
 
-		boutonRetour.addActionListener(new ActionListener(){
+		boutonRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chrono.stop();
 				jeu.arreterGenerateur();
 				Main.setPane(new PanneauPrincipal());
-			
+
 			}
 		});
-		
-		boutonRejouer.addActionListener(new ActionListener(){
+
+		boutonRejouer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				chrono.stop();
 				jeu.arreterGenerateur();
@@ -63,87 +58,82 @@ public class Fenetre extends JPanel implements KeyListener{
 
 			}
 		});
-		
-        setVisible(true);
+
+		setVisible(true);
 	}
+
 	/**
-	 * Classe conteant l'organisation des éléments graphiques
-	 *
+	 * Classe contenant l'organisation des éléments graphiques
+	 * 
 	 */
 
 	private void jbInit() {
-		
+
 		setLayout(new BorderLayout());
 		add(panelJeu);
-		
-		
-		setBackground(GRIS);
-		
+
+		setBackground(Ressources.GRIS);
+
 		panelJeu.setLayout(new BorderLayout());
-		panelJeu.add(chrono,BorderLayout.NORTH);
-		panelJeu.add(jeu,BorderLayout.CENTER);
-		panelJeu.add(panelBas,BorderLayout.SOUTH);
-		
+		panelJeu.add(chrono, BorderLayout.NORTH);
+		panelJeu.add(jeu, BorderLayout.CENTER);
+		panelJeu.add(panelBas, BorderLayout.SOUTH);
+
 		panelBas.setLayout(new FlowLayout(15));
 		panelBas.add(boutonRetour);
 		panelBas.add(boutonRejouer);
 
-		panelBas.setBackground(GRIS);
+		panelBas.setBackground(Ressources.GRIS);
 
 	}
 
-	
 	/**
-	 *Méthode qui permet de déplacer le joueur avec les touches du clavier
-	 *
+	 * Méthode qui permet de déplacer le joueur avec les touches du clavier
+	 * 
 	 */
-	
+
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode()==KeyEvent.VK_UP){
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			jeu.unDeplacementDeJoueur(Joueur.UP);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_DOWN){
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			jeu.unDeplacementDeJoueur(Joueur.DOWN);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_LEFT){
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			jeu.unDeplacementDeJoueur(Joueur.LEFT);
 		}
-		if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			jeu.unDeplacementDeJoueur(Joueur.RIGHT);
 		}
 	}
+
 	/**
 	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
-	 *
+	 * 
 	 */
-	public void keyReleased(KeyEvent e) {}
+	public void keyReleased(KeyEvent e) {
+	}
+
 	/**
 	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
-	 *
+	 * 
 	 */
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
+
 	/**
 	 * Méthode permettant de récuperer le chrono étant private
 	 */
-	
-	public Chrono getChrono(){
+
+	public Chrono getChrono() {
 		return chrono;
 	}
+
 	/**
-	 *le jeu est une carte.On réccupère le jeu
+	 * le jeu est une carte.On réccupère le jeu
 	 */
 	public Carte getJeu() {
 		return jeu;
 	}
 
-	/**
-	 *redefinition de setPane .On installe les panel dans la frame
-	 *
-	 */
-	public void setPane(Component j){
-		this.removeAll();
-		this.add(j);
-				
-	}
-	
 }

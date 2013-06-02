@@ -24,58 +24,54 @@ import main.Fenetre;
 import main.FrameLevel;
 import main.Main;
 import main.PanneauPrincipal;
+import main.Ressources;
 
-
-public class modeInitiation1 extends JPanel{
+public class modeInitiation1 extends JPanel {
 	/**
 	 * 
 	 */
-	
+
 	private FenetreMode1 f = new FenetreMode1();
-	private JButton btnRetour=new JButton();
-	private JLabel lblBienvenue=new JLabel();
-	private JLabel lblExplication = new JLabel("Ici vous pourrez approfondir vos connaissances sur le monde du handicap, tout en ayant la possibilite d'ameliorer votre score dans le Jeu.");
-	private JPanel panelH=new JPanel();
-	private JPanel panelBtn=new JPanel();
-	
-	
-    public modeInitiation1() {
-       setLayout(new BorderLayout());
-       add(panelH,BorderLayout.NORTH);
-       add(f,BorderLayout.CENTER);
-       add(panelBtn,BorderLayout.SOUTH);
-       
-       panelH.setLayout(new FlowLayout());
-       panelH.setPreferredSize(new Dimension(50,50));
-       panelH.add(lblBienvenue);
-       panelH.add(lblExplication);
-       lblBienvenue.setText("<html><body><u>Bienvenue au mode Initiation!!</u></body></html>");
+	private JButton btnRetour = new JButton();
+	private JLabel lblBienvenue = new JLabel();
+	private JLabel lblExplication = new JLabel(
+			"Ici vous pourrez approfondir vos connaissances sur le monde du handicap, tout en ayant la possibilite d'ameliorer votre score dans le Jeu.");
+	private JPanel panelH = new JPanel();
+	private JPanel panelBtn = new JPanel();
 
-       
-     
-       
-       panelBtn.add(btnRetour);
+	public modeInitiation1() {
+		setLayout(new BorderLayout());
+		add(panelH, BorderLayout.NORTH);
+		add(f, BorderLayout.CENTER);
+		add(panelBtn, BorderLayout.SOUTH);
 
-       btnRetour.setText("Retour");
+		panelH.setLayout(new FlowLayout());
+		panelH.setPreferredSize(new Dimension(50, 50));
+		panelH.add(lblBienvenue);
+		panelH.add(lblExplication);
+		lblBienvenue
+				.setText("<html><body><u>Bienvenue au mode Initiation!!</u></body></html>");
 
-       btnRetour.addActionListener(new ActionListener(){
+		panelBtn.add(btnRetour);
+
+		btnRetour.setText("Retour");
+
+		btnRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanneauPrincipal());
 			}
 		});
-       
-       
-       
-       //Couleur
-       setBackground(Fenetre.GRIS);
-       f.setBackground(Fenetre.GRIS);
-       panelBtn.setOpaque(false);
-       panelH.setOpaque(false);
-       
-       
-       setVisible(true);
-       
-    }  	
- 
-    
+
+		// Couleur
+		setBackground(Ressources.GRIS);
+		f.setBackground(Ressources.GRIS);
+		lblBienvenue.setForeground(Color.white);
+		lblExplication.setForeground(Color.white);
+		panelBtn.setOpaque(false);
+		panelH.setOpaque(false);
+
+		setVisible(true);
+
+	}
+
 }

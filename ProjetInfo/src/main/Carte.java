@@ -1,6 +1,8 @@
 package main;
 
 import java.awt.Graphics;
+import java.awt.KeyboardFocusManager;
+import java.awt.Window;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,24 +15,18 @@ import javax.swing.JPanel;
 
 import quizz.ElementQuizz;
 
-import elementsCartes.Box;
 import elementsCartes.Canne;
-import elementsCartes.Chaise;
 import elementsCartes.Chien1;
 import elementsCartes.Chien2;
 import elementsCartes.ElementCarte;
 import elementsCartes.Infirmier;
 import elementsCartes.Joueur;
-import elementsCartes.Lit;
 import elementsCartes.Lunette;
-import elementsCartes.Mur;
 import elementsCartes.ObjetRecuperable;
 import elementsCartes.Patient;
 import elementsCartes.Prothese;
 import elementsCartes.Sol;
-import elementsCartes.Table;
 import elementsCartes.Obstacle;
-import elementsCartes.Poutre;
 import elementsCartes.Trou;
 
 /**
@@ -77,7 +73,7 @@ public class Carte extends JPanel {
 		chargerCarte(niveau);
 		generateurPatient.start();
 
-		setBackground(Fenetre.GRIS);
+		setBackground(Ressources.GRIS);
 		this.f = f;
 	}
 
@@ -143,22 +139,22 @@ public class Carte extends JPanel {
 			// Action � effectuer selon l'objet, besoin de definir les objets
 			// que l'on mettra d'abord
 			if (c == 'C') {
-				listeElements.add(new Chaise(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Chaise"));
 			}
 			if (c == 'B') {
-				listeElements.add(new Box(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Box"));
 			}
 			if (c == 'L') {
-				listeElements.add(new Lit(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Lit"));
 			}
 			if (c == 'M') {
-				listeElements.add(new Mur(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Mur"));
 			}
 			if (c == 'Q') {
-				listeElements.add(new Poutre(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Poutre"));
 			}
 			if (c == 'T') {
-				listeElements.add(new Table(j, positionLigne));
+				listeElements.add(new Obstacle(j, positionLigne, "Table"));
 			}
 			if (c == 'J') {
 				joueur = new Joueur(j, positionLigne);
@@ -213,7 +209,6 @@ public class Carte extends JPanel {
 		}
 
 		if (e instanceof Obstacle) {
-
 		} else if (e instanceof ObjetRecuperable) {
 			((ObjetRecuperable) e).estRamasse(this);
 		} else if (e instanceof Patient) {
@@ -222,7 +217,7 @@ public class Carte extends JPanel {
 			joueur.deplacer(direction);
 		} else if (e instanceof Trou) {
 			joueur.deplacer(direction);
-			f.getChrono().arreterJeu();
+			arreterJeu();
 		}
 
 		repaint();
@@ -233,6 +228,39 @@ public class Carte extends JPanel {
 	 */
 	public void augmenteScore() {
 		score++;
+		// Si le score augmente, on augmente la difficulte
+		switch (score) {
+		case 5:
+			generateurPatient.chance = 25;
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
+
+			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+			break;
+		case 10:
+			generateurPatient.chance = 20;
+			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
+
+			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+			break;
+		case 15:
+			generateurPatient.chance = 15;
+			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
+
+			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+			break;
+		case 20:
+			generateurPatient.chance = 10;
+			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
+
+			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
+			break;
+		case 25:
+			generateurPatient.chance = 5;
+			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
+
+			break;
+		}
 	}
 
 	/**
@@ -241,7 +269,7 @@ public class Carte extends JPanel {
 	 * @param a
 	 *            :l'objet a rajouter
 	 */
-	public void addObjetRecuperable(ObjetRecuperable a) {
+	public void addObjetListeObjetRecuperes(ObjetRecuperable a) {
 		objetsRecuperes.add(a);
 	}
 
@@ -293,17 +321,35 @@ public class Carte extends JPanel {
 	}
 
 	/**
-	 * Recupere lobjet qui appartient au bon patient grace a son ID
+	 * Recupere lobjet qui appartient au bon patient grace a son ID depuis la
+	 * liste des objets Recuperes
 	 * 
 	 * @param p
 	 *            le patient dont on veut recuperer l'objet
 	 * @return l'objet associe au bon patient
 	 */
-	public ObjetRecuperable getObjet(Patient p) {
+	public ObjetRecuperable recupererObjetDejaPris(Patient p) {
 
 		for (ObjetRecuperable a : objetsRecuperes) {
 			if (a.getProprietaire().getID() == p.getID()) {
 				return a;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Recupere l'Objet qui appartient au bon patient grace a son ID depuis la
+	 * listeElements
+	 */
+
+	public ObjetRecuperable recupererObjetListeElements(Patient p) {
+		for (ElementCarte a : listeElements) {
+			if (a instanceof ObjetRecuperable) {
+				if (((ObjetRecuperable) a).getProprietaire().getID() == p
+						.getID()) {
+					return (ObjetRecuperable) a;
+				}
 			}
 		}
 		return null;
@@ -368,6 +414,7 @@ public class Carte extends JPanel {
 	 *            colonne
 	 * @return ElementCarte
 	 */
+
 	private ElementCarte getElement(int x, int y) {
 
 		for (ElementCarte a : listeElements) {
@@ -377,42 +424,6 @@ public class Carte extends JPanel {
 		}
 
 		return null;
-	}
-
-	/*
-	 * Getters et Setters
-	 */
-
-	public int getLignes() {
-		return lignes;
-	}
-
-	public int getColonnes() {
-		return colonnes;
-	}
-
-	public ArrayList<ElementCarte> getListeElements() {
-		return listeElements;
-	}
-
-	public ArrayList<ObjetRecuperable> getObjetsRecuperes() {
-		return objetsRecuperes;
-	}
-
-	public int getScore() {
-		return score;
-	}
-
-	public ArrayList<ElementQuizz> getListeBonnesReponses() {
-		return listeBonnesReponses;
-	}
-
-	public Fenetre getF() {
-		return f;
-	}
-
-	public ArrayList<ElementQuizz> getListeMauvaisesReponses() {
-		return listeMauvaisesReponses;
 	}
 
 	/**
@@ -429,26 +440,28 @@ public class Carte extends JPanel {
 	 *           sont deja remplies
 	 */
 	public void creerNouveauTrou() {
-		boolean b = true;
-		int positionXObjet = (int) (Math.random() * colonnes);
-		int positionYObjet = (int) (Math.random() * lignes);
-		while (b) {
-			positionXObjet = (int) (Math.random() * colonnes);
-			positionYObjet = (int) (Math.random() * lignes);
-			// On verifie si il n'y a pas deja un objet dans cette case ==>
-			// listeElements
-			// si il n'y a rien (null) on sort de la boucle
-			if (getElement(positionXObjet, positionYObjet) == null) {
-				b = false;
+		if (!isFilled()) {
+			boolean b = true;
+			int positionXObjet = (int) (Math.random() * colonnes);
+			int positionYObjet = (int) (Math.random() * lignes);
+			while (b) {
+				positionXObjet = (int) (Math.random() * colonnes);
+				positionYObjet = (int) (Math.random() * lignes);
+				// On verifie si il n'y a pas deja un objet dans cette case ==>
+				// listeElements
+				// si il n'y a rien (null) on sort de la boucle
+				if (getElement(positionXObjet, positionYObjet) == null) {
+					b = false;
+				}
 			}
+
+			Trou p = new Trou(positionXObjet, positionYObjet);
+			// Fenetre.ecrire("Attention!! Un Trou est apparu!");
+			// Ecrivain.getInstance().setTxt("Attention!! Un Trou est apparu!",
+			// positionXObjet, positionYObjet);
+
+			listeElements.add(p);
 		}
-
-		Trou p = new Trou(positionXObjet, positionYObjet);
-		// Fenetre.ecrire("Attention!! Un Trou est apparu!");
-		// Ecrivain.getInstance().setTxt("Attention!! Un Trou est apparu!",
-		// positionXObjet, positionYObjet);
-
-		listeElements.add(p);
 	}
 
 	/**
@@ -458,26 +471,28 @@ public class Carte extends JPanel {
 	 *           sont deja remplies
 	 */
 	public void creerNouveauPatient() {
-		boolean b = true;
-		int positionXObjet = (int) (Math.random() * colonnes);
-		int positionYObjet = (int) (Math.random() * lignes);
-		while (b) {
-			positionXObjet = (int) (Math.random() * colonnes);
-			positionYObjet = (int) (Math.random() * lignes);
-			// On verifie si il n'y a pas deja un objet dans cette case ==>
-			// listeElements
-			// si il n'y a rien (null) on sort de la boucle
-			if (getElement(positionXObjet, positionYObjet) == null) {
-				b = false;
+		if (!isFilled()) {
+			boolean b = true;
+			int positionXObjet = (int) (Math.random() * colonnes);
+			int positionYObjet = (int) (Math.random() * lignes);
+			while (b) {
+				positionXObjet = (int) (Math.random() * colonnes);
+				positionYObjet = (int) (Math.random() * lignes);
+				// On verifie si il n'y a pas deja un objet dans cette case ==>
+				// listeElements
+				// si il n'y a rien (null) on sort de la boucle
+				if (getElement(positionXObjet, positionYObjet) == null) {
+					b = false;
+				}
 			}
+
+			Patient p = new Patient(positionXObjet, positionYObjet);
+			// Fenetre.ecrire("Un Patient est apparu!");
+			// Ecrivain.getInstance().setTxt("Un Patient est apparu!",
+			// positionXObjet, positionYObjet);
+
+			listeElements.add(p);
 		}
-
-		Patient p = new Patient(positionXObjet, positionYObjet);
-		// Fenetre.ecrire("Un Patient est apparu!");
-		// Ecrivain.getInstance().setTxt("Un Patient est apparu!",
-		// positionXObjet, positionYObjet);
-
-		listeElements.add(p);
 	}
 
 	/**
@@ -488,34 +503,34 @@ public class Carte extends JPanel {
 	 * @param p
 	 *            patient qui cree l'objet
 	 */
-	public ObjetRecuperable creerNouvelObjet(Patient p) {
-		boolean b = true;
-		int positionXObjet = (int) (Math.random() * colonnes);
-		int positionYObjet = (int) (Math.random() * lignes);
+	public void creerNouvelObjet(Patient p) {
+		if (!isFilled()) {
+			boolean b = true;
+			int positionXObjet = (int) (Math.random() * colonnes);
+			int positionYObjet = (int) (Math.random() * lignes);
 
-		while (b) {
-			positionXObjet = (int) (Math.random() * colonnes);
-			positionYObjet = (int) (Math.random() * lignes);
-			// On verifie si il n'y a pas deja un objet dans cette case ==>
-			// listeElements
-			// si il n'y a rien (null) on sort de la boucle
-			if (getElement(positionXObjet, positionYObjet) == null) {
-				b = false;
+			while (b) {
+				positionXObjet = (int) (Math.random() * colonnes);
+				positionYObjet = (int) (Math.random() * lignes);
+				// On verifie si il n'y a pas deja un objet dans cette case ==>
+				// listeElements
+				// si il n'y a rien (null) on sort de la boucle
+				if (getElement(positionXObjet, positionYObjet) == null) {
+					b = false;
+				}
 			}
-		}
 
-		ObjetRecuperable[] listeObjet = {
-				new Canne(positionXObjet, positionYObjet, p),
-				new Infirmier(positionXObjet, positionYObjet, p),
-				new Lunette(positionXObjet, positionYObjet, p),
-				new Prothese(positionXObjet, positionYObjet, p),
-				new Chien1(positionXObjet, positionYObjet, p),
-				new Chien2(positionXObjet, positionYObjet, p),
-		};
-		
-		ObjetRecuperable a = choisirBonObjet(listeObjet, p);
-		addObjet(a);
-		return a;
+			ObjetRecuperable[] listeObjet = {
+					new Canne(positionXObjet, positionYObjet, p),
+					new Infirmier(positionXObjet, positionYObjet, p),
+					new Lunette(positionXObjet, positionYObjet, p),
+					new Prothese(positionXObjet, positionYObjet, p),
+					new Chien1(positionXObjet, positionYObjet, p),
+					new Chien2(positionXObjet, positionYObjet, p), };
+
+			ObjetRecuperable a = choisirBonObjet(listeObjet, p);
+			addObjet(a);
+		}
 	}
 
 	/**
@@ -550,6 +565,17 @@ public class Carte extends JPanel {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Verifier si la carte n'est pas complete
+	 * 
+	 **/
+	private boolean isFilled() {
+		if (listeElements.size() < (colonnes * lignes))
+			return false;
+
+		return true;
 	}
 
 	/*
@@ -599,10 +625,14 @@ public class Carte extends JPanel {
 	private class Generateur extends Thread {
 
 		/** Variable qui indique la chance de creer un patient */
-		private int chance = 30;
+		private int chance = 1;
 		private int chanceTrou = 20;
 		private boolean running = true;
 
+		/**
+		 * Permet de savoir si on a change le score pour ne pas le changer a
+		 * chaque fois
+		 */
 		public Generateur() {
 		}
 
@@ -617,10 +647,9 @@ public class Carte extends JPanel {
 				genererPatient();
 				genererTrou();
 				supprimerTrou();
-				changerScore();
 				repaint();
 				try {
-					sleep(1000);
+					sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -633,7 +662,6 @@ public class Carte extends JPanel {
 
 			if (nbAleatoire == 0) {
 				creerNouveauPatient();
-				repaint();
 			}
 		}
 
@@ -641,9 +669,13 @@ public class Carte extends JPanel {
 			// Une chance sur 30 de creer un patient
 			int nbAleatoire = (int) (Math.random() * chanceTrou);
 
-			if (nbAleatoire == 1) {
+			if (nbAleatoire == 1) { // on prend un autre nombreAleatoire, car le
+									// temps n'est pas si aleatoire que ca..
+									// vu que les 2 fontions se lancent en meme
+									// temps
+									// on creera souvent un Trou et un patient
+									// en meme temps
 				creerNouveauTrou();
-				repaint();
 			}
 		}
 
@@ -654,35 +686,58 @@ public class Carte extends JPanel {
 					((Trou) e).incremente();
 					if (((Trou) e).getCompteur() == 10) {
 						listeElements.remove(e);
-						repaint();
 						break;
 					}
 				}
 			}
 		}
+	}
 
-		public void changerScore() {
-			// Si le score augmente, on augmente la difficulte
-			switch (score) {
-			case 5:
-				chance = 25;
-				// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-				break;
-			case 10:
-				chance = 20;
-				// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-				break;
-			case 15:
-				chance = 15;
-				// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-				break;
-			case 20:
-				chance = 10;
-				// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-				break;
+	public void arreterJeu() {
+		arreterGenerateur();
+		f.getChrono().stop();
+
+		Main.setPane((new PanelScore(listeBonnesReponses,
+				listeMauvaisesReponses)));
+
+		// on recuperer la fenetre active
+		Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager()
+				.getActiveWindow();
+		try {
+			if (x.getClass().getName().equals("quizz.Quizz")) {
+				x.dispose();
 			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
 		}
+	}
 
+	/*
+	 * Getters et Setters
+	 */
+
+	public int getLignes() {
+		return lignes;
+	}
+
+	public int getColonnes() {
+		return colonnes;
+	}
+
+	public ArrayList<ElementCarte> getListeElements() {
+		return listeElements;
+	}
+
+	public ArrayList<ObjetRecuperable> getObjetsRecuperes() {
+		return objetsRecuperes;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public Fenetre getF() {
+		return f;
 	}
 
 }

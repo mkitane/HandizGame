@@ -6,7 +6,7 @@ public class Sol extends ElementCarte {
 		super(x, y, "Sol");
 	}
 
-	public String toString(){
-		return " "; 
+	public String toString() {
+		return " ";
 	}
 }

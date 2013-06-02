@@ -33,7 +33,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		c=f.getJeu();
 		
 		this.setPreferredSize(new Dimension(625,50));
-		setBackground(Fenetre.GRIS);
+		setBackground(Ressources.GRIS);
 	}
 
 	
@@ -44,31 +44,16 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 		
 		if(compteur<=0){
-			arreterJeu();			
+			c.arreterJeu();
 		}
 		
 		
 	}
 	
 	
-	public void arreterJeu(){
-		c.arreterGenerateur();
-		stop();
-		
-
-		f.setPane((new PanelScore(c.getListeBonnesReponses(),c.getListeMauvaisesReponses())));
-		f.validate();
-
-		//on recuperer la fenetre active
-		Window x = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
-		try{
-		if(x.getClass().getName().equals("quizz.Quizz")){
-			x.dispose();
-		}
-		}catch(Exception exception){
-			System.out.println("La fenetre est pas ouverte");
-		}
-	}
+	
+	
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(imglisteObjets, 0, 3, 254, 45, null);
@@ -94,7 +79,7 @@ public class Chrono extends JPanel implements ActionListener  {
 		if(compteur>200){
 
 			for(int i=0;i<200;i++){
-					g.drawImage(imgdelta, x+6+i, y+4, 1, 11,null);
+			g.drawImage(imgdelta, x+6+i, y+4, 1, 11,null);
 			}
 			
 			g.drawImage(imgdeltaFin,x+205,y+3,5,11,null);
@@ -115,7 +100,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private void dessinerObjets(Graphics g){
 
 		int x=3;
-		int y= 9;
+		int y=9;
 		
 		for(ObjetRecuperable a:c.getObjetsRecuperes()){
 			if(c.getObjetsRecuperes().indexOf(a)<6){
@@ -132,7 +117,6 @@ public class Chrono extends JPanel implements ActionListener  {
 	public void start(){
 		t.start();
 	}
-	
 	public void stop(){
 		t.stop();
 	}
