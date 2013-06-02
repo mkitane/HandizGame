@@ -1,17 +1,17 @@
 25
 15
-MMMMMMMMMMMMMMMM    MM  M
- J                     MQ                                               
-                      CTC                                            
-     CTC               C
-   MMMM               
-       P      LLL       M                       
-MMM                                                              
-            BBB    CTC                          
-	           MM   
-                    MMMMM
-                        M            
-       MMMMMMMMMMMMMMMMM 
-
-   MM       MQQM  
-MMMMMMMMMMMMMMMMMMMMMMMM
+MMMQQQMMMMMMMMMM    MM  MM 
+ J          BB           
+                       TC
+  CTC    LL        M   C                          
+  CTC    LL        M     
+                  MMM MMM                     
+         LL            
+MM       LL            MM                      
+M                                  
+	   MM            MMMM 
+ CTC
+         MQMMMM MM    QQ
+    M MMMMQM 
+ P                   MMMM 
+MMMMMMMMMMMMMMMMMMMMMMMMQ

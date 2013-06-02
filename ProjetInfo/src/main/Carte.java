@@ -625,7 +625,7 @@ public class Carte extends JPanel {
 	private class Generateur extends Thread {
 
 		/** Variable qui indique la chance de creer un patient */
-		private int chance = 1;
+		private int chance = 30;
 		private int chanceTrou = 20;
 		private boolean running = true;
 
@@ -649,7 +649,7 @@ public class Carte extends JPanel {
 				supprimerTrou();
 				repaint();
 				try {
-					sleep(100);
+					sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
