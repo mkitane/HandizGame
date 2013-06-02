@@ -4,7 +4,7 @@ package elementsCartes;
  * @author mkitane
  * 
  */
-public class Chien1 extends ObjetRecuperable {
+public class ChienJaune extends ObjetRecuperable {
 
 	/**
 	 * @param positionX
@@ -12,10 +12,10 @@ public class Chien1 extends ObjetRecuperable {
 	 * @param nomImage
 	 * @param proprietaire
 	 */
-	public Chien1(int positionX, int positionY, Patient proprietaire) {
+	public ChienJaune(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Chien1", proprietaire);
 		// les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("General");
+		this.setThemeAssocie("General");
 	}
 
 	public String toString() {

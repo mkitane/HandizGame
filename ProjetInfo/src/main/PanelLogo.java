@@ -9,14 +9,14 @@ import javax.swing.JPanel;
  * Classe qui crée le panneau contenant le logo. Elle ajuste la taille du logo
  * à la taille de la fenêtre
  */
-public class PanneauLogo extends JPanel {
+public class PanelLogo extends JPanel {
 	private Image imgPanneau = Ressources.getImage("PanneauPrincipal");
 
 
 	/**
 	 *
 	 */
-	public PanneauLogo() {
+	public PanelLogo() {
 	}
 
 	/**

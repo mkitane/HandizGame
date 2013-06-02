@@ -1,7 +1,7 @@
 package elementsCartes;
 
 import main.Carte;
-import main.Fenetre;
+import main.PanelJeu;
 import quizz.Quizz;
 
 /**
@@ -69,7 +69,7 @@ public abstract class ObjetRecuperable extends ElementCarte {
 		return handicapAssocie;
 	}
 
-	protected void setHandicapAssocie(String handicapAssocie) {
+	protected void setThemeAssocie(String handicapAssocie) {
 		this.handicapAssocie = handicapAssocie;
 	}
 

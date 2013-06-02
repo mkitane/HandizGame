@@ -16,7 +16,7 @@ public class Livre extends ObjetRecuperable{
 	public Livre(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Livre",proprietaire);
 		//les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("Loi et Handicap");
+		this.setThemeAssocie("Loi et Handicap");
 	}
 	
 	public String toString(){

@@ -16,7 +16,7 @@ public class Chapeau extends ObjetRecuperable{
 	public Chapeau(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Chapeau",proprietaire);
 		//les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("Celebrite");
+		this.setThemeAssocie("Celebrite");
 	}
 	
 	public String toString(){

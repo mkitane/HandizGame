@@ -88,7 +88,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 	private void dessinerPanel(Graphics g) {
 		switch (numeroDiapo) {
 		case -1:
-			Main.setPane(new PanneauPrincipal());
+			Main.setPane(new PanelPrincipal());
 		case 0:
 			g.drawString("Comment Jouer?", (getWidth() / 2 - 140),
 					getHeight() / 2);
@@ -142,7 +142,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 			g.drawString("A vous de jouer ;)", 320, getHeight() / 2);
 			break;
 		case 10:
-			Main.setPane(new PanneauPrincipal());
+			Main.setPane(new PanelPrincipal());
 			break;
 		}
 

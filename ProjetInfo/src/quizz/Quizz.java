@@ -28,7 +28,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.Carte;
 import main.Ecrivain;
-import main.Fenetre;
+import main.PanelJeu;
 import main.Ressources;
 
 import org.w3c.dom.Document;

@@ -13,7 +13,7 @@ public class Lunette extends ObjetRecuperable {
 	 */
 	public Lunette(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Lunette", proprietaire);
-		this.setHandicapAssocie("Celebrite");
+		this.setThemeAssocie("Celebrite");
 	}
 
 	public String toString() {

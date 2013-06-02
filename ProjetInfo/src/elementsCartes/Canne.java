@@ -16,7 +16,7 @@ public class Canne extends ObjetRecuperable{
 	public Canne(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Canne",proprietaire);
 		//les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("Celebrite");
+		this.setThemeAssocie("Celebrite");
 	}
 	
 	public String toString(){

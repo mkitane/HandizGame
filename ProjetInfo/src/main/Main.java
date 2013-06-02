@@ -1,5 +1,7 @@
 package main;
 
+import initiation.PanelInitiation;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -7,7 +9,6 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import Initiation.modeInitiation1;
 
 import quizz.Quizz;
 
@@ -32,7 +33,7 @@ public class Main extends JFrame {
 		setSize(Carte.COTE * 25, Carte.COTE * 15 + 73 + 40);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		setContentPane(new PanneauPrincipal());
+		setContentPane(new PanelPrincipal());
 
 		setResizable(false);
 		setVisible(true);

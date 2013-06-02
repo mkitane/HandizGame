@@ -16,7 +16,7 @@ public class Clef extends ObjetRecuperable{
 	public Clef(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Clef",proprietaire);
 		//les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("General");
+		this.setThemeAssocie("General");
 	}
 	
 	public String toString(){

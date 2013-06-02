@@ -15,7 +15,7 @@ public class Prothese extends ObjetRecuperable {
 	public Prothese(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Prothese", proprietaire);
 		// les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("Surdite");
+		this.setThemeAssocie("Surdite");
 	}
 
 	public String toString() {

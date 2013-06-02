@@ -1,5 +1,7 @@
 package main;
 
+import initiation.PanelInitiation;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,10 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Initiation.modeInitiation1;
 
-public class PanneauPrincipal extends JPanel {
-	private PanneauLogo panel = new PanneauLogo();
+public class PanelPrincipal extends JPanel {
+	private PanelLogo panel = new PanelLogo();
 	private JPanel panneauboutons = new JPanel();
 	private JButton bouton1 = new JButton("Mode Initiation");
 	private JButton bouton2 = new JButton("Mode Jeu");
@@ -22,18 +23,18 @@ public class PanneauPrincipal extends JPanel {
 	private JButton bouton4 = new JButton("Credits");
 	private JPanel panseparation = new JPanel();
 
-	public PanneauPrincipal() {
+	public PanelPrincipal() {
 		jbInit();
 
 		bouton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new FrameLevel());
+				Main.setPane(new PanelNiveau());
 			}
 		});
 
 		bouton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new modeInitiation1());
+				Main.setPane(new PanelInitiation());
 			}
 		});
 

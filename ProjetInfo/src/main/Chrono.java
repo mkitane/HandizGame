@@ -18,7 +18,7 @@ import elementsCartes.ObjetRecuperable;
  *
  */
 public class Chrono extends JPanel implements ActionListener  {
-	private Fenetre f;
+	private PanelJeu f;
 	private Carte c;
 	private Timer t = new Timer(1000,this);
 	private int compteur=200;
@@ -28,7 +28,7 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Image imgdelta = Ressources.getImage("petitProgression");
 	private Image imgdeltaFin  = Ressources.getImage("petitBout");
 	
-	public Chrono(Fenetre f){
+	public Chrono(PanelJeu f){
 		this.f=f;
 		c=f.getJeu();
 		

@@ -63,12 +63,12 @@ public class PanelScore extends JPanel {
 
 		btnRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new PanneauPrincipal());
+				Main.setPane(new PanelPrincipal());
 			}
 		});
 		btnRejouer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 			}
 		});
 	}

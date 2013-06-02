@@ -20,9 +20,9 @@ import elementsCartes.Joueur;
  * Classe contenant la page de démarrage
  * 
  */
-public class Fenetre extends JPanel implements KeyListener {
+public class PanelJeu extends JPanel implements KeyListener {
 
-	private JPanel panelJeu = new JPanel();
+	private JPanel panelMilieu = new JPanel();
 	private Carte jeu = new Carte(this);
 	private Chrono chrono = new Chrono(this);
 	private JPanel panelBas = new JPanel();
@@ -33,7 +33,7 @@ public class Fenetre extends JPanel implements KeyListener {
 	 * Concstructeur de fenetre contient les différentes évenemments des
 	 * boutons qui se lancent au cours du programme
 	 */
-	public Fenetre() {
+	public PanelJeu() {
 		jbInit();
 
 		addKeyListener(this);
@@ -45,7 +45,7 @@ public class Fenetre extends JPanel implements KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				chrono.stop();
 				jeu.arreterGenerateur();
-				Main.setPane(new PanneauPrincipal());
+				Main.setPane(new PanelPrincipal());
 
 			}
 		});
@@ -54,7 +54,7 @@ public class Fenetre extends JPanel implements KeyListener {
 			public void actionPerformed(ActionEvent e) {
 				chrono.stop();
 				jeu.arreterGenerateur();
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 
 			}
 		});
@@ -70,14 +70,14 @@ public class Fenetre extends JPanel implements KeyListener {
 	private void jbInit() {
 
 		setLayout(new BorderLayout());
-		add(panelJeu);
+		add(panelMilieu);
 
 		setBackground(Ressources.GRIS);
 
-		panelJeu.setLayout(new BorderLayout());
-		panelJeu.add(chrono, BorderLayout.NORTH);
-		panelJeu.add(jeu, BorderLayout.CENTER);
-		panelJeu.add(panelBas, BorderLayout.SOUTH);
+		panelMilieu.setLayout(new BorderLayout());
+		panelMilieu.add(chrono, BorderLayout.NORTH);
+		panelMilieu.add(jeu, BorderLayout.CENTER);
+		panelMilieu.add(panelBas, BorderLayout.SOUTH);
 
 		panelBas.setLayout(new FlowLayout(15));
 		panelBas.add(boutonRetour);

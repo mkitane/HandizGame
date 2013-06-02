@@ -18,8 +18,8 @@ import quizz.ElementQuizz;
 import elementsCartes.Balance;
 import elementsCartes.Canne;
 import elementsCartes.Chapeau;
-import elementsCartes.Chien1;
-import elementsCartes.Chien2;
+import elementsCartes.ChienJaune;
+import elementsCartes.ChienBlanc;
 import elementsCartes.Clef;
 import elementsCartes.ElementCarte;
 import elementsCartes.Infirmier;
@@ -68,12 +68,12 @@ public class Carte extends JPanel {
 	private ArrayList<ElementQuizz> listeBonnesReponses = new ArrayList<ElementQuizz>();
 	private ArrayList<ElementQuizz> listeMauvaisesReponses = new ArrayList<ElementQuizz>();
 
-	private Fenetre f;
+	private PanelJeu f;
 
 	/**
 	 * Constructeur Cree une carte avec ses objets et ses patients
 	 */
-	public Carte(Fenetre f) {
+	public Carte(PanelJeu f) {
 		listeElements = new ArrayList<ElementCarte>();
 		objetsRecuperes = new ArrayList<ObjetRecuperable>();
 		chargerCarte(niveau);
@@ -250,27 +250,17 @@ public class Carte extends JPanel {
 					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 7:
-			generateurPatient.chance = 15;
-			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
-					-0.7, -1.8);
-			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
-			break;
 		case 10:
-			generateurPatient.chance = 10;
+			generateurPatient.chance = 19;
 			generateurPatient.chanceTrou=10;
 
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 13:
-			generateurPatient.chance = 5;
-			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
-					-0.7, -1.8);
-			break;
-		case 16:
-			generateurPatient.chance = 5;
+		case 15:
+			generateurPatient.chance = 17;
+			generateurPatient.chanceTrou=9;
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
 		
@@ -476,6 +466,8 @@ public class Carte extends JPanel {
 			// positionXObjet, positionYObjet);
 
 			listeElements.add(p);
+		}else{
+			arreterJeu();
 		}
 	}
 
@@ -507,6 +499,8 @@ public class Carte extends JPanel {
 			// positionXObjet, positionYObjet);
 
 			listeElements.add(p);
+		}else{
+			arreterJeu();
 		}
 	}
 
@@ -540,8 +534,8 @@ public class Carte extends JPanel {
 					new Infirmier(positionXObjet, positionYObjet, p),
 					new Lunette(positionXObjet, positionYObjet, p),
 					new Prothese(positionXObjet, positionYObjet, p),
-					new Chien1(positionXObjet, positionYObjet, p),
-					new Chien2(positionXObjet, positionYObjet, p),
+					new ChienJaune(positionXObjet, positionYObjet, p),
+					new ChienBlanc(positionXObjet, positionYObjet, p),
 					new Balance(positionXObjet, positionYObjet, p),
 					new Chapeau(positionXObjet, positionYObjet, p),
 					new Clef(positionXObjet, positionYObjet, p),
@@ -551,6 +545,8 @@ public class Carte extends JPanel {
 
 			ObjetRecuperable a = choisirBonObjet(listeObjet, p);
 			addObjet(a);
+		}else{
+			arreterJeu();
 		}
 	}
 
@@ -757,7 +753,7 @@ public class Carte extends JPanel {
 		return score;
 	}
 
-	public Fenetre getF() {
+	public PanelJeu getF() {
 		return f;
 	}
 

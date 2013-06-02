@@ -17,7 +17,7 @@ import java.awt.GridLayout;
  * Classe qui définie une fenêtre contenant les boutons de choix de niveau
  */
 
-public class FrameLevel extends JPanel {
+public class PanelNiveau extends JPanel {
 	private BorderLayout bl = new BorderLayout();
 	private JPanel panneauNiveau = new JPanel();
 	private JLabel labelNiveau = new JLabel(
@@ -34,7 +34,7 @@ public class FrameLevel extends JPanel {
 	private BoutonNiveau niveau3 = new BoutonNiveau("niveau3");
 	private BoutonNiveau niveau4 = new BoutonNiveau("niveau4");
 
-	public FrameLevel() {
+	public PanelNiveau() {
 		try {
 			jbInit();
 		} catch (Exception e) {
@@ -43,7 +43,7 @@ public class FrameLevel extends JPanel {
 
 		boutonRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new PanneauPrincipal());
+				Main.setPane(new PanelPrincipal());
 			}
 		});
 	}
@@ -104,28 +104,28 @@ public class FrameLevel extends JPanel {
 		niveau1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau = "niveau1";
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau = "niveau2";
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau = "niveau3";
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Carte.niveau = "niveau4";
-				Main.setPane(new Fenetre());
+				Main.setPane(new PanelJeu());
 			}
 		});
 

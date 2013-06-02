@@ -23,7 +23,7 @@ public class PanelCredit extends JPanel {
 
 		boutonRetour.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.setPane(new PanneauPrincipal());
+				Main.setPane(new PanelPrincipal());
 			}
 		});
 		setBackground(Ressources.GRIS);
