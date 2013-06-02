@@ -18,7 +18,11 @@ import main.Ressources;
 
 import quizz.ElementQuizz;
 import quizz.Quizz;
-
+/**
+ * Class panneau
+ * Elle permet d'afficher toutes le questions du quizz selon le thème.
+ * 
+ */
 public class AfficheurXml extends JPanel {
 
 	private ArrayList<ElementQuizz> listeElements;
@@ -36,7 +40,10 @@ public class AfficheurXml extends JPanel {
 	private JSplitPane jSplitPane2;
 	private JList jListQuestion;
 	private JScrollPane listeQuestionScroller;
-
+/**
+ * Constructeur de la Class
+ * 
+ */
 	public AfficheurXml() {
 
 		listeElements = Quizz.listeElementQuizz;
@@ -55,7 +62,9 @@ public class AfficheurXml extends JPanel {
 		jbInit();
 
 	}
-
+/**
+ * L'organiation graphique du panneau
+ */
 	private void jbInit() {
 
 		// Ajout des elements

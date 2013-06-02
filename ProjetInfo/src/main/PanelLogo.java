@@ -14,7 +14,8 @@ public class PanelLogo extends JPanel {
 
 
 	/**
-	 *
+	 *Constructeur du Panneau
+   * vide...
 	 */
 	public PanelLogo() {
 	}

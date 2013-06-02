@@ -17,11 +17,11 @@ import javax.swing.JPanel;
 import main.Main;
 import main.PanelPrincipal;
 import main.Ressources;
-
+/**
+ *Classe lançant l'application initiation
+ */
 public class PanelInitiation extends JPanel {
-	/**
-	 * 
-	 */
+	
 
 	private AfficheurXml f = new AfficheurXml();
 	private JButton btnRetour = new JButton();
@@ -30,7 +30,10 @@ public class PanelInitiation extends JPanel {
 			"Ici vous pourrez approfondir vos connaissances sur le monde du handicap, tout en ayant la possibilite d'ameliorer votre score dans le Jeu.");
 	private JPanel panelH = new JPanel();
 	private JPanel panelBtn = new JPanel();
-
+/**
+  * Le constructeur de PanelInitiation
+  * Contient l'organisation graphique du panneau.
+  */
 	public PanelInitiation() {
 		setLayout(new BorderLayout());
 		add(panelH, BorderLayout.NORTH);

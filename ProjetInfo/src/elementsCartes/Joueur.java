@@ -51,7 +51,10 @@ public class Joueur extends ElementCarte {
 		}
 
 	}
-
+/**
+     *Selon la direction du joueur on charge l'image correspondante
+     * @param direction
+     */
 	private void setImageJoueur(int direction) {
 		deplacement++;
 

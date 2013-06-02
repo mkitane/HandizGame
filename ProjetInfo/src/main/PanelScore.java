@@ -40,6 +40,7 @@ public class PanelScore extends JPanel {
 	 * 
 	 * 
 	 * Constructeur du panneau score
+   * 
 	 * 
 	 */
 	public PanelScore(ArrayList<ElementQuizz> lB, ArrayList<ElementQuizz> lM) {
@@ -225,7 +226,7 @@ public class PanelScore extends JPanel {
 	}
 
 	/**
-	 * Remplit l'arrayList des themes pour savoir les themes qui ont etes lance
+	 * Remplit l'arrayList des themes pour savoir les themes qui ont été lancé
 	 * pendant cette partie
 	 */
 	private void trouverThemes() {

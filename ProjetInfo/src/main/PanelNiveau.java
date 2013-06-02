@@ -33,7 +33,10 @@ public class PanelNiveau extends JPanel {
 	private BoutonNiveau niveau2 = new BoutonNiveau("niveau2");
 	private BoutonNiveau niveau3 = new BoutonNiveau("niveau3");
 	private BoutonNiveau niveau4 = new BoutonNiveau("niveau4");
-
+/**
+ * Constructeur du Panneau de choix des niveaux
+ * 
+ */
 	public PanelNiveau() {
 		try {
 			jbInit();

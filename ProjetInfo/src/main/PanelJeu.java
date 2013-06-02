@@ -27,7 +27,7 @@ public class PanelJeu extends JPanel implements KeyListener {
 	private JButton boutonRejouer = new JButton("Rejouer");
 
 	/**
-	 * Concstructeur de fenetre contient les différentes évenemments des
+	 * Concstructeur du Panneau .contient les différentes évenemments des
 	 * boutons qui se lancent au cours du programme
 	 */
 	public PanelJeu() {

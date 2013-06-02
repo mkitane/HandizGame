@@ -25,7 +25,10 @@ public class Chrono extends JPanel implements ActionListener  {
 	private Image imgBarreVide = Ressources.getImage("BarreVide");
 	private Image imgdelta = Ressources.getImage("petitProgression");
 	private Image imgdeltaFin  = Ressources.getImage("petitBout");
-	
+	/**
+     *Le constructeur du chrono
+     * @param f
+     */
 	public Chrono(PanelJeu f){
 		this.f=f;
 		c=f.getJeu();
@@ -35,7 +38,10 @@ public class Chrono extends JPanel implements ActionListener  {
 	}
 
 	
-	
+	/**
+     *Décrémente le compteur et arrête le jeu si il arrive à 0
+     * @param e
+     */
 		public void actionPerformed(ActionEvent e) {
 		compteur--;
 		repaint();
@@ -51,7 +57,10 @@ public class Chrono extends JPanel implements ActionListener  {
 	
 	
 	
-	
+	/**
+     *La partie graphique du chrono.Dessine la barre du chrono.
+     * @param g
+     */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(imglisteObjets, 0, 3, 254, 45, null);
@@ -65,7 +74,10 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 	}
 	
-	
+	/**
+     *M"thode qui dessine la barre et attribue une image à la quantit de temps
+     * @param g
+     */
 	private void dessinerBarre(Graphics g){
 
 		int x=f.getWidth()-250; 
@@ -94,7 +106,10 @@ public class Chrono extends JPanel implements ActionListener  {
 		
 	}
 	
-	
+	/**
+     *Dessine un objet 
+     * @param g
+     */
 	private void dessinerObjets(Graphics g){
 
 		int x=3;
@@ -111,17 +126,28 @@ public class Chrono extends JPanel implements ActionListener  {
 		}
 	}
 	
-		
+		/**
+     * démarre le timer
+     */
 	public void start(){
 		t.start();
 	}
+    /**
+     * Stoppe le timer
+     */
 	public void stop(){
 		t.stop();
 	}
+    
+    /**
+     * Incrémente le compteur
+     */
 	public void incremente(){
 		compteur+=10;
 	}
-	
+	/**
+   * Décrémente le compteur
+   */
 	public void decremente(){
 		compteur-=10;
 	}

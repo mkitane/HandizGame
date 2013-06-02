@@ -23,23 +23,37 @@ public class Ressources {
 	private static Font quickSand;
 	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"),
 			Float.parseFloat("0.08"), Float.parseFloat("0.42"));
-
+/**
+     *
+     * @param nom
+     * @return
+     */
 	public static Image getImage(String nom) {
 		return listeImages.get(correspondance.indexOf(nom));
 	}
-
+/**
+     *
+     * @return
+     */
 	public static Font getQuickSand() {
 		return quickSand;
 	}
-
+/**
+     *
+     * @return
+     */
 	public static InputStream getFichierXml() {
 		return fichierXml;
 	}
-
+/**
+ * Métohde qui charge le fichier xml
+ */
 	public static void chargerXML() {
 		fichierXml = Ressources.class.getResourceAsStream("structure.xml");
 	}
-
+/**
+ * Charge les polices d'écriture 
+ */
 	public static void chargerPolice() {
 		try {
 

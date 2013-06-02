@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
+/**
+ * Panneau pricipal permet de selectionner les différents lodes du jeu
+ */
 public class PanelPrincipal extends JPanel {
 	private PanelLogo panel = new PanelLogo();
 	private JPanel panneauboutons = new JPanel();
@@ -20,7 +22,10 @@ public class PanelPrincipal extends JPanel {
 	private JButton bouton3 = new JButton("Aide");
 	private JButton bouton4 = new JButton("Credits");
 	private JPanel panseparation = new JPanel();
-
+/**
+ * Constructeur du Panneau principal
+ * Consitient les déclencheur des évenements permettant de lancer les modes initiation ,jeu, aide et crédit
+ */
 	public PanelPrincipal() {
 		jbInit();
 
@@ -49,7 +54,9 @@ public class PanelPrincipal extends JPanel {
 		});
 
 	}
-
+/**
+ * Partie graphique organisant les éléments du Panneau
+ */
 	private void jbInit() {
 
 		this.setLayout(new BorderLayout());

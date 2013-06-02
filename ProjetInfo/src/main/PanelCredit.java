@@ -9,11 +9,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/**
+ * Panneau défnissant les crédits 
+ */
 public class PanelCredit extends JPanel {
 	private JButton boutonRetour = new JButton("Retour");
 	private JPanel panneauBas = new JPanel();
-
+/**
+ * Constcuteur du Panneau Crédit
+ * Organise les différents éléments graphiques dans le panneau
+ */
 	public PanelCredit() {
 		this.setLayout(new BorderLayout());
 		this.add(panneauBas, BorderLayout.SOUTH);
@@ -29,7 +34,10 @@ public class PanelCredit extends JPanel {
 		setBackground(Ressources.GRIS);
 
 	}
-
+/**
+     *La partie raphique dessine les remerciements 
+     * @param g
+     */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 

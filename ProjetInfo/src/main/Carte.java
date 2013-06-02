@@ -269,8 +269,7 @@ public class Carte extends JPanel {
 	/**
 	 * Rajoute un objet a l'arrayList objetsRecuperes
 	 * 
-	 * @param a
-	 *            :l'objet a rajouter
+	 * @param a :l'objet a rajouter
 	 */
 	public void addObjetListeObjetRecuperes(ObjetRecuperable a) {
 		objetsRecuperes.add(a);

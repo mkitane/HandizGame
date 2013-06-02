@@ -17,9 +17,12 @@ public class BoutonNiveau extends JButton {
 		super();
 		img = Ressources.getImage(imageName);
 	}
-
-	// On doit redéfinir la méthode paintComponent() pour les composant swing
-	// !!! et paint() pour awt
+/**
+     *On doit redéfinir la méthode paintComponent() pour les composant swing
+     *et paint() pour awt
+     * @param g
+     */
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (img == null)

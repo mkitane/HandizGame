@@ -19,6 +19,10 @@ import quizz.Quizz;
 // ==>ne pas creer un objet dans un endroit deja rempli
 
 // Singleton
+/**
+ * Classe main qui est une fentre contenant les panneaux définissant le jeu
+ * 
+ */
 public class Main extends JFrame {
 	private static Main frame;
 
@@ -46,7 +50,9 @@ public class Main extends JFrame {
 		frame.validate();
 		c.requestFocus();
 	}
-
+/**
+ * règle la taille de la fenêtre en fonction de la taille disponible
+ */
 	private void reglerTaille() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = frame.getSize();
