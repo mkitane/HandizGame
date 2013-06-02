@@ -1,8 +1,8 @@
 package elementsCartes;
 
 /**
- * @author mkitane
- * 
+ * Classe qui modelise un Chien Jaune
+ * C'est un objet.
  */
 public class ChienJaune extends ObjetRecuperable {
 
@@ -14,7 +14,6 @@ public class ChienJaune extends ObjetRecuperable {
 	 */
 	public ChienJaune(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Chien1", proprietaire);
-		// les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("General");
 	}
 

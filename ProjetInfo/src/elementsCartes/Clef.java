@@ -2,8 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
- *
+ * Classe qui modelise une Clef
+ * C'est un objet.
  */
 public class Clef extends ObjetRecuperable{
 	
@@ -15,7 +15,6 @@ public class Clef extends ObjetRecuperable{
 	 */
 	public Clef(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Clef",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("General");
 	}
 	

@@ -16,8 +16,8 @@ import quizz.ElementQuizz;
 
 //Gerer le fait qu'il n'y ai aucune reponse
 /**
- * Classe Jpanel permettant de créer un panneaux où les scores sont
- * affichées.
+ * Classe Jpanel permettant de creer un panneau ou les scores de la partie sont
+ * affichees.
  * 
  * 
  */
@@ -37,11 +37,7 @@ public class PanelScore extends JPanel {
 	private JButton btnRejouer = new JButton("Rejouer");
 
 	/**
-	 * 
-	 * 
 	 * Constructeur du panneau score
-   * 
-	 * 
 	 */
 	public PanelScore(ArrayList<ElementQuizz> lB, ArrayList<ElementQuizz> lM) {
 		setBackground(Ressources.GRIS);
@@ -74,7 +70,7 @@ public class PanelScore extends JPanel {
 	}
 
 	/**
-	 * Méthode graphique elle dessine les différents éléments du panneau
+	 * Méthode graphique elle dessine les differents elements du panneau
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -226,7 +222,7 @@ public class PanelScore extends JPanel {
 	}
 
 	/**
-	 * Remplit l'arrayList des themes pour savoir les themes qui ont �t� lanc�
+	 * Remplit l'arrayList des themes pour savoir les themes qui ont etes lance
 	 * pendant cette partie
 	 */
 	private void trouverThemes() {

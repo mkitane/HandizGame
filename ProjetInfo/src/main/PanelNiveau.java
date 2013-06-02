@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 /**
- * Classe qui définie une fenêtre contenant les boutons de choix de niveau
+ * Classe qui definie une fenetre contenant les boutons de choix de niveau
  */
 
 public class PanelNiveau extends JPanel {
@@ -33,10 +33,11 @@ public class PanelNiveau extends JPanel {
 	private BoutonNiveau niveau2 = new BoutonNiveau("niveau2");
 	private BoutonNiveau niveau3 = new BoutonNiveau("niveau3");
 	private BoutonNiveau niveau4 = new BoutonNiveau("niveau4");
-/**
- * Constructeur du Panneau de choix des niveaux
- * 
- */
+
+	/**
+	 * Constructeur du Panneau de choix des niveaux
+	 * 
+	 */
 	public PanelNiveau() {
 		try {
 			jbInit();
@@ -52,8 +53,8 @@ public class PanelNiveau extends JPanel {
 	}
 
 	/**
-	 * Méthode organisant les différents ékélents grahpiques de la fenêtre.
-	 * Contient également les événements
+	 * Methode organisant les differents elements grahpiques de la fenetre.
+	 * Contient egalement les evenements
 	 */
 	private void jbInit() throws Exception {
 
@@ -106,28 +107,28 @@ public class PanelNiveau extends JPanel {
 
 		niveau1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau = "niveau1";
+				Carte.setNiveau("niveau1");
 				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau = "niveau2";
+				Carte.setNiveau("niveau2");
 				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau = "niveau3";
+				Carte.setNiveau("niveau3");
 				Main.setPane(new PanelJeu());
 			}
 		});
 
 		niveau4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Carte.niveau = "niveau4";
+				Carte.setNiveau("niveau4");
 				Main.setPane(new PanelJeu());
 			}
 		});

@@ -1,8 +1,8 @@
 package elementsCartes;
 
 /**
- * @author bprely
- * 
+ * Classe qui modelise un Infirmier
+ * C'est un objet.
  */
 public class Infirmier extends ObjetRecuperable {
 

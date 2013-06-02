@@ -7,8 +7,8 @@ import main.Carte;
 import main.Ressources;
 
 /**
- * @author bprely
- * 
+ * Classe qui modelise un Element de la carte.
+ * Ne peux etre instanciee directement
  */
 abstract public class ElementCarte {
 	/** La position horizontale d'un element de la carte.Toujours positif */
@@ -29,12 +29,9 @@ abstract public class ElementCarte {
 		img = Ressources.getImage(nom);
 	}
 
-	/**
-	 * 
-	 */
 
 	/**
-	 * Permet de recuperer l'image de lelement dans le dossier images
+	 * Permet de recuperer l'image de lelement depuis la classe statique Ressources
 	 * 
 	 * @param nomImage
 	 */

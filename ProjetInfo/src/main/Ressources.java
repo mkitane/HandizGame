@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 /**
- * Permet de charger en mémoire les différents éléments du jeu
+ * Permet de charger en memoire les differents elements du jeu
  * 
  */
 public class Ressources {
@@ -23,37 +23,42 @@ public class Ressources {
 	private static Font quickSand;
 	public static final Color GRIS = Color.getHSBColor(Float.parseFloat("27"),
 			Float.parseFloat("0.08"), Float.parseFloat("0.42"));
-/**
-     *
-     * @param nom
-     * @return
-     */
+
+	/**
+	 * Recupere L'image voulue
+	 * @param nom
+	 * @return
+	 */
 	public static Image getImage(String nom) {
 		return listeImages.get(correspondance.indexOf(nom));
 	}
-/**
-     *
-     * @return
-     */
+
+	/**
+	 * Recupere la police QuickSand
+	 * @return
+	 */
 	public static Font getQuickSand() {
 		return quickSand;
 	}
-/**
-     *
-     * @return
-     */
+
+	/**
+	 * Recupere le Fichier Xml strucure
+	 * @return
+	 */
 	public static InputStream getFichierXml() {
 		return fichierXml;
 	}
-/**
- * M�tohde qui charge le fichier xml
- */
+
+	/**
+	 * Methode qui charge le fichier xml
+	 */
 	public static void chargerXML() {
 		fichierXml = Ressources.class.getResourceAsStream("structure.xml");
 	}
-/**
- * Charge les polices d'�criture 
- */
+
+	/**
+	 * Charge les polices d'ecriture
+	 */
 	public static void chargerPolice() {
 		try {
 
@@ -69,7 +74,7 @@ public class Ressources {
 	}
 
 	/**
-	 * Méthode qui charge les images dans une Array List
+	 * Methode qui charge les images dans une Array List
 	 * 
 	 * @throws URISyntaxException
 	 * 

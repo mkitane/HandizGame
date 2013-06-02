@@ -2,8 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
- *
+ * Classe qui modelise un Chapeau
+ * C'est un objet.
  */
 public class Chapeau extends ObjetRecuperable{
 	
@@ -15,7 +15,6 @@ public class Chapeau extends ObjetRecuperable{
 	 */
 	public Chapeau(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Chapeau",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Celebrite");
 	}
 	

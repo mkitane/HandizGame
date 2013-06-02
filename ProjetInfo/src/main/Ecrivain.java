@@ -2,8 +2,9 @@ package main;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 /**
- * Classe qui dessinne les différentes bulles du jeu
+ * Classe qui dessinne les differentes bulles du jeu
  */
 public class Ecrivain {
 	/** L'instance statique */
@@ -16,44 +17,47 @@ public class Ecrivain {
 	private Image i = null;
 	/** nombre de secondes pour afficher le txt */
 	private int compteur = 3;
-/**
- * Constructeur d'Ecrivaain
- */
+
+	/**
+	 * Constructeur d'Ecrivaain
+	 */
 	private Ecrivain() {
 	}
 
 	/**
-	 * RŽcup?re l'instance unique de la class Singleton. Remarque : le
+	 * RŽcupere l'instance unique de la class Singleton. Remarque : le
 	 * constructeur est rendu inaccessible
+	 * 
+	 * @return : instance
 	 */
-  /**
-     *
-     * @return
-     */
 	public static Ecrivain getInstance() {
 		if (null == instance) { // Premier appel
 			instance = new Ecrivain();
 		}
 		return instance;
 	}
-/**
-     *Installe l'image à la cote X,Y
-     * @param i
-     * @param X
-     * @param Y
-     */
+
+	/**
+	 * Setteur Image, X et Y en int
+	 * 
+	 * @param i
+	 * @param X
+	 * @param Y
+	 */
 	public void setImage(Image i, int X, int Y) {
 		this.i = i;
 		positionX = X * Carte.COTE;
 		positionY = Y * Carte.COTE;
 		compteur = 0; // on reinitialise le compteur
 	}
-/**
-     *
-     * @param i
-     * @param X
-     * @param Y
-     */
+
+	/**
+	 * Setteur Image, X et Y en double
+	 * 
+	 * @param i
+	 * @param X
+	 * @param Y
+	 */
 	public void setImage(Image i, double X, double Y) {
 		// TODO Auto-generated method stub
 		this.i = i;
@@ -61,10 +65,12 @@ public class Ecrivain {
 		positionY = (int) (Y * 20);
 		compteur = 0; // on reinitialise le compteur
 	}
-/**
-     *Méthode graphique qui dessine la bulle selon le compteur
-     * @param g
-     */
+
+	/**
+	 * Methode graphique qui dessine la bulle selon le compteur
+	 * 
+	 * @param g
+	 */
 	public void Ecrire(Graphics g) {
 		compteur++;
 
@@ -73,10 +79,12 @@ public class Ecrivain {
 		}
 
 	}
-/**
-     *méthode qui dessine la bulle 
-     * @param g
-     */
+
+	/**
+	 * methode qui dessine la bulle
+	 * 
+	 * @param g
+	 */
 	private void dessinerBulle(Graphics g) {
 		int decallage = 20;
 		if (positionX > (875 - TAILLEBULLEX - 10) && positionY < TAILLEBULLEY) { // HAUTDROITEFAIT

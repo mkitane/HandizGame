@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Classe créant le mode aide du jeu
+ * Classe creant le mode aide du jeu
  */
 public class PanelHelp extends JPanel implements KeyListener {
 	private JPanel panelBtn = new JPanel();
@@ -54,7 +54,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * Méthode graphic component dessinant les diapositives
+	 * Methode graphic component dessinant les diapositives
 	 * 
 	 */
 	public void paintComponent(Graphics g) {
@@ -64,23 +64,10 @@ public class PanelHelp extends JPanel implements KeyListener {
 
 		g.drawString("Regles du Jeu", 330, 60);
 		dessinerPanel(g);
-		/*
-		 * g.drawString("Un petit peu d'aide", 50, 50);
-		 * g.drawString("Ce jeu est tr�s facile � jouer", 20, 100);
-		 * g.drawString(
-		 * "Vous incarnez un personnage. Vous n'avez qu'une seule mission! Votre mission est d'aider les personnes qui apparaissent !"
-		 * , 20, 150); g.drawString(
-		 * "Celles-ci n'ont qu'un seul souhait : leur rammener l'objet dont-ils ont besoin."
-		 * , 20, 200); g.drawString(
-		 * "Attention! Pour recuperer l'objet voulu, il faut que vous repondiez a une question liee au handicap!"
-		 * , 20, 250); g.drawString("Pour cela vous avez 200 secondes!", 200,
-		 * 300); g.drawString("A vous de jouer!", 300, 350);
-		 */
-
 	}
 
 	/**
-	 * Constructeur des différens diapos du mode aide
+	 * Dessin des differentes diapos du mode aide en fonction du numero de diapo
 	 * 
 	 */
 	private void dessinerPanel(Graphics g) {
@@ -163,17 +150,12 @@ public class PanelHelp extends JPanel implements KeyListener {
 		repaint();
 	}
 
-	/**
-	 * Méthode devant être appelée dans le programme Elle est cependant
-	 * inutile
-	 */
+
 	public void keyPressed(KeyEvent e) {
 
 	}
 
-	/**
-	 * Méthode créant un évenemnt au moment où on relache le bouton
-	 */
+
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			btnReculerActionPerformed();
@@ -183,9 +165,7 @@ public class PanelHelp extends JPanel implements KeyListener {
 		}
 	}
 
-	/**
-	 * Méthode vide générée automatiquement
-	 */
+
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 

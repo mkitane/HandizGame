@@ -1,8 +1,8 @@
 package elementsCartes;
 
 /**
- * @author bprely
- * 
+ * Classe qui modelise une Prothese
+ * C'est un objet.
  */
 public class Prothese extends ObjetRecuperable {
 
@@ -14,7 +14,6 @@ public class Prothese extends ObjetRecuperable {
 	 */
 	public Prothese(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Prothese", proprietaire);
-		// les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Surdite");
 	}
 

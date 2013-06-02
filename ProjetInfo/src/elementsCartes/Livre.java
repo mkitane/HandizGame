@@ -2,8 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
- *
+ * Classe qui modelise un Livre
+ * C'est un objet.
  */
 public class Livre extends ObjetRecuperable{
 	
@@ -15,7 +15,6 @@ public class Livre extends ObjetRecuperable{
 	 */
 	public Livre(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Livre",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Loi et Handicap");
 	}
 	

@@ -79,7 +79,7 @@ public class Quizz extends JFrame implements KeyListener, ActionListener {
 	}
 
 	/**
-	 * Méthode qui organise la partie graphique du programme
+	 * Methode qui organise la partie graphique du programme
 	 */
 
 	public void jbInit() {
@@ -159,38 +159,24 @@ public class Quizz extends JFrame implements KeyListener, ActionListener {
 
 	}
 
-	/**
-	 * Evennement se déclenchant quanq on deplace pour choisir réponse
-	 * 
-	 */
-
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			boutonsActionPerformed(e);
 		}
 	}
 
-	/**
-	 *
-	 */
 	public void actionPerformed(ActionEvent e) {
 		boutonsActionPerformed(e);
 	}
 
-	/**
-	 *
-	 */
 	public void keyReleased(KeyEvent arg0) {
 	}
 
-	/**
-	 *
-	 */
 	public void keyTyped(KeyEvent arg0) {
 	}
 
 	/**
-	 *
+	 * Action qui s'effectue quand on appuie sur un des boutons
 	 */
 	private void boutonsActionPerformed(AWTEvent e) {
 		// Verifie si le JButtoncorrespond � la bonne reponse
@@ -281,7 +267,7 @@ public class Quizz extends JFrame implements KeyListener, ActionListener {
 	/**
 	 * Initialise le Quizz : charge en memoire toutes l'arrayList du Quizz
 	 * 
-	 * Methode qui charge le quizz � partir d'un fichier XML contenant toutes
+	 * Methode qui charge le quizz a partir d'un fichier XML contenant toutes
 	 * les questions
 	 */
 	public static void initialiser() {

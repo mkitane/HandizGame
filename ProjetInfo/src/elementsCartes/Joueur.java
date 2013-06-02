@@ -1,15 +1,19 @@
 package elementsCartes;
 
 /**
- * @author bprely
+ * Classe qui modelise le Joueur
  * 
  */
 public class Joueur extends ElementCarte {
-
+	/** Deplacement Haut */
 	public static final int UP = 0;
+	/** Deplacement Bas */
 	public static final int DOWN = 1;
+	/** Deplacement Gauche */
 	public static final int LEFT = 2;
+	/** Deplacement Droit */
 	public static final int RIGHT = 3;
+	/** Variable qui permet de savoir quelle image du personnage on doit charger */
 	private int deplacement = 0;
 
 	/**
@@ -28,9 +32,8 @@ public class Joueur extends ElementCarte {
 
 	/**
 	 * @param x
-	 *            Cette méthode permet de modifier la position du joueur en
-	 *            fonction d'un entier allant de 0 à 3 associé à un
-	 *            déplacement
+	 *            Cette methode permet de modifier la position du joueur en
+	 *            fonction d'un entier allant de 0 a 3 associe a un deplacement
 	 */
 	public void deplacer(int x) {
 		if (x == UP) {
@@ -51,10 +54,12 @@ public class Joueur extends ElementCarte {
 		}
 
 	}
-/**
-     *Selon la direction du joueur on charge l'image correspondante
-     * @param direction
-     */
+
+	/**
+	 * Selon la direction du joueur on charge l'image correspondante
+	 * 
+	 * @param direction
+	 */
 	private void setImageJoueur(int direction) {
 		deplacement++;
 

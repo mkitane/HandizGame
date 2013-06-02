@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import elementsCartes.Joueur;
 
 /**
- * Classe contenant la page de démarrage
+ * Classe contenant le panel du jeu
  * 
  */
 public class PanelJeu extends JPanel implements KeyListener {
@@ -26,10 +26,6 @@ public class PanelJeu extends JPanel implements KeyListener {
 	private JButton boutonRetour = new JButton("Retour Accueil");
 	private JButton boutonRejouer = new JButton("Rejouer");
 
-	/**
-	 * Concstructeur du Panneau .contient les différentes évenemments des
-	 * boutons qui se lancent au cours du programme
-	 */
 	public PanelJeu() {
 		jbInit();
 
@@ -60,7 +56,7 @@ public class PanelJeu extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * Classe contenant l'organisation des éléments graphiques
+	 * Classe contenant l'organisation des elements graphiques
 	 * 
 	 */
 
@@ -85,7 +81,7 @@ public class PanelJeu extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * Méthode qui permet de déplacer le joueur avec les touches du clavier
+	 * Methode qui permet de deplacer le joueur avec les touches du clavier
 	 * 
 	 */
 
@@ -104,30 +100,18 @@ public class PanelJeu extends JPanel implements KeyListener {
 		}
 	}
 
-	/**
-	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
-	 * 
-	 */
 	public void keyReleased(KeyEvent e) {
 	}
 
-	/**
-	 * Méthode devant être appelée mais elle n'a pas de réelle utilité
-	 * 
-	 */
 	public void keyTyped(KeyEvent e) {
 	}
-
-	/**
-	 * Méthode permettant de récuperer le chrono étant private
-	 */
 
 	public Chrono getChrono() {
 		return chrono;
 	}
 
 	/**
-	 * le jeu est une carte.On réccupère le jeu
+	 * le jeu est une carte.On reccupere le jeu
 	 */
 	public Carte getJeu() {
 		return jeu;

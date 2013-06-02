@@ -4,18 +4,18 @@ import main.Carte;
 import quizz.Quizz;
 
 /**
- * @author bprely
+ * Classe qui modelise un ObjetRecuperable. Ne peux etre instanciee directement.
  * 
  */
 public abstract class ObjetRecuperable extends ElementCarte {
 	/**
-	 * Chaque objet possed un patient qui l'instancie, d'ou la variable
-	 * proprietaire Elle permet de reconnaitre le proprietaire de chaque Objet
+	 * Chaque objet possede un patient qui l'instancie, d'ou la variable
+	 * proprietaire. Elle permet de reconnaitre le proprietaire de chaque Objet.
 	 */
 	private Patient proprietaire;
 	/**
-	 * Chaque objet est associe a un handicap, ce qui a chaque patient
-	 * d'instancier un objet qui possede le meme handicap que lui
+	 * Chaque objet est associe a un handicap, ce qui permet a chaque patient
+	 * d'instancier un objet qui possede le meme handicap que lui.
 	 */
 	private String handicapAssocie;
 	/** Boolean qui Permet de ne pas lancer plusieurs Quizz */
@@ -60,14 +60,17 @@ public abstract class ObjetRecuperable extends ElementCarte {
 	}
 
 	/* Getters et setters */
+	/**Recupere le Proprietaire*/
 	public Patient getProprietaire() {
 		return proprietaire;
 	}
 
+	/**Recupere le handicap associe*/
 	public String getHandicapAssocie() {
 		return handicapAssocie;
 	}
 
+	/**Associe a l'objet un theme*/
 	protected void setThemeAssocie(String handicapAssocie) {
 		this.handicapAssocie = handicapAssocie;
 	}

@@ -5,8 +5,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.UIManager;
-
 
 import quizz.Quizz;
 
@@ -14,13 +12,13 @@ import quizz.Quizz;
  * Lancement du jeu
  */
 
-// Il reste Chrono ï¿½ implementer
-// Gestion des Objets
-// ==>ne pas creer un objet dans un endroit deja rempli
+// Il reste Chrono ï¿½ implementer  //FAIT
+// Gestion des Objets  //FAIT
+// ==>ne pas creer un objet dans un endroit deja rempli //FAIT
 
 // Singleton
 /**
- * Classe main qui est une fentre contenant les panneaux définissant le jeu
+ * Classe main qui est une fenetre contenant les panneaux definissant le jeu
  * 
  */
 public class Main extends JFrame {
@@ -50,9 +48,10 @@ public class Main extends JFrame {
 		frame.validate();
 		c.requestFocus();
 	}
-/**
- * règle la taille de la fenêtre en fonction de la taille disponible
- */
+
+	/**
+	 * Regle la taille de la fenetre en fonction de la taille disponible
+	 */
 	private void reglerTaille() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension frameSize = frame.getSize();
@@ -73,12 +72,6 @@ public class Main extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			UIManager.put("swing.boldMetal", Boolean.FALSE);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		// Instanciation de l'application
 		Ressources.chargerImages();

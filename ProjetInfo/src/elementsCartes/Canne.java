@@ -2,8 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
- *
+ * Classe qui modelise une Canne
+ * C'est un objet.
  */
 public class Canne extends ObjetRecuperable{
 	
@@ -15,7 +15,6 @@ public class Canne extends ObjetRecuperable{
 	 */
 	public Canne(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Canne",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Celebrite");
 	}
 	

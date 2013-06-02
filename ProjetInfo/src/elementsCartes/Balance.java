@@ -2,8 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
- *
+ * Classe qui modelise une Balance
+ * C'est un objet.
  */
 public class Balance extends ObjetRecuperable{
 	
@@ -15,7 +15,6 @@ public class Balance extends ObjetRecuperable{
 	 */
 	public Balance(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Balance",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Loi et Handicap");
 	}
 	

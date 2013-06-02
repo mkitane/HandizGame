@@ -9,16 +9,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
 /**
- * Panneau défnissant les crédits 
+ * Panneau definissant les credits
  */
 public class PanelCredit extends JPanel {
 	private JButton boutonRetour = new JButton("Retour");
 	private JPanel panneauBas = new JPanel();
-/**
- * Constcuteur du Panneau Crédit
- * Organise les différents éléments graphiques dans le panneau
- */
+
+	/**
+	 * Constructeur du Panneau Credit Organise les differents elements
+	 * graphiques dans le panneau
+	 */
 	public PanelCredit() {
 		this.setLayout(new BorderLayout());
 		this.add(panneauBas, BorderLayout.SOUTH);
@@ -34,10 +36,12 @@ public class PanelCredit extends JPanel {
 		setBackground(Ressources.GRIS);
 
 	}
-/**
-     *La partie raphique dessine les remerciements 
-     * @param g
-     */
+
+	/**
+	 * La partie graphique dessine les remerciements
+	 * 
+	 * @param g
+	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -53,13 +57,12 @@ public class PanelCredit extends JPanel {
 		g.drawString("Bertrand Prely", (getWidth() / 2 - 110), 190);
 		g.drawString("Amine Wahbi", (getWidth() / 2 - 110), 240);
 		g.drawString("Pierre Laurenson", (getWidth() / 2 - 110), 290);
-		
-		
+
 		g.drawString("Art.devsader.com", (getWidth() / 2 - 110), 410);
-		g.drawString("Moosader", (getWidth() / 2 ), 460);
+		g.drawString("Moosader", (getWidth() / 2), 460);
 		g.drawString("Iconfinder.com", (getWidth() / 2 - 110), 510);
 
-		g.drawString("HandizGoud", (getWidth() / 2)-110, 560);
+		g.drawString("HandizGoud", (getWidth() / 2) - 110, 560);
 
 	}
 

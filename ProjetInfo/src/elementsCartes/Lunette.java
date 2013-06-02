@@ -1,8 +1,8 @@
 package elementsCartes;
 
 /**
- * @author bprely
- * 
+ * Classe qui modelise des Lunettes
+ * C'est un objet.
  */
 public class Lunette extends ObjetRecuperable {
 

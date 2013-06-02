@@ -3,7 +3,6 @@ package initiation;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-
 import java.util.ArrayList;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -18,9 +17,10 @@ import main.Ressources;
 
 import quizz.ElementQuizz;
 import quizz.Quizz;
+
 /**
- * Class panneau
- * Elle permet d'afficher toutes le questions du quizz selon le thème.
+ * Class panneau Elle permet d'afficher toutes le questions du quizz selon le
+ * theme.
  * 
  */
 public class AfficheurXml extends JPanel {
@@ -40,10 +40,11 @@ public class AfficheurXml extends JPanel {
 	private JSplitPane jSplitPane2;
 	private JList jListQuestion;
 	private JScrollPane listeQuestionScroller;
-/**
- * Constructeur de la Class
- * 
- */
+
+	/**
+	 * Constructeur de la Classe
+	 * 
+	 */
 	public AfficheurXml() {
 
 		listeElements = Quizz.listeElementQuizz;
@@ -62,9 +63,10 @@ public class AfficheurXml extends JPanel {
 		jbInit();
 
 	}
-/**
- * L'organiation graphique du panneau
- */
+
+	/**
+	 * L'organisation graphique du panneau
+	 */
 	private void jbInit() {
 
 		// Ajout des elements
@@ -173,12 +175,11 @@ public class AfficheurXml extends JPanel {
 	}
 
 	/**
-	 * Trouve toutes les Questions correspondant ï¿½ un theme
+	 * Trouve toutes les Questions correspondant a un theme
 	 * 
 	 * @param theme
 	 * @return
 	 */
-
 	private ArrayList<ElementQuizz> trouverQuestions(String theme) {
 		ArrayList<ElementQuizz> listQuestion = new ArrayList<ElementQuizz>();
 
@@ -192,7 +193,7 @@ public class AfficheurXml extends JPanel {
 	}
 
 	/**
-	 * Remplit l'arrayList des themes pour savoir les themes qui ont etes lance
+	 * Remplit l'arrayList des themes pour savoir les themes qui ont etes lances
 	 * pendant cette partie
 	 */
 	private void trouverThemes() {

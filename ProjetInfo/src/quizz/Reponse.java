@@ -1,7 +1,7 @@
 package quizz;
 
 /**
- * Cette Classe modélise une réponse du quizz
+ * Cette Classe modelise une reponse du quizz
  * 
  * @author mkitane
  * 
@@ -39,6 +39,11 @@ public class Reponse {
 		return justesse;
 	}
 
+	/**
+	 * Getter Reponse
+	 * 
+	 * @return reponse
+	 */
 	public String getRep() {
 		return rep;
 	}

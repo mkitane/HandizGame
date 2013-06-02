@@ -12,51 +12,53 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Panneau pricipal permet de selectionner les différents lodes du jeu
+ * Panneau pricipal permet de selectionner les differents lodes du jeu
  */
 public class PanelPrincipal extends JPanel {
 	private PanelLogo panel = new PanelLogo();
 	private JPanel panneauboutons = new JPanel();
-	private JButton bouton1 = new JButton("Mode Initiation");
-	private JButton bouton2 = new JButton("Mode Jeu");
-	private JButton bouton3 = new JButton("Aide");
-	private JButton bouton4 = new JButton("Credits");
+	private JButton btnInitiation = new JButton("Mode Initiation");
+	private JButton btnJeu = new JButton("Mode Jeu");
+	private JButton btnAide = new JButton("Aide");
+	private JButton bntCredits = new JButton("Credits");
 	private JPanel panseparation = new JPanel();
-/**
- * Constructeur du Panneau principal
- * Consitient les déclencheur des évenements permettant de lancer les modes initiation ,jeu, aide et crédit
- */
+
+	/**
+	 * Constructeur du Panneau principal. Contient les declencheur des
+	 * evenements permettant de lancer les modes initiation ,jeu, aide et credit
+	 */
 	public PanelPrincipal() {
 		jbInit();
 
-		bouton2.addActionListener(new ActionListener() {
+		btnJeu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanelNiveau());
 			}
 		});
 
-		bouton1.addActionListener(new ActionListener() {
+		btnInitiation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane(new PanelInitiation());
 			}
 		});
 
-		bouton3.addActionListener(new ActionListener() {
+		btnAide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane((new PanelHelp()));
 			}
 		});
 
-		bouton4.addActionListener(new ActionListener() {
+		bntCredits.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Main.setPane((new PanelCredit()));
 			}
 		});
 
 	}
-/**
- * Partie graphique organisant les éléments du Panneau
- */
+
+	/**
+	 * Partie graphique organisant les elements du Panneau
+	 */
 	private void jbInit() {
 
 		this.setLayout(new BorderLayout());
@@ -65,10 +67,8 @@ public class PanelPrincipal extends JPanel {
 		panel.setBackground(Ressources.GRIS);
 		panneauboutons.setOpaque(false);
 
-		
 		panel.setLayout(new BorderLayout());
 		panel.add(panneauboutons, BorderLayout.EAST);
-
 
 		// panBienvenue.setOpaque(false);
 		panseparation.setOpaque(false);
@@ -76,18 +76,17 @@ public class PanelPrincipal extends JPanel {
 
 		panneauboutons.setLayout(new FlowLayout());
 		panneauboutons.add(panseparation);
-		panneauboutons.add(bouton1);
-		panneauboutons.add(bouton2);
-		panneauboutons.add(bouton3);
-		panneauboutons.add(bouton4);
+		panneauboutons.add(btnInitiation);
+		panneauboutons.add(btnJeu);
+		panneauboutons.add(btnAide);
+		panneauboutons.add(bntCredits);
 
 		panneauboutons.setPreferredSize(new Dimension(150, 600));
 		panseparation.setPreferredSize(new Dimension(140, 200));
-		bouton1.setPreferredSize(new Dimension(130, 50));
-		bouton2.setPreferredSize(new Dimension(130, 50));
-		bouton3.setPreferredSize(new Dimension(100, 40));
-		bouton4.setPreferredSize(new Dimension(100, 40));
-
+		btnInitiation.setPreferredSize(new Dimension(130, 50));
+		btnJeu.setPreferredSize(new Dimension(130, 50));
+		btnAide.setPreferredSize(new Dimension(100, 40));
+		bntCredits.setPreferredSize(new Dimension(100, 40));
 
 	}
 

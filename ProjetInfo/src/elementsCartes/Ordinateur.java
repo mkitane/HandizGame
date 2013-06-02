@@ -2,7 +2,8 @@ package elementsCartes;
 
 
 /**
- * @author bprely
+ * Classe qui modelise un Ordinateur.
+ * C'est un objet.
  *
  */
 public class Ordinateur extends ObjetRecuperable{
@@ -15,7 +16,6 @@ public class Ordinateur extends ObjetRecuperable{
 	 */
 	public Ordinateur(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Ordinateur",proprietaire);
-		//les handicaps ne sont pas encore bien mis
 		this.setThemeAssocie("Handicap et Entreprise");
 	}
 	

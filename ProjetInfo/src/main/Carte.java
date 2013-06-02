@@ -44,7 +44,7 @@ public class Carte extends JPanel {
 	private int lignes = 15; // nombre de lignes
 	private int colonnes = 25; // nombre de colonnes
 	public static final int COTE = 35; // Pour plus tard Taille des cases;
-	public static String niveau = "niveau1";
+	private static String niveau = "niveau1";
 
 	private Generateur generateurPatient = new Generateur();
 	// Score de la partie
@@ -62,8 +62,10 @@ public class Carte extends JPanel {
 	/** Le Joueur */
 	private Joueur joueur;
 
-	/** Permet de calculer les scores ensuite */
+	/* Permet de calculer les scores ensuite */
+	/** Liste des Quizz auquels ont a repondus juste */
 	private ArrayList<ElementQuizz> listeBonnesReponses = new ArrayList<ElementQuizz>();
+	/** Liste des Quizz auquels ont a repondus faux */
 	private ArrayList<ElementQuizz> listeMauvaisesReponses = new ArrayList<ElementQuizz>();
 
 	private PanelJeu f;
@@ -172,10 +174,6 @@ public class Carte extends JPanel {
 		}
 	}
 
-	/**
-	 * Dessine la carte
-	 * 
-	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -243,14 +241,14 @@ public class Carte extends JPanel {
 			break;
 		case 5:
 			generateurPatient.chance = 20;
-			generateurPatient.chanceTrou=15;
+			generateurPatient.chanceTrou = 15;
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
 		case 10:
 			generateurPatient.chance = 19;
-			generateurPatient.chanceTrou=10;
+			generateurPatient.chanceTrou = 10;
 
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
@@ -258,18 +256,19 @@ public class Carte extends JPanel {
 			break;
 		case 15:
 			generateurPatient.chance = 17;
-			generateurPatient.chanceTrou=9;
+			generateurPatient.chanceTrou = 9;
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
-		
+
 		}
-		
+
 	}
 
 	/**
 	 * Rajoute un objet a l'arrayList objetsRecuperes
 	 * 
-	 * @param a :l'objet a rajouter
+	 * @param a
+	 *            :l'objet a rajouter
 	 */
 	public void addObjetListeObjetRecuperes(ObjetRecuperable a) {
 		objetsRecuperes.add(a);
@@ -324,7 +323,7 @@ public class Carte extends JPanel {
 
 	/**
 	 * Recupere lobjet qui appartient au bon patient grace a son ID depuis la
-	 * liste des objets Recuperes
+	 * liste des objets Recuperes. Pour le lui redonner.
 	 * 
 	 * @param p
 	 *            le patient dont on veut recuperer l'objet
@@ -341,8 +340,8 @@ public class Carte extends JPanel {
 	}
 
 	/**
-	 * Recupere l'Objet qui appartient au bon patient grace a son ID depuis la
-	 * listeElements
+	 * Recupere l'Objet sur la carte qui appartient au bon patient grace a son
+	 * ID depuis la listeElements.
 	 */
 
 	public ObjetRecuperable recupererObjetListeElements(Patient p) {
@@ -363,7 +362,7 @@ public class Carte extends JPanel {
 	 * 
 	 * @param p
 	 *            : patient
-	 * @return vrai si un objet appartenant a ce patient est present faux si il
+	 * @return vrai si un objet appartenant a ce patient est present. faux si il
 	 *         n'y a pas d'objet appartenant a ce patient
 	 */
 	public boolean verifierProprietaire(Patient p) {
@@ -379,7 +378,7 @@ public class Carte extends JPanel {
 	}
 
 	/**
-	 * Recupere un element sur la carte en fonction de ses coordonnees Si
+	 * Recupere un element sur la carte en fonction de ses coordonnees. Si
 	 * l'element n'apparait pas dans listeElements On verifie dans la liste des
 	 * Sol
 	 * 
@@ -438,8 +437,6 @@ public class Carte extends JPanel {
 	/**
 	 * Instancie un nouveau Trou
 	 * 
-	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases
-	 *           sont deja remplies
 	 */
 	public void creerNouveauTrou() {
 		if (!isFilled()) {
@@ -463,7 +460,7 @@ public class Carte extends JPanel {
 			// positionXObjet, positionYObjet);
 
 			listeElements.add(p);
-		}else{
+		} else {
 			arreterJeu();
 		}
 	}
@@ -471,8 +468,6 @@ public class Carte extends JPanel {
 	/**
 	 * Instancie un nouveau patient
 	 * 
-	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases
-	 *           sont deja remplies
 	 */
 	public void creerNouveauPatient() {
 		if (!isFilled()) {
@@ -496,16 +491,14 @@ public class Carte extends JPanel {
 			// positionXObjet, positionYObjet);
 
 			listeElements.add(p);
-		}else{
+		} else {
 			arreterJeu();
 		}
 	}
 
 	/**
-	 * Instancie un nouvel objet en relation avec le patient qui le cree
+	 * Instancie un nouvel objet en relation avec le patient qui le cree.
 	 * 
-	 * @memo:Bug possible pour l'instant : boucle infinie si toutes les cases
-	 *           sont deja remplies
 	 * @param p
 	 *            patient qui cree l'objet
 	 */
@@ -542,7 +535,7 @@ public class Carte extends JPanel {
 
 			ObjetRecuperable a = choisirBonObjet(listeObjet, p);
 			addObjet(a);
-		}else{
+		} else {
 			arreterJeu();
 		}
 	}
@@ -582,7 +575,7 @@ public class Carte extends JPanel {
 	}
 
 	/**
-	 * Verifier si la carte n'est pas complete
+	 * Verifier si la carte n'est pas remplie entierement.
 	 * 
 	 **/
 	private boolean isFilled() {
@@ -633,20 +626,17 @@ public class Carte extends JPanel {
 	 */
 
 	/**
-	 * Compteur interne � la classe Carte. Il Permet de generer des patients
+	 * Compteur interne a la classe Carte. Il Permet de generer des patients
 	 * aleatoirements
 	 */
 	private class Generateur extends Thread {
 
 		/** Variable qui indique la chance de creer un patient */
 		private int chance = 30;
+		/** Variable qui indique la chance de creer un Trou */
 		private int chanceTrou = 20;
 		private boolean running = true;
 
-		/**
-		 * Permet de savoir si on a change le score pour ne pas le changer a
-		 * chaque fois
-		 */
 		public Generateur() {
 		}
 
@@ -670,6 +660,7 @@ public class Carte extends JPanel {
 			}
 		}
 
+		/** Cree un Patient avec une probabilite d'une fois sur chance */
 		public void genererPatient() {
 			// Une chance sur 30 de creer un patient
 			int nbAleatoire = (int) (Math.random() * chance);
@@ -679,6 +670,7 @@ public class Carte extends JPanel {
 			}
 		}
 
+		/** Cree un Trou avec une probabilite d'une fois sur chanceTrou */
 		public void genererTrou() {
 			// Une chance sur 30 de creer un patient
 			int nbAleatoire = (int) (Math.random() * chanceTrou);
@@ -693,7 +685,10 @@ public class Carte extends JPanel {
 			}
 		}
 
-		/** On supprimer le premier Trou */
+		/**
+		 * On supprime le premier Trou dont le compteur interne atteint
+		 * 10secondes
+		 */
 		public void supprimerTrou() {
 			for (ElementCarte e : listeElements) {
 				if (e instanceof Trou) {
@@ -707,6 +702,10 @@ public class Carte extends JPanel {
 		}
 	}
 
+	/**
+	 * Arrete le jeu en stoppant les differents chronos et en lancant la fenetre
+	 * des scores.
+	 */
 	public void arreterJeu() {
 		arreterGenerateur();
 		f.getChrono().stop();
@@ -752,6 +751,10 @@ public class Carte extends JPanel {
 
 	public PanelJeu getF() {
 		return f;
+	}
+	
+	public static void setNiveau(String n){
+		niveau = n; 
 	}
 
 }

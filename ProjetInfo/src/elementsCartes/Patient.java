@@ -4,13 +4,15 @@ import main.Carte;
 import main.Ecrivain;
 import main.Ressources;
 
+/**
+ * Classe qui modelise un Patient.
+ */
 public class Patient extends ElementCarte {
-	// private final String[] listeHandicapPossible =
-	// {"Handicap et entreprise","celebrite","surdite","General",
-	// "Loi et Handicap"};
+	/**Permet d'instancier un Patient avec un handicap aleatoire parmis ceux ci*/
 	private final String[] listeHandicapPossible = { "Loi et Handicap",
 			"Celebrite", "General", "Surdite", "Handicap et Entreprise" };
 
+	/**Handicap du patient*/
 	private String handicap;
 	/** Permet de reconnaitre un patient cree */
 	private static int lastID = 0;
@@ -20,6 +22,7 @@ public class Patient extends ElementCarte {
 	 * pas pour qu'un patient ne puisse instancier plusieurs objets
 	 */
 	private boolean verificateur = true;
+	/**Variable qui permet de choisir la bonne image pour le patient*/
 	private int typePatient;
 
 	public Patient(int positionX, int positionY) {
@@ -109,10 +112,12 @@ public class Patient extends ElementCarte {
 
 	}
 
+	/**Recupere le handicap du Patient*/
 	public String getHandicap() {
 		return handicap;
 	}
 
+	/**Recupere son ID*/
 	public int getID() {
 		return ID;
 	}

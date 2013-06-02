@@ -5,8 +5,8 @@ import java.awt.Image;
 import javax.swing.JButton;
 
 /**
- * Cette class permet de créer un arrière plan au bouton correspondant au
- * niveau que le joueur sélectionnera
+ * Cette class permet de creer un arriere plan au bouton correspondant au
+ * niveau que le joueur selectionnera
  * 
  */
 public class BoutonNiveau extends JButton {
@@ -17,12 +17,8 @@ public class BoutonNiveau extends JButton {
 		super();
 		img = Ressources.getImage(imageName);
 	}
-/**
-     *On doit redéfinir la méthode paintComponent() pour les composant swing
-     *et paint() pour awt
-     * @param g
-     */
-	
+
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (img == null)
