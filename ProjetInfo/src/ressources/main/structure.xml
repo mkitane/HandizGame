@@ -9,7 +9,7 @@
 	 <!ELEMENT explication (#PCDATA)>   
 	 
 	 
-	 <!ATTLIST element theme (celebrite|aveugle|sourd) #REQUIRED>
+	 <!ATTLIST element theme (Celebrite|aveugle|sourd) #REQUIRED>
 	 <!ATTLIST element id ID #REQUIRED>
 	 <!ATTLIST answer j (juste|faux) "fausse">
 	]
@@ -25,7 +25,7 @@
  -->
  <quizz>
  
- 	<element theme="celebrite" id="0">
+ 	<element theme="Celebrite" id="0">
  			<question>Quel célèbre producteur de cinéma et de dessins animés était atteint d'un handicap invisible ?</question>
  			<answers>
  				<answer j="juste"> Walt Disney</answer>
@@ -37,7 +37,7 @@
  	
  	</element>
  	
- 		<element theme="Handicap et entreprise" id="1">
+ 		<element theme="Handicap et Entreprise" id="1">
  			<question>Quel taux de travailleurs handicapés doit compter une entreprise de plus de 20 salariés ?</question>
  			<answers>
  				<answer j="juste">6%</answer>
@@ -50,7 +50,7 @@
  	</element>
  	
  	
- 		<element theme="Handicap et entreprise" id="2">
+ 		<element theme="Handicap et Entreprise" id="2">
  			<question>Un atelier protégé est une entreprise ordinaire employant au moins 80 % de travailleurs handicapés?</question>
  			<answers>
  				<answer>Faux</answer>
@@ -61,7 +61,7 @@
  	</element>
  	
  	
- 		<element theme="Handicap et entreprise" id="3">
+ 		<element theme="Handicap et Entreprise" id="3">
  			<question>Une personne handicapée peut bénéficier d'une aide financière pour aménager son poste de travail?</question>
  			<answers>
  				<answer j="juste">Faux</answer>
@@ -71,7 +71,7 @@
  	
  	</element>
  	
- 		<element theme="Handicap et entreprise" id="4">
+ 		<element theme="Handicap et Entreprise" id="4">
  			<question>Quel est le pourcentage de travailleurs handicapés ayant besoin d'un aménagement de poste ?</question>
  			<answers>
  				<answer >17%</answer>
@@ -83,7 +83,7 @@
  	
  	</element>
  	
- 		<element theme="Handicap et entreprise" id="5">
+ 		<element theme="Handicap et Entreprise" id="5">
  			<question>Quel taux d'entreprises se déclarent satisfaites d'avoir embauché des personnes en situations de handicap ?</question>
  			<answers>
  				<answer j="juste">93%</answer>
@@ -95,7 +95,7 @@
  	
  	</element>
  	
- 		<element theme="Handicap et entreprise" id="6">
+ 		<element theme="Handicap et Entreprise" id="6">
  			<question>1,3 million de travailleurs sont reconnus handicapés. Parmi eux, quel pourcentage est atteint d’un handicap non visible? </question>
  			<answers>
  				<answer >20%</answer>
@@ -107,7 +107,7 @@
  	
  	</element>
 		
-		<element theme="celebrite" id="7">
+		<element theme="Celebrite" id="7">
  			<question>Quel est le point commun entre Marilyn Monroe, Albert Einstein et Molière ? </question>
  			<answers>
  				<answer j="juste">Ils étaient bègues</answer>
@@ -117,7 +117,7 @@
  			<explication>ils étaient tous les trois bègues, mais ont réussi à surmonter ce trouble de la diction, classé parmi les « désordres émotionnels ou comportementaux » par l'organisation mondiale de la santé et reconnu comme un handicap par la loi de 2005.</explication>
  	</element>
 
-		<element theme="celebrite" id="8">
+		<element theme="Celebrite" id="8">
  			<question>Quel diplôme le chanteur grand corps malade a-t-il obtenu avant de commencer sa carrière artistique ? </question>
  			<answers>
  				<answer>Un DUT (bac + 2) réseaux et télécommunications</answer>
@@ -127,7 +127,7 @@
  			<explication>Le chanteur voulait devenir professeur de sport. À 20 ans, il fait un mauvais plongeon en piscine, qui paralyse sa colonne vertébrale. Il trouvera malgré tout l’énergie de remarcher et de continuer des études dans le domaine du sport. Ce n’est que plus tard qu’il fera de la scène artistique son métier.</explication>
  	</element>
 
-		<element theme="celebrite" id="9">
+		<element theme="Celebrite" id="9">
  			<question>Quel célèbre dessinateur de bandes dessinées, créateur d’Astérix, est atteint d’un handicap ?</question>
  			<answers>
  				<answer> Peyo</answer>
@@ -137,7 +137,7 @@
  			<explication>Albert Uderzo est daltonien (il ne distingue pas le rouge et le vert). La mise en couleurs des albums d’Astérix a été assurée pendant plusieurs années par son frère Marcel Uderzo. Il est, par ailleurs, né avec douze doigts, six à chaque main, et a été opéré à l’âge d’un mois.</explication>
  	</element>
 
-		<element theme="Handicap et entreprise" id="10">
+		<element theme="Handicap et Entreprise" id="10">
  			<question>Le taux de chômage des personnes handicapées est supérieur au taux de chômage global. Dans quelle proportion ?</question>
  			<answers>
  				<answer j="juste">250%</answer>
@@ -148,7 +148,7 @@
  			<explication>Le taux de chômage des personnes handicapées est de façon constante d’environ 250% supérieur au taux de chômage global (En 2010 : 19 % contre 8%.)Les idées reçues telles que « Les personnes handicapées ne sont pas formées » ou les affirmations cyniques telles que « Le handicap est un vrai sujet mais ce n’est pas une priorité » doivent être farouchement combattues.</explication>
  	</element>
 
-		<element theme="Handicap et entreprise" id="11">
+		<element theme="Handicap et Entreprise" id="11">
  			<question>L’embauche d’un travailleur handicapé entraîne-t-elle forcément un aménagement de poste ?</question>
  			<answers>
  				<answer j="juste">Non</answer>
@@ -158,7 +158,7 @@
 d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou le matériel du poste de travail, ainsi que sur l'organisation du temps de travail ou du collectif de travail, doit être envisagé positivement ; il peut être déterminant pour l’intégration réussie du salarié lors d’une embauche ou lorsque se pose la question du maintien dans l’emploi d’un salarié handicapé et représente des sommes qui peuvent être très modiques.</explication>
  	</element>
 
-		<element theme="celebrite" id="12">
+		<element theme="Celebrite" id="12">
  			<question>Quel célèbre artiste a dit : « je suis aveugle, mais on trouve toujours plus malheureux que soi. J’aurais pu être noir !» ?
 </question>
  			<answers>
@@ -170,7 +170,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>Dès l’âge de 7 ans, sa cécité est complète. Il est alors placé dans un établissement spécialisé. C’est dans cette école qu’il apprend la composition, ainsi que la pratique de plusieurs instruments, dont le piano, la clarinette et le saxophone alto</explication>
  	</element>
 
-		<element theme="surdite" id="13">
+		<element theme="Surdite" id="13">
  			<question>La surdité d'origine génétique atteint ?</question>
  			<answers>
  				<answer j="juste">1 à 3 enfants sur 1000</answer>
@@ -181,7 +181,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>Plusieurs centaines de gènes sont responsables de surdité et de perte d'audition.Cette surdité peut être acquise par transmission de ces gènes. Environ 1 enfant sur 2 000 naissances à 1 enfant sur 1 000 naissances est porteur d'une surdité profonde.</explication>
  	</element>
 
-		<element theme="surdite" id="14">
+		<element theme="Surdite" id="14">
  			<question>Une perte de 40 à 70 dB est  : </question>
  			<answers>
  				<answer j="juste">Une surdité moyenne</answer>
@@ -192,7 +192,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>60 dB représente le niveau sonore d'une conversation vive. La parole n'est perçue que si elle est forte. L'enfant présente des troubles du langage et de l'articulation importants  : c'est la compréhension lacunaire. Entre 55 et 70 dB de perte, les enfants perçoivent la voix forte sans comprendre les paroles  : l'appareillage et la rééducation sont alors nécessaires </explication>
  	</element>
 
-		<element theme="surdite" id="15">
+		<element theme="Surdite" id="15">
  			<question>Un sourd peut-il obtenir un tiers temps lors des épreuves écrites lors d'un examen (bac, faculté) ou un concours ?
 </question>
  			<answers>
@@ -204,7 +204,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  			<explication>Le temps de composition pour toute personne en situation de handicap peut être majoré d'un tiers (pour les oraux, c'est le temps de préparation qui est augmenté). Cette majoration peut être augmentée au vu de la situation exceptionnelle du candidat, sur demande motivée du médecin désigné par la CDAPH (commission des droits et de l'autonomie des personnes handicapées). L’organisation horaire de l'examen doit laisser une période de repos suffisante entre deux épreuves prévues dans une même journée. Elle ne peut être inférieure à 1 heure</explication>
  	</element>
 
-		<element theme="surdite" id="16">
+		<element theme="Surdite" id="16">
  			<question>Un sourd paye-t-il la redevance audiovisuelle ?</question>
  			<answers>
  				<answer j="juste">Oui s'il a le sous-titrage qui fonctionne très bien et quelque soit son revenu</answer>
@@ -215,7 +215,7 @@ d’aménagement de poste ! Cet aménagement, qui peut porter sur le mobilier ou
  	</element>
 
 
-		<element theme="surdite" id="17">
+		<element theme="Surdite" id="17">
  			<question>En quelle année, le 1er sourd en France a eu son permis de conduire ?</question>
  			<answers>
  				<answer j="juste">1962</answer>
@@ -232,7 +232,7 @@ Finalement, ils ont accepté de me le renouveler ce qui a été fait."
 </explication>
  	</element>
  	
-		<element theme="surdite" id="18">
+		<element theme="Surdite" id="18">
  			<question>Comment les personnes présentant des problèmes auditifs préfèrent-elles se faire nommer ?</question>
  			<answers>
  				<answer j="juste"> Sourd</answer>
@@ -243,7 +243,7 @@ Finalement, ils ont accepté de me le renouveler ce qui a été fait."
  	
  	</element>
  	
-		<element theme="surdite" id="19">
+		<element theme="Surdite" id="19">
  			<question>Est-ce que la langue des signes est une langue universelle ?</question>
  			<answers>
  				<answer j="juste">Aucunement</answer>
@@ -255,7 +255,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="20">
+		<element theme="Surdite" id="20">
  			<question>Quel est le niveau académique que les sourds sont capables d'atteindre lorsqu'ils ont le potentiel et le désir ?
 </question>
  			<answers>
@@ -267,7 +267,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="21">
+		<element theme="Surdite" id="21">
  			<question>Pour faciliter la communication avec une personne sourde :</question>
  			<answers>
  				<answer j="juste">On ne doit pas trop bouger</answer>
@@ -278,7 +278,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="22">
+		<element theme="Surdite" id="22">
  			<question> Que fait-on pour attirer l'attention d'une personne sourde lorsqu'on veut discuter avec elle ?</question>
  			<answers>
  				<answer j="juste">Toutes ces réponses</answer>
@@ -289,7 +289,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="23">
+		<element theme="Surdite" id="23">
  			<question>Trouver la proposition qui est fausse dans les phrases suivantes : 'Une prothèse auditive. . . ' :</question>
  			<answers>
  				<answer j="juste"> Permet de retrouver l'audition normale</answer>
@@ -300,7 +300,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="24">
+		<element theme="Surdite" id="24">
  			<question>Des études ont démontré que le français n'était lisible sur les lèvres qu'à un pourcentage d'environ :</question>
  			<answers>
  				<answer j="juste">30%</answer>
@@ -311,7 +311,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
  	
-		<element theme="surdite" id="25">
+		<element theme="Surdite" id="25">
  			<question>Dites en pourcentage la proportion des Sourds qui ont des enfants entendants.</question>
  			<answers>
  				<answer j="juste">90%</answer>
@@ -332,7 +332,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="Handicap et entreprise" id="27">
+ 	<element theme="Handicap et Entreprise" id="27">
  			<question>Combien de personnes en situation de handicap  sont-elles exclues de l’emploi ?</question>
  			<answers>
                 <answer>55%</answer>
@@ -343,7 +343,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="Handicap et entreprise" id="28">
+ 	<element theme="Handicap et Entreprise" id="28">
  			<question>Un candidat en situation de handicap a combien de chances  en moins de décrocher un entretien d’embauche</question>
  			<answers>
                 <answer j="juste">2 fois</answer>
@@ -354,7 +354,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="Handicap et entreprise" id="29">
+ 	<element theme="Handicap et Entreprise" id="29">
  			<question>Quel est le nom de l'Association de sensibilisation au Handicap de l'INSA Lyon ?</question>
  			<answers>
  				<answer j="juste">HandizGoud</answer>
@@ -397,7 +397,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="Handicap et entreprise" id="33">
+ 	<element theme="Handicap et Entreprise" id="33">
         <question>Lors d’un entretien professionnel avec un salarié, quelles questions l’employeur peut-il poser ?</question>
  			<answers>
  				<answer>Depuis quand êtes-vous handicapés</answer>
@@ -409,7 +409,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="surdite" id="34">
+ 	<element theme="Surdite" id="34">
         <question>Les sourds peuvent ils conduire ?</question>
  			<answers>
  				<answer j="juste">Oui</answer>
@@ -419,7 +419,7 @@ Seules quelques-unes de la centaine de langues des signes dans le monde, ont obt
  	
  	</element>
 
- 	<element theme="surdite" id="35">
+ 	<element theme="Surdite" id="35">
  			<question>Un sourd est il muet ?</question>
  			<answers>
                 <answer>Vrai</answer>

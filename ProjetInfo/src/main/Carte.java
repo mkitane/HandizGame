@@ -15,18 +15,24 @@ import javax.swing.JPanel;
 
 import quizz.ElementQuizz;
 
+import elementsCartes.Balance;
 import elementsCartes.Canne;
+import elementsCartes.Chapeau;
 import elementsCartes.Chien1;
 import elementsCartes.Chien2;
+import elementsCartes.Clef;
 import elementsCartes.ElementCarte;
 import elementsCartes.Infirmier;
 import elementsCartes.Joueur;
+import elementsCartes.Livre;
 import elementsCartes.Lunette;
 import elementsCartes.ObjetRecuperable;
+import elementsCartes.Ordinateur;
 import elementsCartes.Patient;
 import elementsCartes.Prothese;
 import elementsCartes.Sol;
 import elementsCartes.Obstacle;
+import elementsCartes.Telephone;
 import elementsCartes.Trou;
 
 /**
@@ -230,37 +236,46 @@ public class Carte extends JPanel {
 		score++;
 		// Si le score augmente, on augmente la difficulte
 		switch (score) {
-		case 5:
+		case 3:
 			generateurPatient.chance = 25;
 			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
 					-0.7, -1.8);
 
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 10:
+		case 5:
 			generateurPatient.chance = 20;
-			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
-
+			generateurPatient.chanceTrou=15;
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 15:
+		case 7:
 			generateurPatient.chance = 15;
-			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
-
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 20:
+		case 10:
 			generateurPatient.chance = 10;
-			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
+			generateurPatient.chanceTrou=10;
 
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
 			// Fenetre.ecrire("Attention plus de patients vont apparaitre!");
 			break;
-		case 25:
+		case 13:
 			generateurPatient.chance = 5;
-			Ecrivain.getInstance().setImage(null, -0.7, -1.8);
-
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
 			break;
+		case 16:
+			generateurPatient.chance = 5;
+			Ecrivain.getInstance().setImage(Ressources.getImage("PatientPlus"),
+					-0.7, -1.8);
+		
 		}
+		
 	}
 
 	/**
@@ -526,7 +541,13 @@ public class Carte extends JPanel {
 					new Lunette(positionXObjet, positionYObjet, p),
 					new Prothese(positionXObjet, positionYObjet, p),
 					new Chien1(positionXObjet, positionYObjet, p),
-					new Chien2(positionXObjet, positionYObjet, p), };
+					new Chien2(positionXObjet, positionYObjet, p),
+					new Balance(positionXObjet, positionYObjet, p),
+					new Chapeau(positionXObjet, positionYObjet, p),
+					new Clef(positionXObjet, positionYObjet, p),
+					new Livre(positionXObjet, positionYObjet, p),
+					new Ordinateur(positionXObjet, positionYObjet, p),
+					new Telephone(positionXObjet, positionYObjet, p) };
 
 			ObjetRecuperable a = choisirBonObjet(listeObjet, p);
 			addObjet(a);

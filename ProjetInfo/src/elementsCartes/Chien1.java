@@ -15,7 +15,7 @@ public class Chien1 extends ObjetRecuperable {
 	public Chien1(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Chien1", proprietaire);
 		// les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("celebrite");
+		this.setHandicapAssocie("General");
 	}
 
 	public String toString() {

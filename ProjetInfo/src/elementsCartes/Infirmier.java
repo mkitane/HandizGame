@@ -13,7 +13,7 @@ public class Infirmier extends ObjetRecuperable {
 	 */
 	public Infirmier(int positionX, int positionY, Patient proprietaire) {
 		super(positionX, positionY, "Infirmier", proprietaire);
-		this.setHandicapAssocie("celebrite");
+		this.setHandicapAssocie("Surdite");
 	}
 
 	public String toString() {

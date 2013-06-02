@@ -70,9 +70,7 @@ public class Ressources {
 			correspondance.add("Bulle3");
 			correspondance.add("Bulle4");
 
-			correspondance.add("Canne");
 			correspondance.add("Chaise");
-			correspondance.add("Infirmier");
 			correspondance.add("listeObjets");
 			correspondance.add("Lit");
 			correspondance.add("Box");
@@ -90,14 +88,7 @@ public class Ressources {
 			fichier = Ressources.class.getResourceAsStream("images/Bulle4.png");
 			listeImages.add(ImageIO.read(fichier));
 
-			fichier = Ressources.class.getResourceAsStream("images/Canne.png");
-			listeImages.add(ImageIO.read(fichier));
-
 			fichier = Ressources.class.getResourceAsStream("images/Chaise.png");
-			listeImages.add(ImageIO.read(fichier));
-
-			fichier = Ressources.class
-					.getResourceAsStream("images/Infirmier.png");
 			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class
@@ -110,7 +101,6 @@ public class Ressources {
 			fichier = Ressources.class.getResourceAsStream("images/Box.png");
 			listeImages.add(ImageIO.read(fichier));
 
-			correspondance.add("Lunette");
 			correspondance.add("Mur");
 			correspondance.add("niveau1");
 			correspondance.add("niveau2");
@@ -119,13 +109,9 @@ public class Ressources {
 			correspondance.add("petitBout");
 			correspondance.add("petitProgression");
 			correspondance.add("Poutre");
-			correspondance.add("Prothese");
 			correspondance.add("Sol");
 			correspondance.add("Table");
 			correspondance.add("Trou");
-			fichier = Ressources.class
-					.getResourceAsStream("images/Lunette.png");
-			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class.getResourceAsStream("images/Mur.png");
 			listeImages.add(ImageIO.read(fichier));
@@ -155,10 +141,6 @@ public class Ressources {
 			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class.getResourceAsStream("images/Poutre.png");
-			listeImages.add(ImageIO.read(fichier));
-
-			fichier = Ressources.class
-					.getResourceAsStream("images/Prothese.png");
 			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class.getResourceAsStream("images/Sol.png");
@@ -272,28 +254,76 @@ public class Ressources {
 			fichier = Ressources.class.getResourceAsStream("images/Amis.png");
 			listeImages.add(ImageIO.read(fichier));
 
-			correspondance.add("Chien1");
-			correspondance.add("Chien2");
-
-			fichier = Ressources.class.getResourceAsStream("images/Chien1.png");
-			listeImages.add(ImageIO.read(fichier));
-			fichier = Ressources.class.getResourceAsStream("images/Chien2.png");
-			listeImages.add(ImageIO.read(fichier));
-
-			correspondance.add("TrouPlus");
 			correspondance.add("PatientPlus");
 
 			fichier = Ressources.class
-					.getResourceAsStream("images/TrouPlus.png");
-			listeImages.add(ImageIO.read(fichier));
-			fichier = Ressources.class
 					.getResourceAsStream("images/PatientPlus.png");
 			listeImages.add(ImageIO.read(fichier));
-			
-			
-			
+
 			correspondance.add("PanneauPrincipal");
-			fichier = Ressources.class.getResourceAsStream("images/PanneauPrincipal.png");
+			fichier = Ressources.class
+					.getResourceAsStream("images/PanneauPrincipal.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			correspondance.add("Canne");
+			correspondance.add("Infirmier");
+			correspondance.add("Lunette");
+			correspondance.add("Prothese");
+			correspondance.add("Chien1");
+			correspondance.add("Chien2");
+			correspondance.add("Balance");
+			correspondance.add("Chapeau");
+			correspondance.add("Clef");
+			correspondance.add("Livre");
+			correspondance.add("Ordinateur");
+			correspondance.add("Telephone");
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Canne.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Infirmier.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Lunette.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Prothese.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Chien1.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Chien2.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Balance.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Chapeau.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Clef.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Livre.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Ordinateur.png");
+			listeImages.add(ImageIO.read(fichier));
+
+			fichier = Ressources.class
+					.getResourceAsStream("images/Objets/Telephone.png");
 			listeImages.add(ImageIO.read(fichier));
 
 		} catch (IOException e) {

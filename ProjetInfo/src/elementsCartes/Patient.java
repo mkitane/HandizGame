@@ -9,8 +9,8 @@ public class Patient extends ElementCarte {
 	// private final String[] listeHandicapPossible =
 	// {"Handicap et entreprise","celebrite","surdite","General",
 	// "Loi et Handicap"};
-	private final String[] listeHandicapPossible = { "Handicap et entreprise",
-			"celebrite", "surdite" };
+	private final String[] listeHandicapPossible = { "Loi et Handicap",
+			"Celebrite", "General", "Surdite", "Handicap et Entreprise" };
 
 	private String handicap;
 	/** Permet de reconnaitre un patient cree */
@@ -26,16 +26,17 @@ public class Patient extends ElementCarte {
 	public Patient(int positionX, int positionY) {
 		super(positionX, positionY, "Patients/Patient1");
 
-		typePatient = (int) (Math.random() * 5 + 1);
-		setImage("Patients/Patient" + typePatient);
-
 		int nbAleatoire = (int) (Math.random() * (listeHandicapPossible.length));
 
-		/*
-		 * String image = listeHandicapPossible[nbAleatoire];
-		 * super.setNomImage(image);
-		 */
+		typePatient = nbAleatoire + 1;
+		setImage("Patients/Patient" + typePatient);
 		handicap = listeHandicapPossible[nbAleatoire];
+
+		// Patient1 ==> Loi et Handicap
+		// Patient2 ==> Celebrite
+		// Patient3 ==> General
+		// Patient4 ==> Surdite
+		// Patient5 ==> Handicap et Entreprise
 
 		lastID++;
 		ID = lastID;

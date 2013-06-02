@@ -5,7 +5,7 @@ package elementsCartes;
  * @author bprely
  *
  */
-public class Canne extends ObjetRecuperable{
+public class Balance extends ObjetRecuperable{
 	
 	/**
 	 * @param positionX
@@ -13,14 +13,14 @@ public class Canne extends ObjetRecuperable{
 	 * @param nomImage
 	 * @param proprietaire 
 	 */
-	public Canne(int positionX, int positionY, Patient proprietaire) {
-		super(positionX, positionY, "Canne",proprietaire);
+	public Balance(int positionX, int positionY, Patient proprietaire) {
+		super(positionX, positionY, "Balance",proprietaire);
 		//les handicaps ne sont pas encore bien mis
-		this.setHandicapAssocie("Celebrite");
+		this.setHandicapAssocie("Loi et Handicap");
 	}
 	
 	public String toString(){
-		return "Canne";
+		return "Balance";
 	}
 
 
