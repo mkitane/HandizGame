@@ -1,7 +1,5 @@
 package main;
 
-import initiation.PanelInitiation;
-
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;

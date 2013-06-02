@@ -1,9 +1,7 @@
 package main;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.util.ArrayList;
 
 public class Ecrivain {
 	/** L'instance statique */

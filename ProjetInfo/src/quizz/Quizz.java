@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -28,7 +27,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.Carte;
 import main.Ecrivain;
-import main.PanelJeu;
 import main.Ressources;
 
 import org.w3c.dom.Document;

@@ -2,7 +2,6 @@ package elementsCartes;
 
 import main.Carte;
 import main.Ecrivain;
-import main.PanelJeu;
 import main.Ressources;
 
 public class Patient extends ElementCarte {

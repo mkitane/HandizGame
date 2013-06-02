@@ -1,7 +1,6 @@
 package elementsCartes;
 
 import main.Carte;
-import main.PanelJeu;
 import quizz.Quizz;
 
 /**
