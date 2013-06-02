@@ -15,14 +15,11 @@ import Initiation.modeInitiation1;
 
 public class PanneauPrincipal extends JPanel {
 	private PanneauLogo panel = new PanneauLogo();
-	private JPanel panBienvenue = new JPanel();
 	private JPanel panneauboutons = new JPanel();
 	private JButton bouton1 = new JButton("Mode Initiation");
 	private JButton bouton2 = new JButton("Mode Jeu");
 	private JButton bouton3 = new JButton("Aide");
 	private JButton bouton4 = new JButton("Credits");
-	private JLabel bienvenue = new JLabel(
-			"Bienvenue au jeu ! Amusez vous bien =]", JLabel.CENTER);
 	private JPanel panseparation = new JPanel();
 
 	public PanneauPrincipal() {
@@ -61,18 +58,11 @@ public class PanneauPrincipal extends JPanel {
 
 		panel.setBackground(Ressources.GRIS);
 		panneauboutons.setOpaque(false);
-		
-		
-		panBienvenue.setBackground(Color.gray);
-		panel.setBackground(Ressources.GRIS);
 
+		
 		panel.setLayout(new BorderLayout());
 		panel.add(panneauboutons, BorderLayout.EAST);
-		panel.add(panBienvenue, BorderLayout.NORTH);
 
-		panBienvenue.setPreferredSize(new Dimension(50, 60));
-		panBienvenue.setLayout(new BorderLayout());
-		panBienvenue.add(bienvenue, BorderLayout.CENTER);
 
 		// panBienvenue.setOpaque(false);
 		panseparation.setOpaque(false);
@@ -86,13 +76,12 @@ public class PanneauPrincipal extends JPanel {
 		panneauboutons.add(bouton4);
 
 		panneauboutons.setPreferredSize(new Dimension(150, 600));
-		panseparation.setPreferredSize(new Dimension(140, 150));
+		panseparation.setPreferredSize(new Dimension(140, 200));
 		bouton1.setPreferredSize(new Dimension(130, 50));
 		bouton2.setPreferredSize(new Dimension(130, 50));
 		bouton3.setPreferredSize(new Dimension(100, 40));
 		bouton4.setPreferredSize(new Dimension(100, 40));
 
-		bienvenue.setForeground(Color.white);
 
 	}
 

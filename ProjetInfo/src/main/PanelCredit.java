@@ -38,14 +38,20 @@ public class PanelCredit extends JPanel {
 
 		g.drawString("Credits", (getWidth() / 2 - 50), 30);
 		g.drawString("Membres du Projet :", (getWidth() / 2 - 190), 90);
+		g.drawString("Remerciements a :", (getWidth() / 2 - 190), 360);
+
+		g.setFont(Ressources.getQuickSand().deriveFont((float) 22.0));
 		g.drawString("Mehdi Kitane", (getWidth() / 2 - 110), 140);
 		g.drawString("Bertrand Prely", (getWidth() / 2 - 110), 190);
 		g.drawString("Amine Wahbi", (getWidth() / 2 - 110), 240);
 		g.drawString("Pierre Laurenson", (getWidth() / 2 - 110), 290);
-		g.drawString("Remerciements a :", (getWidth() / 2 - 190), 360);
-		g.drawString("ArtSader", (getWidth() / 2 - 110), 410);
-		g.drawString("Moosader", (getWidth() / 2 - 110), 460);
-		g.drawString("HandizGoud", (getWidth() / 2 - 110), 510);
+		
+		
+		g.drawString("Art.devsader.com", (getWidth() / 2 - 110), 410);
+		g.drawString("Moosader", (getWidth() / 2 ), 460);
+		g.drawString("Iconfinder.com", (getWidth() / 2 - 110), 510);
+
+		g.drawString("HandizGoud", (getWidth() / 2)-110, 560);
 
 	}
 

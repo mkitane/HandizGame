@@ -10,7 +10,8 @@ import javax.swing.JPanel;
  * à la taille de la fenêtre
  */
 public class PanneauLogo extends JPanel {
-	private Image imgLogo = Ressources.getImage("Logo");
+	private Image imgPanneau = Ressources.getImage("PanneauPrincipal");
+
 
 	/**
 	 *
@@ -23,10 +24,9 @@ public class PanneauLogo extends JPanel {
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
 
-		int positionX = this.getWidth();
-		int positionY = this.getHeight();
-		g.drawImage(imgLogo, 80, 20, positionX - 300, positionY - 100, null);
+		g.drawImage(imgPanneau, -50, -50, null);
 	}
 
 }

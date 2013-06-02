@@ -75,7 +75,6 @@ public class Ressources {
 			correspondance.add("Infirmier");
 			correspondance.add("listeObjets");
 			correspondance.add("Lit");
-			correspondance.add("Logo");
 			correspondance.add("Box");
 
 			InputStream fichier = Ressources.class
@@ -106,9 +105,6 @@ public class Ressources {
 			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class.getResourceAsStream("images/Lit.png");
-			listeImages.add(ImageIO.read(fichier));
-
-			fichier = Ressources.class.getResourceAsStream("images/Logo.png");
 			listeImages.add(ImageIO.read(fichier));
 
 			fichier = Ressources.class.getResourceAsStream("images/Box.png");
@@ -292,6 +288,12 @@ public class Ressources {
 			listeImages.add(ImageIO.read(fichier));
 			fichier = Ressources.class
 					.getResourceAsStream("images/PatientPlus.png");
+			listeImages.add(ImageIO.read(fichier));
+			
+			
+			
+			correspondance.add("PanneauPrincipal");
+			fichier = Ressources.class.getResourceAsStream("images/PanneauPrincipal.png");
 			listeImages.add(ImageIO.read(fichier));
 
 		} catch (IOException e) {
