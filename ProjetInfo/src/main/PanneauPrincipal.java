@@ -60,9 +60,15 @@ public class PanneauPrincipal extends JPanel {
 		this.add(panel);
 
 		panel.setBackground(Ressources.GRIS);
+<<<<<<< .mine
+		panneauboutons.setOpaque(false);
+		
+		
+=======
 		panBienvenue.setBackground(Color.gray);
 		panel.setBackground(Ressources.GRIS);
 
+>>>>>>> .r79
 		panel.setLayout(new BorderLayout());
 		panel.add(panneauboutons, BorderLayout.EAST);
 		panel.add(panBienvenue, BorderLayout.NORTH);
