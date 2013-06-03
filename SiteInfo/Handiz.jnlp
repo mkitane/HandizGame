@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase=
+"http://cipcgw.insa-lyon.fr/~mkitane" 
+    href="Handiz.jnlp">
+    <information>
+        <title>HandizGame</title>
+        <vendor>Dynamic Team</vendor>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.6+"
+              href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="Handiz.jar"
+            main="true" />
+
+    </resources>
+    <application-desc
+         main-class="main.Main">
+     </application-desc>
+
+</jnlp>     
