@@ -17,5 +17,7 @@
     <application-desc
          main-class="main.Main">
      </application-desc>
+     <security><all-permissions/></security>
+
 
 </jnlp>     
