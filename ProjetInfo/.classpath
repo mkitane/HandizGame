@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry excluding="ressources/|ressources/images/|ressources/images/Patients/|ressources/images/Personnage/" kind="src" path="src"/>
-	<classpathentry excluding="images/" kind="src" path="src/ressources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
