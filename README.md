@@ -1,7 +1,11 @@
 HandizGame
 ========
 
+HandizGame is an intuitive game that helps reduce and challenge the existing mind set about the disabled people. 
+The game is simple : People appear in the map, they need your help. You have to get some object for them. In order to pursue your goal, you need to answer a question related to their handicap and that's it! 
 
+French 
+=====
 Groupe : 
 
 	Kitane Mehdi
